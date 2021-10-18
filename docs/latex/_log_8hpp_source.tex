@@ -1,0 +1,99 @@
+\hypertarget{_log_8hpp_source}{}\doxysection{Log.\+hpp}
+\label{_log_8hpp_source}\index{include/york/Log.hpp@{include/york/Log.hpp}}
+\mbox{\hyperlink{_log_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#if !defined(YORK\_LOG\_HPP)}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define YORK\_LOG\_HPP}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <spdlog/spdlog.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceyork_1_1log}{york::log}} \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 std::shared\_ptr<spdlog::logger> \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}();}
+\DoxyCodeLine{11 std::shared\_ptr<spdlog::logger> \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}();}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_a1547612e933339576d96fd09bbb77528}{init}}();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{16 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_a81f04e62156d5faec184e52afd859794}{trace}}(Ts\&\&... args)}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>trace(std::forward<Ts>(args)...);}
+\DoxyCodeLine{19 \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_a9e46f03859ea059f11e92db73fa27f8d}{info}}(Ts\&\&... args)}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>info(std::forward<Ts>(args)...);}
+\DoxyCodeLine{25 \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{28 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_a4c6c122332e361c5b1a86ac12df6c6af}{debug}}(Ts\&\&... args)}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>debug(std::forward<Ts>(args)...);}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{34 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_aa2facb559d1927f80df04663c19dae20}{warn}}(Ts\&\&... args)}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>warn(std::forward<Ts>(args)...);}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_a88736716d4a3473c04b46c0eaef2d1aa}{error}}(Ts\&\&... args)}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>error(std::forward<Ts>(args)...);}
+\DoxyCodeLine{43 \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_adc0ff5b73ceb9a7edc618dfca538511c}{critical}}(Ts\&\&... args)}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     \mbox{\hyperlink{namespaceyork_1_1log_afc13baead58c5baa9c3c76f81ee868cd}{getClientLogger}}()-\/>critical(std::forward<Ts>(args)...);}
+\DoxyCodeLine{49 \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{namespace }core \{}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_ac29ef5d904f34a99983fb0110e0ded08}{trace}}(Ts\&\&... args)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>trace(std::forward<Ts>(args)...);}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_a5e8fd59a30818a12bde831189aa79d38}{info}}(Ts\&\&... args)}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>info(std::forward<Ts>(args)...);}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_a228e18c1dd3fc0781003638f1ed26eb5}{debug}}(Ts\&\&... args)}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>debug(std::forward<Ts>(args)...);}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_abdc7f480453b67b20ec01be9869fc382}{warn}}(Ts\&\&... args)}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>warn(std::forward<Ts>(args)...);}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_a0e95ec88456fa88c1d9e70b0eda750cf}{error}}(Ts\&\&... args)}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>error(std::forward<Ts>(args)...);}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Ts>}
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceyork_1_1log_1_1core_a655a22b27c729199a24eed9d1d353410}{critical}}(Ts\&\&... args)}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         \mbox{\hyperlink{namespaceyork_1_1log_aac658277930c5f5fde207c045827cf0a}{getCoreLogger}}()-\/>critical(std::forward<Ts>(args)...);}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \} \textcolor{comment}{// namespace core}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \} \textcolor{comment}{// namespace york::log}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// YORK\_LOG\_HPP}}
+
+\end{DoxyCode}

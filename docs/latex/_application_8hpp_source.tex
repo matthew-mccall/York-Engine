@@ -1,0 +1,29 @@
+\hypertarget{_application_8hpp_source}{}\doxysection{Application.\+hpp}
+\label{_application_8hpp_source}\index{include/york/Application.hpp@{include/york/Application.hpp}}
+\mbox{\hyperlink{_application_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#if !defined(YORK\_APPLICATION\_HPP)}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define YORK\_APPLICATION\_HPP}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceyork}{york}} \{}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classyork_1_1_application}{Application}} \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classyork_1_1_application_ae5ee1abb20fca2cc09a1157a82a7d5e3}{onUpdate}}(\textcolor{keywordtype}{float} deltaTime) = 0;}
+\DoxyCodeLine{9     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classyork_1_1_application_a9a5118ec5e2f01f48aa2912c88ddf549}{onRender}}() = 0;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classyork_1_1_application_aa3070c32ffa9d234e049174f2bc80382}{getExit}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{11     \textcolor{keyword}{virtual} \mbox{\hyperlink{classyork_1_1_application_a1d1c9435b0242af3336388910ca2422a}{\string~Application}}();}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classyork_1_1_application_a95fed6f8c175c516cebc950c70de26c0}{m\_exit}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{classyork_1_1_application_adb9180a69835de238204bd26d6aaad19}{Application}}(\textcolor{comment}{/* args */});}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \mbox{\hyperlink{classyork_1_1_application}{Application}}* \mbox{\hyperlink{namespaceyork_a6f7046e06264ba9b82ef9a60edda4b16}{createApplication}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \} \textcolor{comment}{// namespace york}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// YORK\_APPLICATION\_HPP}}
+
+\end{DoxyCode}
