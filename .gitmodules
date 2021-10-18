@@ -1,3 +1,6 @@
 [submodule "libs/spdlog"]
 	path = libs/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "libs/taskflow"]
+	path = libs/taskflow
+	url = https://github.com/taskflow/taskflow.git

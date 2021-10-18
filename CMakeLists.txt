@@ -2,6 +2,19 @@ cmake_minimum_required(VERSION 3.20)
 
 project(YorkEngine)
 
+find_package(PkgConfig REQUIRED)
+find_package(SDL)
+find_package(Vulkan)
+
+set(SDL_BUILDING_LIBRARY)
+
+if (SDL_FOUND)
+    set(SDL_DEP SDL::SDL)
+else(SDL_FOUND)
+    pkg_check_modules(SDL IMPORTED_TARGET sdl2)
+    set(SDL_DEP PkgConfig::SDL)
+endif(SDL_FOUND)
+
 add_subdirectory(libs/spdlog)
 
 set(CMAKE_CXX_STANDARD 20) 
@@ -17,9 +30,18 @@ set(TEST_SRC
 )
 
 add_library(YorkEngine ${SRC})
-add_executable(YorkTest ${TEST_SRC})
 
 target_include_directories(YorkEngine PUBLIC "${PROJECT_SOURCE_DIR}/include")
-target_link_libraries(YorkEngine PUBLIC spdlog::spdlog)
+target_include_directories(YorkEngine PRIVATE "${PROJECT_SOURCE_DIR}/libs/taskflow")
+target_link_libraries(YorkEngine PUBLIC
+    spdlog::spdlog
+)
+target_link_libraries(YorkEngine PRIVATE 
+    Vulkan::Vulkan
+    ${SDL_DEP}
+)
 
+unset(SDL_BUILDING_LIBRARY)
+
+add_executable(YorkTest ${TEST_SRC})
 target_link_libraries(YorkTest PUBLIC YorkEngine)
