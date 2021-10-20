@@ -5,10 +5,14 @@
 
 #include <spdlog/spdlog.h>
 
-namespace york::log {
+namespace {
 
 std::shared_ptr<spdlog::logger> getCoreLogger();
 std::shared_ptr<spdlog::logger> getClientLogger();
+
+} // namespace
+
+namespace york::log {
 
 void init();
 
