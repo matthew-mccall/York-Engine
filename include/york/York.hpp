@@ -2,6 +2,8 @@
 #define YORK_YORK_HPP
 
 #include "Application.hpp"
+#include "Asset.hpp"
+#include "Async.hpp"
 #include "Entry.hpp"
 #include "Log.hpp"
 

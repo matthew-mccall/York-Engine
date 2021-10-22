@@ -5,6 +5,9 @@ public:
     App()
     {
         york::log::info("hello!");
+        york::asset::Asset asset = { "LICENSE", york::asset::Type::UTF8 };
+        std::shared_ptr<char[]> license = *(york::asset::load(asset).get());
+        york::log::info(license.get());
     }
 
     void onUpdate(float deltaTime) override

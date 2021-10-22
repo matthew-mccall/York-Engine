@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.20)
 project(YorkEngine)
 
 find_package(PkgConfig REQUIRED)
+find_package(Vulkan REQUIRED)
 find_package(SDL)
-find_package(Vulkan)
 
 set(SDL_BUILDING_LIBRARY)
 
@@ -22,6 +22,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SRC
     "src/Application.cpp"
+    "src/Asset.cpp"
+    "src/Async.cpp"
     "src/Log.cpp"
 )
 
@@ -31,8 +33,7 @@ set(TEST_SRC
 
 add_library(YorkEngine ${SRC})
 
-target_include_directories(YorkEngine PUBLIC "${PROJECT_SOURCE_DIR}/include")
-target_include_directories(YorkEngine PRIVATE "${PROJECT_SOURCE_DIR}/libs/taskflow")
+target_include_directories(YorkEngine PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
 target_link_libraries(YorkEngine PUBLIC
     spdlog::spdlog
 )
