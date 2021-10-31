@@ -5,8 +5,6 @@
 
 #include <spdlog/spdlog.h>
 
-#include "Async.hpp"
-
 namespace york::log {
 
 std::shared_ptr<spdlog::logger> getCoreLogger();
@@ -14,114 +12,78 @@ std::shared_ptr<spdlog::logger> getClientLogger();
 
 void init();
 
-template <typename... ArgsT>
-void trace(ArgsT&&... args)
+template <typename... Ts>
+void trace(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getClientLogger()->trace(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->trace(std::forward<Ts>(args)...);
 }
 
-template <typename... ArgsT>
-void info(ArgsT&&... args)
+template <typename... Ts>
+void info(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getClientLogger()->info(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->info(std::forward<Ts>(args)...);
 }
 
-template <typename... ArgsT>
-void debug(ArgsT&&... args)
+template <typename... Ts>
+void debug(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getClientLogger()->debug(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->debug(std::forward<Ts>(args)...);
 }
 
-template <typename... ArgsT>
-void warn(ArgsT&&... args)
+template <typename... Ts>
+void warn(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getClientLogger()->warn(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->warn(std::forward<Ts>(args)...);
 }
 
-template <typename... ArgsT>
-void error(ArgsT&&... args)
+template <typename... Ts>
+void error(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getCoreLogger()->error(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->error(std::forward<Ts>(args)...);
 }
 
-template <typename... ArgsT>
-void critical(ArgsT&&... args)
+template <typename... Ts>
+void critical(Ts&&... args)
 {
-    async::dispatch([](auto args) {
-        getCoreLogger()->critical(args);
-    },
-        std::forward<ArgsT>(args)...);
+    getClientLogger()->critical(std::forward<Ts>(args)...);
 }
 
 namespace core {
 
-    template <typename... ArgsT>
-    void trace(ArgsT&&... args)
+    template <typename... Ts>
+    void trace(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->trace(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->trace(std::forward<Ts>(args)...);
     }
 
-    template <typename... ArgsT>
-    void info(ArgsT&&... args)
+    template <typename... Ts>
+    void info(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->info(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->info(std::forward<Ts>(args)...);
     }
 
-    template <typename... ArgsT>
-    void debug(ArgsT&&... args)
+    template <typename... Ts>
+    void debug(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->debug(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->debug(std::forward<Ts>(args)...);
     }
 
-    template <typename... ArgsT>
-    void warn(ArgsT&&... args)
+    template <typename... Ts>
+    void warn(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->warn(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->warn(std::forward<Ts>(args)...);
     }
 
-    template <typename... ArgsT>
-    void error(ArgsT&&... args)
+    template <typename... Ts>
+    void error(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->error(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->error(std::forward<Ts>(args)...);
     }
 
-    template <typename... ArgsT>
-    void critical(ArgsT&&... args)
+    template <typename... Ts>
+    void critical(Ts&&... args)
     {
-        async::dispatch([](auto args) {
-            getCoreLogger()->critical(args);
-        },
-            std::forward<ArgsT>(args)...);
+        getCoreLogger()->critical(std::forward<Ts>(args)...);
     }
 
 } // namespace core
