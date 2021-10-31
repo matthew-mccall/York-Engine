@@ -6,5 +6,6 @@
 #include "Async.hpp"
 #include "Entry.hpp"
 #include "Log.hpp"
+#include "Node.hpp"
 
 #endif // YORK_YORK_HPP
