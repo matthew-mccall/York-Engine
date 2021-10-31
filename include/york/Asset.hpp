@@ -30,7 +30,7 @@ struct Asset {
 };
 
 unsigned getSize(const Asset& asset);
-async::Future<std::optional<std::shared_ptr<char[]>>> load(const Asset& asset);
+std::shared_ptr<char[]> load(const Asset& asset);
 
 } // namespace york::asset
 

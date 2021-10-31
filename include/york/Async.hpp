@@ -12,10 +12,16 @@ tf::Executor& getExecutor();
 template <typename T>
 using Future = tf::Future<T>;
 
-template <typename T>
-auto dispatch(std::function<T()> func)
+template <typename T, typename... ArgsT>
+auto dispatch(T func, ArgsT&&... args)
 {
-    return getExecutor().async(func);
+    return getExecutor().async(func, std::forward<ArgsT>(args)...);
+}
+
+template <typename... ArgsT>
+void dispatch(std::function<void()> func, ArgsT&&... args)
+{
+    return getExecutor().silent_async(func, std::forward<ArgsT>(args)...);
 }
 
 } // namespace york::async
