@@ -11,8 +11,6 @@
 
 #include <spdlog/spdlog.h>
 
-#include "Async.hpp"
-
 namespace york::log {
 
 std::shared_ptr<spdlog::logger> getClientLogger();
@@ -20,97 +18,81 @@ std::shared_ptr<spdlog::logger> getCoreLogger();
 
 void init();
 
-#if !defined(NDEBUG)
+template <typename... Ts>
+void trace(Ts&&... args)
+{
+    getClientLogger()->trace(std::forward<Ts>(args)...);
+}
 
-#define YORK_TRACE(...)                                       \
-    ::york::async::getExecutor().silent_async(                \
-        [&]() {                                               \
-            york::log::getClientLogger()->trace(__VA_ARGS__); \
-        });
+template <typename... Ts>
+void info(Ts&&... args)
+{
+    getClientLogger()->info(std::forward<Ts>(args)...);
+}
 
-#define YORK_INFO(...)                                       \
-    ::york::async::getExecutor().silent_async(               \
-        [&]() {                                              \
-            york::log::getClientLogger()->info(__VA_ARGS__); \
-        });
+template <typename... Ts>
+void debug(Ts&&... args)
+{
+    getClientLogger()->debug(std::forward<Ts>(args)...);
+}
 
-#define YORK_DEBUG(...)                                       \
-    ::york::async::getExecutor().silent_async(                \
-        [&]() {                                               \
-            york::log::getClientLogger()->debug(__VA_ARGS__); \
-        });
+template <typename... Ts>
+void warn(Ts&&... args)
+{
+    getClientLogger()->warn(std::forward<Ts>(args)...);
+}
 
-#define YORK_WARN(...)                                       \
-    ::york::async::getExecutor().silent_async(               \
-        [&]() {                                              \
-            york::log::getClientLogger()->warn(__VA_ARGS__); \
-        });
+template <typename... Ts>
+void error(Ts&&... args)
+{
+    getClientLogger()->error(std::forward<Ts>(args)...);
+}
 
-#define YORK_ERROR(...)                                       \
-    ::york::async::getExecutor().silent_async(                \
-        [&]() {                                               \
-            york::log::getClientLogger()->error(__VA_ARGS__); \
-        });
+template <typename... Ts>
+void critical(Ts&&... args)
+{
+    getClientLogger()->critical(std::forward<Ts>(args)...);
+}
 
-#define YORK_CRITICAL(...)                                       \
-    ::york::async::getExecutor().silent_async(                   \
-        [&]() {                                                  \
-            york::log::getClientLogger()->critical(__VA_ARGS__); \
-        });
+namespace core {
 
-#define YORK_CORE_TRACE(...)                                \
-    ::york::async::getExecutor().silent_async(              \
-        [&]() {                                             \
-            york::log::getCoreLogger()->trace(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void trace(Ts&&... args)
+    {
+        getCoreLogger()->trace(std::forward<Ts>(args)...);
+    }
 
-#define YORK_CORE_INFO(...)                                \
-    ::york::async::getExecutor().silent_async(             \
-        [&]() {                                            \
-            york::log::getCoreLogger()->info(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void info(Ts&&... args)
+    {
+        getCoreLogger()->info(std::forward<Ts>(args)...);
+    }
 
-#define YORK_CORE_DEBUG(...)                                \
-    ::york::async::getExecutor().silent_async(              \
-        [&]() {                                             \
-            york::log::getCoreLogger()->debug(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void debug(Ts&&... args)
+    {
+        getCoreLogger()->debug(std::forward<Ts>(args)...);
+    }
 
-#define YORK_CORE_WARN(...)                                \
-    ::york::async::getExecutor().silent_async(             \
-        [&]() {                                            \
-            york::log::getCoreLogger()->warn(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void warn(Ts&&... args)
+    {
+        getCoreLogger()->warn(std::forward<Ts>(args)...);
+    }
 
-#define YORK_CORE_ERROR(...)                                \
-    ::york::async::getExecutor().silent_async(              \
-        [&]() {                                             \
-            york::log::getCoreLogger()->error(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void error(Ts&&... args)
+    {
+        getCoreLogger()->error(std::forward<Ts>(args)...);
+    }
 
-#define YORK_CORE_CRITICAL(...)                                \
-    ::york::async::getExecutor().silent_async(                 \
-        [&]() {                                                \
-            york::log::getCoreLogger()->critical(__VA_ARGS__); \
-        });
+    template <typename... Ts>
+    void critical(Ts&&... args)
+    {
+        getCoreLogger()->critical(std::forward<Ts>(args)...);
+    }
 
-#else
-
-#define YORK_TRACE
-#define YORK_INFO
-#define YORK_DEBUG
-#define YORK_WARN
-#define YORK_ERROR
-#define YORK_CRITICAL
-
-#define YORK_CORE_TRACE
-#define YORK_CORE_INFO
-#define YORK_CORE_DEBUG
-#define YORK_CORE_WARN
-#define YORK_CORE_ERROR
-#define YORK_CORE_CRITICAL
-
-#endif // NDEBUG
+} // namespace core
 
 } // namespace york::log
 

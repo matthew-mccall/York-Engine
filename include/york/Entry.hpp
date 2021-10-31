@@ -18,7 +18,7 @@ int main()
 
     york::Application* app = york::createApplication();
 
-    YORK_CORE_INFO("Initalization took {} seconds!", timer.getTime());
+    york::log::core::info("Initalization took {} seconds!", timer.getTime());
 
     while (!app->getExit()) {
         app->onUpdate(0);
@@ -31,7 +31,7 @@ int main()
 
     delete app;
 
-    YORK_CORE_INFO("Shutdown took {} seconds!", timer.getTime());
+    york::log::core::info("Shutdown took {} seconds!", timer.getTime());
     york::async::getExecutor().wait_for_all();
 
     return EXIT_SUCCESS;

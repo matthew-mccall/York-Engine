@@ -12,7 +12,7 @@ public:
         future.wait();
         m_license = *future.get();
 
-        YORK_INFO(m_license.get());
+        york::log::info(m_license.get());
     }
 
     void onUpdate(float deltaTime) override
