@@ -8,29 +8,29 @@
 
 #include "Async.hpp"
 
-namespace york::asset {
-
-enum class Type {
-    IMG_PNG,
-    SHADER_FRAG_GLSL,
-    SHADER_FRAG_SPIRV,
-    SHADER_VERT_GLSL,
-    SHADER_VERT_SPIRV,
-    TOML,
-    UTF8,
-    RAW,
-    AUTO
-};
+namespace york {
 
 struct Asset {
+
+    enum class Type {
+        IMG_PNG,
+        SHADER_FRAG_GLSL,
+        SHADER_FRAG_SPIRV,
+        SHADER_VERT_GLSL,
+        SHADER_VERT_SPIRV,
+        TOML,
+        UTF8,
+        RAW,
+        AUTO
+    };
+
     std::filesystem::path filepath;
     Type type;
 
     Asset(const std::string& path, const Type type = Type::AUTO);
+    static unsigned getSize(const Asset& asset);
+    static std::shared_ptr<char[]> load(const Asset& asset);
 };
-
-unsigned getSize(const Asset& asset);
-std::shared_ptr<char[]> load(const Asset& asset);
 
 } // namespace york::asset
 

@@ -2,7 +2,7 @@
 
 #include <york/Asset.hpp>
 
-namespace york::asset {
+namespace york {
 
 Asset::Asset(const std::string& path, const Type type)
     : filepath(path)
@@ -10,12 +10,12 @@ Asset::Asset(const std::string& path, const Type type)
 {
 }
 
-unsigned getSize(const Asset& asset)
+unsigned Asset::getSize(const Asset& asset)
 {
     return std::filesystem::file_size(asset.filepath);
 }
 
-std::shared_ptr<char[]> load(const Asset& asset)
+std::shared_ptr<char[]> Asset::load(const Asset& asset)
 {
     unsigned size = std::filesystem::file_size(asset.filepath);
 

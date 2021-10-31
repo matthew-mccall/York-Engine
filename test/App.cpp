@@ -4,9 +4,9 @@ class App : public york::Application {
 public:
     App()
     {
-        york::asset::Asset asset = { "LICENSE", york::asset::Type::UTF8 };
+        york::Asset asset = { "LICENSE", york::Asset::Type::UTF8 };
 
-        auto future = york::async::dispatch(york::asset::load, asset);
+        auto future = york::async::dispatch(york::Asset::load, asset);
         auto license = future.get().value();
 
         york::log::trace(license.get());
