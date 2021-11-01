@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['asset_0',['asset',['../namespaceyork_1_1asset.html',1,'york']]],
-  ['async_1',['async',['../namespaceyork_1_1async.html',1,'york']]],
-  ['core_2',['core',['../namespaceyork_1_1log_1_1core.html',1,'york::log']]],
-  ['log_3',['log',['../namespaceyork_1_1log.html',1,'york']]],
-  ['york_4',['york',['../namespaceyork.html',1,'']]],
-  ['york_2ehpp_5',['York.hpp',['../_york_8hpp.html',1,'']]]
+  ['warn_0',['warn',['../namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56',1,'york::log::warn()'],['../namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571',1,'york::log::core::warn()']]]
 ];

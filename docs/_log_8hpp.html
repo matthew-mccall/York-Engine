@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
@@ -74,6 +90,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_async_8hpp_source.html">Async.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_log_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -94,47 +111,63 @@ Functions</h2></td></tr>
 <tr class="separator:afc13baead58c5baa9c3c76f81ee868cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1547612e933339576d96fd09bbb77528"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">york::log::init</a> ()</td></tr>
 <tr class="separator:a1547612e933339576d96fd09bbb77528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81f04e62156d5faec184e52afd859794"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a81f04e62156d5faec184e52afd859794"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">york::log::trace</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a81f04e62156d5faec184e52afd859794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e46f03859ea059f11e92db73fa27f8d"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a9e46f03859ea059f11e92db73fa27f8d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">york::log::info</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a9e46f03859ea059f11e92db73fa27f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">york::log::debug</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2facb559d1927f80df04663c19dae20"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:aa2facb559d1927f80df04663c19dae20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">york::log::warn</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:aa2facb559d1927f80df04663c19dae20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">york::log::error</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">york::log::critical</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29ef5d904f34a99983fb0110e0ded08"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:ac29ef5d904f34a99983fb0110e0ded08"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08">york::log::core::trace</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:ac29ef5d904f34a99983fb0110e0ded08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e8fd59a30818a12bde831189aa79d38"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a5e8fd59a30818a12bde831189aa79d38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38">york::log::core::info</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a5e8fd59a30818a12bde831189aa79d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a228e18c1dd3fc0781003638f1ed26eb5"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a228e18c1dd3fc0781003638f1ed26eb5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a228e18c1dd3fc0781003638f1ed26eb5">york::log::core::debug</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a228e18c1dd3fc0781003638f1ed26eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdc7f480453b67b20ec01be9869fc382"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:abdc7f480453b67b20ec01be9869fc382"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#abdc7f480453b67b20ec01be9869fc382">york::log::core::warn</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:abdc7f480453b67b20ec01be9869fc382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e95ec88456fa88c1d9e70b0eda750cf"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a0e95ec88456fa88c1d9e70b0eda750cf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a0e95ec88456fa88c1d9e70b0eda750cf">york::log::core::error</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a0e95ec88456fa88c1d9e70b0eda750cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a655a22b27c729199a24eed9d1d353410"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:a655a22b27c729199a24eed9d1d353410"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a655a22b27c729199a24eed9d1d353410">york::log::core::critical</a> (Ts &amp;&amp;... args)</td></tr>
-<tr class="separator:a655a22b27c729199a24eed9d1d353410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeb3bfd73064bb65ff673c2e69d13f7d"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:adeb3bfd73064bb65ff673c2e69d13f7d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d">york::log::trace</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:adeb3bfd73064bb65ff673c2e69d13f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs trace messages.  <a href="namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d">More...</a><br /></td></tr>
+<tr class="separator:adeb3bfd73064bb65ff673c2e69d13f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981cd3b64ad2ce2f16c9f9bdc70e9e58"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a981cd3b64ad2ce2f16c9f9bdc70e9e58"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a981cd3b64ad2ce2f16c9f9bdc70e9e58">york::log::info</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a981cd3b64ad2ce2f16c9f9bdc70e9e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs information messages.  <a href="namespaceyork_1_1log.html#a981cd3b64ad2ce2f16c9f9bdc70e9e58">More...</a><br /></td></tr>
+<tr class="separator:a981cd3b64ad2ce2f16c9f9bdc70e9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa929b70a5d117e2db94d13c079cde2cf"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:aa929b70a5d117e2db94d13c079cde2cf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#aa929b70a5d117e2db94d13c079cde2cf">york::log::debug</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:aa929b70a5d117e2db94d13c079cde2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs debug messages.  <a href="namespaceyork_1_1log.html#aa929b70a5d117e2db94d13c079cde2cf">More...</a><br /></td></tr>
+<tr class="separator:aa929b70a5d117e2db94d13c079cde2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b080e4b9c2c3364ed22fe6efcfba56"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a67b080e4b9c2c3364ed22fe6efcfba56"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56">york::log::warn</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a67b080e4b9c2c3364ed22fe6efcfba56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs warning messages.  <a href="namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56">More...</a><br /></td></tr>
+<tr class="separator:a67b080e4b9c2c3364ed22fe6efcfba56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15816797af496219e78b65c11d5b586c"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a15816797af496219e78b65c11d5b586c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a15816797af496219e78b65c11d5b586c">york::log::error</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a15816797af496219e78b65c11d5b586c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs non-fatal, error messages.  <a href="namespaceyork_1_1log.html#a15816797af496219e78b65c11d5b586c">More...</a><br /></td></tr>
+<tr class="separator:a15816797af496219e78b65c11d5b586c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed20b943973a87dfba659e08ff2036b"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a1ed20b943973a87dfba659e08ff2036b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a1ed20b943973a87dfba659e08ff2036b">york::log::critical</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a1ed20b943973a87dfba659e08ff2036b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs fatal error messages.  <a href="namespaceyork_1_1log.html#a1ed20b943973a87dfba659e08ff2036b">More...</a><br /></td></tr>
+<tr class="separator:a1ed20b943973a87dfba659e08ff2036b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0a9974e2002886cdf38913aa399d47"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a7f0a9974e2002886cdf38913aa399d47"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47">york::log::core::trace</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a7f0a9974e2002886cdf38913aa399d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs trace messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47">More...</a><br /></td></tr>
+<tr class="separator:a7f0a9974e2002886cdf38913aa399d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93eee18809da9c5510b9d392c1211ad1"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a93eee18809da9c5510b9d392c1211ad1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a93eee18809da9c5510b9d392c1211ad1">york::log::core::info</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a93eee18809da9c5510b9d392c1211ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs information messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#a93eee18809da9c5510b9d392c1211ad1">More...</a><br /></td></tr>
+<tr class="separator:a93eee18809da9c5510b9d392c1211ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48f96ff998388acb11eada9b1c573ae"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:ac48f96ff998388acb11eada9b1c573ae"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#ac48f96ff998388acb11eada9b1c573ae">york::log::core::debug</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ac48f96ff998388acb11eada9b1c573ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs debug messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#ac48f96ff998388acb11eada9b1c573ae">More...</a><br /></td></tr>
+<tr class="separator:ac48f96ff998388acb11eada9b1c573ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3582aea494f2a45033accf4e42f2571"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:af3582aea494f2a45033accf4e42f2571"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571">york::log::core::warn</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:af3582aea494f2a45033accf4e42f2571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs warning messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571">More...</a><br /></td></tr>
+<tr class="separator:af3582aea494f2a45033accf4e42f2571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50a23fc6543c28663281672f4f7af4fd"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a50a23fc6543c28663281672f4f7af4fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a50a23fc6543c28663281672f4f7af4fd">york::log::core::error</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a50a23fc6543c28663281672f4f7af4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs non-fatal, error messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#a50a23fc6543c28663281672f4f7af4fd">More...</a><br /></td></tr>
+<tr class="separator:a50a23fc6543c28663281672f4f7af4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f2b18ed046ea03959a1f4f478b4a2b"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
+<tr class="memitem:a42f2b18ed046ea03959a1f4f478b4a2b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a42f2b18ed046ea03959a1f4f478b4a2b">york::log::core::critical</a> (ArgsT &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a42f2b18ed046ea03959a1f4f478b4a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs fatal error messages. For engine use only.  <a href="namespaceyork_1_1log_1_1core.html#a42f2b18ed046ea03959a1f4f478b4a2b">More...</a><br /></td></tr>
+<tr class="separator:a42f2b18ed046ea03959a1f4f478b4a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li><li class="navelem"><a class="el" href="_log_8hpp.html">Log.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['toml_0',['TOML',['../namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da301ecec76b3c1f17d5f6ade0e6ec29d5',1,'york::asset']]],
-  ['trace_1',['trace',['../namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794',1,'york::log::trace()'],['../namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08',1,'york::log::core::trace()']]],
-  ['type_2',['type',['../structyork_1_1asset_1_1_asset.html#a342867fd1d1772eb228919ed32517dd4',1,'york::asset::Asset']]],
-  ['type_3',['Type',['../namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d',1,'york::asset']]]
+  ['shader_5ffrag_5fglsl_0',['SHADER_FRAG_GLSL',['../structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9',1,'york::Asset']]],
+  ['shader_5ffrag_5fspirv_1',['SHADER_FRAG_SPIRV',['../structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a90d481f06d3395b7ea06d8ff44a9ee54',1,'york::Asset']]],
+  ['shader_5fvert_5fglsl_2',['SHADER_VERT_GLSL',['../structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7',1,'york::Asset']]],
+  ['shader_5fvert_5fspirv_3',['SHADER_VERT_SPIRV',['../structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442',1,'york::Asset']]]
 ];

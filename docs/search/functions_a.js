@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['warn_0',['warn',['../namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20',1,'york::log::warn()'],['../namespaceyork_1_1log_1_1core.html#abdc7f480453b67b20ec01be9869fc382',1,'york::log::core::warn()']]]
+  ['trace_0',['trace',['../namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d',1,'york::log::trace()'],['../namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47',1,'york::log::core::trace()']]]
 ];

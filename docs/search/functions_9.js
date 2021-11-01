@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['trace_0',['trace',['../namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794',1,'york::log::trace()'],['../namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08',1,'york::log::core::trace()']]]
+  ['onrender_0',['onRender',['../classyork_1_1_application.html#a9a5118ec5e2f01f48aa2912c88ddf549',1,'york::Application']]],
+  ['onupdate_1',['onUpdate',['../classyork_1_1_application.html#ae5ee1abb20fca2cc09a1157a82a7d5e3',1,'york::Application']]],
+  ['operator_2d_3e_2',['operator-&gt;',['../classyork_1_1_node.html#aa173b3e2333ce6129ef5adccf657267c',1,'york::Node']]]
 ];

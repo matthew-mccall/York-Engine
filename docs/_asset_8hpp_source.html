@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_asset_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Asset.hpp</div></div>
 </div><!--header-->
@@ -79,56 +95,59 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_async_8hpp.html">Async.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceyork_1_1asset.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork_1_1asset.html">york::asset</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork.html">york</a> {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d">   13</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d">Type</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da2df9a83828fd3ad52e9db5a7ebea6230">IMG_PNG</a>,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da4ca534af59f4952020183ce58e5183b9">SHADER_FRAG_GLSL</a>,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da90d481f06d3395b7ea06d8ff44a9ee54">SHADER_FRAG_SPIRV</a>,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da616c51c7e6a2cbb269ba42f112debfd7">SHADER_VERT_GLSL</a>,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da92ec817353ccd7b6f446c019e6642442">SHADER_VERT_SPIRV</a>,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da301ecec76b3c1f17d5f6ade0e6ec29d5">TOML</a>,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5daeb7ee0fb585e2ac64fdc086466c474b1">UTF8</a>,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da633d6abff0a3fc22404347728d195059">RAW</a>,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5dae1f2d5134ed2543d38a0de9751cf75d9">AUTO</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structyork_1_1asset_1_1_asset.html">   25</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structyork_1_1asset_1_1_asset.html">Asset</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structyork_1_1asset_1_1_asset.html#a33e74254295cc817786dd67da9262ddc">   26</a></span>    std::filesystem::path <a class="code hl_variable" href="structyork_1_1asset_1_1_asset.html#a33e74254295cc817786dd67da9262ddc">filepath</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structyork_1_1asset_1_1_asset.html#a342867fd1d1772eb228919ed32517dd4">   27</a></span>    <a class="code hl_enumeration" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d">Type</a> <a class="code hl_variable" href="structyork_1_1asset_1_1_asset.html#a342867fd1d1772eb228919ed32517dd4">type</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structyork_1_1asset_1_1_asset.html#a8d28ddac5954ebb5384f68a67ff42280">   29</a></span>    <a class="code hl_function" href="structyork_1_1asset_1_1_asset.html#a8d28ddac5954ebb5384f68a67ff42280">Asset</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> <a class="code hl_enumeration" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d">Type</a> <a class="code hl_variable" href="structyork_1_1asset_1_1_asset.html#a342867fd1d1772eb228919ed32517dd4">type</a> = <a class="code hl_enumvalue" href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5dae1f2d5134ed2543d38a0de9751cf75d9">Type::AUTO</a>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespaceyork_1_1asset.html#a857dfc5121be8a3189018b08a01fbb21">   32</a></span><span class="keywordtype">unsigned</span> <a class="code hl_function" href="namespaceyork_1_1asset.html#a857dfc5121be8a3189018b08a01fbb21">getSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structyork_1_1asset_1_1_asset.html">Asset</a>&amp; asset);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespaceyork_1_1asset.html#a30a7a1882cd854d107aeb6ba00a31fac">   33</a></span><a class="code hl_typedef" href="namespaceyork_1_1async.html#a87589541489ed98b9b91170cbd69395a">async::Future&lt;std::optional&lt;std::shared_ptr&lt;char[]&gt;</a>&gt;&gt; <a class="code hl_function" href="namespaceyork_1_1asset.html#a30a7a1882cd854d107aeb6ba00a31fac">load</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structyork_1_1asset_1_1_asset.html">Asset</a>&amp; asset);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structyork_1_1_asset.html">Asset</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">   15</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230">IMG_PNG</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9">SHADER_FRAG_GLSL</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a90d481f06d3395b7ea06d8ff44a9ee54">SHADER_FRAG_SPIRV</a>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7">SHADER_VERT_GLSL</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442">SHADER_VERT_SPIRV</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a301ecec76b3c1f17d5f6ade0e6ec29d5">TOML</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34aeb7ee0fb585e2ac64fdc086466c474b1">UTF8</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059">RAW</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">AUTO</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#a2725551816b2fdea1084555b254c4646">   27</a></span>    std::filesystem::path <a class="code hl_variable" href="structyork_1_1_asset.html#a2725551816b2fdea1084555b254c4646">filepath</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#aa6d2b0fefbd565c5e19d146264e0499a">   28</a></span>    <a class="code hl_enumeration" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> <a class="code hl_variable" href="structyork_1_1_asset.html#aa6d2b0fefbd565c5e19d146264e0499a">type</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#a73673ed37d7915e85c7b31a01e3e0874">   30</a></span>    <a class="code hl_function" href="structyork_1_1_asset.html#a73673ed37d7915e85c7b31a01e3e0874">Asset</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> <a class="code hl_enumeration" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> <a class="code hl_variable" href="structyork_1_1_asset.html#aa6d2b0fefbd565c5e19d146264e0499a">type</a> = <a class="code hl_enumvalue" href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">Type::AUTO</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#a2dce705ac0c3651a015eaf865906c11c">   31</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="structyork_1_1_asset.html#a2dce705ac0c3651a015eaf865906c11c">getSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structyork_1_1_asset.html">Asset</a>&amp; asset);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structyork_1_1_asset.html#a8593875d4e9fcf9a4c9d61e65845f212">   32</a></span>    <span class="keyword">static</span> std::shared_ptr&lt;char[]&gt; <a class="code hl_function" href="structyork_1_1_asset.html#a8593875d4e9fcf9a4c9d61e65845f212">load</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structyork_1_1_asset.html">Asset</a>&amp; asset);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace york::asset</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif </span><span class="comment">// YORK_ASSET_HPP</span></div>
 <div class="ttc" id="a_async_8hpp_html"><div class="ttname"><a href="_async_8hpp.html">Async.hpp</a></div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html"><div class="ttname"><a href="namespaceyork_1_1asset.html">york::asset</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:11</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a30a7a1882cd854d107aeb6ba00a31fac"><div class="ttname"><a href="namespaceyork_1_1asset.html#a30a7a1882cd854d107aeb6ba00a31fac">york::asset::load</a></div><div class="ttdeci">async::Future&lt; std::optional&lt; std::shared_ptr&lt; char[]&gt; &gt; &gt; load(const Asset &amp;asset)</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5d"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5d">york::asset::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:13</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da2df9a83828fd3ad52e9db5a7ebea6230"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da2df9a83828fd3ad52e9db5a7ebea6230">york::asset::Type::IMG_PNG</a></div><div class="ttdeci">@ IMG_PNG</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da301ecec76b3c1f17d5f6ade0e6ec29d5"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da301ecec76b3c1f17d5f6ade0e6ec29d5">york::asset::Type::TOML</a></div><div class="ttdeci">@ TOML</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da4ca534af59f4952020183ce58e5183b9"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da4ca534af59f4952020183ce58e5183b9">york::asset::Type::SHADER_FRAG_GLSL</a></div><div class="ttdeci">@ SHADER_FRAG_GLSL</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da616c51c7e6a2cbb269ba42f112debfd7"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da616c51c7e6a2cbb269ba42f112debfd7">york::asset::Type::SHADER_VERT_GLSL</a></div><div class="ttdeci">@ SHADER_VERT_GLSL</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da633d6abff0a3fc22404347728d195059"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da633d6abff0a3fc22404347728d195059">york::asset::Type::RAW</a></div><div class="ttdeci">@ RAW</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da90d481f06d3395b7ea06d8ff44a9ee54"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da90d481f06d3395b7ea06d8ff44a9ee54">york::asset::Type::SHADER_FRAG_SPIRV</a></div><div class="ttdeci">@ SHADER_FRAG_SPIRV</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5da92ec817353ccd7b6f446c019e6642442"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5da92ec817353ccd7b6f446c019e6642442">york::asset::Type::SHADER_VERT_SPIRV</a></div><div class="ttdeci">@ SHADER_VERT_SPIRV</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5dae1f2d5134ed2543d38a0de9751cf75d9"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5dae1f2d5134ed2543d38a0de9751cf75d9">york::asset::Type::AUTO</a></div><div class="ttdeci">@ AUTO</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a70f698023b8a0f788db6e64fc08ecb5daeb7ee0fb585e2ac64fdc086466c474b1"><div class="ttname"><a href="namespaceyork_1_1asset.html#a70f698023b8a0f788db6e64fc08ecb5daeb7ee0fb585e2ac64fdc086466c474b1">york::asset::Type::UTF8</a></div><div class="ttdeci">@ UTF8</div></div>
-<div class="ttc" id="anamespaceyork_1_1asset_html_a857dfc5121be8a3189018b08a01fbb21"><div class="ttname"><a href="namespaceyork_1_1asset.html#a857dfc5121be8a3189018b08a01fbb21">york::asset::getSize</a></div><div class="ttdeci">unsigned getSize(const Asset &amp;asset)</div></div>
-<div class="ttc" id="anamespaceyork_1_1async_html_a87589541489ed98b9b91170cbd69395a"><div class="ttname"><a href="namespaceyork_1_1async.html#a87589541489ed98b9b91170cbd69395a">york::async::Future</a></div><div class="ttdeci">tf::Future&lt; T &gt; Future</div><div class="ttdef"><b>Definition:</b> Async.hpp:13</div></div>
-<div class="ttc" id="astructyork_1_1asset_1_1_asset_html"><div class="ttname"><a href="structyork_1_1asset_1_1_asset.html">york::asset::Asset</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:25</div></div>
-<div class="ttc" id="astructyork_1_1asset_1_1_asset_html_a33e74254295cc817786dd67da9262ddc"><div class="ttname"><a href="structyork_1_1asset_1_1_asset.html#a33e74254295cc817786dd67da9262ddc">york::asset::Asset::filepath</a></div><div class="ttdeci">std::filesystem::path filepath</div><div class="ttdef"><b>Definition:</b> Asset.hpp:26</div></div>
-<div class="ttc" id="astructyork_1_1asset_1_1_asset_html_a342867fd1d1772eb228919ed32517dd4"><div class="ttname"><a href="structyork_1_1asset_1_1_asset.html#a342867fd1d1772eb228919ed32517dd4">york::asset::Asset::type</a></div><div class="ttdeci">Type type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:27</div></div>
-<div class="ttc" id="astructyork_1_1asset_1_1_asset_html_a8d28ddac5954ebb5384f68a67ff42280"><div class="ttname"><a href="structyork_1_1asset_1_1_asset.html#a8d28ddac5954ebb5384f68a67ff42280">york::asset::Asset::Asset</a></div><div class="ttdeci">Asset(const std::string &amp;path, const Type type=Type::AUTO)</div></div>
+<div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Application.hpp:15</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html"><div class="ttname"><a href="structyork_1_1_asset.html">york::Asset</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:13</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a2725551816b2fdea1084555b254c4646"><div class="ttname"><a href="structyork_1_1_asset.html#a2725551816b2fdea1084555b254c4646">york::Asset::filepath</a></div><div class="ttdeci">std::filesystem::path filepath</div><div class="ttdef"><b>Definition:</b> Asset.hpp:27</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a2dce705ac0c3651a015eaf865906c11c"><div class="ttname"><a href="structyork_1_1_asset.html#a2dce705ac0c3651a015eaf865906c11c">york::Asset::getSize</a></div><div class="ttdeci">static unsigned getSize(const Asset &amp;asset)</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">york::Asset::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:15</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230">york::Asset::Type::IMG_PNG</a></div><div class="ttdeci">@ IMG_PNG</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a301ecec76b3c1f17d5f6ade0e6ec29d5"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a301ecec76b3c1f17d5f6ade0e6ec29d5">york::Asset::Type::TOML</a></div><div class="ttdeci">@ TOML</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9">york::Asset::Type::SHADER_FRAG_GLSL</a></div><div class="ttdeci">@ SHADER_FRAG_GLSL</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7">york::Asset::Type::SHADER_VERT_GLSL</a></div><div class="ttdeci">@ SHADER_VERT_GLSL</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059">york::Asset::Type::RAW</a></div><div class="ttdeci">@ RAW</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a90d481f06d3395b7ea06d8ff44a9ee54"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a90d481f06d3395b7ea06d8ff44a9ee54">york::Asset::Type::SHADER_FRAG_SPIRV</a></div><div class="ttdeci">@ SHADER_FRAG_SPIRV</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442">york::Asset::Type::SHADER_VERT_SPIRV</a></div><div class="ttdeci">@ SHADER_VERT_SPIRV</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">york::Asset::Type::AUTO</a></div><div class="ttdeci">@ AUTO</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34aeb7ee0fb585e2ac64fdc086466c474b1"><div class="ttname"><a href="structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34aeb7ee0fb585e2ac64fdc086466c474b1">york::Asset::Type::UTF8</a></div><div class="ttdeci">@ UTF8</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a73673ed37d7915e85c7b31a01e3e0874"><div class="ttname"><a href="structyork_1_1_asset.html#a73673ed37d7915e85c7b31a01e3e0874">york::Asset::Asset</a></div><div class="ttdeci">Asset(const std::string &amp;path, const Type type=Type::AUTO)</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_a8593875d4e9fcf9a4c9d61e65845f212"><div class="ttname"><a href="structyork_1_1_asset.html#a8593875d4e9fcf9a4c9d61e65845f212">york::Asset::load</a></div><div class="ttdeci">static std::shared_ptr&lt; char[]&gt; load(const Asset &amp;asset)</div></div>
+<div class="ttc" id="astructyork_1_1_asset_html_aa6d2b0fefbd565c5e19d146264e0499a"><div class="ttname"><a href="structyork_1_1_asset.html#aa6d2b0fefbd565c5e19d146264e0499a">york::Asset::type</a></div><div class="ttdeci">Type type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li><li class="navelem"><a class="el" href="_asset_8hpp.html">Asset.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>

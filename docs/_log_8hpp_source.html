@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_log_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Log.hpp</div></div>
 </div><!--header-->
@@ -76,112 +92,168 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html">    8</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork_1_1log.html">york::log</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_async_8hpp.html">Async.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">   10</a></span>std::shared_ptr&lt;spdlog::logger&gt; <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">   11</a></span>std::shared_ptr&lt;spdlog::logger&gt; <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">init</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork_1_1log.html">york::log</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">   12</a></span>std::shared_ptr&lt;spdlog::logger&gt; <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">   13</a></span>std::shared_ptr&lt;spdlog::logger&gt; <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>();</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">   16</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">trace</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;trace(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">info</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;info(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">debug</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;debug(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">init</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d">trace</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;trace(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        },</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">   34</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">warn</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;warn(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">error</a>(Ts&amp;&amp;... args)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a981cd3b64ad2ce2f16c9f9bdc70e9e58">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a981cd3b64ad2ce2f16c9f9bdc70e9e58">info</a>(ArgsT&amp;&amp;... args)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;error(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">critical</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;critical(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html">   51</a></span><span class="keyword">namespace </span>core {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08">trace</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;trace(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38">   60</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38">info</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;info(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;info(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        },</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#aa929b70a5d117e2db94d13c079cde2cf">   56</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#aa929b70a5d117e2db94d13c079cde2cf">debug</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;debug(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        },</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a228e18c1dd3fc0781003638f1ed26eb5">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a228e18c1dd3fc0781003638f1ed26eb5">debug</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;debug(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#abdc7f480453b67b20ec01be9869fc382">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#abdc7f480453b67b20ec01be9869fc382">warn</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;warn(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a0e95ec88456fa88c1d9e70b0eda750cf">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a0e95ec88456fa88c1d9e70b0eda750cf">error</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;error(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a655a22b27c729199a24eed9d1d353410">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a655a22b27c729199a24eed9d1d353410">critical</a>(Ts&amp;&amp;... args)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;critical(std::forward&lt;Ts&gt;(args)...);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>} <span class="comment">// namespace core</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} <span class="comment">// namespace york::log</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// YORK_LOG_HPP</span></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a0e95ec88456fa88c1d9e70b0eda750cf"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a0e95ec88456fa88c1d9e70b0eda750cf">york::log::core::error</a></div><div class="ttdeci">void error(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:78</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a228e18c1dd3fc0781003638f1ed26eb5"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a228e18c1dd3fc0781003638f1ed26eb5">york::log::core::debug</a></div><div class="ttdeci">void debug(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:66</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a5e8fd59a30818a12bde831189aa79d38"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38">york::log::core::info</a></div><div class="ttdeci">void info(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:60</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a655a22b27c729199a24eed9d1d353410"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a655a22b27c729199a24eed9d1d353410">york::log::core::critical</a></div><div class="ttdeci">void critical(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:84</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_abdc7f480453b67b20ec01be9869fc382"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#abdc7f480453b67b20ec01be9869fc382">york::log::core::warn</a></div><div class="ttdeci">void warn(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:72</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_ac29ef5d904f34a99983fb0110e0ded08"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08">york::log::core::trace</a></div><div class="ttdeci">void trace(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:54</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html"><div class="ttname"><a href="namespaceyork_1_1log.html">york::log</a></div><div class="ttdef"><b>Definition:</b> Log.hpp:8</div></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56">   72</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56">warn</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;warn(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        },</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a15816797af496219e78b65c11d5b586c">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a15816797af496219e78b65c11d5b586c">error</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;error(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        },</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log.html#a1ed20b943973a87dfba659e08ff2036b">  104</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log.html#a1ed20b943973a87dfba659e08ff2036b">critical</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_function" href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">getClientLogger</a>()-&gt;critical(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        },</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html">  113</a></span><span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47">trace</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;trace(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            },</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a93eee18809da9c5510b9d392c1211ad1">  138</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a93eee18809da9c5510b9d392c1211ad1">info</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;info(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            },</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#ac48f96ff998388acb11eada9b1c573ae">  154</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#ac48f96ff998388acb11eada9b1c573ae">debug</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;debug(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            },</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571">  170</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571">warn</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;warn(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            },</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a50a23fc6543c28663281672f4f7af4fd">  186</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a50a23fc6543c28663281672f4f7af4fd">error</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;error(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            },</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="namespaceyork_1_1log_1_1core.html#a42f2b18ed046ea03959a1f4f478b4a2b">  202</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork_1_1log_1_1core.html#a42f2b18ed046ea03959a1f4f478b4a2b">critical</a>(ArgsT&amp;&amp;... args)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <a class="code hl_function" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">async::nrDispatch</a>(</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            []&lt;<span class="keyword">typename</span>... LArgsT&gt;(LArgsT &amp;&amp; ... largs) {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <a class="code hl_function" href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">getCoreLogger</a>()-&gt;critical(std::forward&lt;LArgsT&gt;(largs)...);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            },</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            std::forward&lt;ArgsT&gt;(args)...);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>} <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>} <span class="comment">// namespace york::log</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">#endif </span><span class="comment">// YORK_LOG_HPP</span></div>
+<div class="ttc" id="a_async_8hpp_html"><div class="ttname"><a href="_async_8hpp.html">Async.hpp</a></div></div>
+<div class="ttc" id="anamespaceyork_1_1async_html_a556b2969865229b76e64d8d4ab51984f"><div class="ttname"><a href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">york::async::nrDispatch</a></div><div class="ttdeci">void nrDispatch(F &amp;&amp;func, ArgsT &amp;&amp;... args)</div><div class="ttdoc">Non-Return Dispatch. Executes a function, which returns void, asynchronously.</div><div class="ttdef"><b>Definition:</b> Async.hpp:39</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a42f2b18ed046ea03959a1f4f478b4a2b"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a42f2b18ed046ea03959a1f4f478b4a2b">york::log::core::critical</a></div><div class="ttdeci">void critical(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs fatal error messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:202</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a50a23fc6543c28663281672f4f7af4fd"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a50a23fc6543c28663281672f4f7af4fd">york::log::core::error</a></div><div class="ttdeci">void error(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs non-fatal, error messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:186</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a7f0a9974e2002886cdf38913aa399d47"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a7f0a9974e2002886cdf38913aa399d47">york::log::core::trace</a></div><div class="ttdeci">void trace(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs trace messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:122</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_a93eee18809da9c5510b9d392c1211ad1"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#a93eee18809da9c5510b9d392c1211ad1">york::log::core::info</a></div><div class="ttdeci">void info(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs information messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:138</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_ac48f96ff998388acb11eada9b1c573ae"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#ac48f96ff998388acb11eada9b1c573ae">york::log::core::debug</a></div><div class="ttdeci">void debug(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs debug messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:154</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_1_1core_html_af3582aea494f2a45033accf4e42f2571"><div class="ttname"><a href="namespaceyork_1_1log_1_1core.html#af3582aea494f2a45033accf4e42f2571">york::log::core::warn</a></div><div class="ttdeci">void warn(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs warning messages. For engine use only.</div><div class="ttdef"><b>Definition:</b> Log.hpp:170</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html"><div class="ttname"><a href="namespaceyork_1_1log.html">york::log</a></div><div class="ttdef"><b>Definition:</b> Log.hpp:10</div></div>
 <div class="ttc" id="anamespaceyork_1_1log_html_a1547612e933339576d96fd09bbb77528"><div class="ttname"><a href="namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528">york::log::init</a></div><div class="ttdeci">void init()</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_a4c6c122332e361c5b1a86ac12df6c6af"><div class="ttname"><a href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">york::log::debug</a></div><div class="ttdeci">void debug(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:28</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_a81f04e62156d5faec184e52afd859794"><div class="ttname"><a href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">york::log::trace</a></div><div class="ttdeci">void trace(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:16</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_a88736716d4a3473c04b46c0eaef2d1aa"><div class="ttname"><a href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">york::log::error</a></div><div class="ttdeci">void error(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:40</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_a9e46f03859ea059f11e92db73fa27f8d"><div class="ttname"><a href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">york::log::info</a></div><div class="ttdeci">void info(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:22</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_aa2facb559d1927f80df04663c19dae20"><div class="ttname"><a href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">york::log::warn</a></div><div class="ttdeci">void warn(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:34</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_a15816797af496219e78b65c11d5b586c"><div class="ttname"><a href="namespaceyork_1_1log.html#a15816797af496219e78b65c11d5b586c">york::log::error</a></div><div class="ttdeci">void error(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs non-fatal, error messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:88</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_a1ed20b943973a87dfba659e08ff2036b"><div class="ttname"><a href="namespaceyork_1_1log.html#a1ed20b943973a87dfba659e08ff2036b">york::log::critical</a></div><div class="ttdeci">void critical(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs fatal error messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:104</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_a67b080e4b9c2c3364ed22fe6efcfba56"><div class="ttname"><a href="namespaceyork_1_1log.html#a67b080e4b9c2c3364ed22fe6efcfba56">york::log::warn</a></div><div class="ttdeci">void warn(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs warning messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:72</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_a981cd3b64ad2ce2f16c9f9bdc70e9e58"><div class="ttname"><a href="namespaceyork_1_1log.html#a981cd3b64ad2ce2f16c9f9bdc70e9e58">york::log::info</a></div><div class="ttdeci">void info(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs information messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:40</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_aa929b70a5d117e2db94d13c079cde2cf"><div class="ttname"><a href="namespaceyork_1_1log.html#aa929b70a5d117e2db94d13c079cde2cf">york::log::debug</a></div><div class="ttdeci">void debug(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs debug messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:56</div></div>
 <div class="ttc" id="anamespaceyork_1_1log_html_aac658277930c5f5fde207c045827cf0a"><div class="ttname"><a href="namespaceyork_1_1log.html#aac658277930c5f5fde207c045827cf0a">york::log::getCoreLogger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; getCoreLogger()</div></div>
-<div class="ttc" id="anamespaceyork_1_1log_html_adc0ff5b73ceb9a7edc618dfca538511c"><div class="ttname"><a href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">york::log::critical</a></div><div class="ttdeci">void critical(Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Log.hpp:46</div></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_adeb3bfd73064bb65ff673c2e69d13f7d"><div class="ttname"><a href="namespaceyork_1_1log.html#adeb3bfd73064bb65ff673c2e69d13f7d">york::log::trace</a></div><div class="ttdeci">void trace(ArgsT &amp;&amp;... args)</div><div class="ttdoc">Logs trace messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:24</div></div>
 <div class="ttc" id="anamespaceyork_1_1log_html_afc13baead58c5baa9c3c76f81ee868cd"><div class="ttname"><a href="namespaceyork_1_1log.html#afc13baead58c5baa9c3c76f81ee868cd">york::log::getClientLogger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; getClientLogger()</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8d12484c773ab45ee79a32279975bc3b.html">york</a></li><li class="navelem"><a class="el" href="_log_8hpp.html">Log.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
 </body>
 </html>
