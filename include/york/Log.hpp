@@ -5,6 +5,8 @@
 
 #include <spdlog/spdlog.h>
 
+#include "Async.hpp"
+
 namespace york::log {
 
 std::shared_ptr<spdlog::logger> getCoreLogger();
@@ -12,78 +14,198 @@ std::shared_ptr<spdlog::logger> getClientLogger();
 
 void init();
 
-template <typename... Ts>
-void trace(Ts&&... args)
+/**
+ * @brief Logs trace messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void trace(ArgsT&&... args)
 {
-    getClientLogger()->trace(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->trace(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
-template <typename... Ts>
-void info(Ts&&... args)
+/**
+ * @brief Logs information messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void info(ArgsT&&... args)
 {
-    getClientLogger()->info(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->info(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
-template <typename... Ts>
-void debug(Ts&&... args)
+/**
+ * @brief Logs debug messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void debug(ArgsT&&... args)
 {
-    getClientLogger()->debug(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->debug(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
-template <typename... Ts>
-void warn(Ts&&... args)
+/**
+ * @brief Logs warning messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void warn(ArgsT&&... args)
 {
-    getClientLogger()->warn(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->warn(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
-template <typename... Ts>
-void error(Ts&&... args)
+/**
+ * @brief Logs non-fatal, error messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void error(ArgsT&&... args)
 {
-    getClientLogger()->error(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->error(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
-template <typename... Ts>
-void critical(Ts&&... args)
+/**
+ * @brief Logs fatal error messages.
+ *
+ * @tparam ArgsT The parameter pack
+ * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+ */
+template <typename... ArgsT>
+void critical(ArgsT&&... args)
 {
-    getClientLogger()->critical(std::forward<Ts>(args)...);
+    async::nrDispatch(
+        []<typename... LArgsT>(LArgsT && ... largs) {
+            getClientLogger()->critical(std::forward<LArgsT>(largs)...);
+        },
+        std::forward<ArgsT>(args)...);
 }
 
 namespace core {
 
-    template <typename... Ts>
-    void trace(Ts&&... args)
+    /**
+     * @brief Logs trace messages. For engine use only.
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void trace(ArgsT&&... args)
     {
-        getCoreLogger()->trace(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->trace(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
-    template <typename... Ts>
-    void info(Ts&&... args)
+    /**
+     * @brief Logs information messages. For engine use only.
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void info(ArgsT&&... args)
     {
-        getCoreLogger()->info(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->info(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
-    template <typename... Ts>
-    void debug(Ts&&... args)
+    /**
+     * @brief Logs debug messages. For engine use only.
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void debug(ArgsT&&... args)
     {
-        getCoreLogger()->debug(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->debug(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
-    template <typename... Ts>
-    void warn(Ts&&... args)
+    /**
+     * @brief Logs warning messages. For engine use only.
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void warn(ArgsT&&... args)
     {
-        getCoreLogger()->warn(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->warn(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
-    template <typename... Ts>
-    void error(Ts&&... args)
+    /**
+     * @brief Logs non-fatal, error messages. For engine use only
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void error(ArgsT&&... args)
     {
-        getCoreLogger()->error(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->error(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
-    template <typename... Ts>
-    void critical(Ts&&... args)
+    /**
+     * @brief Logs fatal error messages. For engine use only
+     *
+     * @tparam ArgsT The parameter pack
+     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
+     */
+    template <typename... ArgsT>
+    void critical(ArgsT&&... args)
     {
-        getCoreLogger()->critical(std::forward<Ts>(args)...);
+        async::nrDispatch(
+            []<typename... LArgsT>(LArgsT && ... largs) {
+                getCoreLogger()->critical(std::forward<LArgsT>(largs)...);
+            },
+            std::forward<ArgsT>(args)...);
     }
 
 } // namespace core

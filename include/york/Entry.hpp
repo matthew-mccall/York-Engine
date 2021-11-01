@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 #include "Application.hpp"
+#include "Async.hpp"
 #include "Log.hpp"
 
 extern york::Application* york::createApplication();
@@ -19,6 +20,8 @@ int main()
         app->onUpdate(0);
         app->onRender();
     }
+
+    york::async::getExecutor().wait_for_all();
 
     delete app;
 
