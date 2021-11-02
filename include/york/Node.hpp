@@ -8,8 +8,10 @@ namespace york {
 
 class NodeBase;
 
+/**
 template <typename T>
 concept ChildNode = std::is_base_of_v<NodeBase, T>;
+ */
 
 class NodeBase {
 private:
@@ -19,7 +21,7 @@ public:
     NodeBase();
     void addChild(NodeBase* node);
 
-    template <ChildNode NodeT, typename... ArgsT>
+    template <typename NodeT, typename... ArgsT>
     NodeT* createChild(ArgsT&&... args)
     {
         NodeT* node = new NodeT(std::forward<ArgsT>(args)...);
