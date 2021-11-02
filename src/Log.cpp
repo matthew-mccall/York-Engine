@@ -13,17 +13,9 @@ namespace york::log {
 
 void init()
 {
-    spdlog::set_pattern("[%T.%f][%4n][%^%8l%$][%7t] %v");
-    s_coreLogger = spdlog::stdout_color_mt("York");
-    s_clientLogger = spdlog::stderr_color_mt("App");
-
-#if defined(NDEBUG)
-    s_coreLogger->set_level(spdlog::level::level_enum::err);
-    s_clientLogger->set_level(spdlog::level::level_enum::err);
-#else
-    s_coreLogger->set_level(spdlog::level::level_enum::trace);
-    s_clientLogger->set_level(spdlog::level::level_enum::trace);
-#endif // NDEBUG
+    spdlog::set_pattern("[%T.%f][%n][%^%8l%$][%7t] %v");
+    s_coreLogger = spdlog::stdout_color_mt("Engine");
+    s_clientLogger = spdlog::stderr_color_mt("Client");
 }
 
 std::shared_ptr<spdlog::logger> getCoreLogger()

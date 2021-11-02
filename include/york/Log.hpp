@@ -1,6 +1,12 @@
 #if !defined(YORK_LOG_HPP)
 #define YORK_LOG_HPP
 
+#if !defined(NDEBUG)
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
+#else
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_ERROR
+#endif
+
 #include <memory>
 
 #include <spdlog/spdlog.h>
@@ -9,206 +15,102 @@
 
 namespace york::log {
 
-std::shared_ptr<spdlog::logger> getCoreLogger();
 std::shared_ptr<spdlog::logger> getClientLogger();
+std::shared_ptr<spdlog::logger> getCoreLogger();
 
 void init();
 
-/**
- * @brief Logs trace messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void trace(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->trace(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#if !defined(NDEBUG)
 
-/**
- * @brief Logs information messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void info(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->info(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#define YORK_TRACE(...)                                       \
+    ::york::async::getExecutor().silent_async(                \
+        [&]() {                                               \
+            york::log::getClientLogger()->trace(__VA_ARGS__); \
+        });
 
-/**
- * @brief Logs debug messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void debug(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->debug(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#define YORK_INFO(...)                                       \
+    ::york::async::getExecutor().silent_async(               \
+        [&]() {                                              \
+            york::log::getClientLogger()->info(__VA_ARGS__); \
+        });
 
-/**
- * @brief Logs warning messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void warn(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->warn(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#define YORK_DEBUG(...)                                       \
+    ::york::async::getExecutor().silent_async(                \
+        [&]() {                                               \
+            york::log::getClientLogger()->debug(__VA_ARGS__); \
+        });
 
-/**
- * @brief Logs non-fatal, error messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void error(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->error(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#define YORK_WARN(...)                                       \
+    ::york::async::getExecutor().silent_async(               \
+        [&]() {                                              \
+            york::log::getClientLogger()->warn(__VA_ARGS__); \
+        });
 
-/**
- * @brief Logs fatal error messages.
- *
- * @tparam ArgsT The parameter pack
- * @param args See https://fmt.dev/latest/syntax.html#formatexamples
- */
-template <typename... ArgsT>
-void critical(ArgsT&&... args)
-{
-    async::nrDispatch(
-        []<typename... LArgsT>(LArgsT && ... largs) {
-            getClientLogger()->critical(std::forward<LArgsT>(largs)...);
-        },
-        std::forward<ArgsT>(args)...);
-}
+#define YORK_ERROR(...)                                       \
+    ::york::async::getExecutor().silent_async(                \
+        [&]() {                                               \
+            york::log::getClientLogger()->error(__VA_ARGS__); \
+        });
 
-namespace core {
+#define YORK_CRITICAL(...)                                       \
+    ::york::async::getExecutor().silent_async(                   \
+        [&]() {                                                  \
+            york::log::getClientLogger()->critical(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs trace messages. For engine use only.
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void trace(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->trace(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_TRACE(...)                                \
+    ::york::async::getExecutor().silent_async(              \
+        [&]() {                                             \
+            york::log::getCoreLogger()->trace(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs information messages. For engine use only.
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void info(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->info(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_INFO(...)                                \
+    ::york::async::getExecutor().silent_async(             \
+        [&]() {                                            \
+            york::log::getCoreLogger()->info(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs debug messages. For engine use only.
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void debug(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->debug(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_DEBUG(...)                                \
+    ::york::async::getExecutor().silent_async(              \
+        [&]() {                                             \
+            york::log::getCoreLogger()->debug(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs warning messages. For engine use only.
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void warn(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->warn(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_WARN(...)                                \
+    ::york::async::getExecutor().silent_async(             \
+        [&]() {                                            \
+            york::log::getCoreLogger()->warn(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs non-fatal, error messages. For engine use only
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void error(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->error(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_ERROR(...)                                \
+    ::york::async::getExecutor().silent_async(              \
+        [&]() {                                             \
+            york::log::getCoreLogger()->error(__VA_ARGS__); \
+        });
 
-    /**
-     * @brief Logs fatal error messages. For engine use only
-     *
-     * @tparam ArgsT The parameter pack
-     * @param args See https://fmt.dev/latest/syntax.html#formatexamples
-     */
-    template <typename... ArgsT>
-    void critical(ArgsT&&... args)
-    {
-        async::nrDispatch(
-            []<typename... LArgsT>(LArgsT && ... largs) {
-                getCoreLogger()->critical(std::forward<LArgsT>(largs)...);
-            },
-            std::forward<ArgsT>(args)...);
-    }
+#define YORK_CORE_CRITICAL(...)                                \
+    ::york::async::getExecutor().silent_async(                 \
+        [&]() {                                                \
+            york::log::getCoreLogger()->critical(__VA_ARGS__); \
+        });
 
-} // namespace core
+#else
+
+#define YORK_TRACE
+#define YORK_INFO
+#define YORK_DEBUG
+#define YORK_WARN
+#define YORK_ERROR
+#define YORK_CRITICAL
+
+#define YORK_CORE_TRACE
+#define YORK_CORE_INFO
+#define YORK_CORE_DEBUG
+#define YORK_CORE_WARN
+#define YORK_CORE_ERROR
+#define YORK_CORE_CRITICAL
+
+#endif // NDEBUG
 
 } // namespace york::log
 
