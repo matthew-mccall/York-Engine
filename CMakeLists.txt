@@ -25,6 +25,7 @@ set(SRC
     "src/Asset.cpp"
     "src/Async.cpp"
     "src/Log.cpp"
+    "src/Timer.cpp"
 )
 
 set(TEST_SRC
