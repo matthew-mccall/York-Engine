@@ -5,6 +5,7 @@
 
 #include "Application.hpp"
 #include "Async.hpp"
+#include "Event.hpp"
 #include "Log.hpp"
 #include "Timer.hpp"
 
@@ -21,8 +22,17 @@ int main()
     york::log::core::info("Initalization took {} seconds!", timer.getTime());
 
     while (!app->getExit()) {
-        app->onUpdate(0);
-        app->onRender();
+        timer.reset();
+
+        york::Event tickEvent(york::Event::Type::AppTick);
+        tickEvent.m_tickTime = timer.getTime();
+
+        york::Event renderEvent(york::Event::Type::AppRender);
+
+        york::pushEvent(tickEvent);
+        york::pushEvent(renderEvent);
+
+        york::dispatchEvents();
     }
 
     timer.reset();

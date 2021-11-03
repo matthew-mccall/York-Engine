@@ -12,16 +12,19 @@
 #if !defined(YORK_APPLICATION_HPP)
 #define YORK_APPLICATION_HPP
 
+#include "Event.hpp"
+
 namespace york {
 
 /**
  * @brief The base class for you Application. Inherit this and override Application::onUpdate() and Application::onRender() to implement your Application logic.
  *
  */
-class Application {
+class Application : private EventHandler {
 public:
     virtual void onUpdate(float deltaTime) = 0;
     virtual void onRender() = 0;
+    void onEvent(Event e);
     bool getExit() const;
     virtual ~Application();
 

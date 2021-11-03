@@ -5,6 +5,7 @@
 #include "Asset.hpp"
 #include "Async.hpp"
 #include "Entry.hpp"
+#include "Event.hpp"
 #include "Log.hpp"
 #include "Timer.hpp"
 

@@ -24,6 +24,7 @@ set(SRC
     "src/Application.cpp"
     "src/Asset.cpp"
     "src/Async.cpp"
+    "src/Event.cpp"
     "src/Log.cpp"
     "src/Timer.cpp"
 )
@@ -32,18 +33,18 @@ set(TEST_SRC
     "test/App.cpp"
 )
 
-add_library(YorkEngine ${SRC})
+add_library(${PROJECT_NAME} ${SRC})
 
-target_include_directories(YorkEngine PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
-target_link_libraries(YorkEngine PUBLIC
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
+target_link_libraries(${PROJECT_NAME} PUBLIC
     spdlog::spdlog
-)
-target_link_libraries(YorkEngine PRIVATE 
-    Vulkan::Vulkan
     ${SDL_DEP}
+)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+    Vulkan::Vulkan
 )
 
 unset(SDL_BUILDING_LIBRARY)
 
 add_executable(YorkTest ${TEST_SRC})
-target_link_libraries(YorkTest PUBLIC YorkEngine)
+target_link_libraries(YorkTest PUBLIC ${PROJECT_NAME})
