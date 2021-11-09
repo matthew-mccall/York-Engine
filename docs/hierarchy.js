@@ -1,8 +1,9 @@
 var hierarchy =
 [
-    [ "york::Application", "classyork_1_1_application.html", null ],
     [ "york::Asset", "structyork_1_1_asset.html", null ],
-    [ "york::NodeBase", "classyork_1_1_node_base.html", [
-      [ "york::Node< T >", "classyork_1_1_node.html", null ]
-    ] ]
+    [ "york::Event", "structyork_1_1_event.html", null ],
+    [ "york::EventHandler", "classyork_1_1_event_handler.html", [
+      [ "york::Application", "classyork_1_1_application.html", null ]
+    ] ],
+    [ "york::Timer", "classyork_1_1_timer.html", null ]
 ];
