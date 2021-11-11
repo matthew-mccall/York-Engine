@@ -24,7 +24,7 @@ class Application : private EventHandler {
 public:
     virtual void onUpdate(float deltaTime) = 0;
     virtual void onRender() = 0;
-    void onEvent(Event e);
+    virtual void onEvent(Event e);
     bool getExit() const;
     virtual ~Application();
 

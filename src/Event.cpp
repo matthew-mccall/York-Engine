@@ -2,7 +2,9 @@
 #include <queue>
 #include <vector>
 
-#include <york/Event.hpp>
+#include "SDL_events.h"
+
+#include "york/Event.hpp"
 
 namespace {
 
@@ -15,6 +17,26 @@ namespace york {
 
 Event::Event(SDL_Event e)
 {
+    switch (e.type) {
+
+    case SDL_WINDOWEVENT:
+
+        switch (e.window.event) {
+
+        case SDL_WINDOWEVENT_CLOSE:
+            m_type = Type::WindowClose;
+            m_windowID = e.window.windowID;
+            break;
+
+        default:
+            break;
+        }
+
+        break;
+
+    default:
+        break;
+    }
 }
 
 Event::Event(Type type)
@@ -76,6 +98,11 @@ EventHandler::~EventHandler()
             break;
         }
     }
+}
+
+void pushEvent(SDL_Event e)
+{
+    s_eventQueue.emplace(e);
 }
 
 void pushEvent(Event e)

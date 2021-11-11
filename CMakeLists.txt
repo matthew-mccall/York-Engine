@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.20)
 
 project(YorkEngine)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 find_package(PkgConfig REQUIRED)
 find_package(Vulkan REQUIRED)
 find_package(SDL)
@@ -27,6 +29,7 @@ set(SRC
     "src/Event.cpp"
     "src/Log.cpp"
     "src/Timer.cpp"
+    "src/Graphics/Window.cpp"
 )
 
 set(TEST_SRC

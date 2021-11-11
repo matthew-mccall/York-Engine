@@ -3,6 +3,8 @@
 
 #include <cstdlib>
 
+#include <SDL.h>
+
 #include "Application.hpp"
 #include "Async.hpp"
 #include "Event.hpp"
@@ -21,8 +23,14 @@ int main()
 
     york::log::core::info("Initalization took {} seconds!", timer.getTime());
 
+    SDL_Event event;
+
     while (!app->getExit()) {
         timer.reset();
+
+        while (SDL_PollEvent(&event)) {
+            york::pushEvent(event);
+        }
 
         york::Event tickEvent(york::Event::Type::AppTick);
         tickEvent.m_tickTime = timer.getTime();
@@ -41,9 +49,9 @@ int main()
 
     delete app;
 
-    york::log::core::info("Shutdown took {} seconds!", timer.getTime());
-    york::async::getExecutor().wait_for_all();
+    SDL_Quit();
 
+    york::log::core::info("Shutdown took {} seconds!", timer.getTime());
     return EXIT_SUCCESS;
 }
 
