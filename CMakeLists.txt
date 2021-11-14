@@ -17,10 +17,14 @@ else(SDL_FOUND)
     set(SDL_DEP PkgConfig::SDL)
 endif(SDL_FOUND)
 
+pkg_check_modules(SPIRVTools IMPORTED_TARGET SPIRV-Tools)
+
 add_subdirectory(libs/spdlog)
 
-set(CMAKE_CXX_STANDARD 17) 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+FILE(GLOB_RECURSE INC_SRC include/*.hpp)
 
 set(SRC
     "src/Application.cpp"
@@ -30,21 +34,31 @@ set(SRC
     "src/Log.cpp"
     "src/Timer.cpp"
     "src/Graphics/Window.cpp"
+    "src/Graphics/Handle.cpp"
+    "src/Graphics/Instance.cpp"
 )
 
 set(TEST_SRC
     "test/App.cpp"
 )
 
-add_library(${PROJECT_NAME} ${SRC})
+add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
+
+link_directories($ENV{VULKAN_SDK}/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
 target_link_libraries(${PROJECT_NAME} PUBLIC
     spdlog::spdlog
-    ${SDL_DEP}
-)
-target_link_libraries(${PROJECT_NAME} PRIVATE 
     Vulkan::Vulkan
+    PkgConfig::SPIRVTools
+    glslang
+    SPIRV
+	SPVRemapper
+	GenericCodeGen
+	MachineIndependent
+	OSDependent
+	OGLCompiler
+    ${SDL_DEP}
 )
 
 unset(SDL_BUILDING_LIBRARY)
