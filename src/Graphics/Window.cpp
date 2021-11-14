@@ -1,32 +1,48 @@
-#include "york/Graphics/Window.hpp"
+#include <SDL.h>
 
-#include "SDL.h"
+#include "york/Graphics/Window.hpp"
+#include "york/Log.hpp"
 
 namespace {
-static unsigned s_windowCount = 0;
+static bool s_windowInit = false;
 } // namespace
 
 namespace york::graphics {
 
 Window::Window(const std::string& name, unsigned width, unsigned height)
 {
-    if (!s_windowCount) {
-        SDL_Init(SDL_INIT_VIDEO);
+    if (!s_windowInit) {
+        if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+            log::core::error(SDL_GetError());
+            return;
+        }
     }
 
-    m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_VULKAN);
+    m_handle = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_VULKAN);
+}
 
-    s_windowCount++;
+bool Window::createImpl()
+{
+    return true;
+}
+
+void Window::destroyImpl()
+{
+}
+
+std::string Window::getName() const
+{
+    return SDL_GetWindowTitle(m_handle);
 }
 
 int Window::getID()
 {
-    return SDL_GetWindowID(m_window);
+    return SDL_GetWindowID(m_handle);
 }
 
 Window::~Window()
 {
-    SDL_DestroyWindow(m_window);
+    SDL_DestroyWindow(m_handle);
 }
 
 } // namespace york::graphics
