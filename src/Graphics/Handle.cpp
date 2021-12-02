@@ -21,8 +21,4 @@ void HandleBase::destroy()
     m_created = false;
 }
 
-HandleBase::~HandleBase()
-{
-}
-
 } // namespace york::graphics

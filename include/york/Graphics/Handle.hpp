@@ -9,7 +9,7 @@ public:
     void destroy();
     virtual bool createImpl() = 0;
     virtual void destroyImpl() = 0;
-    virtual ~HandleBase();
+    virtual ~HandleBase() = default;
 
 private:
     bool m_created = false;
@@ -23,9 +23,9 @@ public:
         return m_handle;
     }
 
-    T operator->()
+    T* operator->()
     {
-        return m_handle;
+        return &m_handle;
     }
 
 protected:

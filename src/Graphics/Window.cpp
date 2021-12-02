@@ -4,7 +4,7 @@
 #include "york/Log.hpp"
 
 namespace {
-static bool s_windowInit = false;
+bool s_windowInit = false;
 } // namespace
 
 namespace york::graphics {
@@ -35,7 +35,7 @@ std::string Window::getName() const
     return SDL_GetWindowTitle(m_handle);
 }
 
-int Window::getID()
+unsigned Window::getID()
 {
     return SDL_GetWindowID(m_handle);
 }

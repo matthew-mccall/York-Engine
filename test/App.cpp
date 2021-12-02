@@ -41,7 +41,7 @@ public:
     {
     }
 
-    ~App()
+    ~App() override
     {
         m_instance.destroy();
     }

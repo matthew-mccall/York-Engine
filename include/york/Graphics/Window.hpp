@@ -11,10 +11,10 @@ namespace york::graphics {
 
 class Window : public Handle<SDL_Window*> {
 public:
-    Window(const std::string& name, unsigned width = 800, unsigned height = 600);
-    std::string getName() const;
-    int getID();
-    ~Window();
+    explicit Window(const std::string& name, unsigned width = 800, unsigned height = 600);
+    [[nodiscard]] std::string getName() const;
+    unsigned getID();
+    ~Window() override;
 
 private:
     bool createImpl() override;
