@@ -1,5 +1,5 @@
-#include <vector>
 #include <sstream>
+#include <vector>
 
 #include <SDL_vulkan.h>
 
@@ -17,7 +17,7 @@ namespace {
 std::vector<vk::LayerProperties> s_availableLayers;
 std::vector<vk::ExtensionProperties> s_availableExtensions;
 
-VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const * pCallbackData, void * /*pUserData*/ )
+VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const* pCallbackData, void* /*pUserData*/)
 {
 
     switch (messageSeverity) {
@@ -61,7 +61,7 @@ bool Instance::createImpl()
 
     if (ENABLE_VALIDATIONS_LAYERS) {
         requestLayer({ "VK_LAYER_KHRONOS_validation" });
-        requestExtension({VK_EXT_DEBUG_UTILS_EXTENSION_NAME});
+        requestExtension({ VK_EXT_DEBUG_UTILS_EXTENSION_NAME });
     }
 
     if (s_availableLayers.empty()) {
@@ -79,7 +79,8 @@ bool Instance::createImpl()
             }
         }
 
-        if (layerFound) continue;
+        if (layerFound)
+            continue;
 
         unavailableLayers.push_back(requestedLayer);
     }
@@ -103,7 +104,7 @@ bool Instance::createImpl()
     }
 
     for (const char* sdlExtension : sdlExtensions) {
-        requestExtension({sdlExtension});
+        requestExtension({ sdlExtension });
     }
 
     for (InstanceExtension& requestedExtension : m_requestedExtensions) {
@@ -117,7 +118,8 @@ bool Instance::createImpl()
             }
         }
 
-        if (extensionFound) continue;
+        if (extensionFound)
+            continue;
 
         unavailableExtensions.push_back(requestedExtension);
     }
@@ -126,13 +128,15 @@ bool Instance::createImpl()
         std::stringstream unavailableRequiredLayersList;
         std::stringstream unavailableOptionalLayersList;
 
-        for (InstanceLayer& unavailableLayer: unavailableLayers) {
+        for (InstanceLayer& unavailableLayer : unavailableLayers) {
             if (unavailableLayer.required) {
-                unavailableRequiredLayersList << '\n' << unavailableLayer.name;
+                unavailableRequiredLayersList << '\n'
+                                              << unavailableLayer.name;
                 continue;
             }
 
-            unavailableOptionalLayersList << '\n' << unavailableLayer.name;
+            unavailableOptionalLayersList << '\n'
+                                          << unavailableLayer.name;
         }
 
         log::core::error("The following REQUIRED instance layers were requested but not found!{}", unavailableRequiredLayersList.str());
@@ -143,20 +147,22 @@ bool Instance::createImpl()
         std::stringstream unavailableRequiredExtensionList;
         std::stringstream unavailableOptionalExtensionList;
 
-        for (InstanceExtension& unavailableExtension: unavailableExtensions) {
+        for (InstanceExtension& unavailableExtension : unavailableExtensions) {
             if (unavailableExtension.required) {
-                unavailableRequiredExtensionList << '\n' << unavailableExtension.name;
+                unavailableRequiredExtensionList << '\n'
+                                                 << unavailableExtension.name;
                 continue;
             }
 
-            unavailableOptionalExtensionList << '\n' << unavailableExtension.name;
+            unavailableOptionalExtensionList << '\n'
+                                             << unavailableExtension.name;
         }
 
         log::core::error("The following REQUIRED instance extensions were requested but not found!\n{}", unavailableRequiredExtensionList.str());
         log::core::warn("The following OPTIONAL instance extensions were requested but not found!\n{}", unavailableOptionalExtensionList.str());
     }
 
-    vk::InstanceCreateInfo createInfo = { {}, &appInfo, enabledLayers, enabledExtensions };
+    vk::InstanceCreateInfo createInfo({}, &appInfo, enabledLayers, enabledExtensions);
 
     vk::DebugUtilsMessengerCreateInfoEXT messengerCreateInfo = vk::DebugUtilsMessengerCreateInfoEXT()
                                                                    .setMessageSeverity(vk::DebugUtilsMessageSeverityFlagBitsEXT::eVerbose | vk::DebugUtilsMessageSeverityFlagBitsEXT::eInfo | vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError)
