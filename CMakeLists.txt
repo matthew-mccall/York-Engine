@@ -36,7 +36,7 @@ set(SRC
     "src/Graphics/Window.cpp"
     "src/Graphics/Handle.cpp"
     "src/Graphics/Instance.cpp"
-)
+		src/Graphics/Device.cpp include/york/Graphics/Device.hpp include/york/Graphics/RequestableItem.h src/Graphics/PhysicalDevice.cpp include/york/Graphics/PhysicalDevice.hpp)
 
 set(TEST_SRC
     "test/App.cpp"

@@ -16,7 +16,6 @@ namespace {
 
 std::vector<vk::LayerProperties> s_availableLayers;
 std::vector<vk::ExtensionProperties> s_availableExtensions;
-
 VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const* pCallbackData, void* /*pUserData*/)
 {
 

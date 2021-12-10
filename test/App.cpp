@@ -1,4 +1,5 @@
 #include "york/Graphics/Instance.hpp"
+#include "york/Graphics/Device.hpp"
 #include "york/Graphics/Window.hpp"
 #include "york/York.hpp"
 
@@ -6,11 +7,13 @@ class App : public york::Application {
     std::shared_ptr<char[]> m_license;
     york::graphics::Window m_window;
     york::graphics::Instance m_instance;
+    york::graphics::Device m_device;
 
 public:
     App()
         : m_window("Test")
         , m_instance(m_window)
+        , m_device(m_instance)
     {
         york::Asset asset = { "LICENSE", york::Asset::Type::UTF8 };
 
@@ -20,6 +23,7 @@ public:
         york::log::info(m_license.get());
 
         m_instance.create();
+        m_device.create();
     }
 
     void onEvent(york::Event e) override

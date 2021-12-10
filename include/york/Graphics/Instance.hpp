@@ -7,19 +7,13 @@
 #include <vulkan/vulkan.hpp>
 
 #include "Handle.hpp"
+#include "RequestableItem.h"
 #include "Window.hpp"
 
 namespace york::graphics {
 
-struct InstanceLayer {
-    std::string name;
-    bool required = true;
-};
-
-struct InstanceExtension {
-    std::string name;
-    bool required = true;
-};
+using InstanceLayer = RequestableItem;
+using InstanceExtension = RequestableItem;
 
 class Instance : public Handle<vk::Instance> {
 public:
