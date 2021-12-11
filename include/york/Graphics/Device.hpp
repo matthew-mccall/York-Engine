@@ -12,7 +12,7 @@
 #include "Handle.hpp"
 #include "Instance.hpp"
 #include "PhysicalDevice.hpp"
-#include "RequestableItem.h"
+#include "RequestableItem.hpp"
 
 namespace york::graphics {
 
@@ -26,6 +26,8 @@ public:
 
     void requestExtension(const DeviceExtension& extension);
     [[nodiscard]] vk::PhysicalDevice getPhysicalDevice() const;
+    [[nodiscard]] std::uint32_t getGraphicsQueueIndex() const;
+    [[nodiscard]] vk::Queue getGraphicsQueue() const;
 
     ~Device() override;
 
@@ -35,10 +37,10 @@ protected:
 
 private:
     Instance& m_instance;
-    PhysicalDevice m_physicalDevice;
+    std::optional<PhysicalDevice> m_physicalDevice;
     std::vector<DeviceExtension> m_requestedExtensions;
 
-    IndexQueuePair graphicsQueue;
+    IndexQueuePair m_graphicsQueue;
 
 };
 

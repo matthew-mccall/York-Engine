@@ -11,8 +11,6 @@
 #include "Log.hpp"
 #include "Timer.hpp"
 
-extern york::Application* york::createApplication();
-
 int main()
 {
     york::Timer timer;

@@ -34,6 +34,11 @@ public:
         return &m_handle;
     }
 
+    T& operator*()
+    {
+        return m_handle;
+    }
+
 protected:
     T m_handle;
 };

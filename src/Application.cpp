@@ -2,8 +2,6 @@
 
 using namespace york;
 
-Application::Application() { }
-
 void Application::onEvent(Event e)
 {
     switch (e.getType()) {
@@ -23,5 +21,3 @@ bool Application::getExit() const
 {
     return m_exit;
 }
-
-Application::~Application() { }

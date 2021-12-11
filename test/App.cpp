@@ -23,7 +23,6 @@ public:
         york::log::info(m_license.get());
 
         m_instance.create();
-        m_device.create();
     }
 
     void onEvent(york::Event e) override

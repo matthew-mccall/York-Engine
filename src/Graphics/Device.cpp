@@ -17,67 +17,34 @@ namespace york::graphics {
         : m_instance(instance)
     {
         m_instance.addDependent(*this);
+        requestExtension({ "VK_KHR_portability_subset", false });
     }
 
     bool Device::createImpl()
     {
+        std::optional<PhysicalDevice> physicalDevice = PhysicalDevice::getBest(*m_instance, m_requestedExtensions);
 
-        requestExtension({"VK_KHR_portability_subset", false});
+        if (!physicalDevice) return false;
 
-        std::vector<vk::PhysicalDevice> physicalDevices = m_instance->enumeratePhysicalDevices();
-
-        if (physicalDevices.empty()) {
-            log::error("Could not find any supported GPUs!");
-            return false;
-        }
-
-        std::vector<PhysicalDevice> sortedPhysicalDevices;
-        sortedPhysicalDevices.reserve(physicalDevices.size());
-
-        for (vk::PhysicalDevice& physicalDevice : physicalDevices) {
-            sortedPhysicalDevices.emplace_back(physicalDevice, m_requestedExtensions);
-        }
-
-        std::sort(sortedPhysicalDevices.begin(), sortedPhysicalDevices.end(), [](const PhysicalDevice& a, const PhysicalDevice& b) -> bool {
-            if ((a.getPhysicalDevice().getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu) && (b.getPhysicalDevice().getProperties().deviceType != vk::PhysicalDeviceType::eDiscreteGpu)) {
-                return true;
-            } else if ((a.getPhysicalDevice().getProperties().deviceType != vk::PhysicalDeviceType::eDiscreteGpu) && (b.getPhysicalDevice().getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu)) {
-                return false;
-            } else {
-                if (a.getRequiredExtensionsSupported() > b.getRequiredExtensionsSupported()) {
-                    return true;
-                } else if (a.getRequiredExtensionsSupported() < b.getRequiredExtensionsSupported()) {
-                    return false;
-                } else {
-                    if (a.getOptionalExtensionsSupported() > b.getOptionalExtensionsSupported()) {
-                        return true;
-                    } else if (a.getOptionalExtensionsSupported() < b.getOptionalExtensionsSupported()) {
-                        return false;
-                    } else {
-                        return  a.getMaximumImageResolution() >= b.getMaximumImageResolution();
-                    }
-                }
-            }
-        });
-
-        m_physicalDevice = sortedPhysicalDevices.front();
+        m_physicalDevice = physicalDevice;
 
         float queuePriorities = 1.0;
 
-        vk::DeviceQueueCreateInfo queueCreateInfo = { {}, sortedPhysicalDevices.front().getGraphicsFamilyQueueIndex(), 1, &queuePriorities };
+        vk::DeviceQueueCreateInfo queueCreateInfo = { {}, m_physicalDevice->getGraphicsFamilyQueueIndex(), 1, &queuePriorities };
         vk::PhysicalDeviceFeatures physicalDeviceFeatures;
 
         std::array<vk::DeviceQueueCreateInfo, 1> queueCreateInfos = { queueCreateInfo };
 
-        std::vector<const char*> enabledExtensions(sortedPhysicalDevices.front().getEnabledExtensions().size());
+        std::vector<const char*> enabledExtensions(m_physicalDevice->getEnabledExtensions().size());
 
         for (int i = 0; i < enabledExtensions.size(); i++) {
-            enabledExtensions[i] = sortedPhysicalDevices.front().getEnabledExtensions()[i].c_str();
+            enabledExtensions[i] = m_physicalDevice->getEnabledExtensions()[i].c_str();
         }
 
         vk::DeviceCreateInfo createInfo = {{}, queueCreateInfos, {}, enabledExtensions, &physicalDeviceFeatures};
 
-        m_handle = m_physicalDevice->createDevice(createInfo);
+        m_handle = (*m_physicalDevice)->createDevice(createInfo);
+        m_graphicsQueue = std::make_pair(m_physicalDevice->getGraphicsFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));
 
         return true;
     }
@@ -89,12 +56,22 @@ namespace york::graphics {
 
     vk::PhysicalDevice Device::getPhysicalDevice() const
     {
-        return m_physicalDevice.getPhysicalDevice();
+        return m_physicalDevice->getPhysicalDevice();
     }
 
     void Device::destroyImpl()
     {
         m_handle.destroy();
+    }
+
+    std::uint32_t Device::getGraphicsQueueIndex() const
+    {
+        return m_graphicsQueue.first;
+    }
+
+    vk::Queue Device::getGraphicsQueue() const
+    {
+        return m_graphicsQueue.second;
     }
 
     Device::~Device()

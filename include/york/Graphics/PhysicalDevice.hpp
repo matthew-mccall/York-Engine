@@ -5,8 +5,11 @@
 #ifndef YORK_GRAPHICS_PHYSICALDEVICE_HPP
 #define YORK_GRAPHICS_PHYSICALDEVICE_HPP
 
+#include <optional>
+
 #include <vulkan/vulkan.hpp>
-#include "york/Graphics/RequestableItem.h"
+
+#include "york/Graphics/RequestableItem.hpp"
 
 namespace york::graphics {
 
@@ -19,15 +22,8 @@ public:
     [[nodiscard]] const vk::PhysicalDevice& getPhysicalDevice() const;
     [[nodiscard]] uint32_t getGraphicsFamilyQueueIndex() const;
     [[nodiscard]] const std::vector<std::string>& getEnabledExtensions() const;
-
-private:
-    unsigned m_requiredExtensionsSupported = 0;
-    unsigned m_optionalExtensionsSupported = 0;
-    std::uint32_t m_graphicsFamilyQueueIndex = -1;
-    std::uint32_t m_maximumImageResolution;
-
-public:
     [[nodiscard]] uint32_t getMaximumImageResolution() const;
+    static std::optional<PhysicalDevice> getBest(vk::Instance instance, std::vector<RequestableItem>& requestedExtensions);
 
     vk::PhysicalDevice* operator->()
     {
@@ -35,6 +31,11 @@ public:
     }
 
 private:
+    unsigned m_requiredExtensionsSupported = 0;
+    unsigned m_optionalExtensionsSupported = 0;
+    std::uint32_t m_graphicsFamilyQueueIndex = -1;
+    std::uint32_t m_maximumImageResolution;
+
     vk::PhysicalDevice m_physicalDevice;
     std::vector<std::string> m_enabledExtensions;
 

@@ -24,17 +24,17 @@ class Application : private EventHandler {
 public:
     virtual void onUpdate(float deltaTime) = 0;
     virtual void onRender() = 0;
-    virtual void onEvent(Event e);
-    bool getExit() const;
-    virtual ~Application();
+    void onEvent(Event e) override;
+    [[nodiscard]] bool getExit() const;
+    virtual ~Application() = default;
 
 protected:
     bool m_exit = false;
 
-    Application(/* args */);
+    Application() = default;
 };
 
-Application* createApplication();
+extern Application* createApplication();
 
 } // namespace york
 

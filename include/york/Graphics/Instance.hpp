@@ -7,7 +7,7 @@
 #include <vulkan/vulkan.hpp>
 
 #include "Handle.hpp"
-#include "RequestableItem.h"
+#include "RequestableItem.hpp"
 #include "Window.hpp"
 
 namespace york::graphics {

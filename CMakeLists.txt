@@ -12,10 +12,10 @@ set(SDL_BUILDING_LIBRARY)
 
 if (SDL_FOUND)
     set(SDL_DEP SDL::SDL)
-else(SDL_FOUND)
+else()
     pkg_check_modules(SDL IMPORTED_TARGET sdl2)
     set(SDL_DEP PkgConfig::SDL)
-endif(SDL_FOUND)
+endif()
 
 pkg_check_modules(SPIRVTools IMPORTED_TARGET SPIRV-Tools)
 
@@ -24,7 +24,18 @@ add_subdirectory(libs/spdlog)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-FILE(GLOB_RECURSE INC_SRC include/*.hpp)
+if (CMAKE_BUILD_TYPE EQUAL Debug)
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -fno-omit-frame-pointer")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -fno-omit-frame-pointer")
+
+	if(CMAKE_C_COMPILER EQUAL clang)
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mno-omit-leaf-frame-pointer")
+	endif()
+
+	if(CMAKE_CXX_COMPILER EQUAL clang++)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-omit-leaf-frame-pointer")
+	endif()
+endif()
 
 set(SRC
     "src/Application.cpp"
@@ -36,7 +47,24 @@ set(SRC
     "src/Graphics/Window.cpp"
     "src/Graphics/Handle.cpp"
     "src/Graphics/Instance.cpp"
-		src/Graphics/Device.cpp include/york/Graphics/Device.hpp include/york/Graphics/RequestableItem.h src/Graphics/PhysicalDevice.cpp include/york/Graphics/PhysicalDevice.hpp)
+		"src/Graphics/Device.cpp"
+    "src/Graphics/PhysicalDevice.cpp"
+    "include/york/Event.hpp"
+    "include/york/Application.hpp"
+    "include/york/York.hpp"
+    "include/york/Async.hpp"
+    "include/york/Timer.hpp"
+    "include/york/Entry.hpp"
+    "include/york/KeyCodes.hpp"
+    "include/york/Graphics/Instance.hpp"
+    "include/york/Graphics/RequestableItem.hpp"
+    "include/york/Graphics/Handle.hpp"
+    "include/york/Graphics/Window.hpp"
+    "include/york/Graphics/Device.hpp"
+    "include/york/Graphics/PhysicalDevice.hpp"
+    "include/york/Log.hpp"
+    "include/york/Asset.hpp"
+)
 
 set(TEST_SRC
     "test/App.cpp"
@@ -53,11 +81,11 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     PkgConfig::SPIRVTools
     glslang
     SPIRV
-	SPVRemapper
-	GenericCodeGen
-	MachineIndependent
-	OSDependent
-	OGLCompiler
+  	SPVRemapper
+  	GenericCodeGen
+  	MachineIndependent
+  	OSDependent
+  	OGLCompiler
     ${SDL_DEP}
 )
 
