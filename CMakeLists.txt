@@ -4,7 +4,7 @@ project(YorkEngine)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(PkgConfig REQUIRED)
+find_package(PkgConfig)
 find_package(Vulkan REQUIRED)
 find_package(SDL)
 
@@ -16,8 +16,6 @@ else()
     pkg_check_modules(SDL IMPORTED_TARGET sdl2)
     set(SDL_DEP PkgConfig::SDL)
 endif()
-
-pkg_check_modules(SPIRVTools IMPORTED_TARGET SPIRV-Tools)
 
 add_subdirectory(libs/spdlog)
 
@@ -78,7 +76,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include
 target_link_libraries(${PROJECT_NAME} PUBLIC
     spdlog::spdlog
     Vulkan::Vulkan
-    PkgConfig::SPIRVTools
     glslang
     SPIRV
   	SPVRemapper

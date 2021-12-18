@@ -3,14 +3,18 @@
 
 #include <filesystem>
 #include <memory>
-#include <optional>
+#include <functional>
 #include <string>
 
 #include "Async.hpp"
 
 namespace york {
 
-struct Asset {
+/**
+ * An Asset is any file that can be loaded by the engine.
+ */
+class Asset {
+public:
 
     enum class Type {
         IMG_PNG,
@@ -24,12 +28,21 @@ struct Asset {
         AUTO
     };
 
-    std::filesystem::path filepath;
-    Type type;
+    /**
+     * Creates an Asset handle, but does not load it.
+     *
+     * @param path A relative or absolute filepath to the asset.
+     * @param type The type of asset
+     */
+    explicit Asset(const std::string& path, Type type = Type::AUTO);
+    [[nodiscard]] unsigned long getSize() const;
+    std::reference_wrapper<std::vector<char>> getData();
+    static std::reference_wrapper<std::vector<char>> getDataStatic(Asset asset);
 
-    Asset(const std::string& path, const Type type = Type::AUTO);
-    static unsigned getSize(const Asset& asset);
-    static std::shared_ptr<char[]> load(const Asset& asset);
+private:
+    std::filesystem::path m_filepath;
+    std::vector<char> m_data;
+    Type m_type;
 };
 
 } // namespace york::asset

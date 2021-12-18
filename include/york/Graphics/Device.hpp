@@ -16,17 +16,57 @@
 
 namespace york::graphics {
 
+/**
+ * @brief A convenience type alias for storing a queue and it's index.
+ */
 using IndexQueuePair = std::pair<std::uint32_t, vk::Queue>;
 
+/**
+ * @brief A convenience type alias for storing a device extension name and whether its required.
+ */
 using DeviceExtension = RequestableItem;
 
+/**
+ * @brief A class representing a GPU device. You can request extensions and it will automatically pick an appropriate device accordingly upon create().
+ */
 class Device : public Handle<vk::Device> {
 public:
+
+    /**
+     * @brief Initializes a GPU device
+     *
+     * @param instance The Vulkan instance to register the device with;
+     */
     explicit Device(Instance& instance);
 
+    /**
+     * @brief Request an extension to be used in the device selection process.
+     *
+     * GPUs with more required extensions and optional extensions supported will be preferred. The selected GPU will be initialized with the required extension.
+     *
+     * @param extension The extension name to request and whether its required.
+     */
     void requestExtension(const DeviceExtension& extension);
+
+    /**
+     * @brief Gets the native Vulkan handle for the physical device.
+     *
+     * @return The native Vulkan handle for the physical device.
+     */
     [[nodiscard]] vk::PhysicalDevice getPhysicalDevice() const;
+
+    /**
+     * @brief Gets the index for the graphics queue of the device.
+     *
+     * @return The index for the graphics queue of the device.
+     */
     [[nodiscard]] std::uint32_t getGraphicsQueueIndex() const;
+
+    /**
+     * @brief Gets the graphics queue of the device.
+     *
+     * @return The graphics queue of the device.
+     */
     [[nodiscard]] vk::Queue getGraphicsQueue() const;
 
     ~Device() override;
@@ -41,7 +81,6 @@ private:
     std::vector<DeviceExtension> m_requestedExtensions;
 
     IndexQueuePair m_graphicsQueue;
-
 };
 
 }

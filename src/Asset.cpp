@@ -1,35 +1,44 @@
 #include <fstream>
+#include <unordered_map>
 
-#include <york/Asset.hpp>
+#include "york/Asset.hpp"
+#include "york/Log.hpp"
 
 namespace york {
 
-Asset::Asset(const std::string& path, const Type type)
-    : filepath(path)
-    , type(type)
+Asset::Asset(const std::string& path, Type type)
+    : m_filepath(path)
+    , m_type(type)
 {
 }
 
-unsigned Asset::getSize(const Asset& asset)
+unsigned long Asset::getSize() const
 {
-    return std::filesystem::file_size(asset.filepath);
+    return std::filesystem::file_size(m_filepath);
 }
 
-std::shared_ptr<char[]> Asset::load(const Asset& asset)
+std::reference_wrapper<std::vector<char>> Asset::getData()
 {
-    unsigned size = std::filesystem::file_size(asset.filepath);
+    if (m_data.empty()) {
+        log::core::debug("Loading {}!", m_filepath.string());
 
-    std::shared_ptr<char[]> data(new char[size]);
-    std::ifstream file(asset.filepath, std::ios::binary);
+        unsigned long size = this->getSize();
+        m_data.resize(size);
 
-    if (!file.is_open()) {
-        return nullptr;
+        std::ifstream file(m_filepath, std::ios::binary);
+
+        if (file.is_open()) {
+            file.read(m_data.data(), static_cast<long>(size));
+        }
+
     }
 
-    file.read(data.get(), size);
-    file.close();
+    return m_data;
+}
 
-    return data;
+std::reference_wrapper<std::vector<char>> Asset::getDataStatic(Asset asset)
+{
+    return asset.getData();
 }
 
 } // namespace york::asset

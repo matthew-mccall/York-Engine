@@ -30,10 +30,10 @@ namespace york::graphics {
 
         float queuePriorities = 1.0;
 
-        vk::DeviceQueueCreateInfo queueCreateInfo = { {}, m_physicalDevice->getGraphicsFamilyQueueIndex(), 1, &queuePriorities };
+        vk::DeviceQueueCreateInfo queueCreateInfo { {}, m_physicalDevice->getGraphicsFamilyQueueIndex(), 1, &queuePriorities };
         vk::PhysicalDeviceFeatures physicalDeviceFeatures;
 
-        std::array<vk::DeviceQueueCreateInfo, 1> queueCreateInfos = { queueCreateInfo };
+        std::array<vk::DeviceQueueCreateInfo, 1> queueCreateInfos { queueCreateInfo };
 
         std::vector<const char*> enabledExtensions(m_physicalDevice->getEnabledExtensions().size());
 
@@ -41,7 +41,7 @@ namespace york::graphics {
             enabledExtensions[i] = m_physicalDevice->getEnabledExtensions()[i].c_str();
         }
 
-        vk::DeviceCreateInfo createInfo = {{}, queueCreateInfos, {}, enabledExtensions, &physicalDeviceFeatures};
+        vk::DeviceCreateInfo createInfo {{}, queueCreateInfos, {}, enabledExtensions, &physicalDeviceFeatures};
 
         m_handle = (*m_physicalDevice)->createDevice(createInfo);
         m_graphicsQueue = std::make_pair(m_physicalDevice->getGraphicsFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));

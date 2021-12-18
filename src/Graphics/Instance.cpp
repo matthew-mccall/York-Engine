@@ -51,7 +51,7 @@ Instance::Instance(Window& window)
 
 bool Instance::createImpl()
 {
-    vk::ApplicationInfo appInfo = { m_window.getName().c_str(), VK_MAKE_VERSION(1, 0, 0), "York Engine", VK_MAKE_VERSION(1, 0, 0), VK_API_VERSION_1_1 };
+    vk::ApplicationInfo appInfo { m_window.getName().c_str(), VK_MAKE_VERSION(1, 0, 0), "York Engine", VK_MAKE_VERSION(1, 0, 0), VK_API_VERSION_1_1 };
 
     std::vector<const char*> enabledLayers;
     std::vector<const char*> enabledExtensions;
@@ -161,7 +161,7 @@ bool Instance::createImpl()
         log::core::warn("The following OPTIONAL instance extensions were requested but not found!\n{}", unavailableOptionalExtensionList.str());
     }
 
-    vk::InstanceCreateInfo createInfo({}, &appInfo, enabledLayers, enabledExtensions);
+    vk::InstanceCreateInfo createInfo { {}, &appInfo, enabledLayers, enabledExtensions };
 
     vk::DebugUtilsMessengerCreateInfoEXT messengerCreateInfo = vk::DebugUtilsMessengerCreateInfoEXT()
                                                                    .setMessageSeverity(vk::DebugUtilsMessageSeverityFlagBitsEXT::eVerbose | vk::DebugUtilsMessageSeverityFlagBitsEXT::eInfo | vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError)
