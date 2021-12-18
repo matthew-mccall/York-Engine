@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['onevent_0',['onEvent',['../classyork_1_1_application.html#aee2eb62932c217ba77845f1171c52f92',1,'york::Application::onEvent()'],['../classyork_1_1_event_handler.html#ad693eb636dbe6a213843d7c322c65bc5',1,'york::EventHandler::onEvent()']]],
-  ['onrender_1',['onRender',['../classyork_1_1_application.html#a9a5118ec5e2f01f48aa2912c88ddf549',1,'york::Application']]],
-  ['onupdate_2',['onUpdate',['../classyork_1_1_application.html#ae5ee1abb20fca2cc09a1157a82a7d5e3',1,'york::Application']]]
+  ['name_0',['name',['../structyork_1_1_requestable_item.html#a1b6a27afe714ebd8b485d8ee84aa17f2',1,'york::RequestableItem']]],
+  ['none_1',['None',['../structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a6adf97f83acf6453d4a6a4b1070f3754',1,'york::Event']]],
+  ['nrdispatch_2',['nrDispatch',['../namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f',1,'york::async']]]
 ];

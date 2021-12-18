@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['img_5fpng_0',['IMG_PNG',['../structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230',1,'york::Asset']]],
-  ['info_1',['info',['../namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d',1,'york::log::info()'],['../namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38',1,'york::log::core::info()']]],
-  ['init_2',['init',['../namespaceyork_1_1log.html#a1547612e933339576d96fd09bbb77528',1,'york::log']]]
+  ['handle_0',['Handle',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
+  ['handle_2ehpp_1',['Handle.hpp',['../_handle_8hpp.html',1,'']]],
+  ['handle_3c_20sdl_5fwindow_20_2a_20_3e_2',['Handle&lt; SDL_Window * &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
+  ['handle_3c_20vk_3a_3adevice_20_3e_3',['Handle&lt; vk::Device &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
+  ['handle_3c_20vk_3a_3ainstance_20_3e_4',['Handle&lt; vk::Instance &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
+  ['handlebase_5',['HandleBase',['../classyork_1_1graphics_1_1_handle_base.html',1,'york::graphics']]]
 ];

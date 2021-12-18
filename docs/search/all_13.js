@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['_7eapplication_0',['~Application',['../classyork_1_1_application.html#a1d1c9435b0242af3336388910ca2422a',1,'york::Application']]],
-  ['_7eeventhandler_1',['~EventHandler',['../classyork_1_1_event_handler.html#afa85ac2a5e48c9bbc7183fd7424cf346',1,'york::EventHandler']]]
+  ['async_0',['async',['../namespaceyork_1_1async.html',1,'york']]],
+  ['core_1',['core',['../namespaceyork_1_1log_1_1core.html',1,'york::log']]],
+  ['graphics_2',['graphics',['../namespaceyork_1_1graphics.html',1,'york']]],
+  ['log_3',['log',['../namespaceyork_1_1log.html',1,'york']]],
+  ['york_4',['york',['../namespaceyork.html',1,'']]],
+  ['york_2ehpp_5',['York.hpp',['../_york_8hpp.html',1,'']]]
 ];

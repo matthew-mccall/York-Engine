@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_0',['type',['../structyork_1_1_asset.html#aa6d2b0fefbd565c5e19d146264e0499a',1,'york::Asset']]]
+  ['name_0',['name',['../structyork_1_1_requestable_item.html#a1b6a27afe714ebd8b485d8ee84aa17f2',1,'york::RequestableItem']]]
 ];

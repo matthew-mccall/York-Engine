@@ -6,11 +6,13 @@ var namespaceyork =
       [ "getExecutor", "namespaceyork_1_1async.html#a417d5cc6f573f03818d0c1cb03906b76", null ],
       [ "nrDispatch", "namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f", null ]
     ] ],
+    [ "graphics", "namespaceyork_1_1graphics.html", "namespaceyork_1_1graphics" ],
     [ "log", "namespaceyork_1_1log.html", "namespaceyork_1_1log" ],
     [ "Application", "classyork_1_1_application.html", "classyork_1_1_application" ],
     [ "Asset", "structyork_1_1_asset.html", "structyork_1_1_asset" ],
     [ "Event", "structyork_1_1_event.html", "structyork_1_1_event" ],
     [ "EventHandler", "classyork_1_1_event_handler.html", "classyork_1_1_event_handler" ],
+    [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
     [ "Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ],
     [ "KeyCode", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618", [
       [ "KEY_A", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ab71863df31bf47cf264e4fce8696f016", null ],
@@ -256,7 +258,7 @@ var namespaceyork =
       [ "KEY_AUDIOREWIND", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a71fd1840361d5d174a1b9c169f783014", null ],
       [ "KEY_AUDIOFASTFORWARD", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ad22b9effab209797939b9a7c62f3f835", null ]
     ] ],
-    [ "createApplication", "namespaceyork.html#a6f7046e06264ba9b82ef9a60edda4b16", null ],
+    [ "createApplication", "namespaceyork.html#a503a4bceffa65f5deb794fcd76143d0d", null ],
     [ "dispatchEvents", "namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52", null ],
     [ "pushEvent", "namespaceyork.html#ae6e67199fd18fa8d78b27be5d9d608b8", null ],
     [ "pushEvent", "namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd", null ]
