@@ -24,6 +24,8 @@ jobs:
       with:
         submodules: recursive
 
+    - run: wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
+    - run: sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-1.2.198-focal.list https://packages.lunarg.com/vulkan/1.2.198/lunarg-vulkan-1.2.198-focal.list
     - run: sudo apt-get update  -y
     - run: sudo apt-get install -y vulkan-sdk libsdl2-dev llvm
 
