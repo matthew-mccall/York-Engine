@@ -1,6 +1,7 @@
 #include "york/Graphics/Instance.hpp"
 #include "york/Graphics/Device.hpp"
 #include "york/Graphics/Window.hpp"
+#include "york/Graphics/Shader.hpp"
 #include "york/York.hpp"
 
 class App : public york::Application {
@@ -15,6 +16,11 @@ public:
         , m_device(m_instance)
     {
         york::Asset asset {"LICENSE", york::Asset::Type::UTF8 };
+        york::Asset vert {"test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL};
+
+        std::string vertSrc = std::string { vert->data() };
+
+        york::graphics::Shader shader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
 
         auto future = york::async::dispatch(york::Asset::getDataStatic, asset);
         std::vector<char>& m_license = *future.get();
