@@ -62,7 +62,7 @@ set(SRC
     "include/york/Graphics/PhysicalDevice.hpp"
     "include/york/Log.hpp"
     "include/york/Asset.hpp"
-)
+		include/york/Graphics/Shader.hpp src/Graphics/Shader.cpp src/Layer.cpp include/york/Layer.hpp src/LayerStack.cpp include/york/LayerStack.hpp src/Identifiable.cpp include/york/Identifiable.hpp)
 
 set(TEST_SRC
     "test/App.cpp"
@@ -83,6 +83,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
   	MachineIndependent
   	OSDependent
   	OGLCompiler
+		SPIRV-Tools-opt
+		SPIRV-Tools
+		SPIRV-Tools-link
     ${SDL_DEP}
 )
 
