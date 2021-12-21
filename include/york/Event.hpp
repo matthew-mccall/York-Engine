@@ -29,16 +29,16 @@ struct Event {
         ControllerButtonReleased
     };
 
-    Event(SDL_Event e);
-    Event(Type type);
+    explicit Event(SDL_Event e);
+    explicit Event(Type type);
 
-    Type getType() const;
-    KeyCode getKeyCode() const;
-    unsigned getMouseButton() const;
-    unsigned getMouseX() const;
-    unsigned getMouseY() const;
-    float getTickTime() const;
-    unsigned getWindowID() const;
+    [[nodiscard]] Type getType() const;
+    [[nodiscard]] KeyCode getKeyCode() const;
+    [[nodiscard]] unsigned getMouseButton() const;
+    [[nodiscard]] unsigned getMouseX() const;
+    [[nodiscard]] unsigned getMouseY() const;
+    [[nodiscard]] float getTickTime() const;
+    [[nodiscard]] unsigned getWindowID() const;
 
     Type m_type;
 

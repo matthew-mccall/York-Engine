@@ -12,7 +12,7 @@ private:
 public:
     Timer();
     float getTime();
-    void reset();
+    Timer& reset();
 };
 
 } // namespace york

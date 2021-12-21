@@ -7,9 +7,10 @@ Timer::Timer()
     reset();
 }
 
-void Timer::reset()
+Timer& Timer::reset()
 {
     m_startTime = std::chrono::steady_clock::now();
+    return *this;
 }
 
 float Timer::getTime()

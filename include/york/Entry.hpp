@@ -23,20 +23,19 @@ int main()
 
     SDL_Event event;
 
+    timer.reset();
+
     while (!app->getExit()) {
-        timer.reset();
 
         while (SDL_PollEvent(&event)) {
             york::pushEvent(event);
         }
 
-        york::Event tickEvent(york::Event::Type::AppTick);
-        tickEvent.m_tickTime = timer.getTime();
-
-        york::Event renderEvent(york::Event::Type::AppRender);
+        york::Event tickEvent { york::Event::Type::AppTick };
+        tickEvent.m_tickTime = timer.reset().getTime();
 
         york::pushEvent(tickEvent);
-        york::pushEvent(renderEvent);
+        york::pushEvent(york::Event { york::Event::Type::AppRender });
 
         york::dispatchEvents();
     }

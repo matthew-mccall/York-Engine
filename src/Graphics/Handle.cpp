@@ -7,8 +7,8 @@ void HandleBase::create()
     this->destroy();
     this->createImpl();
 
-    for (HandleBase* dependent : m_dependents) {
-        dependent->create();
+    for (HandleBase& dependent : m_dependents) {
+        dependent.create();
     }
 
     m_created = true;
@@ -16,9 +16,9 @@ void HandleBase::create()
 
 void HandleBase::destroy()
 {
-    for (HandleBase* dependent : m_dependents) {
-        if (dependent->isCreated()) {
-            dependent->destroy();
+    for (HandleBase& dependent : m_dependents) {
+        if (dependent.isCreated()) {
+            dependent.destroy();
         }
     }
 
@@ -35,13 +35,13 @@ bool HandleBase::isCreated() const
 
 void HandleBase::addDependent(HandleBase& handle)
 {
-    m_dependents.push_back(&handle);
+    m_dependents.emplace_back(handle);
 }
 
 void HandleBase::removeDependent(HandleBase& handle)
 {
     for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) {
-        if (&handle == *i) {
+        if (handle == *i) {
             m_dependents.erase(i);
             break;
         }

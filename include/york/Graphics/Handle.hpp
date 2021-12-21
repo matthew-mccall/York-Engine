@@ -2,13 +2,16 @@
 #define YORK_GRAPHICS_HANDLE_HPP
 
 #include <vector>
+#include <functional>
+
+#include "york/Identifiable.hpp"
 
 namespace york::graphics {
 
 /**
  * A base for a system that allows handles to be attached to other handles and recreating handles and their dependents.
  */
-class HandleBase {
+class HandleBase : public Identifiable {
 public:
     /**
      * @brief Creates a handle.
@@ -51,7 +54,7 @@ protected:
 
 private:
     bool m_created = false;
-    std::vector<HandleBase*> m_dependents;
+    std::vector<std::reference_wrapper<HandleBase>> m_dependents;
 };
 
 /**

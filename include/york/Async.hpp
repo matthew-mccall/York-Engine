@@ -13,7 +13,7 @@ template <typename T>
 using Future = tf::Future<T>;
 
 /**
- * @brief Executues func asynchronously
+ * @brief Executes func asynchronously
  *
  * @tparam F The function tye
  * @tparam ArgsT The parameter pack
