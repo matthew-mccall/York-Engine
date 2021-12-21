@@ -75,10 +75,9 @@ public:
     
     vk::SurfaceCapabilitiesKHR getSurfaceCapabilities();
     std::vector<vk::SurfaceFormatKHR>& getFormats();
-    std::vector<vk::PresentModeKHR>& getPresentModes();
-    
-    vk::SurfaceFormatKHR getBestFormat() const;
-    vk::PresentModeKHR getBestPresentMode() const;
+
+    [[nodiscard]] vk::SurfaceFormatKHR getBestFormat() const;
+    [[nodiscard]] vk::PresentModeKHR getBestPresentMode() const;
     vk::Extent2D getSwapExtent(Window& window) const;
 
     /**
@@ -107,11 +106,11 @@ private:
     std::uint32_t m_maximumImageResolution;
 
     vk::PhysicalDevice m_physicalDevice;
-    std::vector<std::string> m_enabledExtensions;
-
+    vk::PresentModeKHR m_presentBestMode;
     vk::SurfaceCapabilitiesKHR m_capabilities;
+
+    std::vector<std::string> m_enabledExtensions;
     std::vector<vk::SurfaceFormatKHR> m_formats;
-    std::vector<vk::PresentModeKHR> m_presentModes;
 };
 
 }

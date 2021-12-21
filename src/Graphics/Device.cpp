@@ -25,7 +25,7 @@ Device::Device(Instance& instance, Surface& surface)
 
 bool Device::createImpl()
 {
-    std::optional<PhysicalDevice> physicalDevice = PhysicalDevice::getBest(*m_instance, *m_surface, m_requestedExtensions);
+    std::optional<PhysicalDevice> physicalDevice = std::move(PhysicalDevice::getBest(*m_instance, *m_surface, m_requestedExtensions));
 
     if (!physicalDevice)
         return false;

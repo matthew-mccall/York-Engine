@@ -56,7 +56,15 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface
     
     m_capabilities = m_physicalDevice.getSurfaceCapabilitiesKHR(surface);
     m_formats = m_physicalDevice.getSurfaceFormatsKHR(surface);
-    m_presentModes = m_physicalDevice.getSurfacePresentModesKHR(surface);
+    std::vector<vk::PresentModeKHR> presentModes = m_physicalDevice.getSurfacePresentModesKHR(surface);
+
+    m_presentBestMode = vk::PresentModeKHR::eFifo;
+
+    for (auto& availablePresentMode : presentModes) {
+        if (availablePresentMode == vk::PresentModeKHR::eMailbox) {
+            m_presentBestMode = availablePresentMode;
+        }
+    }
 
 }
 
@@ -155,10 +163,6 @@ std::vector<vk::SurfaceFormatKHR>& PhysicalDevice::getFormats() {
     return m_formats;
 }
 
-std::vector<vk::PresentModeKHR>& PhysicalDevice::getPresentModes() {
-    return m_presentModes;
-}
-
 vk::SurfaceFormatKHR PhysicalDevice::getBestFormat() const {
     for (const auto& availableFormat : m_formats) {
             if (availableFormat.format == vk::Format::eB8G8R8Srgb && availableFormat.colorSpace == vk::ColorSpaceKHR::eSrgbNonlinear) {
@@ -170,13 +174,7 @@ vk::SurfaceFormatKHR PhysicalDevice::getBestFormat() const {
 }
 
 vk::PresentModeKHR PhysicalDevice::getBestPresentMode() const {
-    for (const auto& availablePresentMode : m_presentModes) {
-        if (availablePresentMode == vk::PresentModeKHR::eMailbox) {
-            return availablePresentMode;
-        }
-    }
-
-    return vk::PresentModeKHR::eFifo;
+    return m_presentBestMode;
 }
 
 vk::Extent2D PhysicalDevice::getSwapExtent(Window& window) const {
