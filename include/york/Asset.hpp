@@ -22,6 +22,14 @@ public:
         SHADER_FRAG_SPIRV,
         SHADER_VERT_GLSL,
         SHADER_VERT_SPIRV,
+        SHADER_TESC_GLSL,
+        SHADER_TESC_SPIRV,
+        SHADER_TESE_GLSL,
+        SHADER_TESE_SPIRV,
+        SHADER_GEOM_GLSL,
+        SHADER_GEOM_SPIRV,
+        SHADER_COMP_GLSL,
+        SHADER_COMP_SPIRV,
         TOML,
         UTF8,
         RAW,
@@ -35,14 +43,22 @@ public:
      * @param type The type of asset
      */
     explicit Asset(const std::string& path, Type type = Type::AUTO);
-    [[nodiscard]] unsigned long getSize() const;
+    [[nodiscard]] Type getType() const;
     std::reference_wrapper<std::vector<char>> getData();
     static std::reference_wrapper<std::vector<char>> getDataStatic(Asset asset);
 
+    std::vector<char>& operator*();
+    std::vector<char>* operator->();
+
+    char& operator[](std::size_t idx);
+
+    ~Asset();
+
 private:
     std::filesystem::path m_filepath;
-    std::vector<char> m_data;
     Type m_type;
+    std::vector<char>& m_data;
+
 };
 
 } // namespace york::asset
