@@ -32,7 +32,7 @@ public:
         RTCallable
     };
 
-    explicit Shader(Device& m_device, std::string& glsl, Type type);
+    explicit Shader(Device& m_device, std::string glsl, Type type);
 
     bool createImpl() override;
     void destroyImpl() override;

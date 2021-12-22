@@ -1,33 +1,32 @@
-#include "york/Graphics/Instance.hpp"
 #include "york/Graphics/Device.hpp"
-#include "york/Graphics/Window.hpp"
+#include "york/Graphics/Instance.hpp"
 #include "york/Graphics/Shader.hpp"
+#include "york/Graphics/Surface.hpp"
+#include "york/Graphics/Window.hpp"
 #include "york/York.hpp"
 
 class App : public york::Application {
     york::graphics::Window m_window;
     york::graphics::Instance m_instance;
     york::graphics::Device m_device;
+    york::graphics::Surface m_surface;
 
 public:
     App()
         : m_window("Test")
         , m_instance(m_window)
         , m_device(m_instance)
+        , m_surface(m_instance, m_window)
     {
-        york::Asset asset {"LICENSE", york::Asset::Type::UTF8 };
-        york::Asset vert {"test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL};
+        york::Asset license { "LICENSE", york::Asset::Type::UTF8 };
+        york::log::info(license->data());
 
+        york::Asset vert { "test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL };
         std::string vertSrc = std::string { vert->data() };
 
         york::graphics::Shader shader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
 
-        auto future = york::async::dispatch(york::Asset::getDataStatic, asset);
-        std::vector<char>& m_license = *future.get();
-
-        york::log::info(m_license.data());
-
-        m_instance.create();
+        m_window.create();
     }
 
     void onEvent(york::Event e) override
@@ -51,7 +50,7 @@ public:
 
     ~App() override
     {
-        m_instance.destroy();
+        m_window.destroy();
     }
 };
 

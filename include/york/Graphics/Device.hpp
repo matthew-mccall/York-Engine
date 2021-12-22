@@ -69,8 +69,6 @@ public:
      */
     [[nodiscard]] vk::Queue getGraphicsQueue() const;
 
-    ~Device() override;
-
 protected:
     bool createImpl() override;
     void destroyImpl() override;

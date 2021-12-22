@@ -46,7 +46,9 @@ public:
      */
     void removeDependent(HandleBase& handle);
 
-    virtual ~HandleBase() = default;
+    void addDependency(HandleBase& handle);
+
+    virtual ~HandleBase();
 
 protected:
     virtual bool createImpl() = 0;
@@ -55,6 +57,7 @@ protected:
 private:
     bool m_created = false;
     std::vector<std::reference_wrapper<HandleBase>> m_dependents;
+    std::vector<std::reference_wrapper<HandleBase>> m_dependencies;
 };
 
 /**

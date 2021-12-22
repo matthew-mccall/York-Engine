@@ -21,7 +21,7 @@ public:
      * @param width The initial width of the window.
      * @param height The initial height of the window.
      */
-    explicit Window(const std::string& name, unsigned width = 800, unsigned height = 600);
+    explicit Window(std::string  name, unsigned width = 800, unsigned height = 600);
 
     /**
      * Gets the name of the window.
@@ -36,9 +36,11 @@ public:
      * @return The ID number of the window.
      */
     unsigned getID();
-    ~Window() override;
 
 private:
+    std::string m_name;
+    unsigned m_width, m_height;
+
     bool createImpl() override;
     void destroyImpl() override;
 };

@@ -5,13 +5,21 @@ namespace york::graphics {
 void HandleBase::create()
 {
     this->destroy();
-    this->createImpl();
 
-    for (HandleBase& dependent : m_dependents) {
-        dependent.create();
+    for (HandleBase& dependency : m_dependencies) {
+        if (!dependency.isCreated()) {
+            dependency.create();
+        }
     }
 
+    this->createImpl();
     m_created = true;
+
+    for (HandleBase& dependent : m_dependents) {
+        if (!dependent.isCreated()) {
+            dependent.create();
+        }
+    }
 }
 
 void HandleBase::destroy()
@@ -45,6 +53,19 @@ void HandleBase::removeDependent(HandleBase& handle)
             m_dependents.erase(i);
             break;
         }
+    }
+}
+
+void HandleBase::addDependency(HandleBase& handle)
+{
+    handle.addDependent(*this);
+    m_dependencies.emplace_back(handle);
+}
+
+HandleBase::~HandleBase()
+{
+    for (HandleBase& dependency : m_dependencies) {
+        dependency.removeDependent(*this);
     }
 }
 
