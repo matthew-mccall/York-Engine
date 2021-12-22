@@ -25,7 +25,7 @@ Event::Event(SDL_Event e)
 
         case SDL_WINDOWEVENT_CLOSE:
             m_type = Type::WindowClose;
-            m_windowID = e.window.windowID;
+            m_data = WindowData { e.window.windowID };
             break;
 
         default:
@@ -52,37 +52,43 @@ Event::Type Event::getType() const
 KeyCode Event::getKeyCode() const
 {
     assert((m_type == Type::KeyPressed) | (m_type == Type::KeyReleased) | (m_type == Type::KeyTyped));
-    return m_keyCode;
+    assert(std::holds_alternative<KeyData>(m_data));
+    return std::get<KeyData>(m_data).m_keyCode;
 }
 
 unsigned Event::getMouseButton() const
 {
     assert((m_type == Type::MouseButtonPressed) | (m_type == Type::MouseButtonReleased));
-    return m_mouseButton;
+    assert(std::holds_alternative<MouseButtonData>(m_data));
+    return std::get<MouseButtonData>(m_data).m_mouseButton;
 }
 
 unsigned Event::getMouseX() const
 {
     assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
-    return m_mouseX;
+    assert(std::holds_alternative<MouseData>(m_data));
+    return std::get<MouseData>(m_data).m_mouseX;
 }
 
 unsigned Event::getMouseY() const
 {
     assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
-    return m_mouseY;
+    assert(std::holds_alternative<MouseData>(m_data));
+    return std::get<MouseData>(m_data).m_mouseY;
 }
 
 float Event::getTickTime() const
 {
     assert(m_type == Type::AppTick);
-    return m_tickTime;
+    assert(std::holds_alternative<TickData>(m_data));
+    return std::get<TickData>(m_data).m_tickTime;
 }
 
 unsigned Event::getWindowID() const
 {
     assert((m_type == Type::WindowClose) | (m_type == Type::WindowFocus) | (m_type == Type::WindowLostFocus) | (m_type == Type::WindowMoved) | (m_type == Type::WindowResize));
-    return m_windowID;
+    assert(std::holds_alternative<WindowData>(m_data));
+    return std::get<WindowData>(m_data).m_windowID;
 }
 
 EventHandler::EventHandler()
