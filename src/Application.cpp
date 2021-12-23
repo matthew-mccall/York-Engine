@@ -1,23 +1,20 @@
 #include <york/Application.hpp>
 
-using namespace york;
+namespace york {
 
-void Application::onEvent(Event e)
+LayerStack& Application::getLayerStack()
 {
-    switch (e.getType()) {
-    case Event::Type::AppTick:
-        this->onUpdate(e.getTickTime());
-        break;
-
-    case Event::Type::AppRender:
-        this->onRender();
-
-    default:
-        break;
-    }
+    return m_defaultLayerStack;
 }
 
-bool Application::getExit() const
+void Application::pushLayer(Layer& layer)
 {
-    return m_exit;
+    m_defaultLayerStack.pushLayer(layer);
+}
+
+void Application::popLayer(Layer& layer)
+{
+    m_defaultLayerStack.popLayer(layer);
+}
+
 }

@@ -14,13 +14,18 @@ namespace york {
 
 class LayerStack {
 public:
-    static void pushLayer(Layer& layer);
-    static void popLayer(Layer& layer);
+    LayerStack() = default;
 
-    static LayerStack& getStack();
+    void pushLayer(Layer& layer);
+    void popLayer(Layer& layer);
 
-    static std::vector<std::reference_wrapper<Layer>>::iterator begin();
-    static std::vector<std::reference_wrapper<Layer>>::iterator end();
+    std::vector<std::reference_wrapper<Layer>>::iterator begin();
+    std::vector<std::reference_wrapper<Layer>>::iterator end();
+
+    ~LayerStack();
+
+private:
+    std::vector<std::reference_wrapper<Layer>> m_layers;
 
 };
 }

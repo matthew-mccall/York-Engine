@@ -12,8 +12,6 @@ namespace york {
 struct Event {
     enum class Type {
         None = 0,
-        AppTick,
-        AppRender,
         AppClosing,
         WindowClose,
         WindowResize,
@@ -43,31 +41,30 @@ struct Event {
         unsigned m_mouseX, m_mouseY;
     };
 
-    struct TickData {
-        float m_tickTime;
-    };
-
     struct WindowData {
         unsigned m_windowID;
     };
 
+    Event() = delete;
     explicit Event(SDL_Event e);
-    explicit Event(Type type);
+    explicit Event(KeyData data, Type type);
+    explicit Event(MouseButtonData data, Type type);
+    explicit Event(MouseData data, Type type);
+    explicit Event(WindowData data, Type type);
 
     [[nodiscard]] Type getType() const;
     [[nodiscard]] KeyCode getKeyCode() const;
     [[nodiscard]] unsigned getMouseButton() const;
     [[nodiscard]] unsigned getMouseX() const;
     [[nodiscard]] unsigned getMouseY() const;
-    [[nodiscard]] float getTickTime() const;
     [[nodiscard]] unsigned getWindowID() const;
 
     Type m_type;
-    std::variant<KeyData, MouseButtonData, MouseData, TickData, WindowData> m_data;
+    std::variant<KeyData, MouseButtonData, MouseData, WindowData> m_data;
 };
 
 void pushEvent(SDL_Event e);
-void pushEvent(Event e);
+void pushEvent(const Event& e);
 void dispatchEvents();
 
 class EventHandler {
@@ -78,7 +75,7 @@ public:
     ~EventHandler();
 
 protected:
-    virtual void onEvent(Event e) = 0;
+    virtual void onEvent(Event& e) = 0;
 };
 
 } // namespace york

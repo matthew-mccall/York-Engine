@@ -4,8 +4,8 @@
 #include "Application.hpp"
 #include "Asset.hpp"
 #include "Async.hpp"
-#include "Entry.hpp"
 #include "Event.hpp"
+#include "Exit.hpp"
 #include "Log.hpp"
 #include "Timer.hpp"
 

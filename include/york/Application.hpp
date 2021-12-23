@@ -12,7 +12,7 @@
 #if !defined(YORK_APPLICATION_HPP)
 #define YORK_APPLICATION_HPP
 
-#include "Event.hpp"
+#include "LayerStack.hpp"
 
 namespace york {
 
@@ -20,40 +20,16 @@ namespace york {
  * @brief The base class for your Application. Inherit this and override Application::onUpdate() and Application::onRender() to implement your Application logic.
  *
  */
-class Application : private EventHandler {
+class Application {
 public:
-    /**
-     * A function that will be called on every tick. Override this to implement your game logic.
-     *
-     * @param deltaTime The time since last tick.
-     */
-    virtual void onUpdate(float deltaTime) = 0;
+    void pushLayer(Layer& layer);
+    void popLayer(Layer& layer);
 
-    /**
-     * A function that will be called on every frame. Override this to implement your rendering logic.
-     */
-    virtual void onRender() = 0;
+    LayerStack& getLayerStack();
 
-    /**
-     * A function to handle events. Override this to intercept events.
-     * @param e
-     */
-    void onEvent(Event e) override;
+private:
+    LayerStack m_defaultLayerStack;
 
-    /**
-     * Used by the engine to determine whether you want to shutdown.
-     * @return
-     */
-    [[nodiscard]] bool getExit() const;
-    virtual ~Application() = default;
-
-protected:
-    /**
-     * Set this to true when you want to exit.
-     */
-    bool m_exit = false;
-
-    Application() = default;
 };
 
 /**

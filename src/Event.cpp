@@ -1,5 +1,6 @@
 #include <cassert>
 #include <queue>
+#include <utility>
 #include <vector>
 
 #include "SDL_events.h"
@@ -39,9 +40,32 @@ Event::Event(SDL_Event e)
     }
 }
 
-Event::Event(Type type)
+Event::Event(Event::KeyData data, Event::Type type)
     : m_type(type)
 {
+    assert((m_type == Type::KeyPressed) | (m_type == Type::KeyReleased) | (m_type == Type::KeyTyped));
+    m_data.emplace<0>(data);
+}
+
+Event::Event(Event::MouseButtonData data, Event::Type type)
+    : m_type(type)
+{
+    assert((m_type == Type::MouseButtonPressed) | (m_type == Type::MouseButtonReleased));
+    m_data.emplace<1>(data);
+}
+
+Event::Event(Event::MouseData data, Event::Type type)
+    : m_type(type)
+{
+    assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
+    m_data.emplace<2>(data);
+}
+
+Event::Event(Event::WindowData data, Event::Type type)
+    : m_type(type)
+{
+    assert((m_type == Type::WindowClose) | (m_type == Type::WindowFocus) | (m_type == Type::WindowLostFocus) | (m_type == Type::WindowMoved) | (m_type == Type::WindowResize));
+    m_data.emplace<3>(data);
 }
 
 Event::Type Event::getType() const
@@ -77,13 +101,6 @@ unsigned Event::getMouseY() const
     return std::get<MouseData>(m_data).m_mouseY;
 }
 
-float Event::getTickTime() const
-{
-    assert(m_type == Type::AppTick);
-    assert(std::holds_alternative<TickData>(m_data));
-    return std::get<TickData>(m_data).m_tickTime;
-}
-
 unsigned Event::getWindowID() const
 {
     assert((m_type == Type::WindowClose) | (m_type == Type::WindowFocus) | (m_type == Type::WindowLostFocus) | (m_type == Type::WindowMoved) | (m_type == Type::WindowResize));
@@ -111,7 +128,7 @@ void pushEvent(SDL_Event e)
     s_eventQueue.emplace(e);
 }
 
-void pushEvent(Event e)
+void pushEvent(const Event& e)
 {
     s_eventQueue.push(e);
 }

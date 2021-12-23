@@ -8,6 +8,7 @@
 #include "Application.hpp"
 #include "Async.hpp"
 #include "Event.hpp"
+#include "Exit.hpp"
 #include "Log.hpp"
 #include "Timer.hpp"
 
@@ -25,19 +26,20 @@ int main()
 
     timer.reset();
 
-    while (!app->getExit()) {
+    try {
+        while (!york::getExit()) {
+            while (SDL_PollEvent(&event)) {
+                york::pushEvent(event);
+            }
 
-        while (SDL_PollEvent(&event)) {
-            york::pushEvent(event);
+            york::dispatchEvents();
+
+            for (york::Layer& layer : app->getLayerStack()) {
+                layer.onUpdate(timer.reset().getTime());
+            }
         }
-
-        york::Event tickEvent { york::Event::Type::AppTick };
-        tickEvent.m_tickTime = timer.reset().getTime();
-
-        york::pushEvent(tickEvent);
-        york::pushEvent(york::Event { york::Event::Type::AppRender });
-
-        york::dispatchEvents();
+    } catch (std::exception& e) {
+        york::log::core::critical(e.what());
     }
 
     timer.reset();

@@ -42,7 +42,7 @@ std::string Window::getName() const
     return m_name;
 }
 
-unsigned Window::getID()
+unsigned Window::getWindowID()
 {
     return SDL_GetWindowID(m_handle);
 }
