@@ -13,6 +13,7 @@
 #include "Instance.hpp"
 #include "PhysicalDevice.hpp"
 #include "RequestableItem.hpp"
+#include "Surface.hpp"
 
 namespace york::graphics {
 
@@ -31,13 +32,12 @@ using DeviceExtension = RequestableItem;
  */
 class Device : public Handle<vk::Device> {
 public:
-
     /**
      * @brief Initializes a GPU device
      *
      * @param instance The Vulkan instance to register the device with;
      */
-    explicit Device(Instance& instance);
+    explicit Device(Instance& instance, Surface& surface);
 
     /**
      * @brief Request an extension to be used in the device selection process.
@@ -53,7 +53,7 @@ public:
      *
      * @return The native Vulkan handle for the physical device.
      */
-    [[nodiscard]] vk::PhysicalDevice getPhysicalDevice() const;
+    [[nodiscard]] PhysicalDevice& getPhysicalDevice();
 
     /**
      * @brief Gets the index for the graphics queue of the device.
@@ -69,16 +69,36 @@ public:
      */
     [[nodiscard]] vk::Queue getGraphicsQueue() const;
 
+    /**
+     * @brief Gets the index for the present queue of the device.
+     *
+     * @return The index for the present queue of the device.
+     */
+    [[nodiscard]] std::uint32_t getPresentQueueIndex() const;
+
+    /**
+     * @brief Gets the present queue of the device.
+     *
+     * @return The present queue of the device.
+     */
+    [[nodiscard]] vk::Queue getPresentQueue() const;
+
+    Surface& getSurface();
+    
 protected:
     bool createImpl() override;
     void destroyImpl() override;
 
 private:
     Instance& m_instance;
+    Surface& m_surface;
     std::optional<PhysicalDevice> m_physicalDevice;
     std::vector<DeviceExtension> m_requestedExtensions;
 
     IndexQueuePair m_graphicsQueue;
+    IndexQueuePair m_presentQueue;
+    
+    
 };
 
 }

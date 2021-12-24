@@ -47,9 +47,12 @@ set(SRC
         "src/Graphics/Instance.cpp"
         "src/Graphics/Device.cpp"
         "src/Graphics/PhysicalDevice.cpp"
-        src/Graphics/Shader.cpp
-        src/LayerStack.cpp
-        src/Identifiable.cpp
+        "src/Graphics/Shader.cpp"
+        "src/LayerStack.cpp"
+        "src/Identifiable.cpp"
+        "src/Graphics/Surface.cpp"
+        "src/Exit.cpp"
+        "src/SwapChain.cpp"
         "include/york/Event.hpp"
         "include/york/Application.hpp"
         "include/york/York.hpp"
@@ -65,15 +68,18 @@ set(SRC
         "include/york/Graphics/PhysicalDevice.hpp"
         "include/york/Log.hpp"
         "include/york/Asset.hpp"
-        include/york/Graphics/Shader.hpp
-        include/york/Layer.hpp
-        include/york/LayerStack.hpp
-        include/york/Identifiable.hpp
-        src/Graphics/Surface.cpp
-        include/york/Graphics/Surface.hpp src/Exit.cpp include/york/Exit.hpp)
+        "include/york/Graphics/Shader.hpp"
+        "include/york/Layer.hpp"
+        "include/york/LayerStack.hpp"
+        "include/york/Identifiable.hpp"
+        "include/york/Graphics/Surface.hpp"
+        "include/york/Exit.hpp"
+        "include/york/Graphics/SwapChain.hpp")
 
 set(TEST_SRC
-        "test/App.cpp" test/SampleLayer.cpp test/SampleLayer.hpp)
+        "test/App.cpp"
+        "test/SampleLayer.cpp"
+        "test/SampleLayer.hpp")
 
 add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 

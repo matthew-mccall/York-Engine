@@ -9,6 +9,7 @@
 #include "york/Graphics/Instance.hpp"
 #include "york/Graphics/Shader.hpp"
 #include "york/Graphics/Surface.hpp"
+#include "york/Graphics/SwapChain.hpp"
 #include "york/Graphics/Window.hpp"
 #include "york/Layer.hpp"
 
@@ -24,8 +25,9 @@ public:
 private:
     york::graphics::Window m_window;
     york::graphics::Instance m_instance;
-    york::graphics::Device m_device;
     york::graphics::Surface m_surface;
+    york::graphics::Device m_device;
+    york::graphics::SwapChain m_swapchain;
 };
 
 #endif // YORKTEST_SAMPLELAYER_HPP

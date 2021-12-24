@@ -13,16 +13,19 @@
 
 namespace york::graphics {
 
-Device::Device(Instance& instance)
+Device::Device(Instance& instance, Surface& surface)
     : m_instance(instance)
+    , m_surface(surface)
 {
     addDependency(m_instance);
+    addDependency(m_surface);
     requestExtension({ "VK_KHR_portability_subset", false });
+    requestExtension({ VK_KHR_SWAPCHAIN_EXTENSION_NAME });
 }
 
 bool Device::createImpl()
 {
-    std::optional<PhysicalDevice> physicalDevice = PhysicalDevice::getBest(*m_instance, m_requestedExtensions);
+    std::optional<PhysicalDevice> physicalDevice = PhysicalDevice::getBest(*m_instance, *m_surface, m_requestedExtensions);
 
     if (!physicalDevice)
         return false;
@@ -46,6 +49,7 @@ bool Device::createImpl()
 
     m_handle = (*m_physicalDevice)->createDevice(createInfo);
     m_graphicsQueue = std::make_pair(m_physicalDevice->getGraphicsFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));
+    m_presentQueue = std::make_pair(m_physicalDevice->getPresentFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));
 
     return true;
 }
@@ -55,9 +59,9 @@ void Device::requestExtension(const DeviceExtension& extension)
     m_requestedExtensions.push_back((extension));
 }
 
-vk::PhysicalDevice Device::getPhysicalDevice() const
+PhysicalDevice& Device::getPhysicalDevice()
 {
-    return m_physicalDevice->getPhysicalDevice();
+    return *m_physicalDevice;
 }
 
 void Device::destroyImpl()
@@ -73,6 +77,21 @@ std::uint32_t Device::getGraphicsQueueIndex() const
 vk::Queue Device::getGraphicsQueue() const
 {
     return m_graphicsQueue.second;
+}
+
+std::uint32_t Device::getPresentQueueIndex() const
+{
+    return m_presentQueue.first;
+}
+
+vk::Queue Device::getPresentQueue() const
+{
+    return m_presentQueue.second;
+}
+
+Surface& Device::getSurface()
+{
+    return m_surface;
 }
 
 }

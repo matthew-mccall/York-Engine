@@ -9,8 +9,9 @@
 SampleLayer::SampleLayer()
     : m_window("Test")
     , m_instance(m_window)
-    , m_device(m_instance)
     , m_surface(m_instance, m_window)
+    , m_device(m_instance, m_surface)
+    , m_swapchain(m_device, m_window, m_surface)
 {
 }
 
