@@ -84,6 +84,7 @@ set(TEST_SRC
 add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 
 link_directories($ENV{VULKAN_SDK}/lib)
+link_directories(/usr/local/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
 target_link_libraries(${PROJECT_NAME} PUBLIC
