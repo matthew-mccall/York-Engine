@@ -36,13 +36,19 @@ public:
         AUTO
     };
 
+    enum class Source {
+        FILE,
+        NETWORK,
+        MEMORY
+    };
+
     /**
      * Creates an Asset handle, but does not load it.
      *
-     * @param path A relative or absolute filepath to the asset.
+     * @param location A relative or absolute filepath to the asset, or a URL to a network location.
      * @param type The type of asset
      */
-    explicit Asset(const std::string& path, Type type = Type::AUTO);
+    explicit Asset(const std::string& location, Type type = Type::AUTO, Source source = Source::FILE);
     [[nodiscard]] Type getType() const;
     std::reference_wrapper<std::vector<char>> getData();
     static std::reference_wrapper<std::vector<char>> getDataStatic(Asset asset);
@@ -55,9 +61,11 @@ public:
     ~Asset();
 
 private:
-    std::filesystem::path m_filepath;
-    Type m_type;
+    std::string m_location;
     std::vector<char>& m_data;
+    Type m_type;
+    Source m_source;
+    int m_size;
 
 };
 

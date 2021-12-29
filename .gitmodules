@@ -4,3 +4,6 @@
 [submodule "libs/taskflow"]
 	path = libs/taskflow
 	url = https://github.com/taskflow/taskflow.git
+[submodule "libs/curlpp"]
+	path = libs/curlpp
+	url = https://github.com/jpbarrette/curlpp.git

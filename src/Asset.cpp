@@ -1,61 +1,90 @@
 #include <fstream>
 #include <unordered_map>
+#include <algorithm>
+#include <cstring>
+
+#include "curlpp/Easy.hpp"
+#include "curlpp/Options.hpp"
 
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
 
 namespace {
-    std::unordered_map<std::string, unsigned> s_referenceCount;
-    std::unordered_map<std::string, std::vector<char>> s_assetData;
+std::unordered_map<std::string, unsigned> s_referenceCount;
+std::unordered_map<std::string, std::vector<char>> s_assetData;
 }
 
 namespace york {
 
-Asset::Asset(const std::string& path, Type type)
-    : m_filepath(path)
+Asset::Asset(const std::string& location, Type type, Source source)
+    : m_location(location)
+    , m_data(s_assetData[m_location])
     , m_type(type)
-    , m_data(s_assetData[m_filepath.string()])
+    , m_source(source)
+    , m_size(-1)
 {
-    if (m_type == Type::AUTO) {
-        std::string::size_type n = path.find('.');
+    if (m_source == Source::FILE) {
+        if (m_type == Type::AUTO) {
+            std::string::size_type n = location.find('.');
 
-        if (n == std::string::npos) {
-            m_type = Type::RAW;
-            return;
-        }
+            if (n == std::string::npos) {
+                m_type = Type::RAW;
+                return;
+            }
 
-        std::string extension = path.substr(n);
+            std::string extension = location.substr(n);
 
-        if (extension == "txt") {
-            m_type = Type::UTF8;
-        } else if (extension == "vert") {
-            m_type = Type::SHADER_VERT_GLSL;
-        } else if (extension == "frag") {
-            m_type = Type::SHADER_FRAG_GLSL;
-        } else if (extension == "tesc") {
-            m_type = Type::SHADER_TESC_GLSL;
-        } else if (extension == "tese") {
-            m_type = Type::SHADER_TESE_GLSL;
-        } else if (extension == "geom") {
-            m_type = Type::SHADER_GEOM_GLSL;
-        } else if (extension == "comp") {
-            m_type = Type::SHADER_COMP_GLSL;
+            if (extension == "txt") {
+                m_type = Type::UTF8;
+            } else if (extension == "vert") {
+                m_type = Type::SHADER_VERT_GLSL;
+            } else if (extension == "frag") {
+                m_type = Type::SHADER_FRAG_GLSL;
+            } else if (extension == "tesc") {
+                m_type = Type::SHADER_TESC_GLSL;
+            } else if (extension == "tese") {
+                m_type = Type::SHADER_TESE_GLSL;
+            } else if (extension == "geom") {
+                m_type = Type::SHADER_GEOM_GLSL;
+            } else if (extension == "comp") {
+                m_type = Type::SHADER_COMP_GLSL;
+            }
         }
     }
 
-    s_referenceCount[m_filepath.string()]++;
+    s_referenceCount[m_location]++;
 }
 
 std::reference_wrapper<std::vector<char>> Asset::getData()
 {
     if (m_data.empty()) {
-        unsigned long size = std::filesystem::file_size(m_filepath);
-        m_data.resize(size);
+        switch (m_source) {
+        case Source::FILE: {
+            unsigned long size = m_size == -1 ? std::filesystem::file_size(m_location) : m_size;
+            m_data.resize(size);
 
-        std::ifstream file(m_filepath, std::ios::binary);
+            std::ifstream file(m_location, std::ios::binary);
 
-        if (file.is_open()) {
-            file.read(m_data.data(), static_cast<long>(size));
+            if (file.is_open()) {
+                log::core::info("Loading {}!", m_location);
+                file.read(m_data.data(), static_cast<long>(size));
+            }
+        } break;
+        case Source::NETWORK: {
+            curlpp::Easy req;
+            req.setOpt<curlpp::Options::Url>(m_location);
+            req.setOpt<curlpp::Options::WriteFunction>([&](char* ptr, size_t size, size_t nmemb) -> size_t {
+                size_t realSize = size * nmemb;
+                size_t lastSize = m_data.size();
+                m_data.resize(lastSize + realSize);
+                std::memcpy(m_data.data() + lastSize, ptr, realSize);
+                return m_data.size() - lastSize;
+            });
+            log::core::info("Loading {}!", m_location);
+            req.perform();
+        } break;
+        case Source::MEMORY:
+            break;
         }
     }
 
@@ -74,7 +103,8 @@ Asset::Type Asset::getType() const
 
 Asset::~Asset()
 {
-    if (--s_referenceCount[m_filepath.string()] == 0) {
+    if (--s_referenceCount[m_location] == 0) {
+        log::core::info("Unloading {}!", m_location);
         m_data.clear();
     }
 }

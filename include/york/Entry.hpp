@@ -3,6 +3,9 @@
 
 #include <cstdlib>
 
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
 #include <SDL.h>
 
 #include "Application.hpp"
@@ -17,6 +20,7 @@ int main()
     york::Timer timer;
 
     york::log::init();
+    curlpp::initialize();
 
     york::Application* app = york::createApplication();
 
@@ -48,6 +52,7 @@ int main()
 
     delete app;
 
+    curlpp::terminate();
     SDL_Quit();
 
     york::log::core::info("Shutdown took {} seconds!", timer.getTime());

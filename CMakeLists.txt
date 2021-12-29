@@ -18,6 +18,7 @@ else ()
 endif ()
 
 add_subdirectory(libs/spdlog)
+add_subdirectory(libs/curlpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -86,7 +87,7 @@ add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 link_directories($ENV{VULKAN_SDK}/lib)
 link_directories(/usr/local/lib)
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow")
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         spdlog::spdlog
         Vulkan::Vulkan
@@ -100,6 +101,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         SPIRV-Tools-opt
         SPIRV-Tools
         SPIRV-Tools-link
+        curlpp
         ${SDL_DEP})
 
 unset(SDL_BUILDING_LIBRARY)
