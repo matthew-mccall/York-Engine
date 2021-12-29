@@ -82,6 +82,8 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
             });
             log::core::info("Loading {}!", m_location);
             req.perform();
+
+            m_data.push_back('\0');
         } break;
         case Source::MEMORY:
             break;
