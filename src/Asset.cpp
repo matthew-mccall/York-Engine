@@ -1,10 +1,9 @@
-#include <fstream>
 #include <unordered_map>
-#include <algorithm>
 #include <cstring>
 
 #include "curlpp/Easy.hpp"
 #include "curlpp/Options.hpp"
+#include "SDL_rwops.h"
 
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
@@ -60,15 +59,33 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
     if (m_data.empty()) {
         switch (m_source) {
         case Source::FILE: {
-            unsigned long size = m_size == -1 ? std::filesystem::file_size(m_location) : m_size;
-            m_data.resize(size);
-
-            std::ifstream file(m_location, std::ios::binary);
-
-            if (file.is_open()) {
-                log::core::info("Loading {}!", m_location);
-                file.read(m_data.data(), static_cast<long>(size));
+            SDL_RWops* file = SDL_RWFromFile(m_location.c_str(), "rb");
+            if (file == nullptr) {
+                log::core::error(SDL_GetError());
             }
+
+            std::size_t size = m_size == -1 ? SDL_RWsize(file) : m_size;
+            m_data.resize(size);
+            log::core::debug("Loading {}!", m_location);
+
+            if (size < 0) {
+                log::core::error(SDL_GetError());
+            }
+
+            std::size_t totalSizeRead = 0, sizeRead;
+
+            while (totalSizeRead < size) {
+                sizeRead = SDL_RWread(file, m_data.data() + totalSizeRead, sizeof(char), size);
+                totalSizeRead += sizeRead;
+
+                if (sizeRead == 0 && (totalSizeRead != size)) {
+                    log::core::error(SDL_GetError());
+                    break;
+                }
+            }
+
+            SDL_RWclose(file);
+            m_data.push_back('\0');
         } break;
         case Source::NETWORK: {
             curlpp::Easy req;
@@ -80,7 +97,7 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
                 std::memcpy(m_data.data() + lastSize, ptr, realSize);
                 return m_data.size() - lastSize;
             });
-            log::core::info("Loading {}!", m_location);
+            log::core::debug("Loading {}!", m_location);
             req.perform();
 
             m_data.push_back('\0');
@@ -106,7 +123,7 @@ Asset::Type Asset::getType() const
 Asset::~Asset()
 {
     if (--s_referenceCount[m_location] == 0) {
-        log::core::info("Unloading {}!", m_location);
+        log::core::debug("Unloading {}!", m_location);
         m_data.clear();
     }
 }

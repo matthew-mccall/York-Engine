@@ -33,7 +33,8 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagB
     case VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT:
         york::log::core::error(pCallbackData->pMessage);
         break;
-    case VK_DEBUG_UTILS_MESSAGE_SEVERITY_FLAG_BITS_MAX_ENUM_EXT:
+    default:
+        york::log::core::debug(pCallbackData->pMessage);
         break;
     }
 

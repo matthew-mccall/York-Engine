@@ -5,6 +5,7 @@
 #include <memory>
 #include <functional>
 #include <string>
+#include <variant>
 
 #include "Async.hpp"
 

@@ -1,10 +1,6 @@
 #if !defined(YORK_LOG_HPP)
 #define YORK_LOG_HPP
 
-#if defined(NDEBUG)
-#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_ERROR
-#endif
-
 #include <memory>
 
 #include <spdlog/spdlog.h>

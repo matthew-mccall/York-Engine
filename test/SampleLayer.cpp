@@ -21,7 +21,7 @@ void SampleLayer::onAttach()
     york::log::info(license->data());
 
     york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
-    york::log::info(website->data());
+    // york::log::info(website->data());
 
     york::Asset vert { "test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL };
     std::string vertSrc = std::string { vert->data() };

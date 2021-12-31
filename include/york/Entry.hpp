@@ -24,7 +24,7 @@ int main()
 
     york::Application* app = york::createApplication();
 
-    york::log::core::info("Initalization took {} seconds!", timer.getTime());
+    york::log::core::info("Initialization took {} seconds!", timer.getTime());
 
     SDL_Event event;
 

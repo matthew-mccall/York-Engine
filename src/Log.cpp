@@ -4,8 +4,8 @@
 
 namespace {
 
-static std::shared_ptr<spdlog::logger> s_coreLogger;
-static std::shared_ptr<spdlog::logger> s_clientLogger;
+std::shared_ptr<spdlog::logger> s_coreLogger;
+std::shared_ptr<spdlog::logger> s_clientLogger;
 
 } // namespace
 
@@ -14,6 +14,13 @@ namespace york::log {
 void init()
 {
     spdlog::set_pattern("[%T.%f][%n][%^%8l%$][%7t] %v");
+
+#ifdef NDEBUG
+    spdlog::set_level(spdlog::level::err);
+#else
+    spdlog::set_level(spdlog::level::trace);
+#endif
+
     s_coreLogger = spdlog::stdout_color_mt("Engine");
     s_clientLogger = spdlog::stderr_color_mt("Client");
 }
