@@ -7,6 +7,7 @@
 
 #include "york/Graphics/Device.hpp"
 #include "york/Graphics/Instance.hpp"
+#include "york/Graphics/Pipeline.hpp"
 #include "york/Graphics/Shader.hpp"
 #include "york/Graphics/Surface.hpp"
 #include "york/Graphics/SwapChain.hpp"
@@ -28,6 +29,7 @@ private:
     york::graphics::Surface m_surface;
     york::graphics::Device m_device;
     york::graphics::SwapChain m_swapchain;
+    york::graphics::Pipeline m_pipeline;
 };
 
 #endif // YORKTEST_SAMPLELAYER_HPP

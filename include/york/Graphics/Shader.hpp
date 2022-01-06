@@ -37,6 +37,8 @@ public:
     bool createImpl() override;
     void destroyImpl() override;
 
+    [[nodiscard]] Type getType() const;
+
     ~Shader() override;
 
 private:

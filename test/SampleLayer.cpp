@@ -12,6 +12,7 @@ SampleLayer::SampleLayer()
     , m_surface(m_instance, m_window)
     , m_device(m_instance, m_surface)
     , m_swapchain(m_device, m_window, m_surface)
+    , m_pipeline(m_swapchain)
 {
 }
 
@@ -28,6 +29,9 @@ void SampleLayer::onAttach()
 
     york::graphics::Shader shader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
 
+    std::vector<york::graphics::Shader> shaders { shader };
+
+    m_pipeline.setShaders(shaders);
     m_window.create();
 }
 

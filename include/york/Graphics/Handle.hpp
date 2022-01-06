@@ -46,12 +46,12 @@ public:
      */
     void removeDependent(HandleBase& handle);
 
-    void addDependency(HandleBase& handle);
-
     virtual ~HandleBase();
 
 protected:
     virtual bool createImpl() = 0;
+    void addDependency(HandleBase& handle);
+    void removeDependency(HandleBase& handle);
     virtual void destroyImpl() = 0;
 
 private:

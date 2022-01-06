@@ -71,5 +71,17 @@ void SwapChain::destroyImpl()
 {
     m_device->destroy(m_handle);
 }
+const vk::Extent2D& SwapChain::getExtent() const
+{
+    return m_extent;
+}
+Device& SwapChain::getDevice() const
+{
+    return m_device;
+}
+vk::SurfaceFormatKHR SwapChain::getFormat() const
+{
+    return m_surfaceFormat;
+}
 
 }

@@ -15,6 +15,9 @@ namespace york::graphics {
 class SwapChain : public Handle<vk::SwapchainKHR> {
 public:
     SwapChain(Device& device, Window& window, Surface& surface);
+    [[nodiscard]] const vk::Extent2D& getExtent() const;
+    [[nodiscard]] Device& getDevice() const;
+    [[nodiscard]] vk::SurfaceFormatKHR getFormat() const;
 
 private:
     bool createImpl() override;

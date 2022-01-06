@@ -62,6 +62,16 @@ void HandleBase::addDependency(HandleBase& handle)
     m_dependencies.emplace_back(handle);
 }
 
+void HandleBase::removeDependency(HandleBase& handle)
+{
+    handle.removeDependent(*this);
+    for (auto i = m_dependencies.begin(); i != m_dependencies.end(); i++) {
+        if (handle == *i) {
+            m_dependencies.erase(i);
+            break;
+        }
+    }}
+
 HandleBase::~HandleBase()
 {
     for (HandleBase& dependency : m_dependencies) {

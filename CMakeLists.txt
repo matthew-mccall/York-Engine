@@ -53,7 +53,7 @@ set(SRC
         "src/Identifiable.cpp"
         "src/Graphics/Surface.cpp"
         "src/Exit.cpp"
-        "src/SwapChain.cpp"
+        "src/Graphics/SwapChain.cpp"
         "include/york/Event.hpp"
         "include/york/Application.hpp"
         "include/york/York.hpp"
@@ -75,7 +75,7 @@ set(SRC
         "include/york/Identifiable.hpp"
         "include/york/Graphics/Surface.hpp"
         "include/york/Exit.hpp"
-        "include/york/Graphics/SwapChain.hpp")
+        "include/york/Graphics/SwapChain.hpp" src/Graphics/Pipeline.cpp include/york/Graphics/Pipeline.hpp src/Graphics/PipelineLayout.cpp include/york/Graphics/PipelineLayout.hpp include/york/Graphics/RenderPass.cpp include/york/Graphics/RenderPass.hpp)
 
 set(TEST_SRC
         "test/App.cpp"

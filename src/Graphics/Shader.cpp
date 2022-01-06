@@ -136,6 +136,11 @@ Shader::Shader(Device& m_device, std::string glsl, Type type)
     m_ShaderCount++;
 }
 
+Shader::Type Shader::getType() const
+{
+    return m_type;
+}
+
 bool Shader::createImpl()
 {
     EShLanguage lang;
@@ -175,9 +180,8 @@ bool Shader::createImpl()
     program.addShader(&shader);
 
     if (program.link(messages)) {
-        std::vector<unsigned int> spirv;
-        glslang::GlslangToSpv(*(program.getIntermediate(lang)), spirv);
-        vk::ShaderModuleCreateInfo createInfo = { {}, spirv };
+        glslang::GlslangToSpv(*(program.getIntermediate(lang)), m_spirv);
+        vk::ShaderModuleCreateInfo createInfo = { {}, m_spirv };
         m_handle = m_device->createShaderModule(createInfo);
 
         log::core::debug("Compiled shaders!");
