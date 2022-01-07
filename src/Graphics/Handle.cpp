@@ -12,12 +12,13 @@ void HandleBase::create()
         }
     }
 
-    this->createImpl();
-    m_created = true;
+    if (!m_created) {
+        m_created = this->createImpl();
+    }
 
     for (HandleBase& dependent : m_dependents) {
         if (!dependent.isCreated()) {
-            dependent.create();
+                dependent.create();
         }
     }
 }
