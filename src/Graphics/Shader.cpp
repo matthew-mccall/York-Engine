@@ -180,8 +180,9 @@ bool Shader::createImpl()
     program.addShader(&shader);
 
     if (program.link(messages)) {
-        glslang::GlslangToSpv(*(program.getIntermediate(lang)), m_spirv);
-        vk::ShaderModuleCreateInfo createInfo = { {}, m_spirv };
+        std::vector<unsigned int> spirv;
+        glslang::GlslangToSpv(*(program.getIntermediate(lang)), spirv);
+        vk::ShaderModuleCreateInfo createInfo = { {}, spirv };
         m_handle = m_device->createShaderModule(createInfo);
 
         log::core::debug("Compiled shaders!");

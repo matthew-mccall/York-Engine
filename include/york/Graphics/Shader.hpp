@@ -44,7 +44,6 @@ public:
 private:
     Device& m_device;
     Type m_type;
-    std::vector<std::uint32_t> m_spirv;
     std::string m_glsl;
 };
 

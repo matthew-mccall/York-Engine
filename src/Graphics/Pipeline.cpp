@@ -19,23 +19,11 @@ Pipeline::Pipeline(SwapChain& swapChain, std::vector<Shader> shaders)
     addDependency(m_swapChain);
     addDependency(m_renderPass);
     addDependency(m_pipelineLayout);
-
-    for (Shader& shader : m_shaders) {
-        addDependency(shader);
-    }
 }
 
 void Pipeline::setShaders(std::vector<Shader> shaders)
 {
-    for (Shader& shader : m_shaders) {
-        removeDependency(shader);
-    }
-
     m_shaders = std::move(shaders);
-
-    for (Shader& shader : m_shaders) {
-        addDependency(shader);
-    }
 }
 
 bool Pipeline::createImpl()
@@ -46,6 +34,8 @@ bool Pipeline::createImpl()
     vk::ShaderStageFlagBits stage;
     
     for (Shader& shader : m_shaders) {
+
+        shader.create();
 
         switch (shader.getType()) {
         case Shader::Type::Vertex:
@@ -172,9 +162,11 @@ bool Pipeline::createImpl()
         0
     };
 
-    std::array<vk::GraphicsPipelineCreateInfo, 1> graphicsPipelineCreateInfos { graphicsPipelineCreateInfo };
-
     m_handle = m_device->createGraphicsPipeline(VK_NULL_HANDLE, graphicsPipelineCreateInfo).value;
+
+    for (Shader& shader : m_shaders) {
+        shader.destroy();
+    }
 
     return true;
 }
