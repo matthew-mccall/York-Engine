@@ -2,11 +2,11 @@
 // Created by Matthew McCall on 1/6/22.
 //
 
-#include "RenderPass.hpp"
+#include "york/Graphics/RenderPass.hpp"
 
 namespace york::graphics {
 
-RenderPass::RenderPass(SwapChain& swapChain) : m_swapChain(swapChain), m_device(m_swapChain.getDevice())
+RenderPass::RenderPass(SwapChain& swapChain) : m_swapChain(swapChain), m_device(swapChain.getDevice())
 {
     addDependency(m_swapChain);
 }
@@ -53,8 +53,17 @@ bool RenderPass::createImpl()
 
     return true;
 }
+
 void RenderPass::destroyImpl()
 {
     m_device->destroy(m_handle);
+}
+Device& RenderPass::getDevice()
+{
+    return m_device;
+}
+SwapChain& RenderPass::getSwapChain()
+{
+    return m_swapChain;
 }
 }

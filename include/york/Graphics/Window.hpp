@@ -1,5 +1,5 @@
-#if !defined(YORK_GRAPHICS_HPP)
-#define YORK_GRAPHICS_HPP
+#if !defined(YORK_GRAPHICS_WINDOW_HPP)
+#define YORK_GRAPHICS_WINDOW_HPP
 
 #include <string>
 

@@ -9,16 +9,16 @@
 
 namespace york::graphics {
 
-Pipeline::Pipeline(SwapChain& swapChain, std::vector<Shader> shaders)
+Pipeline::Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders)
     : m_shaders(std::move(shaders))
     , m_swapChain(swapChain)
     , m_device(m_swapChain.getDevice())
     , m_pipelineLayout(m_device)
-    , m_renderPass(m_swapChain)
+    , m_renderPass(renderPass)
 {
     addDependency(m_swapChain);
-    addDependency(m_renderPass);
     addDependency(m_pipelineLayout);
+    addDependency(m_renderPass);
 }
 
 void Pipeline::setShaders(std::vector<Shader> shaders)

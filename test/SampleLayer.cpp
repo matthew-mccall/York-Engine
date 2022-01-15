@@ -8,11 +8,7 @@
 
 SampleLayer::SampleLayer()
     : m_window("Test")
-    , m_instance(m_window)
-    , m_surface(m_instance, m_window)
-    , m_device(m_instance, m_surface)
-    , m_swapchain(m_device, m_window, m_surface)
-    , m_pipeline(m_swapchain)
+    , m_renderer(m_window)
 {
 }
 
@@ -24,15 +20,8 @@ void SampleLayer::onAttach()
     york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
     // york::log::info(website->data());
 
-    york::Asset vert { "test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL };
-    std::string vertSrc = std::string { vert->data() };
-
-    york::graphics::Shader shader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
-
-    std::vector<york::graphics::Shader> shaders { shader };
-
-    m_pipeline.setShaders(shaders);
     m_window.create();
+
 }
 
 void SampleLayer::onEvent(york::Event& e)

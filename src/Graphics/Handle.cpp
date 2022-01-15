@@ -2,17 +2,20 @@
 
 namespace york::graphics {
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
+
 void HandleBase::create()
 {
-    this->destroy();
+    this->destroy(); // m_created will be set false here
 
     for (HandleBase& dependency : m_dependencies) {
         if (!dependency.isCreated()) {
-            dependency.create();
+            dependency.create(); // however, this particular handle might be created as part of dependency resolution lower down in the stack
         }
     }
 
-    if (!m_created) {
+    if (!m_created) { // If this is the case, we want to prevent double creation once we move back up the stack
         m_created = this->createImpl();
     }
 
@@ -37,6 +40,9 @@ void HandleBase::destroy()
 
     m_created = false;
 }
+
+#pragma clang diagnostic pop
+
 bool HandleBase::isCreated() const
 {
     return m_created;

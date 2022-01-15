@@ -9,6 +9,7 @@
 
 #include "Device.hpp"
 #include "Handle.hpp"
+#include "ImageView.hpp"
 
 namespace york::graphics {
 
@@ -18,6 +19,7 @@ public:
     [[nodiscard]] const vk::Extent2D& getExtent() const;
     [[nodiscard]] Device& getDevice() const;
     [[nodiscard]] vk::SurfaceFormatKHR getFormat() const;
+    std::vector<ImageView>& getImageViews();
 
 private:
     bool createImpl() override;
@@ -31,6 +33,7 @@ private:
     vk::Extent2D m_extent;
     vk::SurfaceCapabilitiesKHR m_capabilities;
     std::vector<vk::Image> m_swapChainImages;
+    std::vector<ImageView> m_swapChainImageViews;
 };
 
 }

@@ -12,12 +12,13 @@
 #include "RenderPass.hpp"
 #include "Shader.hpp"
 #include "SwapChain.hpp"
+#include "RenderPass.hpp"
 
 namespace york::graphics {
 
 class Pipeline : Handle<vk::Pipeline> {
 public:
-    explicit Pipeline(SwapChain& swapChain, std::vector<Shader> shaders = {});
+    explicit Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders = {});
     void setShaders(std::vector<Shader> shaders);
 
 protected:
@@ -29,7 +30,7 @@ private:
     SwapChain& m_swapChain;
     Device& m_device;
     PipelineLayout m_pipelineLayout;
-    RenderPass m_renderPass;
+    RenderPass& m_renderPass;
 };
 
 }

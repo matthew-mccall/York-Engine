@@ -7,14 +7,16 @@
 
 #include <vulkan/vulkan.hpp>
 
-#include "SwapChain.hpp"
 #include "Handle.hpp"
+#include "SwapChain.hpp"
 
 namespace york::graphics {
 
 class RenderPass : public Handle<vk::RenderPass> {
 public:
     explicit RenderPass(SwapChain& swapChain);
+    Device& getDevice();
+    SwapChain& getSwapChain();
 
 protected:
     bool createImpl() override;
@@ -22,7 +24,7 @@ protected:
 
 private:
     SwapChain& m_swapChain;
-    Device& m_device; // Device may change
+    Device& m_device;
 };
 
 }

@@ -13,6 +13,7 @@
 #include "york/Graphics/SwapChain.hpp"
 #include "york/Graphics/Window.hpp"
 #include "york/Layer.hpp"
+#include "york/Renderer/Renderer.hpp"
 
 class SampleLayer : public york::Layer {
 public:
@@ -25,11 +26,7 @@ public:
 
 private:
     york::graphics::Window m_window;
-    york::graphics::Instance m_instance;
-    york::graphics::Surface m_surface;
-    york::graphics::Device m_device;
-    york::graphics::SwapChain m_swapchain;
-    york::graphics::Pipeline m_pipeline;
+    york::Renderer m_renderer;
 };
 
 #endif // YORKTEST_SAMPLELAYER_HPP
