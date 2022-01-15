@@ -5,13 +5,13 @@
 #ifndef YORKTEST_SAMPLELAYER_HPP
 #define YORKTEST_SAMPLELAYER_HPP
 
-#include "york/Graphics/Device.hpp"
-#include "york/Graphics/Instance.hpp"
-#include "york/Graphics/Pipeline.hpp"
-#include "york/Graphics/Shader.hpp"
-#include "york/Graphics/Surface.hpp"
-#include "york/Graphics/SwapChain.hpp"
-#include "york/Graphics/Window.hpp"
+#include "../src/Graphics/Device.hpp"
+#include "../src/Graphics/Instance.hpp"
+#include "../src/Graphics/Pipeline.hpp"
+#include "../src/Graphics/Shader.hpp"
+#include "../src/Graphics/Surface.hpp"
+#include "../src/Graphics/SwapChain.hpp"
+#include "york/Window.hpp"
 #include "york/Layer.hpp"
 #include "york/Renderer/Renderer.hpp"
 

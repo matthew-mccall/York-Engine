@@ -9,8 +9,8 @@
 
 #include <vulkan/vulkan.hpp>
 
-#include "york/Graphics/RequestableItem.hpp"
-#include "Window.hpp"
+#include "RequestableItem.hpp"
+#include "york/Window.hpp"
 
 namespace york::graphics {
 

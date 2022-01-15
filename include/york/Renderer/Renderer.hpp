@@ -5,9 +5,9 @@
 #ifndef YORK_RENDERER_RENDERER_HPP
 #define YORK_RENDERER_RENDERER_HPP
 
-#include <york/Graphics/Framebuffer.hpp>
-#include <york/Graphics/Window.hpp>
-#include <york/Graphics/Pipeline.hpp>
+#include "../../../src/Graphics/Framebuffer.hpp"
+#include "york/Window.hpp"
+#include "../../../src/Graphics/Pipeline.hpp"
 
 namespace york {
 

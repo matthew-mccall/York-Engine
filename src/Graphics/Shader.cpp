@@ -7,7 +7,7 @@
 
 #include <utility>
 
-#include "york/Graphics/Shader.hpp"
+#include "Shader.hpp"
 #include "york/Log.hpp"
 
 namespace {

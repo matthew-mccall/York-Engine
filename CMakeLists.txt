@@ -43,7 +43,7 @@ set(SRC
         "src/Event.cpp"
         "src/Log.cpp"
         "src/Timer.cpp"
-        "src/Graphics/Window.cpp"
+        "src/Window.cpp"
         "src/Graphics/Handle.cpp"
         "src/Graphics/Instance.cpp"
         "src/Graphics/Device.cpp"
@@ -67,26 +67,26 @@ set(SRC
         "include/york/Timer.hpp"
         "include/york/Entry.hpp"
         "include/york/KeyCodes.hpp"
-        "include/york/Graphics/Instance.hpp"
-        "include/york/Graphics/RequestableItem.hpp"
-        "include/york/Graphics/Handle.hpp"
-        "include/york/Graphics/Window.hpp"
-        "include/york/Graphics/Device.hpp"
-        "include/york/Graphics/PhysicalDevice.hpp"
+        "src/Graphics/Instance.hpp"
+        "src/Graphics/RequestableItem.hpp"
+        "src/Graphics/Handle.hpp"
+        "include/york/Window.hpp"
+        "src/Graphics/Device.hpp"
+        "src/Graphics/PhysicalDevice.hpp"
         "include/york/Log.hpp"
         "include/york/Asset.hpp"
-        "include/york/Graphics/Shader.hpp"
+        "src/Graphics/Shader.hpp"
         "include/york/Layer.hpp"
         "include/york/LayerStack.hpp"
         "include/york/Identifiable.hpp"
-        "include/york/Graphics/Surface.hpp"
+        "src/Graphics/Surface.hpp"
         "include/york/Exit.hpp"
-        "include/york/Graphics/SwapChain.hpp"
-        include/york/Graphics/PipelineLayout.hpp
-        include/york/Graphics/Pipeline.hpp
-        include/york/Graphics/RenderPass.hpp
-        include/york/Graphics/Framebuffer.hpp
-        include/york/Graphics/ImageView.hpp
+        "src/Graphics/SwapChain.hpp"
+        src/Graphics/PipelineLayout.hpp
+        src/Graphics/Pipeline.hpp
+        src/Graphics/RenderPass.hpp
+        src/Graphics/Framebuffer.hpp
+        src/Graphics/ImageView.hpp
         include/york/Renderer/Renderer.hpp)
 
 set(TEST_SRC

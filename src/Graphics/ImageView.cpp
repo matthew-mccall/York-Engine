@@ -2,7 +2,7 @@
 // Created by Matthew McCall on 1/7/22.
 //
 
-#include "york/Graphics/ImageView.hpp"
+#include "ImageView.hpp"
 
 namespace york::graphics {
 

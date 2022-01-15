@@ -2,7 +2,7 @@
 
 #include <utility>
 
-#include "york/Graphics/Window.hpp"
+#include "york/Window.hpp"
 #include "york/Log.hpp"
 
 namespace {
