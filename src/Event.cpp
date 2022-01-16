@@ -16,9 +16,44 @@ std::vector<york::EventHandler*> s_eventHandlers;
 
 namespace york {
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cppcoreguidelines-pro-type-member-init"
+
 Event::Event(SDL_Event e)
 {
     switch (e.type) {
+
+    case SDL_KEYDOWN:
+        m_type = Type::KeyPressed;
+        m_keyCode = static_cast<KeyCode>(e.key.keysym.scancode);
+        break;
+
+    case SDL_KEYUP:
+        m_type = Type::KeyReleased;
+        m_keyCode = static_cast<KeyCode>(e.key.keysym.scancode);
+        break;
+
+    case SDL_MOUSEBUTTONDOWN:
+        m_type = Type::MouseButtonPressed;
+        m_mouseButton = e.button.button;
+        break;
+
+    case SDL_MOUSEBUTTONUP:
+        m_type = Type::MouseButtonReleased;
+        m_mouseButton = e.button.button;
+        break;
+
+    case SDL_MOUSEMOTION:
+        m_type = Type::MouseMoved;
+        m_mouseX = e.motion.x;
+        m_mouseY = e.motion.y;
+        break;
+
+    case SDL_MOUSEWHEEL:
+        m_type = Type::MouseMoved;
+        m_mouseX = e.wheel.x;
+        m_mouseY = e.wheel.y;
+        break;
 
     case SDL_WINDOWEVENT:
 
@@ -26,7 +61,7 @@ Event::Event(SDL_Event e)
 
         case SDL_WINDOWEVENT_CLOSE:
             m_type = Type::WindowClose;
-            m_data = WindowData { e.window.windowID };
+            m_windowID = e.window.windowID;
             break;
 
         default:
@@ -40,33 +75,7 @@ Event::Event(SDL_Event e)
     }
 }
 
-Event::Event(Event::KeyData data, Event::Type type)
-    : m_type(type)
-{
-    assert((m_type == Type::KeyPressed) | (m_type == Type::KeyReleased) | (m_type == Type::KeyTyped));
-    m_data.emplace<0>(data);
-}
-
-Event::Event(Event::MouseButtonData data, Event::Type type)
-    : m_type(type)
-{
-    assert((m_type == Type::MouseButtonPressed) | (m_type == Type::MouseButtonReleased));
-    m_data.emplace<1>(data);
-}
-
-Event::Event(Event::MouseData data, Event::Type type)
-    : m_type(type)
-{
-    assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
-    m_data.emplace<2>(data);
-}
-
-Event::Event(Event::WindowData data, Event::Type type)
-    : m_type(type)
-{
-    assert((m_type == Type::WindowClose) | (m_type == Type::WindowFocus) | (m_type == Type::WindowLostFocus) | (m_type == Type::WindowMoved) | (m_type == Type::WindowResize));
-    m_data.emplace<3>(data);
-}
+#pragma clang diagnostic pop
 
 Event::Type Event::getType() const
 {
@@ -76,36 +85,31 @@ Event::Type Event::getType() const
 KeyCode Event::getKeyCode() const
 {
     assert((m_type == Type::KeyPressed) | (m_type == Type::KeyReleased) | (m_type == Type::KeyTyped));
-    assert(std::holds_alternative<KeyData>(m_data));
-    return std::get<KeyData>(m_data).m_keyCode;
+    return m_keyCode;
 }
 
 unsigned Event::getMouseButton() const
 {
     assert((m_type == Type::MouseButtonPressed) | (m_type == Type::MouseButtonReleased));
-    assert(std::holds_alternative<MouseButtonData>(m_data));
-    return std::get<MouseButtonData>(m_data).m_mouseButton;
+    return m_mouseButton;
 }
 
 unsigned Event::getMouseX() const
 {
     assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
-    assert(std::holds_alternative<MouseData>(m_data));
-    return std::get<MouseData>(m_data).m_mouseX;
+    return m_mouseX;
 }
 
 unsigned Event::getMouseY() const
 {
     assert((m_type == Type::MouseMoved) | (m_type == Type::MouseScrolled));
-    assert(std::holds_alternative<MouseData>(m_data));
-    return std::get<MouseData>(m_data).m_mouseY;
+    return m_mouseY;
 }
 
 unsigned Event::getWindowID() const
 {
     assert((m_type == Type::WindowClose) | (m_type == Type::WindowFocus) | (m_type == Type::WindowLostFocus) | (m_type == Type::WindowMoved) | (m_type == Type::WindowResize));
-    assert(std::holds_alternative<WindowData>(m_data));
-    return std::get<WindowData>(m_data).m_windowID;
+    return m_windowID;
 }
 
 EventHandler::EventHandler()

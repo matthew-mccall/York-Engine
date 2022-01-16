@@ -1,8 +1,6 @@
 #if !defined(YORK_EVENT_HPP)
 #define YORK_EVENT_HPP
 
-#include <variant>
-
 #include <SDL_events.h>
 
 #include "KeyCodes.hpp"
@@ -29,28 +27,10 @@ struct Event {
         ControllerButtonReleased
     };
 
-    struct KeyData {
-        KeyCode m_keyCode;
-    };
 
-    struct MouseButtonData {
-        unsigned m_mouseButton;
-    };
-
-    struct MouseData {
-        unsigned m_mouseX, m_mouseY;
-    };
-
-    struct WindowData {
-        unsigned m_windowID;
-    };
 
     Event() = delete;
     explicit Event(SDL_Event e);
-    explicit Event(KeyData data, Type type);
-    explicit Event(MouseButtonData data, Type type);
-    explicit Event(MouseData data, Type type);
-    explicit Event(WindowData data, Type type);
 
     [[nodiscard]] Type getType() const;
     [[nodiscard]] KeyCode getKeyCode() const;
@@ -60,11 +40,15 @@ struct Event {
     [[nodiscard]] unsigned getWindowID() const;
 
     Type m_type;
-    std::variant<KeyData, MouseButtonData, MouseData, WindowData> m_data;
+    union {
+        struct { KeyCode m_keyCode; };
+        struct { unsigned m_mouseButton; };
+        struct { int m_mouseX, m_mouseY; };
+        struct { unsigned m_windowID; };
+    };
 };
 
 void pushEvent(SDL_Event e);
-void pushEvent(const Event& e);
 void dispatchEvents();
 
 class EventHandler {
