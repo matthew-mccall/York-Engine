@@ -6,10 +6,10 @@
 #include <array>
 #include <vector>
 
-#include "Device.hpp"
+#include "york/Graphics/Device.hpp"
 #include "york/Log.hpp"
 
-#include "PhysicalDevice.hpp"
+#include "york/Graphics/PhysicalDevice.hpp"
 
 namespace york::graphics {
 

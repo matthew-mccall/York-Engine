@@ -2,7 +2,7 @@
 // Created by Matthew McCall on 1/3/22.
 //
 
-#include "Pipeline.hpp"
+#include "york/Graphics/Pipeline.hpp"
 
 #include <array>
 #include <utility>

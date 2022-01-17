@@ -5,7 +5,7 @@
 
 #include <SDL_video.h>
 
-#include "../../src/Graphics/Handle.hpp"
+#include "york/Graphics/Handle.hpp"
 
 namespace york::graphics {
 

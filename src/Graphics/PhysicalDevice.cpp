@@ -7,7 +7,7 @@
 
 #include <SDL_vulkan.h>
 
-#include "PhysicalDevice.hpp"
+#include "york/Graphics/PhysicalDevice.hpp"
 #include "york/Log.hpp"
 
 namespace york::graphics {

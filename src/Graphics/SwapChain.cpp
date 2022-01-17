@@ -5,7 +5,7 @@
 #include <array>
 #include <cstdint>
 
-#include "SwapChain.hpp"
+#include "york/Graphics/SwapChain.hpp"
 
 namespace york::graphics {
 

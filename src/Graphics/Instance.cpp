@@ -3,7 +3,7 @@
 
 #include <SDL_vulkan.h>
 
-#include "Instance.hpp"
+#include "york/Graphics/Instance.hpp"
 #include "york/Log.hpp"
 
 #ifdef NDEBUG

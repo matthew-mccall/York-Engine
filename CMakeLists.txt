@@ -67,27 +67,27 @@ set(SRC
         "include/york/Timer.hpp"
         "include/york/Entry.hpp"
         "include/york/KeyCodes.hpp"
-        "src/Graphics/Instance.hpp"
-        "src/Graphics/RequestableItem.hpp"
-        "src/Graphics/Handle.hpp"
+        "include/york/Graphics/Instance.hpp"
+        "include/york/Graphics/RequestableItem.hpp"
+        "include/york/Graphics/Handle.hpp"
         "include/york/Window.hpp"
-        "src/Graphics/Device.hpp"
-        "src/Graphics/PhysicalDevice.hpp"
+        "include/york/Graphics/Device.hpp"
+        "include/york/Graphics/PhysicalDevice.hpp"
         "include/york/Log.hpp"
         "include/york/Asset.hpp"
-        "src/Graphics/Shader.hpp"
+        "include/york/Graphics/Shader.hpp"
         "include/york/Layer.hpp"
         "include/york/LayerStack.hpp"
         "include/york/Identifiable.hpp"
-        "src/Graphics/Surface.hpp"
+        "include/york/Graphics/Surface.hpp"
         "include/york/Exit.hpp"
-        "src/Graphics/SwapChain.hpp"
-        src/Graphics/PipelineLayout.hpp
-        src/Graphics/Pipeline.hpp
-        src/Graphics/RenderPass.hpp
-        src/Graphics/Framebuffer.hpp
-        src/Graphics/ImageView.hpp
-        include/york/Renderer/Renderer.hpp)
+        "include/york/Graphics/SwapChain.hpp"
+        include/york/Graphics/PipelineLayout.hpp
+        include/york/Graphics/Pipeline.hpp
+        include/york/Graphics/RenderPass.hpp
+        include/york/Graphics/Framebuffer.hpp
+        include/york/Graphics/ImageView.hpp
+        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp)
 
 set(TEST_SRC
         "test/App.cpp"

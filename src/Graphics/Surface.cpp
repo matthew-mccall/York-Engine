@@ -4,7 +4,7 @@
 
 #include <SDL_vulkan.h>
 
-#include "Surface.hpp"
+#include "york/Graphics/Surface.hpp"
 #include "york/Log.hpp"
 
 namespace york::graphics {
