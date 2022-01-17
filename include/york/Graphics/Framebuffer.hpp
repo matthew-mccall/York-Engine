@@ -23,8 +23,8 @@ protected:
 
 private:
     RenderPass& m_renderPass;
-    Device& m_device;
     ImageView& m_imageView;
+    Device& m_device;
 };
 
 }

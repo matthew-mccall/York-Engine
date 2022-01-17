@@ -24,6 +24,9 @@ Renderer::Renderer(graphics::Window& window)
     , m_renderFinishedSemaphore(m_device)
 {
     addDependency(m_window);
+    addDependency(m_swapchain);
+    addDependency(m_renderPass);
+    addDependency(m_commandPool);
     // addDependency(m_instance);
     // addDependency(m_surface);
     // addDependency(m_device);
@@ -45,6 +48,7 @@ bool Renderer::createImpl()
 {
     for (york::graphics::ImageView& imageView : m_swapchain.getImageViews()) {
         m_framebuffers.emplace_back(m_renderPass, imageView);
+        m_framebuffers.back().create(); // TODO: Remove when command buffers are being recorded every frame
     }
 
     vk::CommandBufferAllocateInfo commandBufferAllocateInfo {*m_commandPool, vk::CommandBufferLevel::ePrimary, static_cast<uint32_t>(m_framebuffers.size()) };
@@ -83,7 +87,7 @@ void Renderer::draw()
 void Renderer::destroyImpl()
 {
     for (york::graphics::Framebuffer& framebuffer: m_framebuffers) {
-        // framebuffer.destroy();
+        framebuffer.destroy();
     }
     m_framebuffers.clear();
 }

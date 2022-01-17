@@ -11,7 +11,7 @@ ImageView::ImageView(Device& device, vk::Format format, vk::Image image)
     , m_format(format)
     , m_image(image)
 {
-    // addDependency(m_device);
+    addDependency(m_device);
 }
 
 bool ImageView::createImpl()

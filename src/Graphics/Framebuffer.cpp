@@ -8,10 +8,11 @@ namespace york::graphics {
 
 Framebuffer::Framebuffer(RenderPass& renderPass, ImageView& imageView)
     : m_renderPass(renderPass)
-    , m_device(m_renderPass.getDevice())
     , m_imageView(imageView)
+    , m_device(m_renderPass.getDevice())
 {
     addDependency(m_renderPass);
+    addDependency(m_imageView);
 }
 
 bool Framebuffer::createImpl()

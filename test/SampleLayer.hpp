@@ -23,6 +23,7 @@ public:
     void onEvent(york::Event& e) override;
     void onUpdate(float deltaTime) override;
     void onDetach() override;
+    void onRender() override;
 
 private:
     york::graphics::Window m_window;

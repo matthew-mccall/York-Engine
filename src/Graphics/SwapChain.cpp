@@ -64,6 +64,10 @@ bool SwapChain::createImpl()
     m_handle = m_device->createSwapchainKHR(createInfo);
     m_swapChainImages = m_device->getSwapchainImagesKHR(m_handle);
 
+    for (vk::Image image : m_swapChainImages) {
+        m_swapChainImageViews.emplace_back(m_device, m_surfaceFormat.format, image);
+    }
+
     return true;
 }
 

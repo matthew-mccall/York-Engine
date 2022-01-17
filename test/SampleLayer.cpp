@@ -20,7 +20,7 @@ void SampleLayer::onAttach()
     york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
     // york::log::info(website->data());
 
-    m_window.create();
+    m_renderer.create();
 
 }
 
@@ -40,4 +40,9 @@ void SampleLayer::onUpdate(float deltaTime)
 void SampleLayer::onDetach()
 {
     m_window.destroy();
+}
+
+void SampleLayer::onRender()
+{
+    m_renderer.draw();
 }
