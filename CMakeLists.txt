@@ -17,7 +17,7 @@ else ()
     set(SDL_DEP PkgConfig::SDL)
 endif ()
 
-add_subdirectory(libs/spdlog)
+add_subdirectory(libs/fmt)
 add_subdirectory(libs/curlpp)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -101,7 +101,7 @@ link_directories(/usr/local/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
-        spdlog::spdlog
+        fmt::fmt
         Vulkan::Vulkan
         glslang
         SPIRV

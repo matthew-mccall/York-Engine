@@ -4,3 +4,6 @@
 [submodule "libs/curlpp"]
 	path = libs/curlpp
 	url = https://github.com/jpbarrette/curlpp.git
+[submodule "libs/fmt"]
+	path = libs/fmt
+	url = https://github.com/fmtlib/fmt.git
