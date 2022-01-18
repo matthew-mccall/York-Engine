@@ -23,7 +23,7 @@ bool Surface::createImpl()
     VkInstance instance = *m_instance;
 
     if (!SDL_Vulkan_CreateSurface(m_window.getHandle(), instance, &surface)) {
-        york::log::core::error(SDL_GetError());
+        YORK_CORE_ERROR(SDL_GetError());
         return false;
     }
 

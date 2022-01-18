@@ -1,38 +1,28 @@
-#include <york/Log.hpp>
+//
+// Created by Matthew McCall on 1/17/22.
+//
 
-#include <spdlog/sinks/stdout_color_sinks.h>
+#include "york/Log.hpp"
 
-namespace {
+#include <SDL_timer.h>
 
-std::shared_ptr<spdlog::logger> s_coreLogger;
-std::shared_ptr<spdlog::logger> s_clientLogger;
-
-} // namespace
+#include <sstream>
+#include <thread>
 
 namespace york::log {
 
-void init()
+void commonEngine()
 {
-    spdlog::set_pattern("[%T.%f][%n][%^%8l%$][%7t] %v");
-
-#ifdef NDEBUG
-    spdlog::set_level(spdlog::level::err);
-#else
-    spdlog::set_level(spdlog::level::trace);
-#endif
-
-    s_coreLogger = spdlog::stdout_color_mt("Engine");
-    s_clientLogger = spdlog::stderr_color_mt("Client");
+    std::stringstream ss;
+    ss << std::this_thread::get_id();
+    fmt::print("[{:>12}][{:>12}][Engine][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
 }
 
-std::shared_ptr<spdlog::logger> getCoreLogger()
+void commonClient()
 {
-    return s_coreLogger;
+    std::stringstream ss;
+    ss << std::this_thread::get_id();
+    fmt::print("[{:>12}][{:>12}][Client][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
 }
 
-std::shared_ptr<spdlog::logger> getClientLogger()
-{
-    return s_clientLogger;
 }
-
-} // namespace york::log

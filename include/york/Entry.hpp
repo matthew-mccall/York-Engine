@@ -19,7 +19,6 @@ int main()
 {
     york::Timer timer;
 
-    york::log::init();
     curlpp::initialize();
 
     york::Application* app = york::createApplication();

@@ -41,7 +41,6 @@ set(SRC
         "src/Asset.cpp"
         "src/Async.cpp"
         "src/Event.cpp"
-        "src/Log.cpp"
         "src/Timer.cpp"
         "src/Window.cpp"
         "src/Graphics/Handle.cpp"
@@ -87,7 +86,7 @@ set(SRC
         include/york/Graphics/RenderPass.hpp
         include/york/Graphics/Framebuffer.hpp
         include/york/Graphics/ImageView.hpp
-        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp)
+        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp)
 
 set(TEST_SRC
         "test/App.cpp"
