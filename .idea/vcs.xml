@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/curlpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/fmt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/taskflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/xerces-c" vcs="Git" />
+  </component>
+</project>
