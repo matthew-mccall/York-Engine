@@ -15,14 +15,14 @@ void commonEngine()
 {
     std::stringstream ss;
     ss << std::this_thread::get_id();
-    fmt::print("[{:>12}][{:>12}][Engine][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
+    fmt::print("[{:>12.3f}][{:>12}][Engine][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
 }
 
 void commonClient()
 {
     std::stringstream ss;
     ss << std::this_thread::get_id();
-    fmt::print("[{:>12}][{:>12}][Client][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
+    fmt::print("[{:>12.3f}][{:>12}][Client][", static_cast<float>(SDL_GetTicks64()) / 1000.0f, ss.str());
 }
 
 }
