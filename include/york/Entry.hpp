@@ -20,6 +20,11 @@ int main()
 {
     york::Timer timer;
 
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        YORK_CORE_ERROR(SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
     try {
         xercesc::XMLPlatformUtils::Initialize();
     }

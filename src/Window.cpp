@@ -3,11 +3,6 @@
 #include <utility>
 
 #include "york/Window.hpp"
-#include "york/Log.hpp"
-
-namespace {
-bool s_windowInit = false;
-} // namespace
 
 namespace york::graphics {
 
@@ -16,14 +11,6 @@ Window::Window(std::string name, unsigned width, unsigned height)
     , m_width(width)
     , m_height(height)
 {
-    if (!s_windowInit) {
-        if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-            log::core::error(SDL_GetError());
-            return;
-        }
-
-        s_windowInit = true;
-    }
 }
 
 bool Window::createImpl()
