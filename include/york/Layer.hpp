@@ -34,7 +34,15 @@ public:
      */
     virtual void onDetach() { }
 
+    [[nodiscard]] bool getExit() const;
+
     virtual ~Layer() = default;
+
+protected:
+    void requestExit();
+
+private:
+    bool m_exit = false;
 };
 
 }

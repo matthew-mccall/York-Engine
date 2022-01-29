@@ -1,6 +1,8 @@
 #if !defined(YORK_EVENT_HPP)
 #define YORK_EVENT_HPP
 
+#include <vector>
+
 #include <SDL_events.h>
 
 #include "KeyCodes.hpp"
@@ -27,8 +29,6 @@ struct Event {
         ControllerButtonReleased
     };
 
-
-
     Event() = delete;
     explicit Event(SDL_Event e);
 
@@ -49,18 +49,14 @@ struct Event {
 };
 
 void pushEvent(SDL_Event e);
-void dispatchEvents();
 
 class EventHandler {
-    friend void dispatchEvents();
-
 public:
-    EventHandler();
-    ~EventHandler();
-
-protected:
     virtual void onEvent(Event& e) = 0;
+    virtual ~EventHandler() = default;
 };
+
+void dispatchEvents(std::vector<std::reference_wrapper<EventHandler>>& handlers);
 
 } // namespace york
 

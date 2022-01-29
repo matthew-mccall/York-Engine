@@ -1,11 +1,9 @@
 #if !defined(YORK_YORK_HPP)
 #define YORK_YORK_HPP
 
-#include "Application.hpp"
 #include "Asset.hpp"
 #include "Async.hpp"
 #include "Event.hpp"
-#include "Exit.hpp"
 #include "Log.hpp"
 #include "Timer.hpp"
 

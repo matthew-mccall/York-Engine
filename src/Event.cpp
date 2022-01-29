@@ -10,7 +10,6 @@
 namespace {
 
 std::queue<york::Event> s_eventQueue;
-std::vector<york::EventHandler*> s_eventHandlers;
 
 } // namespace
 
@@ -112,21 +111,6 @@ unsigned Event::getWindowID() const
     return m_windowID;
 }
 
-EventHandler::EventHandler()
-{
-    s_eventHandlers.push_back(this);
-}
-
-EventHandler::~EventHandler()
-{
-    for (auto i = s_eventHandlers.begin(); i != s_eventHandlers.end(); i++) {
-        if (this == *i) {
-            s_eventHandlers.erase(i);
-            break;
-        }
-    }
-}
-
 void pushEvent(SDL_Event e)
 {
     s_eventQueue.emplace(e);
@@ -137,11 +121,11 @@ void pushEvent(const Event& e)
     s_eventQueue.push(e);
 }
 
-void dispatchEvents()
+void dispatchEvents(std::vector<std::reference_wrapper<EventHandler>>& handlers)
 {
     while (!s_eventQueue.empty()) {
-        for (EventHandler* handler : s_eventHandlers) {
-            handler->onEvent(s_eventQueue.front());
+        for (EventHandler& handler : handlers) {
+            handler.onEvent(s_eventQueue.front());
         }
         s_eventQueue.pop();
     }

@@ -45,7 +45,6 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
 endif ()
 
 set(SRC
-        "src/Application.cpp"
         "src/Asset.cpp"
         "src/Async.cpp"
         "src/Event.cpp"
@@ -59,7 +58,6 @@ set(SRC
         "src/LayerStack.cpp"
         "src/Identifiable.cpp"
         "src/Graphics/Surface.cpp"
-        "src/Exit.cpp"
         "src/Graphics/SwapChain.cpp"
         src/Graphics/Pipeline.cpp
         src/Graphics/PipelineLayout.cpp
@@ -68,11 +66,9 @@ set(SRC
         src/Graphics/ImageView.cpp
         src/Renderer/Renderer.cpp
         "include/york/Event.hpp"
-        "include/york/Application.hpp"
         "include/york/York.hpp"
         "include/york/Async.hpp"
         "include/york/Timer.hpp"
-        "include/york/Entry.hpp"
         "include/york/KeyCodes.hpp"
         "include/york/Graphics/Instance.hpp"
         "include/york/Graphics/RequestableItem.hpp"
@@ -94,12 +90,13 @@ set(SRC
         include/york/Graphics/RenderPass.hpp
         include/york/Graphics/Framebuffer.hpp
         include/york/Graphics/ImageView.hpp
-        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp)
+        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp src/Layer.cpp)
+
+set(RUNTIME_SRC
+        runtime/Runtime.cpp runtime/LayerLoader.cpp runtime/LayerLoader.hpp)
 
 set(TEST_SRC
-        "test/App.cpp"
-        "test/SampleLayer.cpp"
-        "test/SampleLayer.hpp")
+        "test/SampleLayer.cpp")
 
 add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 
@@ -127,5 +124,10 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 
 unset(SDL_BUILDING_LIBRARY)
 
-add_executable(YorkTest ${TEST_SRC})
+add_library(YorkTest SHARED ${TEST_SRC})
 target_link_libraries(YorkTest PUBLIC ${PROJECT_NAME})
+
+add_executable(YorkRuntime ${RUNTIME_SRC})
+target_link_libraries(YorkRuntime PUBLIC ${PROJECT_NAME})
+
+file(COPY shaders DESTINATION .)

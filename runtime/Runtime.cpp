@@ -1,20 +1,19 @@
-#if !defined(YORK_ENTRY_HPP)
-#define YORK_ENTRY_HPP
-
 #include <cstdlib>
+#include <vector>
 
-#include <curlpp/cURLpp.hpp>
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
 #include <SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
 
-#include "Application.hpp"
-#include "Async.hpp"
-#include "Event.hpp"
-#include "Exit.hpp"
-#include "Log.hpp"
-#include "Timer.hpp"
+#include "curlpp/cURLpp.hpp"
+
+#include "york/Async.hpp"
+#include "york/Event.hpp"
+#include "york/Exit.hpp"
+#include "york/LayerStack.hpp"
+#include "york/Log.hpp"
+#include "york/Timer.hpp"
+
+#include "LayerLoader.hpp"
 
 int main()
 {
@@ -33,9 +32,14 @@ int main()
         return EXIT_FAILURE;
     }
 
-    curlpp::initialize();
+    york::LayerStack layerStack;
+    std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
-    york::Application* app = york::createApplication();
+    LayerLoader newlayer { "libYorkTest.dylib" };
+    layerStack.pushLayer(*newlayer);
+    eventHandlers.emplace_back(*newlayer);
+
+    curlpp::initialize();
 
     YORK_CORE_INFO("Initialization took {} seconds!", timer.getTime());
 
@@ -44,14 +48,13 @@ int main()
     timer.reset();
 
     try {
-        while (!york::getExit()) {
+        while (!newlayer->getExit()) {
             while (SDL_PollEvent(&event)) {
                 york::pushEvent(event);
+                york::dispatchEvents(eventHandlers);
             }
 
-            york::dispatchEvents();
-
-            for (york::Layer& layer : app->getLayerStack()) {
+            for (york::Layer& layer : layerStack) {
                 layer.onUpdate(timer.reset().getTime());
             }
         }
@@ -59,9 +62,9 @@ int main()
         YORK_CORE_CRITICAL(e.what());
     }
 
-    york::async::getExecutor().wait_for_all();
+    layerStack.popLayer(*newlayer);
 
-    delete app;
+    york::async::getExecutor().wait_for_all();
 
     xercesc::XMLPlatformUtils::Terminate();
     curlpp::terminate();
@@ -70,5 +73,3 @@ int main()
     YORK_CORE_INFO("Shutdown successfully!");
     return EXIT_SUCCESS;
 }
-
-#endif // YORK_ENTRY_HPP
