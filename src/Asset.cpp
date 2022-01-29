@@ -54,7 +54,7 @@ Asset::Asset(const std::string& location, Type type, Source source)
     s_referenceCount[m_location]++;
 }
 
-std::reference_wrapper<std::vector<char>> Asset::getData()
+std::optional<std::reference_wrapper<std::vector<char>>> Asset::getData()
 {
     if (m_data.empty()) {
         switch (m_source) {
@@ -62,6 +62,8 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
             SDL_RWops* file = SDL_RWFromFile(m_location.c_str(), "rb");
             if (file == nullptr) {
                 log::core::error(SDL_GetError());
+                m_data.clear();
+                return std::nullopt;
             }
 
             std::size_t size = m_size == -1 ? SDL_RWsize(file) : m_size;
@@ -70,6 +72,9 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
 
             if (size < 0) {
                 log::core::error(SDL_GetError());
+                SDL_RWclose(file);
+                m_data.clear();
+                return std::nullopt;
             }
 
             std::size_t totalSizeRead = 0, sizeRead;
@@ -80,7 +85,9 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
 
                 if (sizeRead == 0 && (totalSizeRead != size)) {
                     log::core::error(SDL_GetError());
-                    break;
+                    SDL_RWclose(file);
+                    m_data.clear();
+                    return std::nullopt;
                 }
             }
 
@@ -110,11 +117,6 @@ std::reference_wrapper<std::vector<char>> Asset::getData()
     return m_data;
 }
 
-std::reference_wrapper<std::vector<char>> Asset::getDataStatic(Asset asset)
-{
-    return asset.getData();
-}
-
 Asset::Type Asset::getType() const
 {
     return m_type;
@@ -130,10 +132,10 @@ Asset::~Asset()
 
 char& Asset::operator[](std::size_t idx)
 {
-    return (**this)[idx];
+    return (***this).get()[idx];
 }
 
-std::vector<char>& Asset::operator*()
+std::optional<std::reference_wrapper<std::vector<char>>> Asset::operator*()
 {
     return getData();
 }

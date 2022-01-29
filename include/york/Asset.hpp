@@ -1,7 +1,7 @@
 #if !defined(YORK_ASSET_HPP)
 #define YORK_ASSET_HPP
 
-#include <filesystem>
+#include <optional>
 #include <memory>
 #include <functional>
 #include <string>
@@ -51,10 +51,9 @@ public:
      */
     explicit Asset(const std::string& location, Type type = Type::AUTO, Source source = Source::FILE);
     [[nodiscard]] Type getType() const;
-    std::reference_wrapper<std::vector<char>> getData();
-    static std::reference_wrapper<std::vector<char>> getDataStatic(Asset asset);
+    std::optional<std::reference_wrapper<std::vector<char>>> getData();
 
-    std::vector<char>& operator*();
+    std::optional<std::reference_wrapper<std::vector<char>>> operator*();
     std::vector<char>* operator->();
 
     char& operator[](std::size_t idx);

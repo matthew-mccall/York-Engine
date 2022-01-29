@@ -15,7 +15,12 @@ SampleLayer::SampleLayer()
 void SampleLayer::onAttach()
 {
     york::Asset license { "LICENSE", york::Asset::Type::UTF8 };
-    YORK_INFO(license->data());
+
+    if (license->empty()) {
+        YORK_ERROR("Failed to load license!");
+    } else {
+        YORK_INFO(license->data());
+    }
 
     york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
     // york::log::info(website->data());

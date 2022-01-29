@@ -32,10 +32,24 @@ Renderer::Renderer(graphics::Window& window)
     // addDependency(m_device);
 
     york::Asset vert { "test/assets/shader.vert", york::Asset::Type::SHADER_VERT_GLSL };
+    vert.getData();
+
+    if (vert->empty()) {
+        YORK_CORE_ERROR("Failed to load vertex shader!");
+        return;
+    }
+
     std::string vertSrc = std::string { vert->data() };
     york::graphics::Shader vertShader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
 
     york::Asset frag { "test/assets/shader.frag", york::Asset::Type::SHADER_VERT_GLSL };
+    frag.getData();
+
+    if (frag->empty()) {
+        YORK_CORE_ERROR("Failed to load fragment shader!");
+        return;
+    }
+
     std::string fragSrc = std::string { frag->data() };
     york::graphics::Shader fragShader { m_device, fragSrc, york::graphics::Shader::Type::Fragment };
 

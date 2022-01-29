@@ -96,6 +96,7 @@ set(TEST_SRC
 add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 
 link_directories($ENV{VULKAN_SDK}/lib)
+link_directories($ENV{LD_LIBRARY_PATH})
 link_directories(/usr/local/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
