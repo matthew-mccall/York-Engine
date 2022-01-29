@@ -54,8 +54,6 @@ int main()
         YORK_CORE_CRITICAL(e.what());
     }
 
-    timer.reset();
-
     york::async::getExecutor().wait_for_all();
 
     delete app;
@@ -64,7 +62,7 @@ int main()
     curlpp::terminate();
     SDL_Quit();
 
-    YORK_CORE_INFO("Shutdown took {} seconds!", timer.getTime());
+    YORK_CORE_INFO("Shutdown successfully!");
     return EXIT_SUCCESS;
 }
 

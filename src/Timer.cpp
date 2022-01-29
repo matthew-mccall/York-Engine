@@ -1,3 +1,5 @@
+#include <SDL_timer.h>
+
 #include <york/Timer.hpp>
 
 namespace york {
@@ -9,13 +11,13 @@ Timer::Timer()
 
 Timer& Timer::reset()
 {
-    m_startTime = std::chrono::steady_clock::now();
+    m_startTime = SDL_GetTicks64();
     return *this;
 }
 
-float Timer::getTime()
+float Timer::getTime() const
 {
-    return std::chrono::duration<float>(std::chrono::steady_clock::now() - m_startTime).count();
+    return static_cast<float >((SDL_GetTicks64() - m_startTime)) / 1000.0f;
 }
 
 } // namespace york

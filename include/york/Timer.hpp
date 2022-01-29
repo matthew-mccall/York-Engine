@@ -7,11 +7,11 @@ namespace york {
 
 class Timer {
 private:
-    std::chrono::steady_clock::time_point m_startTime;
+    std::uint64_t m_startTime;
 
 public:
     Timer();
-    float getTime();
+    [[nodiscard]] float getTime() const;
     Timer& reset();
 };
 
