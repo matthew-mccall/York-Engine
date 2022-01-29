@@ -4,9 +4,10 @@ project(YorkEngine)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(PkgConfig)
 find_package(Vulkan REQUIRED)
+find_package(PkgConfig)
 find_package(SDL)
+find_package(XercesC)
 
 set(SDL_BUILDING_LIBRARY)
 
@@ -15,6 +16,13 @@ if (SDL_FOUND)
 else ()
     pkg_check_modules(SDL IMPORTED_TARGET sdl2)
     set(SDL_DEP PkgConfig::SDL)
+endif ()
+
+if (XercesC_FOUND)
+    set(XML_DEP XercesC::XercesC)
+else ()
+    add_subdirectory(libs/xerces-c)
+    set(XML_DEP xerces-c)
 endif ()
 
 add_subdirectory(libs/fmt)
@@ -103,6 +111,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include
 target_link_libraries(${PROJECT_NAME} PUBLIC
         fmt::fmt
         Vulkan::Vulkan
+        ${SDL_DEP}
+        ${XML_DEP}
         glslang
         SPIRV
         SPVRemapper
@@ -113,8 +123,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         SPIRV-Tools-opt
         SPIRV-Tools
         SPIRV-Tools-link
-        curlpp
-        ${SDL_DEP})
+        curlpp)
 
 unset(SDL_BUILDING_LIBRARY)
 

@@ -31,7 +31,7 @@ public:
         SHADER_GEOM_SPIRV,
         SHADER_COMP_GLSL,
         SHADER_COMP_SPIRV,
-        TOML,
+        XML,
         UTF8,
         RAW,
         AUTO

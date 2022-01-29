@@ -7,6 +7,7 @@
 #include <curlpp/Easy.hpp>
 #include <curlpp/Options.hpp>
 #include <SDL.h>
+#include <xercesc/util/PlatformUtils.hpp>
 
 #include "Application.hpp"
 #include "Async.hpp"
@@ -19,11 +20,19 @@ int main()
 {
     york::Timer timer;
 
+    try {
+        xercesc::XMLPlatformUtils::Initialize();
+    }
+    catch (const xercesc::XMLException& e) {
+        YORK_CORE_CRITICAL("Failed to load XML library!")
+        return EXIT_FAILURE;
+    }
+
     curlpp::initialize();
 
     york::Application* app = york::createApplication();
 
-    york::log::core::info("Initialization took {} seconds!", timer.getTime());
+    YORK_CORE_INFO("Initialization took {} seconds!", timer.getTime());
 
     SDL_Event event;
 
@@ -42,7 +51,7 @@ int main()
             }
         }
     } catch (std::exception& e) {
-        york::log::core::critical(e.what());
+        YORK_CORE_CRITICAL(e.what());
     }
 
     timer.reset();
@@ -51,10 +60,11 @@ int main()
 
     delete app;
 
+    xercesc::XMLPlatformUtils::Terminate();
     curlpp::terminate();
     SDL_Quit();
 
-    york::log::core::info("Shutdown took {} seconds!", timer.getTime());
+    YORK_CORE_INFO("Shutdown took {} seconds!", timer.getTime());
     return EXIT_SUCCESS;
 }
 

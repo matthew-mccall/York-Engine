@@ -35,6 +35,8 @@ Asset::Asset(const std::string& location, Type type, Source source)
 
             if (extension == "txt") {
                 m_type = Type::UTF8;
+            } else if (extension == "xml") {
+                m_type = Type::XML;
             } else if (extension == "vert") {
                 m_type = Type::SHADER_VERT_GLSL;
             } else if (extension == "frag") {
