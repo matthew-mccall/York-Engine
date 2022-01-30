@@ -1,0 +1,14 @@
+#if !defined(YORK_CONFIG_HPP)
+#define YORK_CONFIG_HPP
+
+#include <cstdint>
+
+namespace york {
+    constexpr std::uint32_t VERSION_MAJOR = @YorkEngine_VERSION_MAJOR@;
+    constexpr std::uint32_t VERSION_MINOR = @YorkEngine_VERSION_MINOR@;
+    constexpr std::uint32_t VERSION_PATCH = @YorkEngine_VERSION_PATCH@;
+}
+
+#define YORK_PLATFORM "@CMAKE_SYSTEM_NAME@"
+
+#endif

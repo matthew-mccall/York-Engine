@@ -5,11 +5,23 @@
 #include <SDL_loadso.h>
 
 #include "york/Log.hpp"
+#include "york/Config.hpp"
 
 #include "LayerLoader.hpp"
 
-LayerLoader::LayerLoader(const std::string& layerName, const std::string& createLayerName)
+LayerLoader::LayerLoader(std::string layerName, const std::string& createLayerName)
 {
+
+    std::string platformName {YORK_PLATFORM };
+
+    if (platformName == std::string { "Windows" }) {
+        layerName += ".dll";
+    } else if (platformName == std::string { "Darwin" }) {
+        layerName = "lib" + layerName + ".dylib";
+    } else {
+        layerName = "lib" + layerName + ".so";
+    }
+
     m_so = SDL_LoadObject(layerName.c_str());
 
     if (m_so == nullptr) {

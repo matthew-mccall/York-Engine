@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(YorkEngine)
+project(YorkEngine VERSION 0.1.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -98,13 +98,15 @@ set(RUNTIME_SRC
 set(TEST_SRC
         "test/SampleLayer.cpp")
 
+configure_file(include/york/Config.hpp.in include/york/Config.hpp)
+
 add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
 
 link_directories($ENV{VULKAN_SDK}/lib)
 link_directories($ENV{LD_LIBRARY_PATH})
 link_directories(/usr/local/lib)
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         fmt::fmt
         Vulkan::Vulkan

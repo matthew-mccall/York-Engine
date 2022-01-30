@@ -13,7 +13,7 @@ typedef york::Layer* (*createLayerFunc)();
 
 class LayerLoader {
 public:
-    explicit LayerLoader(const std::string& layerName, const std::string& createLayerName = "createLayer");
+    explicit LayerLoader(std::string layerName, const std::string& createLayerName = "createLayer");
     ~LayerLoader();
 
     york::Layer* operator->();
@@ -21,7 +21,7 @@ public:
 
 private:
     york::Layer* m_layer = nullptr;
-    void* m_so;
+    void* m_so = nullptr;
 };
 
 #endif // YORK_LAYERLOADER_HPP

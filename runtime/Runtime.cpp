@@ -8,7 +8,7 @@
 
 #include "york/Async.hpp"
 #include "york/Event.hpp"
-#include "york/Exit.hpp"
+#include "york/Config.hpp"
 #include "york/LayerStack.hpp"
 #include "york/Log.hpp"
 #include "york/Timer.hpp"
@@ -34,13 +34,13 @@ int main()
     york::LayerStack layerStack;
     std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
-    LayerLoader newlayer { "libYorkTest.dylib" };
+    LayerLoader newlayer { "YorkTest" };
     layerStack.pushLayer(*newlayer);
     eventHandlers.emplace_back(*newlayer);
 
     curlpp::initialize();
 
-    YORK_CORE_INFO("Initialization took {} seconds!", timer.getTime());
+    YORK_CORE_INFO("Initialization took {} seconds on {}!", timer.getTime(), YORK_PLATFORM);
 
     SDL_Event event;
 

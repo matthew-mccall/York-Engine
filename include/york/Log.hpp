@@ -137,16 +137,10 @@ namespace core {
 
 } // namespace york::log
 
-#define YORK_TRACE(...) york::log::trace(__VA_ARGS__);
-#define YORK_INFO(...) york::log::info(__VA_ARGS__);
-#define YORK_DEBUG(...) york::log::debug(__VA_ARGS__);
 #define YORK_WARN(...) york::log::warn(__VA_ARGS__);
 #define YORK_ERROR(...) york::log::error(__VA_ARGS__);
 #define YORK_CRITICAL(...) york::log::critical(__VA_ARGS__);
 
-#define YORK_CORE_TRACE(...) york::log::core::trace(__VA_ARGS__);
-#define YORK_CORE_INFO(...) york::log::core::info(__VA_ARGS__);
-#define YORK_CORE_DEBUG(...) york::log::core::debug(__VA_ARGS__);
 #define YORK_CORE_WARN(...) york::log::core::warn(__VA_ARGS__);
 #define YORK_CORE_ERROR(...) york::log::core::error(__VA_ARGS__);
 #define YORK_CORE_CRITICAL(...) york::log::core::critical(__VA_ARGS__);
@@ -160,6 +154,16 @@ namespace core {
 #define YORK_CORE_TRACE
 #define YORK_CORE_INFO
 #define YORK_CORE_DEBUG
+
+#else
+
+#define YORK_TRACE(...) york::log::trace(__VA_ARGS__);
+#define YORK_INFO(...) york::log::info(__VA_ARGS__);
+#define YORK_DEBUG(...) york::log::debug(__VA_ARGS__);
+
+#define YORK_CORE_TRACE(...) york::log::core::trace(__VA_ARGS__);
+#define YORK_CORE_INFO(...) york::log::core::info(__VA_ARGS__);
+#define YORK_CORE_DEBUG(...) york::log::core::debug(__VA_ARGS__);
 
 #endif
 
