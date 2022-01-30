@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Vulkan REQUIRED)
 find_package(PkgConfig)
-find_package(SDL)
+find_package(SDL 2.0.18)
 find_package(XercesC)
 
 set(SDL_BUILDING_LIBRARY)

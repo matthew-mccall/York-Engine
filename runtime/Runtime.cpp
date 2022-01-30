@@ -26,8 +26,7 @@ int main()
 
     try {
         xercesc::XMLPlatformUtils::Initialize();
-    }
-    catch (const xercesc::XMLException& e) {
+    } catch (const xercesc::XMLException& e) {
         YORK_CORE_CRITICAL("Failed to load XML library!")
         return EXIT_FAILURE;
     }
