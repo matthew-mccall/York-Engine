@@ -34,7 +34,7 @@ int main()
     york::LayerStack layerStack;
     std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
-    LayerLoader newlayer { "YorkTest" };
+    LayerLoader newlayer { "SampleLayer" };
     layerStack.pushLayer(*newlayer);
     eventHandlers.emplace_back(*newlayer);
 

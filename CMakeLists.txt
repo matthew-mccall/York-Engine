@@ -96,7 +96,6 @@ set(SRC
         "include/york/LayerStack.hpp"
         "include/york/Identifiable.hpp"
         "include/york/Graphics/Surface.hpp"
-        "include/york/Exit.hpp"
         "include/york/Graphics/SwapChain.hpp"
         include/york/Graphics/PipelineLayout.hpp
         include/york/Graphics/Pipeline.hpp
@@ -141,10 +140,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 
 unset(SDL_BUILDING_LIBRARY)
 
-add_library(YorkTest SHARED ${TEST_SRC})
-target_link_libraries(YorkTest PUBLIC ${PROJECT_NAME})
-
 add_executable(YorkRuntime ${RUNTIME_SRC})
 target_link_libraries(YorkRuntime PUBLIC ${PROJECT_NAME})
 
-file(COPY shaders DESTINATION .)
+add_subdirectory(sample)
+
+file(COPY shaders DESTINATION sample/)
