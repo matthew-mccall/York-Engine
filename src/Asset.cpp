@@ -1,9 +1,11 @@
 #include <unordered_map>
 #include <cstring>
+#include <vector>
+
+#include <SDL_rwops.h>
 
 #include "curlpp/Easy.hpp"
 #include "curlpp/Options.hpp"
-#include "SDL_rwops.h"
 
 #include "york/Asset.hpp"
 #include "york/Log.hpp"

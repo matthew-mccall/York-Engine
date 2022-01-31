@@ -14,7 +14,7 @@ using id = std::uint64_t;
 class Identifiable {
 public:
     Identifiable();
-    [[nodiscard]] uint64_t getID() const;
+    [[nodiscard]] id getID() const;
     ~Identifiable();
 
 

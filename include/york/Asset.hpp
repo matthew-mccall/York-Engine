@@ -7,8 +7,6 @@
 #include <string>
 #include <variant>
 
-#include "Async.hpp"
-
 namespace york {
 
 /**
