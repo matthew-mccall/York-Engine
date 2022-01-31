@@ -10,3 +10,6 @@
 [submodule "libs/xerces-c"]
 	path = libs/xerces-c
 	url = https://github.com/apache/xerces-c.git
+[submodule "libs/SDL"]
+	path = libs/SDL
+	url = https://github.com/libsdl-org/SDL.git
