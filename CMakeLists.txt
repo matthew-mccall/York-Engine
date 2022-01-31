@@ -130,17 +130,20 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         Threads::Threads
         ${SDL_DEP}
         ${XML_DEP}
+        curlpp
+        shaderc
         glslang
+        OSDependent
+        OGLCompiler
+        shaderc_util
         SPIRV
+        HLSL
         SPVRemapper
         GenericCodeGen
         MachineIndependent
-        OSDependent
-        OGLCompiler
         SPIRV-Tools-opt
         SPIRV-Tools
-        SPIRV-Tools-link
-        curlpp)
+        SPIRV-Tools-link)
 
 unset(SDL_BUILDING_LIBRARY)
 
