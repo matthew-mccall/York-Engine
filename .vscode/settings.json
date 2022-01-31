@@ -85,5 +85,6 @@
         "queue": "cpp",
         "unordered_set": "cpp"
     },
-    "C_Cpp.clang_format_fallbackStyle": "WebKit"
+    "C_Cpp.clang_format_fallbackStyle": "WebKit",
+    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug"
 }

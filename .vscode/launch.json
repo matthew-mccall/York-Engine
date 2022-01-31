@@ -8,10 +8,10 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/YorkTest",
+            "program": "${workspaceFolder}/build/YorkRuntime",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "cmake-build-debug",
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb"
