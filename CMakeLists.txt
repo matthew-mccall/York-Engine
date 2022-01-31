@@ -8,6 +8,7 @@ find_package(Vulkan REQUIRED)
 find_package(PkgConfig)
 find_package(SDL 2.0.18)
 find_package(XercesC)
+find_package(Threads)
 
 set(SDL_BUILDING_LIBRARY)
 
@@ -56,10 +57,6 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-omit-leaf-frame-pointer")
     endif ()
 endif ()
-
-if (CMAKE_SYSTEM_NAME EQUAL "Linux")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-endif()
 
 set(SRC
         "src/Application.cpp"
@@ -130,6 +127,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include
 target_link_libraries(${PROJECT_NAME} PUBLIC
         fmt::fmt
         Vulkan::Vulkan
+        Threads::Threads
         ${SDL_DEP}
         ${XML_DEP}
         glslang
