@@ -2,9 +2,6 @@
 // Created by Matthew McCall on 12/18/21.
 //
 
-#include <glslang/Include/ResourceLimits.h>
-#include <glslang/SPIRV/GlslangToSpv.h>
-
 #include <shaderc/shaderc.hpp>
 
 #include <utility>
