@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://mxtt-mmxix.github.io/York-Engine/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="https://mxtt-mmxix.github.io/York-Engine/">
+    <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="xsi.xsd"/>
     <xs:element name="Client">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="Name"/>
-                <xs:element ref="Layers"/>
+                <xs:element ref="y:Name"/>
+                <xs:element ref="y:Layers"/>
             </xs:sequence>
+            <xs:attribute ref="xsi:schemaLocation" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="Layers">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="Layer"/>
+                <xs:element ref="y:Layer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     <xs:element name="Layer">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="Name"/>
-                <xs:element ref="CreateFunction"/>
+                <xs:element ref="y:Name"/>
+                <xs:element ref="y:CreateFunction"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

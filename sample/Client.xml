@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Client>
+<Client xmlns="https://mxtt-mmxix.github.io/York-Engine/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://mxtt-mmxix.github.io/York-Engine/ https://raw.githubusercontent.com/mxtt-mmxix/York-Engine/runtime-impl/Client.xsd">
     <Name>SampleClient</Name>
     <Layers>
         <Layer>
