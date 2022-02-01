@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
+#include <xercesc/parsers/XercesDOMParser.hpp>
+#include <xercesc/dom/DOM.hpp>
 
 #include "curlpp/cURLpp.hpp"
 
@@ -31,10 +33,70 @@ int main()
         return EXIT_FAILURE;
     }
 
+
+    auto* domParser = new xercesc::XercesDOMParser();
+    domParser->setValidationScheme(xercesc::XercesDOMParser::Val_Always);
+    domParser->setDoNamespaces(true);
+
+    xercesc::DOMDocument* document;
+
+    try {
+        domParser->parse("Client.xml");
+        document = domParser->getDocument();
+    } catch (const xercesc::XMLException& e) {
+        char* message = xercesc::XMLString::transcode(e.getMessage());
+        YORK_CORE_CRITICAL(message);
+        xercesc::XMLString::release(&message);
+        return EXIT_FAILURE;
+    }
+    catch (const xercesc::DOMException& e) {
+        char* message = xercesc::XMLString::transcode(e.getMessage());
+        YORK_CORE_CRITICAL(message);
+        xercesc::XMLString::release(&message);
+        return EXIT_FAILURE;
+    }
+
+    xercesc::DOMElement* rootNode = document->getDocumentElement();
+
+    xercesc::DOMNodeList* nameNodes = rootNode->getElementsByTagName(xercesc::XMLString::transcode("Name"));
+
+    xercesc::DOMNode* nameNode = nameNodes->item(0);
+    xercesc::DOMNode* nameNodeText = nameNode->getFirstChild();
+
+    YORK_CORE_INFO("Found Client: {}", xercesc::XMLString::transcode(nameNodeText->getNodeValue()));
+
+    xercesc::DOMNodeList* layersNodes = rootNode->getElementsByTagName(xercesc::XMLString::transcode("Layers"));
+
+    xercesc::DOMNode* layersNode = layersNodes->item(0);
+    xercesc::DOMNodeList* layerNodes = layersNode->getChildNodes();
+
+    xercesc::DOMNode* layerNode = nullptr;
+
+    for (unsigned i = 0; (i < layerNodes->getLength()) && layerNode == nullptr; i++) {
+        if (xercesc::XMLString::equals(layerNodes->item(i)->getNodeName(), xercesc::XMLString::transcode("Layer"))) {
+            layerNode = layerNodes->item(i);
+        }
+    }
+
+    xercesc::DOMNodeList* layerNameNodes = layerNode->getChildNodes();
+    xercesc::DOMNode* layerNameNode = nullptr;
+
+    for (unsigned i = 0; (i < layerNameNodes->getLength()) && layerNameNode == nullptr; i++) {
+        if (xercesc::XMLString::equals(layerNameNodes->item(i)->getNodeName(), xercesc::XMLString::transcode("Name"))) {
+            layerNameNode = layerNameNodes->item(i);
+        }
+    }
+
+    assert(layerNode != nullptr);
+
+    xercesc::DOMNode* layerNameText = layerNameNode->getFirstChild();
+
+    YORK_CORE_DEBUG(xercesc::XMLString::transcode(layerNameText->getNodeValue()));
+
     york::LayerStack layerStack;
     std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
-    LayerLoader newlayer { "SampleLayer" };
+    LayerLoader newlayer { xercesc::XMLString::transcode(layerNameText->getNodeValue()) };
     layerStack.pushLayer(*newlayer);
     eventHandlers.emplace_back(*newlayer);
 
@@ -61,12 +123,16 @@ int main()
         YORK_CORE_CRITICAL(e.what());
     }
 
+
     layerStack.popLayer(*newlayer);
 
     york::async::getExecutor().wait_for_all();
 
-    xercesc::XMLPlatformUtils::Terminate();
     curlpp::terminate();
+
+    delete domParser;
+    xercesc::XMLPlatformUtils::Terminate();
+
     SDL_Quit();
 
     YORK_CORE_INFO("Shutdown successfully!");
