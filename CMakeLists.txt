@@ -8,6 +8,7 @@ find_package(Vulkan REQUIRED)
 find_package(PkgConfig)
 find_package(SDL 2.0.18)
 find_package(XercesC)
+find_package(Threads)
 
 set(SDL_BUILDING_LIBRARY)
 
@@ -124,19 +125,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include
 target_link_libraries(${PROJECT_NAME} PUBLIC
         fmt::fmt
         Vulkan::Vulkan
+        Threads::Threads
         ${SDL_DEP}
         ${XML_DEP}
-        glslang
-        SPIRV
-        SPVRemapper
-        GenericCodeGen
-        MachineIndependent
-        OSDependent
-        OGLCompiler
-        SPIRV-Tools-opt
-        SPIRV-Tools
-        SPIRV-Tools-link
-        curlpp)
+        curlpp
+        shaderc_combined)
 
 unset(SDL_BUILDING_LIBRARY)
 
