@@ -131,18 +131,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${SDL_DEP}
         ${XML_DEP}
         curlpp
-        shaderc
-        glslang
-        OSDependent
-        OGLCompiler
-        SPIRV
-        HLSL
-        SPVRemapper
-        GenericCodeGen
-        MachineIndependent
-        SPIRV-Tools-opt
-        SPIRV-Tools
-        SPIRV-Tools-link)
+        shaderc_combined)
 
 unset(SDL_BUILDING_LIBRARY)
 
