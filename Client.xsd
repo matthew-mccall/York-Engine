@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://mxtt-mmxix.github.io/York-Engine/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="https://mxtt-mmxix.github.io/York-Engine/">
-    <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="xsi.xsd"/>
+    <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="https://raw.githubusercontent.com/mxtt-mmxix/York-Engine/runtime-impl/xsi.xsd"/>
     <xs:element name="Client">
         <xs:complexType>
             <xs:sequence>
