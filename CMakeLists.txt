@@ -135,7 +135,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         glslang
         OSDependent
         OGLCompiler
-        shaderc_util
         SPIRV
         HLSL
         SPVRemapper
