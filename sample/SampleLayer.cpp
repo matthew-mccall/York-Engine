@@ -3,7 +3,6 @@
 //
 
 #include "york/Renderer/Renderer.hpp"
-#include "york/Layer.hpp"
 #include "york/Window.hpp"
 #include "york/York.hpp"
 

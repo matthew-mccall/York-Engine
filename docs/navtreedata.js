@@ -27,10 +27,19 @@ var NAVTREE =
   [ "York Engine", "index.html", [
     [ "York-Engine", "index.html", [
       [ "Building", "index.html#autotoc_md1", [
-        [ "Dependencies", "index.html#autotoc_md2", null ],
-        [ "CMake", "index.html#autotoc_md3", null ]
+        [ "Dependencies", "index.html#autotoc_md2", [
+          [ "<a href=\"https://vulkan.lunarg.com/sdk/home\" >LunarG Vulkan SDK</a>", "index.html#autotoc_md3", null ],
+          [ "<a href=\"https://libsdl.org/\" >SDL2</a>", "index.html#autotoc_md4", null ],
+          [ "<a href=\"https://xerces.apache.org/xerces-c/\" >Apache Xerces-C++</a>", "index.html#autotoc_md5", null ],
+          [ "<a href=\"https://curl.se/libcurl/\" >libcurl</a>", "index.html#autotoc_md6", null ],
+          [ "In-Tree Dependencies", "index.html#autotoc_md7", null ]
+        ] ],
+        [ "CMake", "index.html#autotoc_md8", null ]
       ] ],
-      [ "Using", "index.html#autotoc_md4", null ]
+      [ "Using", "index.html#autotoc_md9", [
+        [ "Sample", "index.html#autotoc_md10", null ],
+        [ "How it works", "index.html#autotoc_md11", null ]
+      ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -69,8 +78,8 @@ var NAVTREEINDEX =
 "_asset_8hpp.html",
 "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adff534d0bed6028a172373a975e208c8",
 "classyork_1_1graphics_1_1_framebuffer.html#a656d8028e4b5148548cee497b04b9fa1",
-"namespaceyork.html#a081c411bfa184df7cc3e83094ed59d8c",
-"namespaceyork_1_1async.html#ae20c34b5a5575e6560ee3a690a4eb295"
+"namespacemembers_n.html",
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618afc9b659d6be58e353432dc802a5e4ec2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

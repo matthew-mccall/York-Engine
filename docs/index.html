@@ -85,28 +85,84 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">York-Engine </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://github.com/mxtt-mmxix/York-Engine/actions/workflows/cmake.yml/badge.svg" alt="workflow" style="pointer-events: none;" class="inline"/></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a><a href="https://mxtt-mmxix.github.io/York-Engine">https://mxtt-mmxix.github.io/York-Engine</a></p>
+<p ><img src="https://github.com/mxtt-mmxix/York-Engine/actions/workflows/cmake.yml/badge.svg" alt="workflow" style="pointer-events: none;" class="inline"/></p>
 <p >A realtime 3D platform for developing interactive media.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Building</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h2>
-<p >York Engine currently depends on:</p><ul>
-<li><a href="https://vulkan.lunarg.com/sdk/home">LunarG Vulkan SDK</a> (or the tools included in the SDK)</li>
-<li><a href="https://libsdl.org/">SDL2</a> 2.0.18 or newer</li>
-<li><a href="https://xerces.apache.org/xerces-c/">Apache Xerces-C</a></li>
-<li><a href="https://curl.se/">curl</a></li>
-</ul>
-<p ><em>If Apache and SDL2 are not found on your system, they will be built from source automatically.</em></p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md3"></a>
+&lt;a href="https://vulkan.lunarg.com/sdk/home" &gt;LunarG Vulkan SDK&lt;/a&gt;</h3>
+<p >You may <em>optionally</em> install the tools included in the SDK instead of the SDK itself. See the LunarG documentation for more information. At bare minimum, York-Engine needs the <a href="https://github.com/khronosgroup/vulkan-hpp">C++ Vulkan Headers</a>, <a href="https://github.com/KhronosGroup/Vulkan-Loader">Vulkan Loader</a>, and any other development packages provided if you were to opt out of installing the SDK. </p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+&lt;a href="https://libsdl.org/" &gt;SDL2&lt;/a&gt;</h3>
+<p >Version 2.0.18 or newer. If CMake could not automatically find and link to a suitable local copy, it will build SDL2 from source. You can specify <code>SDL_LIBRARY</code> and <code>SDL_INCLUDE_DIR</code> to assist CMake in finding SDL2. </p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+&lt;a href="https://xerces.apache.org/xerces-c/" &gt;Apache Xerces-C++&lt;/a&gt;</h3>
+<p >Version 3.2.3 or newer. If CMake could not automatically find and link to a suitable local copy, it will build Xerces-C++ from source. </p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+&lt;a href="https://curl.se/libcurl/" &gt;libcurl&lt;/a&gt;</h3>
+<p >Used to perform network requests. </p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+In-Tree Dependencies</h3>
+<p >York-Engine includes source copies third-party dependencies in the <code>/libs/</code> folder. This makes dependency management simple as we can just simply build what we need from source without worrying about how and where to search for local installations. Libraries that are shipped with York-Engine include <a href="https://fmt.dev/latest/index.html">{fmt}</a>, <a href="https://www.curlpp.org/">curlpp</a>, <a href="https://github.com/google/shaderc">shaderc</a>, and <a href="https://taskflow.github.io/">taskflow</a>. Please note that any redistributions of York-Engine must not only respect our <a href="https://github.com/mxtt-mmxix/York-Engine/blob/main/LICENSE">license</a>, but our dependencies' licenses as well.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
 CMake</h2>
-<p >To build the York Engine Library, Runtime, and Sample:</p><ul>
+<p >To build the York-Engine Library and Runtime:</p><ul>
+<li>Run the setup script: <code>./utils/Setup.sh</code>.</li>
 <li>Use <a href="https://cmake.org/">CMake</a> to generate the build files for the project: <code>cmake -B build .</code>.</li>
 <li>Then, build the project: <code>cmake --build build</code>.</li>
+<li>To build the sample: <code>cmake --build build -- SampleLayer</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Using</h1>
-<p >A sample application is located in the <a href="https://github.com/mxtt-mmxix/York-Engine/tree/main/sample"><code>/sample/</code></a> folder. See that folder for a reference on how to develop a York Engine client applicaition. </p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Sample</h2>
+<p >A sample application is located in the <a href="https://github.com/mxtt-mmxix/York-Engine/tree/main/sample"><code>/sample/</code></a> folder. See that folder for a reference on how to develop a York-Engine client application.</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+How it works</h2>
+<div class="fragment"><div class="line">York-Engine     york::Layer ◀─ York-Engine</div>
+<div class="line">     │               │                     </div>
+<div class="line">     │               └─▶ class yourLayer ┐</div>
+<div class="line">     ▼                                   │</div>
+<div class="line">  Runtime ◀─ createLayer() ◀── Client ◀──┘</div>
+</div><!-- fragment --><p> The York-Engine is a library that provides an API to make developing real-time, interactive programs easier. However, instead of requiring the client to build an executable linked to York-Engine, York-Engine provides its own Runtime. Thus, all the client needs to do is to inherit the <code><a class="el" href="classyork_1_1_layer.html">york::Layer</a></code> class, and define a function which returns a <code><a class="el" href="classyork_1_1_layer.html">york::Layer</a>*</code>. This must be compiled a shared object and will be loaded by the Runtime. The Runtime will search for your function and create your Layer and manages platform initialization for you. A layer source file might look like the following: </p><div class="fragment"><div class="line"> {c++}</div>
+<div class="line">#include &quot;york/York.hpp&quot;</div>
+<div class="line"> </div>
+<div class="line">class SampleLayer : public york::Layer {</div>
+<div class="line">public:</div>
+<div class="line">    SampleLayer() {}</div>
+<div class="line"> </div>
+<div class="line">    void onAttach() override {}</div>
+<div class="line"> </div>
+<div class="line">    void onEvent(york::Event&amp; e) override {}</div>
+<div class="line"> </div>
+<div class="line">    void onUpdate(float deltaTime) override {}</div>
+<div class="line"> </div>
+<div class="line">    void onRender() override {}</div>
+<div class="line"> </div>
+<div class="line">    void onDetach() override {}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">extern &quot;C&quot; york::Layer* createLayer()</div>
+<div class="line">{</div>
+<div class="line">    return new SampleLayer();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> It is important to note that your create function must not be name-mangled as to make it easier for the Runtime to search and call the function, hence the <code>extern "C"</code>. Otherwise, this how client applications will be structured: A series of classes that implement <code><a class="el" href="classyork_1_1_layer.html">york::Layer</a></code>, each defining a create function and compiled into a separate standalone shared object. The name of the shared object, excluding any platform prefixes such as "lib" and file extension will be the name of the layer. For example, <code>libSampleLayer.so</code> will be treated as a layer with the name <code>SampleLayer</code>. The Runtime will search for and load layers from the current working directory only. However, the Runtime needs to know which layers its looking for. Thus, the Runtime expects each application to have a <code>Client.xml</code> manifest. This manifest contains the name of the client, the name of the layers, and the name of the create function. A <code>Client.xml</code> file might look like the following: </p><div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">encoding</span>=<span class="stringliteral">&quot;UTF-8&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">Client</span> <span class="keyword">xmlns</span>=<span class="stringliteral">&quot;https://mxtt-mmxix.github.io/York-Engine/&quot;</span></div>
+<div class="line">        <span class="keyword">xmlns:xsi</span>=<span class="stringliteral">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></div>
+<div class="line">        <span class="keyword">xsi:schemaLocation</span>=<span class="stringliteral">&quot;https://mxtt-mmxix.github.io/York-Engine/ https://raw.githubusercontent.com/mxtt-mmxix/York-Engine/runtime-impl/Client.xsd&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">Name</span>&gt;<span class="keyword">SampleClient</span>&lt;/<span class="keywordtype">Name</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">Layers</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">Layer</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">Name</span>&gt;<span class="keyword">SampleLayer</span>&lt;/<span class="keywordtype">Name</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">CreateFunction</span>&gt;<span class="keyword">createLayer</span>&lt;/<span class="keywordtype">CreateFunction</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">Layer</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">Layers</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">Client</span>&gt;</div>
+</div><!-- fragment --><p> Note that the <code>&lt;Name /&gt;</code> of the layer is platform independent, the Runtime will automatically add any prefixes and file extension to the name to find the layer. Also note that the XML above makes use of a Schema. You are encouraged to produce well-formed and valid XML for describing your application.</p>
+<p >A collection of a <code>Client.xml</code> file, Layer shared object files, and assets are considered to be a York-Engine client application. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
