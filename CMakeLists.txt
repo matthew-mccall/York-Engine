@@ -45,10 +45,6 @@ add_subdirectory(libs/curlpp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
-    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-endif()
-
 if (CMAKE_BUILD_TYPE EQUAL Debug)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -fno-omit-frame-pointer")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -fno-omit-frame-pointer")
@@ -112,12 +108,12 @@ set(SRC
 set(RUNTIME_SRC
         runtime/Runtime.cpp runtime/LayerLoader.cpp runtime/LayerLoader.hpp)
 
-set(TEST_SRC
-        "test/SampleLayer.cpp")
+source_group(Engine FILES ${SRC})
+source_group(Runtime FILES ${RUNTIME_SRC})
 
 configure_file(include/york/Config.hpp.in include/york/Config.hpp)
 
-add_library(${PROJECT_NAME} ${SRC} ${INC_SRC})
+add_library(${PROJECT_NAME} ${SRC})
 
 message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
 
@@ -134,6 +130,10 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${XML_DEP}
         curlpp
         shaderc_combined)
+
+if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
+    set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+endif()
 
 unset(SDL_BUILDING_LIBRARY)
 
