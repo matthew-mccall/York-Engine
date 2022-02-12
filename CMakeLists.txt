@@ -103,7 +103,7 @@ set(SRC
         include/york/Graphics/RenderPass.hpp
         include/york/Graphics/Framebuffer.hpp
         include/york/Graphics/ImageView.hpp
-        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp src/Layer.cpp)
+        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp src/Layer.cpp src/XML/Tag.cpp include/york/XML/Tag.hpp src/XML/Document.cpp include/york/XML/Document.hpp)
 
 set(RUNTIME_SRC
         runtime/Runtime.cpp runtime/LayerLoader.cpp runtime/LayerLoader.hpp)

@@ -3,8 +3,6 @@
 
 #include <SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
-#include <xercesc/parsers/XercesDOMParser.hpp>
-#include <xercesc/dom/DOM.hpp>
 
 #include "curlpp/cURLpp.hpp"
 
@@ -14,6 +12,7 @@
 #include "york/LayerStack.hpp"
 #include "york/Log.hpp"
 #include "york/Timer.hpp"
+#include "york/XML/Document.hpp"
 
 #include "LayerLoader.hpp"
 
@@ -33,72 +32,49 @@ int main()
         return EXIT_FAILURE;
     }
 
+    auto* clientXML = new york::xml::Document { "Client.xml" };
+    york::xml::Tag& clientTag = *clientXML->getRootTag();
+    york::xml::Tag* layersTag;
 
-    auto* domParser = new xercesc::XercesDOMParser();
-    domParser->setValidationScheme(xercesc::XercesDOMParser::Val_Always);
-    domParser->setDoNamespaces(true);
+    std::vector<LayerLoader> layerLoaders;
 
-    xercesc::DOMDocument* document;
-
-    try {
-        domParser->parse("Client.xml");
-        document = domParser->getDocument();
-    } catch (const xercesc::XMLException& e) {
-        char* message = xercesc::XMLString::transcode(e.getMessage());
-        YORK_CORE_CRITICAL(message);
-        xercesc::XMLString::release(&message);
-        return EXIT_FAILURE;
-    }
-    catch (const xercesc::DOMException& e) {
-        char* message = xercesc::XMLString::transcode(e.getMessage());
-        YORK_CORE_CRITICAL(message);
-        xercesc::XMLString::release(&message);
-        return EXIT_FAILURE;
-    }
-
-    xercesc::DOMElement* rootNode = document->getDocumentElement();
-
-    xercesc::DOMNodeList* nameNodes = rootNode->getElementsByTagName(xercesc::XMLString::transcode("Name"));
-
-    xercesc::DOMNode* nameNode = nameNodes->item(0);
-    xercesc::DOMNode* nameNodeText = nameNode->getFirstChild();
-
-    YORK_CORE_INFO("Found Client: {}", xercesc::XMLString::transcode(nameNodeText->getNodeValue()));
-
-    xercesc::DOMNodeList* layersNodes = rootNode->getElementsByTagName(xercesc::XMLString::transcode("Layers"));
-
-    xercesc::DOMNode* layersNode = layersNodes->item(0);
-    xercesc::DOMNodeList* layerNodes = layersNode->getChildNodes();
-
-    xercesc::DOMNode* layerNode = nullptr;
-
-    for (unsigned i = 0; (i < layerNodes->getLength()) && layerNode == nullptr; i++) {
-        if (xercesc::XMLString::equals(layerNodes->item(i)->getNodeName(), xercesc::XMLString::transcode("Layer"))) {
-            layerNode = layerNodes->item(i);
+    for (auto& tag : clientTag) {
+        if (tag.getName() == "Layers") {
+            layersTag = &tag;
         }
     }
 
-    xercesc::DOMNodeList* layerNameNodes = layerNode->getChildNodes();
-    xercesc::DOMNode* layerNameNode = nullptr;
+    for (auto& tag: *layersTag) {
+        if (tag.getName() == "Layer") {
+            std::string layerName, createFunctionName;
 
-    for (unsigned i = 0; (i < layerNameNodes->getLength()) && layerNameNode == nullptr; i++) {
-        if (xercesc::XMLString::equals(layerNameNodes->item(i)->getNodeName(), xercesc::XMLString::transcode("Name"))) {
-            layerNameNode = layerNameNodes->item(i);
+            for (auto& layerChildTag: tag) {
+                if (layerChildTag.getName() == "Name") {
+                    layerName = layerChildTag.getValue();
+                }
+                if (layerChildTag.getName() == "CreateFunction") {
+                    createFunctionName = layerChildTag.getValue();
+                }
+            }
+
+            if (!createFunctionName.empty()) {
+                layerLoaders.emplace_back(layerName, createFunctionName);
+                continue;
+            }
+
+            layerLoaders.emplace_back(layerName);
+
         }
     }
 
-    assert(layerNode != nullptr);
-
-    xercesc::DOMNode* layerNameText = layerNameNode->getFirstChild();
-
-    YORK_CORE_DEBUG(xercesc::XMLString::transcode(layerNameText->getNodeValue()));
 
     york::LayerStack layerStack;
     std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
-    LayerLoader newlayer { xercesc::XMLString::transcode(layerNameText->getNodeValue()) };
-    layerStack.pushLayer(*newlayer);
-    eventHandlers.emplace_back(*newlayer);
+    for (auto& layerLoader: layerLoaders) {
+        layerStack.pushLayer(*layerLoader);
+        eventHandlers.emplace_back(*layerLoader);
+    }
 
     curlpp::initialize();
 
@@ -109,13 +85,19 @@ int main()
     timer.reset();
 
     try {
-        while (!newlayer->getExit()) {
+        while (!layerStack.empty()) {
             while (SDL_PollEvent(&event)) {
                 york::pushEvent(event);
                 york::dispatchEvents(eventHandlers);
             }
 
             for (york::Layer& layer : layerStack) {
+
+                if (layer.getExit()) {
+                    layerStack.popLayer(layer);
+                    continue;
+                }
+
                 layer.onUpdate(timer.reset().getTime());
             }
         }
@@ -123,14 +105,13 @@ int main()
         YORK_CORE_CRITICAL(e.what());
     }
 
-
-    layerStack.popLayer(*newlayer);
+    layerLoaders.clear();
 
     york::async::getExecutor().wait_for_all();
 
     curlpp::terminate();
 
-    delete domParser;
+    delete clientXML;
     xercesc::XMLPlatformUtils::Terminate();
 
     SDL_Quit();

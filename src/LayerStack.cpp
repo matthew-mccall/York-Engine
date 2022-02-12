@@ -39,5 +39,9 @@ LayerStack::~LayerStack()
         layer.onDetach();
     }
 }
+bool LayerStack::empty()
+{
+    return m_layers.empty();
+}
 
 }

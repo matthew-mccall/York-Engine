@@ -19,6 +19,8 @@ public:
     void pushLayer(Layer& layer);
     void popLayer(Layer& layer);
 
+    bool empty();
+
     std::vector<std::reference_wrapper<Layer>>::iterator begin();
     std::vector<std::reference_wrapper<Layer>>::iterator end();
 
