@@ -42,6 +42,9 @@ endif ()
 add_subdirectory(libs/fmt)
 add_subdirectory(libs/curlpp)
 
+set(SHADERC_SKIP_TESTS ON)
+add_subdirectory(libs/shaderc)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -117,9 +120,7 @@ add_library(${PROJECT_NAME} ${SRC})
 
 message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
 
-link_directories($ENV{VULKAN_SDK}/lib)
 link_directories($ENV{LD_LIBRARY_PATH})
-link_directories(/usr/local/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -129,7 +130,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${SDL_DEP}
         ${XML_DEP}
         curlpp
-        shaderc_combined)
+        shaderc)
 
 if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
     set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
@@ -140,6 +141,6 @@ unset(SDL_BUILDING_LIBRARY)
 add_executable(YorkRuntime ${RUNTIME_SRC})
 target_link_libraries(YorkRuntime PUBLIC ${PROJECT_NAME})
 
-add_subdirectory(sample)
+add_subdirectory(sample EXCLUDE_FROM_ALL)
 
 file(COPY shaders DESTINATION sample/)
