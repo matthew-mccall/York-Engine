@@ -2,8 +2,6 @@ var structyork_1_1_event =
 [
     [ "Type", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69", [
       [ "None", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a6adf97f83acf6453d4a6a4b1070f3754", null ],
-      [ "AppTick", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a559b408d45669603dbac61cd15984f13", null ],
-      [ "AppRender", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a4b2eb3c601042333ac1c0565ff58e3d6", null ],
       [ "AppClosing", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ad5fd4d75b6f548b8e6e7c11665a4355f", null ],
       [ "WindowClose", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac984201d37197ab297a14d19efee4b07", null ],
       [ "WindowResize", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a9f8f27bff2915738c4fe1b970e12f89c", null ],
@@ -20,20 +18,18 @@ var structyork_1_1_event =
       [ "ControllerButtonPressed", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a31959513f39bd95c79a39fe3b48b772e", null ],
       [ "ControllerButtonReleased", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac7424a5d37d9b4f569941a06274ff5e1", null ]
     ] ],
+    [ "Event", "structyork_1_1_event.html#a09cbfcccfb5ff01723220b8a157ce177", null ],
     [ "Event", "structyork_1_1_event.html#ad01a2400374d1c945c39eceb5a3ddc29", null ],
-    [ "Event", "structyork_1_1_event.html#a2de9d03fa029d43e4e879ed1d40676ae", null ],
     [ "getKeyCode", "structyork_1_1_event.html#ac0be9a9f161d6ff698773fc7ce298075", null ],
     [ "getMouseButton", "structyork_1_1_event.html#a03bc3bdff2fdf95de4eddf83b098b63c", null ],
     [ "getMouseX", "structyork_1_1_event.html#acd5e32813383ceef8933a74265c14ae5", null ],
     [ "getMouseY", "structyork_1_1_event.html#af0b571e0a743068c5304230b642e0fa1", null ],
-    [ "getTickTime", "structyork_1_1_event.html#a26a61f2592416e6dc717f5107ac0b304", null ],
     [ "getType", "structyork_1_1_event.html#ac56e1cb0b3ef2c252220ee650fe6b95e", null ],
     [ "getWindowID", "structyork_1_1_event.html#a8835a60ca01497c7949e511f59afb1bf", null ],
     [ "m_keyCode", "structyork_1_1_event.html#ac8302ac2108c73b7b268fc0cacfe697f", null ],
     [ "m_mouseButton", "structyork_1_1_event.html#a3a24cc41d4249bbf9af39ff32204f4ea", null ],
-    [ "m_mouseX", "structyork_1_1_event.html#a5dd65ee148f47777497ab155d5a508f4", null ],
-    [ "m_mouseY", "structyork_1_1_event.html#a8e7251d918f5a3f4752ce4e6f6bb445c", null ],
-    [ "m_tickTime", "structyork_1_1_event.html#a1afaae21b6415f35a6e66a807db3c149", null ],
+    [ "m_mouseX", "structyork_1_1_event.html#a70f45575ffc69862903a747a8ac33ecd", null ],
+    [ "m_mouseY", "structyork_1_1_event.html#a93fd3f6d4300bf0e9867f691b6a42290", null ],
     [ "m_type", "structyork_1_1_event.html#a68a68f2fe1463741b041f66cfc07eb0e", null ],
     [ "m_windowID", "structyork_1_1_event.html#a107cafee5a3d02595a1c7d0f66fdebc0", null ]
 ];

@@ -19,4 +19,4 @@ To build the York Engine Library, Runtime, and Sample:
 - Then, build the project: `cmake --build build`.
 
 ## Using
-A sample application is located in the [`/sample/`](sample/) folder. See that folder for a reference on how to develop a York Engine client applicaition.
+A sample application is located in the [`/sample/`](https://github.com/mxtt-mmxix/York-Engine/tree/main/sample) folder. See that folder for a reference on how to develop a York Engine client applicaition.

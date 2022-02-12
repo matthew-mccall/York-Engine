@@ -8,12 +8,17 @@ var namespaceyork =
     ] ],
     [ "graphics", "namespaceyork_1_1graphics.html", "namespaceyork_1_1graphics" ],
     [ "log", "namespaceyork_1_1log.html", "namespaceyork_1_1log" ],
-    [ "Application", "classyork_1_1_application.html", "classyork_1_1_application" ],
-    [ "Asset", "structyork_1_1_asset.html", "structyork_1_1_asset" ],
+    [ "xml", "namespaceyork_1_1xml.html", "namespaceyork_1_1xml" ],
+    [ "Asset", "classyork_1_1_asset.html", "classyork_1_1_asset" ],
     [ "Event", "structyork_1_1_event.html", "structyork_1_1_event" ],
     [ "EventHandler", "classyork_1_1_event_handler.html", "classyork_1_1_event_handler" ],
+    [ "Identifiable", "classyork_1_1_identifiable.html", "classyork_1_1_identifiable" ],
+    [ "Layer", "classyork_1_1_layer.html", "classyork_1_1_layer" ],
+    [ "LayerStack", "classyork_1_1_layer_stack.html", "classyork_1_1_layer_stack" ],
+    [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
     [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
     [ "Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ],
+    [ "id", "namespaceyork.html#a081c411bfa184df7cc3e83094ed59d8c", null ],
     [ "KeyCode", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618", [
       [ "KEY_A", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ab71863df31bf47cf264e4fce8696f016", null ],
       [ "KEY_B", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618aee7a280f95f8299dce5c4806c149f698", null ],
@@ -258,8 +263,6 @@ var namespaceyork =
       [ "KEY_AUDIOREWIND", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a71fd1840361d5d174a1b9c169f783014", null ],
       [ "KEY_AUDIOFASTFORWARD", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ad22b9effab209797939b9a7c62f3f835", null ]
     ] ],
-    [ "createApplication", "namespaceyork.html#a503a4bceffa65f5deb794fcd76143d0d", null ],
-    [ "dispatchEvents", "namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52", null ],
-    [ "pushEvent", "namespaceyork.html#ae6e67199fd18fa8d78b27be5d9d608b8", null ],
+    [ "dispatchEvents", "namespaceyork.html#aebe4eac626140b1a7894b56a1f7bdf48", null ],
     [ "pushEvent", "namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd", null ]
 ];

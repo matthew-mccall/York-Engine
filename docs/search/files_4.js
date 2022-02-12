@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instance_2ehpp_0',['Instance.hpp',['../_instance_8hpp.html',1,'']]]
+  ['framebuffer_2ehpp_0',['Framebuffer.hpp',['../_framebuffer_8hpp.html',1,'']]]
 ];

@@ -25,6 +25,13 @@
 var NAVTREE =
 [
   [ "York Engine", "index.html", [
+    [ "York-Engine", "index.html", [
+      [ "Building", "index.html#autotoc_md1", [
+        [ "Dependencies", "index.html#autotoc_md2", null ],
+        [ "CMake", "index.html#autotoc_md3", null ]
+      ] ],
+      [ "Using", "index.html#autotoc_md4", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -43,8 +50,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -60,10 +66,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_application_8hpp.html",
-"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618ae3b6844d8d358b2700b74ed1e7ebdad4",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618a2e299f241da4bacdbc451efb927f9328",
-"structyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442"
+"_asset_8hpp.html",
+"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adff534d0bed6028a172373a975e208c8",
+"classyork_1_1graphics_1_1_framebuffer.html#a656d8028e4b5148548cee497b04b9fa1",
+"namespaceyork.html#a081c411bfa184df7cc3e83094ed59d8c",
+"namespaceyork_1_1async.html#ae20c34b5a5575e6560ee3a690a4eb295"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
