@@ -1,6 +1,5 @@
 #include <cassert>
 #include <queue>
-#include <utility>
 #include <vector>
 
 #include "SDL_events.h"
