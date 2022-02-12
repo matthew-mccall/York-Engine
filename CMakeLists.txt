@@ -45,6 +45,10 @@ add_subdirectory(libs/curlpp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
+
 if (CMAKE_BUILD_TYPE EQUAL Debug)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -fno-omit-frame-pointer")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -fno-omit-frame-pointer")
