@@ -28,10 +28,10 @@ var NAVTREE =
     [ "York-Engine", "index.html", [
       [ "Building", "index.html#autotoc_md1", [
         [ "Dependencies", "index.html#autotoc_md2", [
-          [ "<a href=\"https://vulkan.lunarg.com/sdk/home\" >LunarG Vulkan SDK</a>", "index.html#autotoc_md3", null ],
-          [ "<a href=\"https://libsdl.org/\" >SDL2</a>", "index.html#autotoc_md4", null ],
-          [ "<a href=\"https://xerces.apache.org/xerces-c/\" >Apache Xerces-C++</a>", "index.html#autotoc_md5", null ],
-          [ "<a href=\"https://curl.se/libcurl/\" >libcurl</a>", "index.html#autotoc_md6", null ],
+          [ "LunarG Vulkan SDK", "index.html#autotoc_md3", null ],
+          [ "SDL2", "index.html#autotoc_md4", null ],
+          [ "Apache Xerces-C++", "index.html#autotoc_md5", null ],
+          [ "libcurl", "index.html#autotoc_md6", null ],
           [ "In-Tree Dependencies", "index.html#autotoc_md7", null ]
         ] ],
         [ "CMake", "index.html#autotoc_md8", null ]

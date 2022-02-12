@@ -7,13 +7,21 @@ A realtime 3D platform for developing interactive media.
 
 ## Building
 ### Dependencies
-#### [LunarG Vulkan SDK](https://vulkan.lunarg.com/sdk/home) 
+#### LunarG Vulkan SDK
+https://vulkan.lunarg.com/sdk/home
+
 You may *optionally* install the tools included in the SDK instead of the SDK itself. See the LunarG documentation for more information. At bare minimum, York-Engine needs the [C++ Vulkan Headers](https://github.com/khronosgroup/vulkan-hpp), [Vulkan Loader](https://github.com/KhronosGroup/Vulkan-Loader), and any other development packages provided if you were to opt out of installing the SDK.
-#### [SDL2](https://libsdl.org/) 
+#### SDL2
+https://libsdl.org/ 
+
 Version 2.0.18 or newer. If CMake could not automatically find and link to a suitable local copy, it will build SDL2 from source. You can specify `SDL_LIBRARY` and `SDL_INCLUDE_DIR` to assist CMake in finding SDL2.
-#### [Apache Xerces-C++](https://xerces.apache.org/xerces-c/)
+#### Apache Xerces-C++
+https://xerces.apache.org/xerces-c/
+
 Version 3.2.3 or newer. If CMake could not automatically find and link to a suitable local copy, it will build Xerces-C++ from source.
-#### [libcurl](https://curl.se/libcurl/)
+#### libcurl
+https://curl.se/libcurl/
+
 Used to perform network requests.
 #### In-Tree Dependencies
 York-Engine includes source copies third-party dependencies in the `/libs/` folder. This makes dependency management simple as we can just simply build what we need from source without worrying about how and where to search for local installations. Libraries that are shipped with York-Engine include [{fmt}](https://fmt.dev/latest/index.html), [curlpp](https://www.curlpp.org/), [shaderc](https://github.com/google/shaderc), and [taskflow](https://taskflow.github.io/). Please note that any redistributions of York-Engine must not only respect our [license](https://github.com/mxtt-mmxix/York-Engine/blob/main/LICENSE), but our dependencies' licenses as well.
@@ -38,7 +46,7 @@ York-Engine     york::Layer ◀─ York-Engine
   Runtime ◀─ createLayer() ◀── Client ◀──┘
 ```
 The York-Engine is a library that provides an API to make developing real-time, interactive programs easier. However, instead of requiring the client to build an executable linked to York-Engine, York-Engine provides its own Runtime. Thus, all the client needs to do is to inherit the `york::Layer` class, and define a function which returns a `york::Layer*`. This must be compiled a shared object and will be loaded by the Runtime. The Runtime will search for your function and create your Layer and manages platform initialization for you. A layer source file might look like the following:
-```c++
+```cpp
 #include "york/York.hpp"
 
 class SampleLayer : public york::Layer {
