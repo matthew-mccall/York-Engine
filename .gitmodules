@@ -13,3 +13,6 @@
 [submodule "libs/SDL"]
 	path = libs/SDL
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "libs/shaderc"]
+	path = libs/shaderc
+	url = https://github.com/google/shaderc.git
