@@ -180,7 +180,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ad15cb2bd9f0e3a10dc7b5053d20c3260 inherit pro_attribs_classyork_1_1graphics_1_1_handle"><td class="memItemLeft" align="right" valign="top">vk::ShaderModule&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle.html#ad15cb2bd9f0e3a10dc7b5053d20c3260">m_handle</a></td></tr>
 <tr class="separator:ad15cb2bd9f0e3a10dc7b5053d20c3260 inherit pro_attribs_classyork_1_1graphics_1_1_handle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents a SPIR-V shaders for use with a <a class="el" href="classyork_1_1graphics_1_1_pipeline.html">Pipeline</a> </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae025281595bfe917535ca817148f9db2" name="ae025281595bfe917535ca817148f9db2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae025281595bfe917535ca817148f9db2">&#9670;&nbsp;</a></span>Type</h2>
 
@@ -200,6 +202,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Represents different types of shaders </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae025281595bfe917535ca817148f9db2ab22b929ba52471a02d18bb3a4e4472e6" name="ae025281595bfe917535ca817148f9db2ab22b929ba52471a02d18bb3a4e4472e6"></a>Vertex&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae025281595bfe917535ca817148f9db2a91a08ad964ef35c89ae69cd4176cfb4a" name="ae025281595bfe917535ca817148f9db2a91a08ad964ef35c89ae69cd4176cfb4a"></a>TessellationControl&#160;</td><td class="fielddoc"></td></tr>
@@ -257,6 +260,15 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Creates a new shader object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m_device</td><td>The device to create the shader with. </td></tr>
+    <tr><td class="paramname">glsl</td><td>The GLSL source to be compiled into SPIR-V. </td></tr>
+    <tr><td class="paramname">type</td><td>The type of shader to compile and bind to the pipeline. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -308,6 +320,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Compiles the GLSL into SPIR-V and creates the Vulkan <a class="el" href="classyork_1_1graphics_1_1_shader.html">Shader</a> Module.</p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the module was successfully created. </dd></dl>
 
 <p>Implements <a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a0768849708daa7abf07feabb612e4513">york::graphics::HandleBase</a>.</p>
 
@@ -354,6 +368,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The type of the shader. </dd></dl>
 
 </div>
 </div>

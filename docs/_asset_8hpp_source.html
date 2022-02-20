@@ -99,62 +99,64 @@ $(document).ready(function(){initNavTree('_asset_8hpp_source.html',''); initResi
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1_asset.html">Asset</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">   18</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        IMG_PNG,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        SHADER_FRAG_GLSL,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        SHADER_FRAG_SPIRV,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        SHADER_VERT_GLSL,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        SHADER_VERT_SPIRV,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        SHADER_TESC_GLSL,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        SHADER_TESC_SPIRV,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        SHADER_TESE_GLSL,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        SHADER_TESE_SPIRV,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        SHADER_GEOM_GLSL,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        SHADER_GEOM_SPIRV,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        SHADER_COMP_GLSL,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        SHADER_COMP_SPIRV,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        XML,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        UTF8,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        RAW,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        AUTO</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">   38</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        FILE,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        NETWORK,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        MEMORY</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">   50</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">Asset</a>(<span class="keyword">const</span> std::string&amp; location, <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> type = <a class="code hl_enumvalue" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">Type::AUTO</a>, <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> source = <a class="code hl_enumvalue" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719">Source::FILE</a>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">   51</a></span>    [[nodiscard]] <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> <a class="code hl_function" href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">   52</a></span>    std::optional&lt;std::reference_wrapper&lt;std::vector&lt;char&gt;&gt;&gt; <a class="code hl_function" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">getData</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">   54</a></span>    std::optional&lt;std::reference_wrapper&lt;std::vector&lt;char&gt;&gt;&gt; <a class="code hl_function" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">operator*</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">   55</a></span>    std::vector&lt;char&gt;* <a class="code hl_function" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">operator-&gt;</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">   57</a></span>    <span class="keywordtype">char</span>&amp; <a class="code hl_function" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">operator[]</a>(std::size_t idx);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">   59</a></span>    <a class="code hl_function" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">~Asset</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::string m_location;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    std::vector&lt;char&gt;&amp; m_data;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> m_type;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> m_source;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">int</span> m_size;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>} <span class="comment">// namespace york::asset</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span><span class="comment">// YORK_ASSET_HPP</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">   23</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        IMG_PNG,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        SHADER_FRAG_GLSL,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        SHADER_FRAG_SPIRV,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        SHADER_VERT_GLSL,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        SHADER_VERT_SPIRV,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        SHADER_TESC_GLSL,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        SHADER_TESC_SPIRV,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        SHADER_TESE_GLSL,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        SHADER_TESE_SPIRV,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        SHADER_GEOM_GLSL,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        SHADER_GEOM_SPIRV,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        SHADER_COMP_GLSL,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        SHADER_COMP_SPIRV,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        XML,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        UTF8,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        RAW,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        AUTO </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">   46</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        FILE, </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        NETWORK, </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        MEMORY </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">   58</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">Asset</a>(<span class="keyword">const</span> std::string&amp; location, <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> type = <a class="code hl_enumvalue" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">Type::AUTO</a>, <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> source = <a class="code hl_enumvalue" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719">Source::FILE</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">   64</a></span>    [[nodiscard]] <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> <a class="code hl_function" href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">   72</a></span>    std::optional&lt;std::reference_wrapper&lt;std::vector&lt;char&gt;&gt;&gt; <a class="code hl_function" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">getData</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">   74</a></span>    std::optional&lt;std::reference_wrapper&lt;std::vector&lt;char&gt;&gt;&gt; <a class="code hl_function" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">operator*</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">   75</a></span>    std::vector&lt;char&gt;* <a class="code hl_function" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">operator-&gt;</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">   77</a></span>    <span class="keywordtype">char</span>&amp; <a class="code hl_function" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">operator[]</a>(std::size_t idx);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">   79</a></span>    <a class="code hl_function" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">~Asset</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    std::string m_location;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::vector&lt;char&gt;&amp; m_data;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_enumeration" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> m_type;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_enumeration" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> m_source;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">int</span> m_size;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <span class="comment">// namespace york::asset</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">// YORK_ASSET_HPP</span></div>
 <div class="ttc" id="aclassyork_1_1_asset_html"><div class="ttname"><a href="classyork_1_1_asset.html">york::Asset</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:15</div></div>
-<div class="ttc" id="aclassyork_1_1_asset_html_a1dffc06a1c36b59e362c9c108c759a87"><div class="ttname"><a href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">york::Asset::Source</a></div><div class="ttdeci">Source</div><div class="ttdef"><b>Definition:</b> Asset.hpp:38</div></div>
+<div class="ttc" id="aclassyork_1_1_asset_html_a1dffc06a1c36b59e362c9c108c759a87"><div class="ttname"><a href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">york::Asset::Source</a></div><div class="ttdeci">Source</div><div class="ttdef"><b>Definition:</b> Asset.hpp:46</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719"><div class="ttname"><a href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719">york::Asset::Source::FILE</a></div><div class="ttdeci">@ FILE</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a3e29c517714d2b43e2a5105a49c9eb8c"><div class="ttname"><a href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">york::Asset::getData</a></div><div class="ttdeci">std::optional&lt; std::reference_wrapper&lt; std::vector&lt; char &gt; &gt; &gt; getData()</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a465b5485f32cfc06d029f867f1018760"><div class="ttname"><a href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">york::Asset::operator*</a></div><div class="ttdeci">std::optional&lt; std::reference_wrapper&lt; std::vector&lt; char &gt; &gt; &gt; operator*()</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a46faa87b30acd6bca0aa6bbe9ac85cc1"><div class="ttname"><a href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">york::Asset::~Asset</a></div><div class="ttdeci">~Asset()</div></div>
-<div class="ttc" id="aclassyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34"><div class="ttname"><a href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">york::Asset::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34"><div class="ttname"><a href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">york::Asset::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Asset.hpp:23</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9"><div class="ttname"><a href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9">york::Asset::Type::AUTO</a></div><div class="ttdeci">@ AUTO</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_a79b757fc3517a933d087088adf515af7"><div class="ttname"><a href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">york::Asset::getType</a></div><div class="ttdeci">Type getType() const</div></div>
 <div class="ttc" id="aclassyork_1_1_asset_html_ab0bca9a1f906e7b7557c070ebc545c27"><div class="ttname"><a href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">york::Asset::Asset</a></div><div class="ttdeci">Asset(const std::string &amp;location, Type type=Type::AUTO, Source source=Source::FILE)</div></div>

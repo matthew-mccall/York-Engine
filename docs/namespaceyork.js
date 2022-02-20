@@ -15,6 +15,7 @@ var namespaceyork =
     [ "Identifiable", "classyork_1_1_identifiable.html", "classyork_1_1_identifiable" ],
     [ "Layer", "classyork_1_1_layer.html", "classyork_1_1_layer" ],
     [ "LayerStack", "classyork_1_1_layer_stack.html", "classyork_1_1_layer_stack" ],
+    [ "Registry", "classyork_1_1_registry.html", "classyork_1_1_registry" ],
     [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
     [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
     [ "Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ],
@@ -263,6 +264,6 @@ var namespaceyork =
       [ "KEY_AUDIOREWIND", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a71fd1840361d5d174a1b9c169f783014", null ],
       [ "KEY_AUDIOFASTFORWARD", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ad22b9effab209797939b9a7c62f3f835", null ]
     ] ],
-    [ "dispatchEvents", "namespaceyork.html#aebe4eac626140b1a7894b56a1f7bdf48", null ],
+    [ "dispatchEvents", "namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52", null ],
     [ "pushEvent", "namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd", null ]
 ];

@@ -106,8 +106,10 @@ Inheritance diagram for york::Renderer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ccd6d1de74948ca4157bc09d92988bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_renderer.html#a6ccd6d1de74948ca4157bc09d92988bf">Renderer</a> (<a class="el" href="classyork_1_1graphics_1_1_window.html">graphics::Window</a> &amp;window)</td></tr>
 <tr class="separator:a6ccd6d1de74948ca4157bc09d92988bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4c5fababc99b511ea4017fdc532461c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_renderer.html#ae4c5fababc99b511ea4017fdc532461c">draw</a> ()</td></tr>
-<tr class="separator:ae4c5fababc99b511ea4017fdc532461c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5538f565972bcf0b4527657ffd908c06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_renderer.html#a5538f565972bcf0b4527657ffd908c06">draw</a> ()</td></tr>
+<tr class="separator:a5538f565972bcf0b4527657ffd908c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c962ad7962371567075b874684df1a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_renderer.html#a49c962ad7962371567075b874684df1a">~Renderer</a> ()</td></tr>
+<tr class="separator:a49c962ad7962371567075b874684df1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classyork_1_1graphics_1_1_handle_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classyork_1_1graphics_1_1_handle_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classyork_1_1graphics_1_1_handle_base.html">york::graphics::HandleBase</a></td></tr>
 <tr class="memitem:ac8f8d4813da765bcd74a2a8d4e2e1160 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#ac8f8d4813da765bcd74a2a8d4e2e1160">create</a> ()</td></tr>
 <tr class="memdesc:ac8f8d4813da765bcd74a2a8d4e2e1160 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a handle.  <a href="classyork_1_1graphics_1_1_handle_base.html#ac8f8d4813da765bcd74a2a8d4e2e1160">More...</a><br /></td></tr>
@@ -146,7 +148,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a430e0b38ec5d99e6265ef03e9a6aa5b3 inherit pro_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a430e0b38ec5d99e6265ef03e9a6aa5b3">destroyImpl</a> ()=0</td></tr>
 <tr class="separator:a430e0b38ec5d99e6265ef03e9a6aa5b3 inherit pro_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The <a class="el" href="classyork_1_1_renderer.html">Renderer</a> allows you to draw content to a Window. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6ccd6d1de74948ca4157bc09d92988bf" name="a6ccd6d1de74948ca4157bc09d92988bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ccd6d1de74948ca4157bc09d92988bf">&#9670;&nbsp;</a></span>Renderer()</h2>
 
@@ -167,6 +171,38 @@ Protected Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Create a <a class="el" href="classyork_1_1_renderer.html">Renderer</a> bound to a window.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The window to bind to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a49c962ad7962371567075b874684df1a" name="a49c962ad7962371567075b874684df1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c962ad7962371567075b874684df1a">&#9670;&nbsp;</a></span>~Renderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual york::Renderer::~Renderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -228,20 +264,22 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae4c5fababc99b511ea4017fdc532461c" name="ae4c5fababc99b511ea4017fdc532461c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c5fababc99b511ea4017fdc532461c">&#9670;&nbsp;</a></span>draw()</h2>
+<a id="a5538f565972bcf0b4527657ffd908c06" name="a5538f565972bcf0b4527657ffd908c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5538f565972bcf0b4527657ffd908c06">&#9670;&nbsp;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void york::Renderer::draw </td>
+          <td class="memname">bool york::Renderer::draw </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Draws to the window bound to.</p>
+<p >By default the renderer uses tripled buffer v-sync. </p>
 
 </div>
 </div>

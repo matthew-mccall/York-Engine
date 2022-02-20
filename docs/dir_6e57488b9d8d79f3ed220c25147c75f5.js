@@ -4,8 +4,14 @@ var dir_6e57488b9d8d79f3ed220c25147c75f5 =
       [ "york::graphics::CommandPool", "classyork_1_1graphics_1_1_command_pool.html", "classyork_1_1graphics_1_1_command_pool" ]
     ] ],
     [ "Device.hpp", "_device_8hpp.html", "_device_8hpp" ],
+    [ "Fence.hpp", "_fence_8hpp.html", [
+      [ "york::graphics::Fence", "classyork_1_1graphics_1_1_fence.html", "classyork_1_1graphics_1_1_fence" ]
+    ] ],
     [ "Framebuffer.hpp", "_framebuffer_8hpp.html", [
       [ "york::graphics::Framebuffer", "classyork_1_1graphics_1_1_framebuffer.html", "classyork_1_1graphics_1_1_framebuffer" ]
+    ] ],
+    [ "FrameData.hpp", "_frame_data_8hpp.html", [
+      [ "york::graphics::FrameData", "classyork_1_1graphics_1_1_frame_data.html", "classyork_1_1graphics_1_1_frame_data" ]
     ] ],
     [ "Handle.hpp", "_handle_8hpp.html", [
       [ "york::graphics::HandleBase", "classyork_1_1graphics_1_1_handle_base.html", "classyork_1_1graphics_1_1_handle_base" ],

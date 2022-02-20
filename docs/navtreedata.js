@@ -59,7 +59,8 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -76,10 +77,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_asset_8hpp.html",
-"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adff534d0bed6028a172373a975e208c8",
-"classyork_1_1graphics_1_1_framebuffer.html#a656d8028e4b5148548cee497b04b9fa1",
-"namespacemembers_n.html",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618afc9b659d6be58e353432dc802a5e4ec2"
+"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618addd5789915806019b3f6c6bbf38e3fcb",
+"classyork_1_1graphics_1_1_device.html#a8da1e65d33faa8dc106455e93c15a842",
+"classyork_1_1xml_1_1_tag.html#acc95d85f703120b4507734ae6c5890d5",
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618aca53d4e6f725e1efe6da41b0d3271bae"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

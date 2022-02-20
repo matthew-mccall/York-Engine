@@ -4,7 +4,9 @@ var annotated_dup =
       [ "graphics", "namespaceyork_1_1graphics.html", [
         [ "CommandPool", "classyork_1_1graphics_1_1_command_pool.html", "classyork_1_1graphics_1_1_command_pool" ],
         [ "Device", "classyork_1_1graphics_1_1_device.html", "classyork_1_1graphics_1_1_device" ],
+        [ "Fence", "classyork_1_1graphics_1_1_fence.html", "classyork_1_1graphics_1_1_fence" ],
         [ "Framebuffer", "classyork_1_1graphics_1_1_framebuffer.html", "classyork_1_1graphics_1_1_framebuffer" ],
+        [ "FrameData", "classyork_1_1graphics_1_1_frame_data.html", "classyork_1_1graphics_1_1_frame_data" ],
         [ "Handle", "classyork_1_1graphics_1_1_handle.html", "classyork_1_1graphics_1_1_handle" ],
         [ "HandleBase", "classyork_1_1graphics_1_1_handle_base.html", "classyork_1_1graphics_1_1_handle_base" ],
         [ "ImageView", "classyork_1_1graphics_1_1_image_view.html", "classyork_1_1graphics_1_1_image_view" ],
@@ -29,6 +31,7 @@ var annotated_dup =
       [ "Identifiable", "classyork_1_1_identifiable.html", "classyork_1_1_identifiable" ],
       [ "Layer", "classyork_1_1_layer.html", "classyork_1_1_layer" ],
       [ "LayerStack", "classyork_1_1_layer_stack.html", "classyork_1_1_layer_stack" ],
+      [ "Registry", "classyork_1_1_registry.html", "classyork_1_1_registry" ],
       [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
       [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
       [ "Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ]

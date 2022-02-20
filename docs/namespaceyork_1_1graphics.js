@@ -2,7 +2,9 @@ var namespaceyork_1_1graphics =
 [
     [ "CommandPool", "classyork_1_1graphics_1_1_command_pool.html", "classyork_1_1graphics_1_1_command_pool" ],
     [ "Device", "classyork_1_1graphics_1_1_device.html", "classyork_1_1graphics_1_1_device" ],
+    [ "Fence", "classyork_1_1graphics_1_1_fence.html", "classyork_1_1graphics_1_1_fence" ],
     [ "Framebuffer", "classyork_1_1graphics_1_1_framebuffer.html", "classyork_1_1graphics_1_1_framebuffer" ],
+    [ "FrameData", "classyork_1_1graphics_1_1_frame_data.html", "classyork_1_1graphics_1_1_frame_data" ],
     [ "Handle", "classyork_1_1graphics_1_1_handle.html", "classyork_1_1graphics_1_1_handle" ],
     [ "HandleBase", "classyork_1_1graphics_1_1_handle_base.html", "classyork_1_1graphics_1_1_handle_base" ],
     [ "ImageView", "classyork_1_1graphics_1_1_image_view.html", "classyork_1_1graphics_1_1_image_view" ],

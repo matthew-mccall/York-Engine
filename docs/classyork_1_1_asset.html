@@ -164,10 +164,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Where to load the file from. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719" name="a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719"></a>FILE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a25835188a2355e9530d3a10fcbe4c65b" name="a1dffc06a1c36b59e362c9c108c759a87a25835188a2355e9530d3a10fcbe4c65b"></a>NETWORK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a7014705458ee3cf0192f6aa52cfddea5" name="a1dffc06a1c36b59e362c9c108c759a87a7014705458ee3cf0192f6aa52cfddea5"></a>MEMORY&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719" name="a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719"></a>FILE&#160;</td><td class="fielddoc"><p >Load file from local filesystem </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a25835188a2355e9530d3a10fcbe4c65b" name="a1dffc06a1c36b59e362c9c108c759a87a25835188a2355e9530d3a10fcbe4c65b"></a>NETWORK&#160;</td><td class="fielddoc"><p >Download file from the internet, assumes working internet connection </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1dffc06a1c36b59e362c9c108c759a87a7014705458ee3cf0192f6aa52cfddea5" name="a1dffc06a1c36b59e362c9c108c759a87a7014705458ee3cf0192f6aa52cfddea5"></a>MEMORY&#160;</td><td class="fielddoc"><p >Copy from existing memory </p>
+</td></tr>
 </table>
 
 </div>
@@ -191,6 +195,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >The type of <a class="el" href="classyork_1_1_asset.html">Asset</a>.</p>
+<p >This can allow the engine to automatically decode the file upon loading. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230" name="a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230"></a>IMG_PNG&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9" name="a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9"></a>SHADER_FRAG_GLSL&#160;</td><td class="fielddoc"></td></tr>
@@ -208,7 +214,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34a3501bb093d363810b671059b9cfed3f8" name="a611568955f8cd4a2e82fe089bd696b34a3501bb093d363810b671059b9cfed3f8"></a>XML&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34aeb7ee0fb585e2ac64fdc086466c474b1" name="a611568955f8cd4a2e82fe089bd696b34aeb7ee0fb585e2ac64fdc086466c474b1"></a>UTF8&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059" name="a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059"></a>RAW&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9" name="a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9"></a>AUTO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9" name="a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9"></a>AUTO&#160;</td><td class="fielddoc"><p >Infer asset type from file extension </p>
+</td></tr>
 </table>
 
 </div>
@@ -296,6 +303,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Returns the loaded data, if available.</p>
+<p >This may attempt to load the data on the spot if it is the first time called, previously failed, or the data was unloaded. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -313,6 +322,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Gets the type of the asset </p><dl class="section return"><dt>Returns</dt><dd>The type of the asset </dd></dl>
 
 </div>
 </div>
