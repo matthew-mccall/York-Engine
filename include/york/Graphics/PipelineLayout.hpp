@@ -12,6 +12,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Pipeline Layout
+ */
 class PipelineLayout : public Handle<vk::PipelineLayout> {
 public:
     explicit PipelineLayout(Device& device);

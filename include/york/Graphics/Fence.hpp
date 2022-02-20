@@ -11,7 +11,9 @@
 #include "Device.hpp"
 
 namespace york::graphics {
-
+/**
+ * Handle wrapper for Vulkan Fence
+ */
 class Fence : public Handle<vk::Fence> {
 public:
     Fence(Device& device);

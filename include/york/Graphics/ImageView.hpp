@@ -12,6 +12,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Image Views
+ */
 class ImageView : public Handle<vk::ImageView> {
 public:
     ImageView(Device& device, vk::Format format, vk::Image image);

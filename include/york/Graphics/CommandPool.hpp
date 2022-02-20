@@ -12,6 +12,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Command Pool
+ */
 class CommandPool : public Handle<vk::CommandPool> {
 public:
     explicit CommandPool(Device& device);

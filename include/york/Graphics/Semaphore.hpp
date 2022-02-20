@@ -12,6 +12,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Semaphore
+ */
 class Semaphore : public Handle<vk::Semaphore> {
 public:
     explicit Semaphore(Device& device);

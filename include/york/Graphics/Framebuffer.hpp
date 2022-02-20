@@ -13,6 +13,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Framebuffer
+ */
 class Framebuffer : public Handle<vk::Framebuffer> {
 public:
     explicit Framebuffer(RenderPass& renderPass, ImageView& imageView);

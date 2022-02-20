@@ -9,7 +9,7 @@
 
 #include <string>
 
-typedef york::Layer* (*createLayerFunc)();
+typedef york::Layer* (*createLayerFunc)(york::Registry&);
 
 class LayerLoader {
 public:

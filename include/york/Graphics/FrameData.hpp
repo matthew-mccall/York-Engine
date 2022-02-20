@@ -13,6 +13,9 @@
 
 namespace york::graphics {
 
+/**
+ * Contains the necessary synchronization data structures, framebuffer and command buffer for a frame.
+ */
 class FrameData : public HandleBase {
 public:
     FrameData(RenderPass& renderPass, ImageView& imageView, vk::CommandBuffer commandBuffer);

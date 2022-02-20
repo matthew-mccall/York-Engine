@@ -16,6 +16,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Pipeline
+ */
 class Pipeline : public Handle<vk::Pipeline> {
 public:
     explicit Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders = {});

@@ -15,6 +15,11 @@ namespace york {
 class Asset {
 public:
 
+    /**
+     * The type of Asset.
+     *
+     * This can allow the engine to automatically decode the file upon loading.
+     */
     enum class Type {
         IMG_PNG,
         SHADER_FRAG_GLSL,
@@ -32,13 +37,16 @@ public:
         XML,
         UTF8,
         RAW,
-        AUTO
+        AUTO /**< Infer asset type from file extension */
     };
 
+    /**
+     * Where to load the file from.
+     */
     enum class Source {
-        FILE,
-        NETWORK,
-        MEMORY
+        FILE, /**< Load file from local filesystem */
+        NETWORK, /**< Download file from the internet, assumes working internet connection */
+        MEMORY /**< Copy from existing memory */
     };
 
     /**
@@ -48,7 +56,19 @@ public:
      * @param type The type of asset
      */
     explicit Asset(const std::string& location, Type type = Type::AUTO, Source source = Source::FILE);
+
+    /**
+     * Gets the type of the asset
+     * @return The type of the asset
+     */
     [[nodiscard]] Type getType() const;
+
+    /**
+     * Returns the loaded data, if available.
+     *
+     * This may attempt to load the data on the spot if it is the first time called, previously failed, or the data was unloaded.
+     * @return
+     */
     std::optional<std::reference_wrapper<std::vector<char>>> getData();
 
     std::optional<std::reference_wrapper<std::vector<char>>> operator*();

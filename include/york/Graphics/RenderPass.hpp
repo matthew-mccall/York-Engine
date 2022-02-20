@@ -12,6 +12,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Render Pass
+ */
 class RenderPass : public Handle<vk::RenderPass> {
 public:
     explicit RenderPass(SwapChain& swapChain);

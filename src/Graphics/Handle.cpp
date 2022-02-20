@@ -19,10 +19,10 @@ void HandleBase::create()
         m_created = this->createImpl();
     }
 
-    for (unsigned i = 0; i < m_dependents.size(); i++) { // Dependents may change as other dependents are created.
-        if (!m_dependents[i].get().isCreated()) {
-            m_dependents[i].get().create();
-            i = 0;
+    for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) { // Dependents may change as other dependents are created.
+        if (!i->get().isCreated()) {
+            i->get().create();
+            i = m_dependents.begin();
         }
     }
 }

@@ -10,8 +10,10 @@
 
 namespace york {
 
-class Layer : public Identifiable, public EventHandler {
+class Layer : public EventHandler {
 public:
+    Layer(Registry& registry);
+
     /**
      * A function that will be called when the layer is attached to the stack. Use this for initialization.
      */

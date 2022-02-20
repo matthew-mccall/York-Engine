@@ -5,6 +5,7 @@
 #include <SDL_loadso.h>
 
 #include "york/Log.hpp"
+#include "york/Registry.hpp"
 #include "york/Config.hpp"
 
 #include "LayerLoader.hpp"
@@ -40,7 +41,7 @@ LayerLoader::LayerLoader(std::string layerName, const std::string& createLayerNa
 
     auto createLayer = reinterpret_cast<createLayerFunc>(createLayerPtr);
 
-    m_layer = createLayer();
+    m_layer = createLayer(york::Registry::getInstance());
 }
 
 LayerLoader::~LayerLoader()

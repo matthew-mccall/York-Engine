@@ -6,6 +6,11 @@
 
 namespace york {
 
+Layer::Layer(Registry& registry)
+    : EventHandler(registry)
+{
+}
+
 bool Layer::getExit() const
 {
     return m_exit;

@@ -13,6 +13,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Swapchain
+ */
 class SwapChain : public Handle<vk::SwapchainKHR> {
 public:
     SwapChain(Device& device, Window& window, Surface& surface);

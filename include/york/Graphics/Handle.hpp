@@ -1,6 +1,12 @@
 #if !defined(YORK_GRAPHICS_HANDLE_HPP)
 #define YORK_GRAPHICS_HANDLE_HPP
 
+/**
+ * Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.
+ *
+ * Credit to <a href="https://github.com/MarcasRealAccount/">Markus</a> for the Handle system.
+ */
+
 #include <vector>
 #include <functional>
 

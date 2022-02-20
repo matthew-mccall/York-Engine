@@ -13,6 +13,9 @@
 
 namespace york::graphics {
 
+/**
+ * Handle wrapper for Vulkan Surface
+ */
 class Surface : public Handle<vk::SurfaceKHR> {
 public:
     explicit Surface(Instance& instance, Window& window);

@@ -15,28 +15,50 @@
 
 namespace york::graphics {
 
+/**
+ * Represents a SPIR-V shaders for use with a Pipeline
+ */
 class Shader : public Handle<vk::ShaderModule> {
 public:
+
+    /**
+     * Represents different types of shaders
+     */
     enum class Type {
         Vertex,
-        TessellationControl,    // Currently unsupported.
-        TessellationEvaluation, // Currently unsupported.
-        Geometry,               // Currently unsupported.
+        TessellationControl,    // Future support planned.
+        TessellationEvaluation, // Future support planned.
+        Geometry,               // Future support planned.
         Fragment,
-        Compute,        // Currently unsupported.
-        RTRayGen,       // Currently unsupported.
-        RTAnyHit,       // Currently unsupported.
-        RTClosestHit,   // Currently unsupported.
-        RTMiss,         // Currently unsupported.
-        RTIntersection, // Currently unsupported.
-        RTCallable
+        Compute,        // Future support planned.
+        RTRayGen,       // Future support planned.
+        RTAnyHit,       // Future support planned.
+        RTClosestHit,   // Future support planned.
+        RTMiss,         // Future support planned.
+        RTIntersection, // Future support planned.
+        RTCallable      // Future support planned.
     };
 
+    /**
+     * Creates a new shader object
+     *
+     * @param m_device The device to create the shader with.
+     * @param glsl The GLSL source to be compiled into SPIR-V.
+     * @param type The type of shader to compile and bind to the pipeline.
+     */
     explicit Shader(Device& m_device, std::string glsl, Type type);
 
+    /**
+     * Compiles the GLSL into SPIR-V and creates the Vulkan Shader Module.
+     *
+     * @return Whether the module was successfully created.
+     */
     bool createImpl() override;
     void destroyImpl() override;
 
+    /**
+     * @return The type of the shader.
+     */
     [[nodiscard]] Type getType() const;
 
     ~Shader() override;
