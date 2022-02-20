@@ -10,13 +10,30 @@
 #include "york/Graphics/Pipeline.hpp"
 #include "york/Graphics/CommandPool.hpp"
 #include "york/Graphics/Semaphore.hpp"
+#include "york/Graphics/FrameData.hpp"
 
 namespace york {
 
+/**
+ * The Renderer allows you to draw content to a Window.
+ */
 class Renderer : public graphics::HandleBase {
 public:
+    /**
+     * Create a Renderer bound to a window.
+     *
+     * @param window The window to bind to.
+     */
     explicit Renderer(graphics::Window& window);
-    void draw();
+
+    /**
+     * Draws to the window bound to.
+     *
+     * By default the renderer uses tripled buffer v-sync.
+     */
+    bool draw();
+
+    virtual ~Renderer();
 
 protected:
     bool createImpl() override;
@@ -31,9 +48,12 @@ private:
     york::graphics::RenderPass m_renderPass;
     york::graphics::Pipeline m_pipeline;
     york::graphics::CommandPool m_commandPool;
-    york::graphics::Semaphore m_imageAvailableSemaphore, m_renderFinishedSemaphore;
-    std::vector<york::graphics::Framebuffer> m_framebuffers;
+    std::vector<york::graphics::FrameData> m_frames;
     std::vector<vk::CommandBuffer> m_commandBuffers;
+    std::vector<vk::Fence> m_swapFences;
+
+    std::uint32_t m_frameIndex = 0;
+    std::uint32_t m_maxFrames;
 };
 
 }

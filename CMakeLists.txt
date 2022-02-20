@@ -62,54 +62,72 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
 endif ()
 
 set(SRC
-        "src/Asset.cpp"
-        "src/Async.cpp"
-        "src/Event.cpp"
-        "src/Timer.cpp"
-        "src/Window.cpp"
-        "src/Graphics/Handle.cpp"
-        "src/Graphics/Instance.cpp"
-        "src/Graphics/Device.cpp"
-        "src/Graphics/PhysicalDevice.cpp"
-        "src/Graphics/Shader.cpp"
-        "src/LayerStack.cpp"
-        "src/Identifiable.cpp"
-        "src/Graphics/Surface.cpp"
-        "src/Graphics/SwapChain.cpp"
+        src/Asset.cpp
+        src/Async.cpp
+        src/Event.cpp
+        src/Timer.cpp
+        src/Window.cpp
+        src/Graphics/Handle.cpp
+        src/Graphics/Instance.cpp
+        src/Graphics/Device.cpp
+        src/Graphics/PhysicalDevice.cpp
+        src/Graphics/Shader.cpp
+        src/LayerStack.cpp
+        src/Identifiable.cpp
+        src/Graphics/Surface.cpp
+        src/Graphics/SwapChain.cpp
         src/Graphics/Pipeline.cpp
         src/Graphics/PipelineLayout.cpp
         src/Graphics/RenderPass.cpp
         src/Graphics/Framebuffer.cpp
         src/Graphics/ImageView.cpp
         src/Renderer/Renderer.cpp
-        "include/york/Event.hpp"
-        "include/york/York.hpp"
-        "include/york/Async.hpp"
-        "include/york/Timer.hpp"
-        "include/york/KeyCodes.hpp"
-        "include/york/Graphics/Instance.hpp"
-        "include/york/Graphics/RequestableItem.hpp"
-        "include/york/Graphics/Handle.hpp"
-        "include/york/Window.hpp"
-        "include/york/Graphics/Device.hpp"
-        "include/york/Graphics/PhysicalDevice.hpp"
-        "include/york/Log.hpp"
-        "include/york/Asset.hpp"
-        "include/york/Graphics/Shader.hpp"
-        "include/york/Layer.hpp"
-        "include/york/LayerStack.hpp"
-        "include/york/Identifiable.hpp"
-        "include/york/Graphics/Surface.hpp"
-        "include/york/Graphics/SwapChain.hpp"
+        src/Graphics/CommandPool.cpp
+        src/Graphics/Semaphore.cpp
+        src/Log.cpp
+        src/Layer.cpp
+        src/XML/Tag.cpp
+        src/XML/Document.cpp
+        src/Graphics/FrameData.cpp
+        src/Graphics/Fence.cpp
+        include/york/Event.hpp
+        include/york/York.hpp
+        include/york/Async.hpp
+        include/york/Timer.hpp
+        include/york/KeyCodes.hpp
+        include/york/Graphics/Instance.hpp
+        include/york/Graphics/RequestableItem.hpp
+        include/york/Graphics/Handle.hpp
+        include/york/Window.hpp
+        include/york/Graphics/Device.hpp
+        include/york/Graphics/PhysicalDevice.hpp
+        include/york/Log.hpp
+        include/york/Asset.hpp
+        include/york/Graphics/Shader.hpp
+        include/york/Layer.hpp
+        include/york/LayerStack.hpp
+        include/york/Identifiable.hpp
+        include/york/Graphics/Surface.hpp
+        include/york/Graphics/SwapChain.hpp
         include/york/Graphics/PipelineLayout.hpp
         include/york/Graphics/Pipeline.hpp
         include/york/Graphics/RenderPass.hpp
         include/york/Graphics/Framebuffer.hpp
         include/york/Graphics/ImageView.hpp
-        include/york/Renderer/Renderer.hpp src/Graphics/CommandPool.cpp include/york/Graphics/CommandPool.hpp src/Graphics/Semaphore.cpp include/york/Graphics/Semaphore.hpp src/Log.cpp src/Layer.cpp src/XML/Tag.cpp include/york/XML/Tag.hpp src/XML/Document.cpp include/york/XML/Document.hpp)
+        include/york/Renderer/Renderer.hpp
+        include/york/Graphics/CommandPool.hpp
+        include/york/Graphics/Semaphore.hpp
+        include/york/XML/Tag.hpp
+        include/york/Graphics/FrameData.hpp
+        include/york/XML/Document.hpp
+        include/york/Graphics/Fence.hpp
+        )
 
 set(RUNTIME_SRC
-        runtime/Runtime.cpp runtime/LayerLoader.cpp runtime/LayerLoader.hpp)
+        runtime/Runtime.cpp
+        runtime/LayerLoader.cpp
+        runtime/LayerLoader.hpp
+        )
 
 source_group(Engine FILES ${SRC})
 source_group(Runtime FILES ${RUNTIME_SRC})

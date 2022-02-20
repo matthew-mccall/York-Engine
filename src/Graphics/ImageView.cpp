@@ -52,5 +52,9 @@ void ImageView::destroyImpl()
     m_device->destroy(m_handle);
 }
 
+Device& ImageView::getDevice() const
+{
+    return m_device;
+}
 
 }

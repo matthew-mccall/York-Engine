@@ -14,7 +14,7 @@ CommandPool::CommandPool(Device& device)
 
 bool CommandPool::createImpl()
 {
-    vk::CommandPoolCreateInfo createInfo {{}, m_device.getGraphicsQueueIndex()};
+    vk::CommandPoolCreateInfo createInfo {vk::CommandPoolCreateFlagBits::eResetCommandBuffer | vk::CommandPoolCreateFlagBits::eResetCommandBuffer, m_device.getGraphicsQueueIndex()};
     m_handle = m_device->createCommandPool(createInfo);
 
     return true;

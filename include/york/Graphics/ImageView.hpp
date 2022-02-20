@@ -15,6 +15,7 @@ namespace york::graphics {
 class ImageView : public Handle<vk::ImageView> {
 public:
     ImageView(Device& device, vk::Format format, vk::Image image);
+    [[nodiscard]] Device& getDevice() const;
 
 protected:
     bool createImpl() override;

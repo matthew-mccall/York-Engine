@@ -19,9 +19,10 @@ void HandleBase::create()
         m_created = this->createImpl();
     }
 
-    for (HandleBase& dependent : m_dependents) {
-        if (!dependent.isCreated()) {
-                dependent.create();
+    for (unsigned i = 0; i < m_dependents.size(); i++) { // Dependents may change as other dependents are created.
+        if (!m_dependents[i].get().isCreated()) {
+            m_dependents[i].get().create();
+            i = 0;
         }
     }
 }
@@ -77,7 +78,8 @@ void HandleBase::removeDependency(HandleBase& handle)
             m_dependencies.erase(i);
             break;
         }
-    }}
+    }
+}
 
 HandleBase::~HandleBase()
 {

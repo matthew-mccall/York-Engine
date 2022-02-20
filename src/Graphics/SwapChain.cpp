@@ -32,7 +32,7 @@ bool SwapChain::createImpl()
     std::uint32_t imageCount = m_capabilities.minImageCount + 1;
     std::uint32_t maxImageCount = m_capabilities.maxImageCount;
 
-    if (maxImageCount > 0 && imageCount > maxImageCount) {
+    if ((maxImageCount > 0 )&& (imageCount > maxImageCount)) {
         imageCount = maxImageCount;
     }
 

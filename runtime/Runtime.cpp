@@ -99,6 +99,7 @@ int main()
                 }
 
                 layer.onUpdate(timer.reset().getTime());
+                layer.onRender();
             }
         }
     } catch (std::exception& e) {

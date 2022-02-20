@@ -24,7 +24,7 @@ public:
             YORK_INFO(license->data());
         }
 
-        york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
+        // york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
         // york::log::info(website->data());
 
         m_renderer.create();

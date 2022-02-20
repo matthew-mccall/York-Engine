@@ -42,10 +42,15 @@ bool RenderPass::createImpl()
     std::array<vk::AttachmentDescription, 1> colorAttachments { attachmentDescription };
     std::array<vk::SubpassDescription, 1> subpasses { subpassDescription };
 
+    vk::SubpassDependency dependency {VK_SUBPASS_EXTERNAL, 0, vk::PipelineStageFlagBits::eColorAttachmentOutput, vk::PipelineStageFlagBits::eColorAttachmentOutput, vk::AccessFlagBits::eNoneKHR, vk::AccessFlagBits::eColorAttachmentWrite};
+
+    std::array<vk::SubpassDependency, 1> dependencies { dependency };
+
     vk::RenderPassCreateInfo renderPassCreateInfo {
         {},
         colorAttachments,
         subpassDescription,
+        dependencies
     };
 
 

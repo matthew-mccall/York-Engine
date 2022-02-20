@@ -11,6 +11,8 @@ Framebuffer::Framebuffer(RenderPass& renderPass, ImageView& imageView)
     , m_imageView(imageView)
     , m_device(m_renderPass.getDevice())
 {
+    assert(m_renderPass.getDevice() == m_imageView.getDevice());
+
     addDependency(m_renderPass);
     addDependency(m_imageView);
 }
