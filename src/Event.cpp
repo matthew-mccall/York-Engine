@@ -120,13 +120,30 @@ void pushEvent(const Event& e)
     s_eventQueue.push(e);
 }
 
-void dispatchEvents(std::vector<std::reference_wrapper<EventHandler>>& handlers)
+void dispatchEvents()
 {
     while (!s_eventQueue.empty()) {
-        for (EventHandler& handler : handlers) {
+        for (EventHandler& handler : Registry::getInstance().m_eventHandlers) {
             handler.onEvent(s_eventQueue.front());
         }
         s_eventQueue.pop();
+    }
+}
+
+EventHandler::EventHandler(Registry& registry) : m_registry(registry)
+{
+    m_registry.m_eventHandlers.emplace_back(*this);
+}
+
+EventHandler::~EventHandler()
+{
+    auto& handlers = m_registry.m_eventHandlers;
+
+    for (auto i = handlers.begin(); i != handlers.end(); i++) {
+        if (*this == i->get()) {
+            handlers.erase(i);
+            return;
+        }
     }
 }
 

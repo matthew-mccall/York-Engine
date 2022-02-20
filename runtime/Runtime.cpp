@@ -69,11 +69,9 @@ int main()
 
 
     york::LayerStack layerStack;
-    std::vector<std::reference_wrapper<york::EventHandler>> eventHandlers;
 
     for (auto& layerLoader: layerLoaders) {
         layerStack.pushLayer(*layerLoader);
-        eventHandlers.emplace_back(*layerLoader);
     }
 
     curlpp::initialize();
@@ -86,10 +84,12 @@ int main()
 
     try {
         while (!layerStack.empty()) {
+
             while (SDL_PollEvent(&event)) {
                 york::pushEvent(event);
-                york::dispatchEvents(eventHandlers);
             }
+
+            york::dispatchEvents();
 
             for (york::Layer& layer : layerStack) {
 

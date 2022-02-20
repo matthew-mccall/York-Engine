@@ -90,6 +90,7 @@ set(SRC
         src/XML/Document.cpp
         src/Graphics/FrameData.cpp
         src/Graphics/Fence.cpp
+        src/Registry.cpp
         include/york/Event.hpp
         include/york/York.hpp
         include/york/Async.hpp
@@ -121,7 +122,7 @@ set(SRC
         include/york/Graphics/FrameData.hpp
         include/york/XML/Document.hpp
         include/york/Graphics/Fence.hpp
-        )
+        include/york/Registry.hpp)
 
 set(RUNTIME_SRC
         runtime/Runtime.cpp

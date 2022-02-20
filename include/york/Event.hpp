@@ -7,10 +7,19 @@
 #include <SDL_events.h>
 
 #include "KeyCodes.hpp"
+#include "Identifiable.hpp"
+#include "Registry.hpp"
 
 namespace york {
 
+/**
+ * Represents Event data
+ */
 struct Event {
+
+    /**
+     * The type of event.
+     */
     enum class Type {
         None = 0,
         AppClosing,
@@ -33,11 +42,56 @@ struct Event {
     Event() = delete;
     explicit Event(SDL_Event e);
 
+    /**
+     * Gets the type of the event.
+     *
+     * @return The type of the event
+     */
     [[nodiscard]] Type getType() const;
+
+    /**
+     * Gets the key code of the event.
+     *
+     * Assumes the event has key data. May fail otherwise.
+     *
+     * @return The key code of the event.
+     */
     [[nodiscard]] KeyCode getKeyCode() const;
+
+    /**
+     * Gets the mouse button number of the event.
+     *
+     * Assumes the event has mouse button data.  May fail otherwise.
+     *
+     * @return
+     */
     [[nodiscard]] unsigned getMouseButton() const;
+
+    /**
+     * Gets the horizontal component of the mouse data.
+     *
+     * Assumes the event has horizontal and vertical mouse data.  May fail otherwise.
+     *
+     * @return The horizontal component of the mouse data.
+     */
     [[nodiscard]] unsigned getMouseX() const;
+
+    /**
+     * Gets the vertical component of the mouse data.
+     *
+     * Assumes the event has horizontal and vertical mouse data.  May fail otherwise.
+     *
+     * @return The vertical component of the mouse data.
+     */
     [[nodiscard]] unsigned getMouseY() const;
+
+    /**
+     * Gets the window ID of the event
+     *
+     * Assumes the event has window data.
+     *
+     * @return The window ID of the event.
+     */
     [[nodiscard]] unsigned getWindowID() const;
 
     Type m_type;
@@ -51,13 +105,20 @@ struct Event {
 
 void pushEvent(SDL_Event e);
 
-class EventHandler {
+/**
+ * Override this to handle events.
+ */
+class EventHandler : public Identifiable {
 public:
+    explicit EventHandler(Registry& registry);
     virtual void onEvent(Event& e) = 0;
-    virtual ~EventHandler() = default;
+    virtual ~EventHandler();
+
+private:
+    Registry& m_registry;
 };
 
-void dispatchEvents(std::vector<std::reference_wrapper<EventHandler>>& handlers);
+void dispatchEvents();
 
 } // namespace york
 
