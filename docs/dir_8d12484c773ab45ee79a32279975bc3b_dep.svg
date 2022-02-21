@@ -11,7 +11,7 @@
 <g id="clust1" class="cluster">
 <title>clusterdir_d44c64559bbebec7f509842c48db8b23</title>
 <g id="a_clust1"><a xlink:href="dir_d44c64559bbebec7f509842c48db8b23.html" target="_top" xlink:title="include">
-<polygon fill="#edf0f7" stroke="#404040" stroke-dasharray="5,2" points="8,-8 8,-167 240,-167 240,-8 8,-8"/>
+<polygon fill="#daedff" stroke="#404040" stroke-dasharray="5,2" points="8,-8 8,-167 240,-167 240,-8 8,-8"/>
 <text text-anchor="middle" x="124" y="-155" font-family="Helvetica,sans-Serif" font-size="10.00">include</text>
 </a>
 </g>
@@ -19,7 +19,7 @@
 <g id="clust2" class="cluster">
 <title>clusterdir_8d12484c773ab45ee79a32279975bc3b</title>
 <g id="a_clust2"><a xlink:href="dir_8d12484c773ab45ee79a32279975bc3b.html" target="_top">
-<polygon fill="#edf0f7" stroke="#404040" stroke-width="2" points="16,-16 16,-140 232,-140 232,-16 16,-16"/>
+<polygon fill="#daedff" stroke="#404040" stroke-width="2" points="16,-16 16,-140 232,-140 232,-16 16,-16"/>
 </a>
 </g>
 </g>
@@ -32,7 +32,7 @@
 <g id="node2" class="node">
 <title>dir_6e57488b9d8d79f3ed220c25147c75f5</title>
 <g id="a_node2"><a xlink:href="dir_6e57488b9d8d79f3ed220c25147c75f5.html" target="_top" xlink:title="Graphics">
-<polygon fill="#a2b4d6" stroke="#404040" points="188,-60 132,-60 132,-24 188,-24 188,-60"/>
+<polygon fill="#4ea9ff" stroke="#404040" points="188,-60 132,-60 132,-24 188,-24 188,-60"/>
 <text text-anchor="middle" x="160" y="-39.5" font-family="Helvetica,sans-Serif" font-size="10.00">Graphics</text>
 </a>
 </g>
@@ -51,7 +51,7 @@
 <g id="node3" class="node">
 <title>dir_e26aeafa51c50e65f91679e8be1de890</title>
 <g id="a_node3"><a xlink:href="dir_e26aeafa51c50e65f91679e8be1de890.html" target="_top" xlink:title="Renderer">
-<polygon fill="#a2b4d6" stroke="#404040" points="152,-132 96,-132 96,-96 152,-96 152,-132"/>
+<polygon fill="#4ea9ff" stroke="#404040" points="152,-132 96,-132 96,-96 152,-96 152,-132"/>
 <text text-anchor="middle" x="124" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">Renderer</text>
 </a>
 </g>
@@ -70,7 +70,7 @@
 <g id="node4" class="node">
 <title>dir_1b88ee86b1512d6914ad6c1918e935fe</title>
 <g id="a_node4"><a xlink:href="dir_1b88ee86b1512d6914ad6c1918e935fe.html" target="_top" xlink:title="XML">
-<polygon fill="#a2b4d6" stroke="#404040" points="78,-132 24,-132 24,-96 78,-96 78,-132"/>
+<polygon fill="#4ea9ff" stroke="#404040" points="78,-132 24,-132 24,-96 78,-96 78,-132"/>
 <text text-anchor="middle" x="51" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">XML</text>
 </a>
 </g>
