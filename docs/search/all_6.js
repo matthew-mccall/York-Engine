@@ -6,7 +6,7 @@ var searchData=
   ['getbestpresentmode_3',['getBestPresentMode',['../classyork_1_1graphics_1_1_physical_device.html#ae7a14224fcb22f4bf4df061b78c69013',1,'york::graphics::PhysicalDevice']]],
   ['getchildtags_4',['getChildTags',['../classyork_1_1xml_1_1_tag.html#ae2987dcd60a873e1035fdfae25a1b7b7',1,'york::xml::Tag']]],
   ['getcommandbuffer_5',['getCommandBuffer',['../classyork_1_1graphics_1_1_frame_data.html#a7dd27dd13fe6188e0e72ac167c59ab30',1,'york::graphics::FrameData']]],
-  ['getdata_6',['getData',['../classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c',1,'york::Asset']]],
+  ['getdata_6',['getData',['../classyork_1_1_asset.html#a171938f97be775b0860b296c47166db3',1,'york::Asset::getData()'],['../classyork_1_1_network_asset.html#a8f3f9eaa3145dbe4d718b5e110e5fe77',1,'york::NetworkAsset::getData()'],['../classyork_1_1_string_asset.html#aec1167979c5e9419d2834d824ea70b27',1,'york::StringAsset::getData()']]],
   ['getdevice_7',['getDevice',['../classyork_1_1graphics_1_1_image_view.html#a5652ac8f63af0276e706343bf74c3e01',1,'york::graphics::ImageView::getDevice()'],['../classyork_1_1graphics_1_1_render_pass.html#a57a6819223847c944b4b8e8a76a2cd4c',1,'york::graphics::RenderPass::getDevice()'],['../classyork_1_1graphics_1_1_swap_chain.html#aeb9189947f6050b0993dbeca28e26b88',1,'york::graphics::SwapChain::getDevice()']]],
   ['getenabledextensions_8',['getEnabledExtensions',['../classyork_1_1graphics_1_1_physical_device.html#a1a18bff5126c35e9d640f8775448030d',1,'york::graphics::PhysicalDevice']]],
   ['getexecutor_9',['getExecutor',['../namespaceyork_1_1async.html#a417d5cc6f573f03818d0c1cb03906b76',1,'york::async']]],

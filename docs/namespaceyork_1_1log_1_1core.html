@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -87,6 +90,9 @@ $(document).ready(function(){initNavTree('namespaceyork_1_1log_1_1core.html','')
   <div class="headertitle"><div class="title">york::log::core Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Reserved logging methods for Engine only.  
+<a href="namespaceyork_1_1log_1_1core.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -109,7 +115,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a655a22b27c729199a24eed9d1d353410"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html#a655a22b27c729199a24eed9d1d353410">critical</a> (Ts &amp;&amp;... args)</td></tr>
 <tr class="separator:a655a22b27c729199a24eed9d1d353410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Reserved logging methods for Engine only. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a655a22b27c729199a24eed9d1d353410" name="a655a22b27c729199a24eed9d1d353410"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a655a22b27c729199a24eed9d1d353410">&#9670;&nbsp;</a></span>critical()</h2>
 
@@ -127,6 +135,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs fatal error messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -147,6 +168,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs debug messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -167,6 +201,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs non-fatal error messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -187,6 +234,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs informational messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -207,6 +267,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs trace messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -227,6 +300,19 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Logs warning messages
+</pre> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

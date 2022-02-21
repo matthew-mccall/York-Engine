@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +94,9 @@ $(document).ready(function(){initNavTree('classyork_1_1_registry.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p>A singleton class for sharing data between multiple instances of York-Engine.  
+ <a href="classyork_1_1_registry.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_registry_8hpp_source.html">Registry.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -101,6 +107,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a16f66fcacac44f8c9660b8afaf63377e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classyork_1_1_registry.html">Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">getInstance</a> ()</td></tr>
+<tr class="memdesc:a16f66fcacac44f8c9660b8afaf63377e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Please do not call this method in your client.  <a href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">More...</a><br /></td></tr>
 <tr class="separator:a16f66fcacac44f8c9660b8afaf63377e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -108,7 +115,10 @@ Friends</h2></td></tr>
 <tr class="memitem:aeda6294ee1b4642d1321c98f7afd03a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4">dispatchEvents</a> ()</td></tr>
 <tr class="separator:aeda6294ee1b4642d1321c98f7afd03a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A singleton class for sharing data between multiple instances of York-Engine. </p>
+<p >Currently, the Runtime links with York-Engine. On most modern operating systems, this results in the Engine library being loaded twice, with the Runtime and your Client have their own copies loaded. As a result these two copies of the Engine have their own memory allocated. Thus, internal data structures created in one copy will not be available in the other copy. As such, the <code><a class="el" href="classyork_1_1_registry.html" title="A singleton class for sharing data between multiple instances of York-Engine.">Registry</a></code> will contain the necessary data initialized by the Runtime for use in your client. You need to accept this <code><a class="el" href="classyork_1_1_registry.html" title="A singleton class for sharing data between multiple instances of York-Engine.">Registry</a></code> and pass it to the base constructor of the <code><a class="el" href="classyork_1_1_layer.html">Layer</a></code>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a31f078d7f60c2483c9fb295481c71850" name="a31f078d7f60c2483c9fb295481c71850"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a31f078d7f60c2483c9fb295481c71850">&#9670;&nbsp;</a></span>Registry()</h2>
 
@@ -158,6 +168,10 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Please do not call this method in your client. </p>
+<p >The <a class="el" href="classyork_1_1_registry.html" title="A singleton class for sharing data between multiple instances of York-Engine.">Registry</a> will be passed in the createFunction.</p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classyork_1_1_registry.html" title="A singleton class for sharing data between multiple instances of York-Engine.">Registry</a> </dd></dl>
 
 </div>
 </div>

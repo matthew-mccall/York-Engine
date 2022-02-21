@@ -1,11 +1,8 @@
 #if !defined(YORK_ASSET_HPP)
 #define YORK_ASSET_HPP
 
-#include <optional>
-#include <memory>
-#include <functional>
 #include <string>
-#include <variant>
+#include <vector>
 
 namespace york {
 
@@ -16,7 +13,7 @@ class Asset {
 public:
 
     /**
-     * The type of Asset.
+     * @brief The type of Asset.
      *
      * This can allow the engine to automatically decode the file upon loading.
      */
@@ -41,21 +38,12 @@ public:
     };
 
     /**
-     * Where to load the file from.
-     */
-    enum class Source {
-        FILE, /**< Load file from local filesystem */
-        NETWORK, /**< Download file from the internet, assumes working internet connection */
-        MEMORY /**< Copy from existing memory */
-    };
-
-    /**
-     * Creates an Asset handle, but does not load it.
+     * @brief Creates an Asset handle, but does not load it.
      *
      * @param location A relative or absolute filepath to the asset, or a URL to a network location.
      * @param type The type of asset
      */
-    explicit Asset(const std::string& location, Type type = Type::AUTO, Source source = Source::FILE);
+    explicit Asset(const std::string& location, Type type = Type::AUTO);
 
     /**
      * Gets the type of the asset
@@ -69,22 +57,45 @@ public:
      * This may attempt to load the data on the spot if it is the first time called, previously failed, or the data was unloaded.
      * @return
      */
-    std::optional<std::reference_wrapper<std::vector<char>>> getData();
+    virtual std::vector<char>& getData();
 
-    std::optional<std::reference_wrapper<std::vector<char>>> operator*();
+    std::vector<char>& operator*();
     std::vector<char>* operator->();
 
     char& operator[](std::size_t idx);
 
-    ~Asset();
+    virtual ~Asset();
 
-private:
+protected:
     std::string m_location;
     std::vector<char>& m_data;
     Type m_type;
-    Source m_source;
     int m_size;
+};
 
+/**
+ * An asset to be fetched from the internet
+ */
+class NetworkAsset : public Asset {
+public:
+    /**
+     * Creates an asset that can be fetched from the internet.
+     *
+     * Assumes a working internet connection
+     * @param url The URL to fetch from
+     * @param type The type of document
+     */
+    explicit NetworkAsset(const std::string& url, Type type = Type::UTF8);
+    std::vector<char>& getData() override;
+};
+
+class StringAsset : public Asset {
+public:
+    explicit StringAsset(const std::string& content, Type type = Type::UTF8);
+    std::vector<char>& getData() override;
+
+private:
+    std::string m_content;
 };
 
 } // namespace york::asset

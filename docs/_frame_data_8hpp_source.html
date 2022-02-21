@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -129,8 +132,8 @@ $(document).ready(function(){initNavTree('_frame_data_8hpp_source.html',''); ini
 <div class="ttc" id="a_framebuffer_8hpp_html"><div class="ttname"><a href="_framebuffer_8hpp.html">Framebuffer.hpp</a></div></div>
 <div class="ttc" id="a_semaphore_8hpp_html"><div class="ttname"><a href="_semaphore_8hpp.html">Semaphore.hpp</a></div></div>
 <div class="ttc" id="a_swap_chain_8hpp_html"><div class="ttname"><a href="_swap_chain_8hpp.html">SwapChain.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_fence_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_fence.html">york::graphics::Fence</a></div><div class="ttdef"><b>Definition:</b> Fence.hpp:17</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html">york::graphics::FrameData</a></div><div class="ttdef"><b>Definition:</b> FrameData.hpp:19</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_fence_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_fence.html">york::graphics::Fence</a></div><div class="ttdoc">Handle wrapper for Vulkan Fence.</div><div class="ttdef"><b>Definition:</b> Fence.hpp:17</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html">york::graphics::FrameData</a></div><div class="ttdoc">Contains the necessary synchronization data structures, framebuffer and command buffer for a frame.</div><div class="ttdef"><b>Definition:</b> FrameData.hpp:19</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_a23b8fd4ab81e017dd9cdf57e49971e49"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#a23b8fd4ab81e017dd9cdf57e49971e49">york::graphics::FrameData::getRenderFinishedSemaphore</a></div><div class="ttdeci">Semaphore &amp; getRenderFinishedSemaphore()</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_a364c1f59a7d974ffe116ec5c858bc69b"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#a364c1f59a7d974ffe116ec5c858bc69b">york::graphics::FrameData::FrameData</a></div><div class="ttdeci">FrameData(RenderPass &amp;renderPass, ImageView &amp;imageView, vk::CommandBuffer commandBuffer)</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_a50d7498aaa76deaddefcafdfd0cb204d"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#a50d7498aaa76deaddefcafdfd0cb204d">york::graphics::FrameData::getFramebuffer</a></div><div class="ttdeci">Framebuffer &amp; getFramebuffer()</div></div>
@@ -139,12 +142,12 @@ $(document).ready(function(){initNavTree('_frame_data_8hpp_source.html',''); ini
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_a7f37f98a76a55125819574dd04b083a2"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#a7f37f98a76a55125819574dd04b083a2">york::graphics::FrameData::createImpl</a></div><div class="ttdeci">bool createImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_ab40ced92850c1492874072a201f144a0"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#ab40ced92850c1492874072a201f144a0">york::graphics::FrameData::getImageAvailableSemaphore</a></div><div class="ttdeci">Semaphore &amp; getImageAvailableSemaphore()</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_frame_data_html_af402fd027159229481dce718008038ae"><div class="ttname"><a href="classyork_1_1graphics_1_1_frame_data.html#af402fd027159229481dce718008038ae">york::graphics::FrameData::destroyImpl</a></div><div class="ttdeci">void destroyImpl() override</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_framebuffer_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_framebuffer.html">york::graphics::Framebuffer</a></div><div class="ttdef"><b>Definition:</b> Framebuffer.hpp:19</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_base_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle_base.html">york::graphics::HandleBase</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:20</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_image_view_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_image_view.html">york::graphics::ImageView</a></div><div class="ttdef"><b>Definition:</b> ImageView.hpp:18</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_semaphore_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_semaphore.html">york::graphics::Semaphore</a></div><div class="ttdef"><b>Definition:</b> Semaphore.hpp:18</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_framebuffer_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_framebuffer.html">york::graphics::Framebuffer</a></div><div class="ttdoc">Handle wrapper for Vulkan Framebuffer.</div><div class="ttdef"><b>Definition:</b> Framebuffer.hpp:19</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_base_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle_base.html">york::graphics::HandleBase</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:24</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_image_view_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_image_view.html">york::graphics::ImageView</a></div><div class="ttdoc">Handle wrapper for Vulkan Image Views.</div><div class="ttdef"><b>Definition:</b> ImageView.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdoc">Handle wrapper for Vulkan Render Pass.</div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_semaphore_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_semaphore.html">york::graphics::Semaphore</a></div><div class="ttdoc">Handle wrapper for Vulkan Semaphore.</div><div class="ttdef"><b>Definition:</b> Semaphore.hpp:18</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

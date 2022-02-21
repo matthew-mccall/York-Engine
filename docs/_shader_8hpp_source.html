@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -97,59 +100,63 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html',''); initRes
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vulkan/vulkan.hpp&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_device_8hpp.html">Device.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_handle_8hpp.html">Handle.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork_1_1graphics.html">york::graphics</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_asset_8hpp.html">york/Asset.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_device_8hpp.html">Device.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_handle_8hpp.html">Handle.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1graphics_1_1_shader.html">Shader</a> : <span class="keyword">public</span> <a class="code hl_class" href="classyork_1_1graphics_1_1_handle.html">Handle</a>&lt;vk::ShaderModule&gt; {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">   27</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        Vertex,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        TessellationControl,    <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        TessellationEvaluation, <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        Geometry,               <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        Fragment,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        Compute,        <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        RTRayGen,       <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        RTAnyHit,       <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        RTClosestHit,   <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        RTMiss,         <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        RTIntersection, <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        RTCallable      <span class="comment">// Future support planned.</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a9bbb4c6013fa9327ecf3295c883ec32b">   49</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a9bbb4c6013fa9327ecf3295c883ec32b">Shader</a>(<a class="code hl_class" href="classyork_1_1graphics_1_1_device.html">Device</a>&amp; m_device, std::string glsl, <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> type);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">   56</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">createImpl</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a022620073ce675356cffd4ccce2e4034">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a022620073ce675356cffd4ccce2e4034">destroyImpl</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a5f4b1d78a5fd6a4f1ebf56a1ee1d988b">   62</a></span>    [[nodiscard]] <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a5f4b1d78a5fd6a4f1ebf56a1ee1d988b">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd">   64</a></span>    <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd">~Shader</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork_1_1graphics.html">york::graphics</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1graphics_1_1_shader.html">Shader</a> : <span class="keyword">public</span> <a class="code hl_class" href="classyork_1_1graphics_1_1_handle.html">Handle</a>&lt;vk::ShaderModule&gt; {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">   29</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        Vertex,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        TessellationControl,    <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        TessellationEvaluation, <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        Geometry,               <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        Fragment,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Compute,        <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        RTRayGen,       <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        RTAnyHit,       <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        RTClosestHit,   <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        RTMiss,         <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        RTIntersection, <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        RTCallable      <span class="comment">// Future support planned.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a9d1f19e62cbb271711bd383da3f53aac">   51</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a9d1f19e62cbb271711bd383da3f53aac">Shader</a>(<a class="code hl_class" href="classyork_1_1graphics_1_1_device.html">Device</a>&amp; m_device, <span class="keyword">const</span> <a class="code hl_class" href="classyork_1_1_asset.html">Asset</a>&amp; asset);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">   58</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">createImpl</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a022620073ce675356cffd4ccce2e4034">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a022620073ce675356cffd4ccce2e4034">destroyImpl</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a5f4b1d78a5fd6a4f1ebf56a1ee1d988b">   64</a></span>    [[nodiscard]] <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a5f4b1d78a5fd6a4f1ebf56a1ee1d988b">getType</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="classyork_1_1graphics_1_1_device.html">Device</a>&amp; m_device;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> m_type;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::string m_glsl;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd">   66</a></span>    <a class="code hl_function" href="classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd">~Shader</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_class" href="classyork_1_1_asset.html">Asset</a> m_asset;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classyork_1_1graphics_1_1_device.html">Device</a>&amp; m_device;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_enumeration" href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">Type</a> m_type;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">// YORK_GRAPHICS_SHADER_HPP</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif </span><span class="comment">// YORK_GRAPHICS_SHADER_HPP</span></div>
+<div class="ttc" id="a_asset_8hpp_html"><div class="ttname"><a href="_asset_8hpp.html">Asset.hpp</a></div></div>
 <div class="ttc" id="a_device_8hpp_html"><div class="ttname"><a href="_device_8hpp.html">Device.hpp</a></div></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device. You can request extensions and it will automatically pick an appro...</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html">york::graphics::Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.hpp:21</div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
+<div class="ttc" id="aclassyork_1_1_asset_html"><div class="ttname"><a href="classyork_1_1_asset.html">york::Asset</a></div><div class="ttdoc">An Asset is any file that can be loaded by the engine.</div><div class="ttdef"><b>Definition:</b> Asset.hpp:12</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device.</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html">york::graphics::Shader</a></div><div class="ttdoc">Represents a SPIR-V shaders for use with a Pipeline.</div><div class="ttdef"><b>Definition:</b> Shader.hpp:23</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a022620073ce675356cffd4ccce2e4034"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a022620073ce675356cffd4ccce2e4034">york::graphics::Shader::destroyImpl</a></div><div class="ttdeci">void destroyImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a5f4b1d78a5fd6a4f1ebf56a1ee1d988b"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a5f4b1d78a5fd6a4f1ebf56a1ee1d988b">york::graphics::Shader::getType</a></div><div class="ttdeci">Type getType() const</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a845258e35c6cea8eaeda7a035a5150cd"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd">york::graphics::Shader::~Shader</a></div><div class="ttdeci">~Shader() override</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a96e598715ce3702980134ab301ed3d93"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">york::graphics::Shader::createImpl</a></div><div class="ttdeci">bool createImpl() override</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a9bbb4c6013fa9327ecf3295c883ec32b"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a9bbb4c6013fa9327ecf3295c883ec32b">york::graphics::Shader::Shader</a></div><div class="ttdeci">Shader(Device &amp;m_device, std::string glsl, Type type)</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_ae025281595bfe917535ca817148f9db2"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">york::graphics::Shader::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Shader.hpp:27</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a96e598715ce3702980134ab301ed3d93"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a96e598715ce3702980134ab301ed3d93">york::graphics::Shader::createImpl</a></div><div class="ttdeci">bool createImpl() override</div><div class="ttdoc">Compiles the GLSL into SPIR-V and creates the Vulkan Shader Module.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_a9d1f19e62cbb271711bd383da3f53aac"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#a9d1f19e62cbb271711bd383da3f53aac">york::graphics::Shader::Shader</a></div><div class="ttdeci">Shader(Device &amp;m_device, const Asset &amp;asset)</div><div class="ttdoc">Creates a new shader object.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_shader_html_ae025281595bfe917535ca817148f9db2"><div class="ttname"><a href="classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2">york::graphics::Shader::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents different types of shaders.</div><div class="ttdef"><b>Definition:</b> Shader.hpp:29</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

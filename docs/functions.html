@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +90,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
 <li>addDependency()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_handle_base.html#aae8373d9c7dd12561e71ee0a56008b85">york::graphics::HandleBase</a></li>
 <li>addDependent()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a40d55ab99b07011777f054bf1ae4cb61">york::graphics::HandleBase</a></li>
-<li>Asset()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">york::Asset</a></li>
+<li>Asset()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a01055311b491ebf8e82a81cf2019c2ae">york::Asset</a></li>
 </ul>
 
 
@@ -134,7 +137,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>getBestPresentMode()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_physical_device.html#ae7a14224fcb22f4bf4df061b78c69013">york::graphics::PhysicalDevice</a></li>
 <li>getChildTags()&#160;:&#160;<a class="el" href="classyork_1_1xml_1_1_tag.html#ae2987dcd60a873e1035fdfae25a1b7b7">york::xml::Tag</a></li>
 <li>getCommandBuffer()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_frame_data.html#a7dd27dd13fe6188e0e72ac167c59ab30">york::graphics::FrameData</a></li>
-<li>getData()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">york::Asset</a></li>
+<li>getData()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a171938f97be775b0860b296c47166db3">york::Asset</a>, <a class="el" href="classyork_1_1_network_asset.html#a8f3f9eaa3145dbe4d718b5e110e5fe77">york::NetworkAsset</a>, <a class="el" href="classyork_1_1_string_asset.html#aec1167979c5e9419d2834d824ea70b27">york::StringAsset</a></li>
 <li>getDevice()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_image_view.html#a5652ac8f63af0276e706343bf74c3e01">york::graphics::ImageView</a>, <a class="el" href="classyork_1_1graphics_1_1_render_pass.html#a57a6819223847c944b4b8e8a76a2cd4c">york::graphics::RenderPass</a>, <a class="el" href="classyork_1_1graphics_1_1_swap_chain.html#aeb9189947f6050b0993dbeca28e26b88">york::graphics::SwapChain</a></li>
 <li>getEnabledExtensions()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a1a18bff5126c35e9d640f8775448030d">york::graphics::PhysicalDevice</a></li>
 <li>getExit()&#160;:&#160;<a class="el" href="classyork_1_1_layer.html#a928841c5b3e2d6554008f8b7ae9cba57">york::Layer</a></li>
@@ -191,18 +194,22 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>m_data&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a87e1ec67a5a6b247bb6a9447dcfa12a8">york::Asset</a></li>
 <li>m_handle&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_handle.html#ad15cb2bd9f0e3a10dc7b5053d20c3260">york::graphics::Handle&lt; T &gt;</a></li>
 <li>m_keyCode&#160;:&#160;<a class="el" href="structyork_1_1_event.html#ac8302ac2108c73b7b268fc0cacfe697f">york::Event</a></li>
+<li>m_location&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a757c7d4100b5d542c6c82385fad9a31d">york::Asset</a></li>
 <li>m_mouseButton&#160;:&#160;<a class="el" href="structyork_1_1_event.html#a3a24cc41d4249bbf9af39ff32204f4ea">york::Event</a></li>
 <li>m_mouseX&#160;:&#160;<a class="el" href="structyork_1_1_event.html#a70f45575ffc69862903a747a8ac33ecd">york::Event</a></li>
 <li>m_mouseY&#160;:&#160;<a class="el" href="structyork_1_1_event.html#a93fd3f6d4300bf0e9867f691b6a42290">york::Event</a></li>
-<li>m_type&#160;:&#160;<a class="el" href="structyork_1_1_event.html#a68a68f2fe1463741b041f66cfc07eb0e">york::Event</a></li>
+<li>m_size&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#adea59bdf6953b07347d4511df40e38a7">york::Asset</a></li>
+<li>m_type&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a3fb5b165973b471c5c0738173d77bdf7">york::Asset</a>, <a class="el" href="structyork_1_1_event.html#a68a68f2fe1463741b041f66cfc07eb0e">york::Event</a></li>
 <li>m_windowID&#160;:&#160;<a class="el" href="structyork_1_1_event.html#a107cafee5a3d02595a1c7d0f66fdebc0">york::Event</a></li>
 </ul>
 
 
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
 <li>name&#160;:&#160;<a class="el" href="structyork_1_1_requestable_item.html#a1b6a27afe714ebd8b485d8ee84aa17f2">york::RequestableItem</a></li>
+<li>NetworkAsset()&#160;:&#160;<a class="el" href="classyork_1_1_network_asset.html#a53f1683f6eb92fc9219f81dd4e773390">york::NetworkAsset</a></li>
 </ul>
 
 
@@ -212,7 +219,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>onEvent()&#160;:&#160;<a class="el" href="classyork_1_1_event_handler.html#ad88fe6227fbae2970b83c60e74c60d0d">york::EventHandler</a></li>
 <li>onRender()&#160;:&#160;<a class="el" href="classyork_1_1_layer.html#a71754d104f7966d5e729d516dbebc84d">york::Layer</a></li>
 <li>onUpdate()&#160;:&#160;<a class="el" href="classyork_1_1_layer.html#ae0a1e174f2dcc69097e3f7a721f513d7">york::Layer</a></li>
-<li>operator*()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">york::Asset</a>, <a class="el" href="classyork_1_1graphics_1_1_handle.html#a11bc361ff9e89cc14c2b85d0924a4f95">york::graphics::Handle&lt; T &gt;</a></li>
+<li>operator*()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a1bd34a33008af325418653ef80d39c1c">york::Asset</a>, <a class="el" href="classyork_1_1graphics_1_1_handle.html#a11bc361ff9e89cc14c2b85d0924a4f95">york::graphics::Handle&lt; T &gt;</a></li>
 <li>operator-&gt;()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">york::Asset</a>, <a class="el" href="classyork_1_1graphics_1_1_handle.html#a8fbc55bfada927edaa9a33f78f7baab7">york::graphics::Handle&lt; T &gt;</a>, <a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a2c4380833f62abb0be64beed06c0e8dd">york::graphics::PhysicalDevice</a></li>
 <li>operator[]()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">york::Asset</a></li>
 </ul>
@@ -245,8 +252,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>Semaphore()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_semaphore.html#ac90d4853db431d97ab243b7fd0b074c3">york::graphics::Semaphore</a></li>
 <li>setImage()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_image_view.html#ad3fa575b7c50ecd39cc3dd1d91c6bd4e">york::graphics::ImageView</a></li>
 <li>setShaders()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_pipeline.html#a8c94528590deaacc3bcc9d72296c047d">york::graphics::Pipeline</a></li>
-<li>Shader()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_shader.html#a9bbb4c6013fa9327ecf3295c883ec32b">york::graphics::Shader</a></li>
-<li>Source&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">york::Asset</a></li>
+<li>Shader()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_shader.html#a9d1f19e62cbb271711bd383da3f53aac">york::graphics::Shader</a></li>
+<li>StringAsset()&#160;:&#160;<a class="el" href="classyork_1_1_string_asset.html#a9316cda326a7a8e505efe56518d83946">york::StringAsset</a></li>
 <li>Surface()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_surface.html#a11bf3fe261bfbdc5943e1ec6ad85c291">york::graphics::Surface</a></li>
 <li>SwapChain()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677">york::graphics::SwapChain</a></li>
 </ul>
@@ -265,7 +272,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
-<li>~Asset()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">york::Asset</a></li>
+<li>~Asset()&#160;:&#160;<a class="el" href="classyork_1_1_asset.html#a3a88638b38bf5460deef224f93bced03">york::Asset</a></li>
 <li>~Document()&#160;:&#160;<a class="el" href="classyork_1_1xml_1_1_document.html#a920d346dad553e10d28d42fc16ed5d7f">york::xml::Document</a></li>
 <li>~EventHandler()&#160;:&#160;<a class="el" href="classyork_1_1_event_handler.html#aa36240adcfe8a9ba81682a3b419526ca">york::EventHandler</a></li>
 <li>~HandleBase()&#160;:&#160;<a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a36344181663af409d5d45ad42a8497fd">york::graphics::HandleBase</a></li>

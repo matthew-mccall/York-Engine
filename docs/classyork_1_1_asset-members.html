@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -88,15 +91,18 @@ $(document).ready(function(){initNavTree('classyork_1_1_asset.html',''); initRes
 
 <p>This is the complete list of members for <a class="el" href="classyork_1_1_asset.html">york::Asset</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27">Asset</a>(const std::string &amp;location, Type type=Type::AUTO, Source source=Source::FILE)</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c">getData</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a01055311b491ebf8e82a81cf2019c2ae">Asset</a>(const std::string &amp;location, Type type=Type::AUTO)</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a171938f97be775b0860b296c47166db3">getData</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7">getType</a>() const</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760">operator*</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a87e1ec67a5a6b247bb6a9447dcfa12a8">m_data</a></td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a757c7d4100b5d542c6c82385fad9a31d">m_location</a></td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#adea59bdf6953b07347d4511df40e38a7">m_size</a></td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a3fb5b165973b471c5c0738173d77bdf7">m_type</a></td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a1bd34a33008af325418653ef80d39c1c">operator*</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a">operator-&gt;</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2">operator[]</a>(std::size_t idx)</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87">Source</a> enum name</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> enum name</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1">~Asset</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34">Type</a> enum name</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classyork_1_1_asset.html#a3a88638b38bf5460deef224f93bced03">~Asset</a>()</td><td class="entry"><a class="el" href="classyork_1_1_asset.html">york::Asset</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

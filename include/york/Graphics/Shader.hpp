@@ -10,6 +10,8 @@
 #include <vector>
 #include <vulkan/vulkan.hpp>
 
+#include "york/Asset.hpp"
+
 #include "Device.hpp"
 #include "Handle.hpp"
 
@@ -43,10 +45,10 @@ public:
      * Creates a new shader object
      *
      * @param m_device The device to create the shader with.
-     * @param glsl The GLSL source to be compiled into SPIR-V.
+     * @param asset The GLSL source to be compiled into SPIR-V.
      * @param type The type of shader to compile and bind to the pipeline.
      */
-    explicit Shader(Device& m_device, std::string glsl, Type type);
+    explicit Shader(Device& m_device, const Asset& asset);
 
     /**
      * Compiles the GLSL into SPIR-V and creates the Vulkan Shader Module.
@@ -64,9 +66,9 @@ public:
     ~Shader() override;
 
 private:
+    Asset m_asset;
     Device& m_device;
     Type m_type;
-    std::string m_glsl;
 };
 
 }

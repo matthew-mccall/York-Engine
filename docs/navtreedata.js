@@ -38,17 +38,19 @@ var NAVTREE =
       ] ],
       [ "Using", "index.html#autotoc_md9", [
         [ "Sample", "index.html#autotoc_md10", null ],
-        [ "How it works", "index.html#autotoc_md11", null ]
+        [ "How it works", "index.html#autotoc_md11", [
+          [ "createFunction", "index.html#autotoc_md12", null ],
+          [ "Client.xml", "index.html#autotoc_md13", null ]
+        ] ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", "namespacemembers_eval" ]
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -77,10 +79,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_asset_8hpp.html",
-"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618addd5789915806019b3f6c6bbf38e3fcb",
-"classyork_1_1graphics_1_1_device.html#a8da1e65d33faa8dc106455e93c15a842",
-"classyork_1_1xml_1_1_tag.html#acc95d85f703120b4507734ae6c5890d5",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618aca53d4e6f725e1efe6da41b0d3271bae"
+"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adf9a973f21d23d40a8f8c8192db00a2f",
+"classyork_1_1graphics_1_1_command_pool.html#a475aa98f8519d64ec01d8e407e9c164d",
+"classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae",
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac88edf170394ec39beaba43bf06b7549"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

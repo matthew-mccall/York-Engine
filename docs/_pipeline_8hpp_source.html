@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -124,22 +127,22 @@ $(document).ready(function(){initNavTree('_pipeline_8hpp_source.html',''); initR
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif </span><span class="comment">// YORK_GRAPHICS_PIPELINE_HPP</span></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
 <div class="ttc" id="a_pipeline_layout_8hpp_html"><div class="ttname"><a href="_pipeline_layout_8hpp.html">PipelineLayout.hpp</a></div></div>
 <div class="ttc" id="a_render_pass_8hpp_html"><div class="ttname"><a href="_render_pass_8hpp.html">RenderPass.hpp</a></div></div>
 <div class="ttc" id="a_shader_8hpp_html"><div class="ttname"><a href="_shader_8hpp.html">Shader.hpp</a></div></div>
 <div class="ttc" id="a_swap_chain_8hpp_html"><div class="ttname"><a href="_swap_chain_8hpp.html">SwapChain.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device. You can request extensions and it will automatically pick an appro...</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html">york::graphics::Pipeline</a></div><div class="ttdef"><b>Definition:</b> Pipeline.hpp:22</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device.</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html">york::graphics::Pipeline</a></div><div class="ttdoc">Handle wrapper for Vulkan Pipeline.</div><div class="ttdef"><b>Definition:</b> Pipeline.hpp:22</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html_a04a94ea9d224db5632e1baf8e97873c6"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html#a04a94ea9d224db5632e1baf8e97873c6">york::graphics::Pipeline::Pipeline</a></div><div class="ttdeci">Pipeline(SwapChain &amp;swapChain, RenderPass &amp;renderPass, std::vector&lt; Shader &gt; shaders={})</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html_a0b566996fef16bdf9f18238eecce1bd3"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html#a0b566996fef16bdf9f18238eecce1bd3">york::graphics::Pipeline::createImpl</a></div><div class="ttdeci">bool createImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html_a6ba5ea225fe689325eabd61bd63ea1fc"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html#a6ba5ea225fe689325eabd61bd63ea1fc">york::graphics::Pipeline::destroyImpl</a></div><div class="ttdeci">void destroyImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_html_a8c94528590deaacc3bcc9d72296c047d"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline.html#a8c94528590deaacc3bcc9d72296c047d">york::graphics::Pipeline::setShaders</a></div><div class="ttdeci">void setShaders(std::vector&lt; Shader &gt; shaders)</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_layout_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline_layout.html">york::graphics::PipelineLayout</a></div><div class="ttdef"><b>Definition:</b> PipelineLayout.hpp:18</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_pipeline_layout_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_pipeline_layout.html">york::graphics::PipelineLayout</a></div><div class="ttdoc">Handle wrapper for Vulkan Pipeline Layout.</div><div class="ttdef"><b>Definition:</b> PipelineLayout.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdoc">Handle wrapper for Vulkan Render Pass.</div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdoc">Handle wrapper for Vulkan Swapchain.</div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

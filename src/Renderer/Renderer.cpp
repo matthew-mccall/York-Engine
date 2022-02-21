@@ -38,18 +38,16 @@ Renderer::Renderer(graphics::Window& window)
         return;
     }
 
-    std::string vertSrc = std::string { vert->data() };
-    york::graphics::Shader vertShader { m_device, vertSrc, york::graphics::Shader::Type::Vertex };
+    york::graphics::Shader vertShader { m_device, vert };
 
-    york::Asset frag { "shaders/shader.frag", york::Asset::Type::SHADER_VERT_GLSL };
+    york::Asset frag { "shaders/shader.frag", york::Asset::Type::SHADER_FRAG_GLSL };
 
     if (frag->empty()) {
         YORK_CORE_ERROR("Failed to load fragment shader!");
         return;
     }
 
-    std::string fragSrc = std::string { frag->data() };
-    york::graphics::Shader fragShader { m_device, fragSrc, york::graphics::Shader::Type::Fragment };
+    york::graphics::Shader fragShader { m_device, frag };
 
     std::vector<york::graphics::Shader> shaders { vertShader, fragShader };
 

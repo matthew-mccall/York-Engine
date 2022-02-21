@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -105,7 +108,7 @@ Functions</h2></td></tr>
 <tr class="separator:ae20c34b5a5575e6560ee3a690a4eb295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a556b2969865229b76e64d8d4ab51984f"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... ArgsT&gt; </td></tr>
 <tr class="memitem:a556b2969865229b76e64d8d4ab51984f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">nrDispatch</a> (F &amp;&amp;func, ArgsT &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a556b2969865229b76e64d8d4ab51984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-Return Dispatch. Executes a function, which returns void, asynchronously.  <a href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">More...</a><br /></td></tr>
+<tr class="memdesc:a556b2969865229b76e64d8d4ab51984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-Return Dispatch.  <a href="namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f">More...</a><br /></td></tr>
 <tr class="separator:a556b2969865229b76e64d8d4ab51984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -218,7 +221,8 @@ template&lt;typename F , typename... ArgsT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Non-Return Dispatch. Executes a function, which returns void, asynchronously. </p>
+<p>Non-Return Dispatch. </p>
+<p >Executes a function, which returns void, asynchronously.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">F</td><td>The function type. </td></tr>

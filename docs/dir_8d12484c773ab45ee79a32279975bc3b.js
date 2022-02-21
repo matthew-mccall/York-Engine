@@ -4,7 +4,9 @@ var dir_8d12484c773ab45ee79a32279975bc3b =
     [ "Renderer", "dir_e26aeafa51c50e65f91679e8be1de890.html", "dir_e26aeafa51c50e65f91679e8be1de890" ],
     [ "XML", "dir_1b88ee86b1512d6914ad6c1918e935fe.html", "dir_1b88ee86b1512d6914ad6c1918e935fe" ],
     [ "Asset.hpp", "_asset_8hpp.html", [
-      [ "york::Asset", "classyork_1_1_asset.html", "classyork_1_1_asset" ]
+      [ "york::Asset", "classyork_1_1_asset.html", "classyork_1_1_asset" ],
+      [ "york::NetworkAsset", "classyork_1_1_network_asset.html", "classyork_1_1_network_asset" ],
+      [ "york::StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ]
     ] ],
     [ "Async.hpp", "_async_8hpp.html", "_async_8hpp" ],
     [ "Event.hpp", "_event_8hpp.html", "_event_8hpp" ],

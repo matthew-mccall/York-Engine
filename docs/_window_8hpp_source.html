@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -115,13 +118,13 @@ $(document).ready(function(){initNavTree('_window_8hpp_source.html',''); initRes
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace york::graphics</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_a4540a5402204ce5202b375a8e3bdbef6"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#a4540a5402204ce5202b375a8e3bdbef6">york::graphics::Window::getName</a></div><div class="ttdeci">std::string getName() const</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_ab4f408ed776dce686b88d33850d9043a"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#ab4f408ed776dce686b88d33850d9043a">york::graphics::Window::getWindowID</a></div><div class="ttdeci">unsigned getWindowID()</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_af81bea2d0971e13c292660383e4af29e"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#af81bea2d0971e13c292660383e4af29e">york::graphics::Window::Window</a></div><div class="ttdeci">Window(std::string name, unsigned width=800, unsigned height=600)</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdoc">A graphical window to which we can render to.</div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_a4540a5402204ce5202b375a8e3bdbef6"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#a4540a5402204ce5202b375a8e3bdbef6">york::graphics::Window::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdoc">Gets the name of the window.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_ab4f408ed776dce686b88d33850d9043a"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#ab4f408ed776dce686b88d33850d9043a">york::graphics::Window::getWindowID</a></div><div class="ttdeci">unsigned getWindowID()</div><div class="ttdoc">Gets the identification number of the window.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html_af81bea2d0971e13c292660383e4af29e"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html#af81bea2d0971e13c292660383e4af29e">york::graphics::Window::Window</a></div><div class="ttdeci">Window(std::string name, unsigned width=800, unsigned height=600)</div><div class="ttdoc">Creates a Window.</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

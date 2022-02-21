@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -127,19 +130,19 @@ $(document).ready(function(){initNavTree('_instance_8hpp_source.html',''); initR
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
 <div class="ttc" id="a_requestable_item_8hpp_html"><div class="ttname"><a href="_requestable_item_8hpp.html">RequestableItem.hpp</a></div></div>
 <div class="ttc" id="a_window_8hpp_html"><div class="ttname"><a href="_window_8hpp.html">Window.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html">york::graphics::Instance</a></div><div class="ttdef"><b>Definition:</b> Instance.hpp:24</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html">york::graphics::Instance</a></div><div class="ttdoc">A handle for Vulkan instances.</div><div class="ttdef"><b>Definition:</b> Instance.hpp:24</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_a17844c1171cc9784d85cb4c9b426cbb1"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#a17844c1171cc9784d85cb4c9b426cbb1">york::graphics::Instance::requestLayer</a></div><div class="ttdeci">void requestLayer(const InstanceLayer &amp;layer)</div><div class="ttdoc">Requests an instance layer to be used in the creation of the instance.</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_a5ce6d861012206de05076ca804bab169"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#a5ce6d861012206de05076ca804bab169">york::graphics::Instance::requestExtension</a></div><div class="ttdeci">void requestExtension(const InstanceExtension &amp;extension)</div><div class="ttdoc">Requests an instance extension to be used in the creation of the instance.</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_a62f0ff4bf724ce5acd59f5aaa40b8150"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#a62f0ff4bf724ce5acd59f5aaa40b8150">york::graphics::Instance::destroyImpl</a></div><div class="ttdeci">void destroyImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_ab6ef6c19063885d108809a29d61ae585"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#ab6ef6c19063885d108809a29d61ae585">york::graphics::Instance::createImpl</a></div><div class="ttdeci">bool createImpl() override</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_af634e3c4743e7af2824ca5056cea7aaf"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#af634e3c4743e7af2824ca5056cea7aaf">york::graphics::Instance::Instance</a></div><div class="ttdeci">Instance(Window &amp;window)</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
-<div class="ttc" id="astructyork_1_1_requestable_item_html"><div class="ttname"><a href="structyork_1_1_requestable_item.html">york::RequestableItem</a></div><div class="ttdef"><b>Definition:</b> RequestableItem.hpp:15</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_instance_html_af634e3c4743e7af2824ca5056cea7aaf"><div class="ttname"><a href="classyork_1_1graphics_1_1_instance.html#af634e3c4743e7af2824ca5056cea7aaf">york::graphics::Instance::Instance</a></div><div class="ttdeci">Instance(Window &amp;window)</div><div class="ttdoc">Creates a Vulkan instance.</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdoc">A graphical window to which we can render to.</div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="astructyork_1_1_requestable_item_html"><div class="ttname"><a href="structyork_1_1_requestable_item.html">york::RequestableItem</a></div><div class="ttdoc">A convenience structure for representing required or optional items that can be requested.</div><div class="ttdef"><b>Definition:</b> RequestableItem.hpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -127,19 +130,19 @@ $(document).ready(function(){initNavTree('_swap_chain_8hpp_source.html',''); ini
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">// YORK_GRAPHICS_SWAPCHAIN_HPP</span></div>
 <div class="ttc" id="a_device_8hpp_html"><div class="ttname"><a href="_device_8hpp.html">Device.hpp</a></div></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
 <div class="ttc" id="a_image_view_8hpp_html"><div class="ttname"><a href="_image_view_8hpp.html">ImageView.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device. You can request extensions and it will automatically pick an appro...</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_surface_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_surface.html">york::graphics::Surface</a></div><div class="ttdef"><b>Definition:</b> Surface.hpp:19</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device.</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_surface_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_surface.html">york::graphics::Surface</a></div><div class="ttdoc">Handle wrapper for Vulkan Surface.</div><div class="ttdef"><b>Definition:</b> Surface.hpp:19</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdoc">Handle wrapper for Vulkan Swapchain.</div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html_a14509ecdb25dcf13cc8a25c65715f677"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677">york::graphics::SwapChain::SwapChain</a></div><div class="ttdeci">SwapChain(Device &amp;device, Window &amp;window, Surface &amp;surface)</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html_a151aefe1eb257687a95d9cd5a823f7b1"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html#a151aefe1eb257687a95d9cd5a823f7b1">york::graphics::SwapChain::getFormat</a></div><div class="ttdeci">vk::SurfaceFormatKHR getFormat() const</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html_a3116ff61bcf255557023e4554b1a35e1"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html#a3116ff61bcf255557023e4554b1a35e1">york::graphics::SwapChain::getExtent</a></div><div class="ttdeci">const vk::Extent2D &amp; getExtent() const</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html_abe22c14932474344a3b114194087b8ab"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html#abe22c14932474344a3b114194087b8ab">york::graphics::SwapChain::getImageViews</a></div><div class="ttdeci">std::vector&lt; ImageView &gt; &amp; getImageViews()</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html_aeb9189947f6050b0993dbeca28e26b88"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html#aeb9189947f6050b0993dbeca28e26b88">york::graphics::SwapChain::getDevice</a></div><div class="ttdeci">Device &amp; getDevice() const</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdoc">A graphical window to which we can render to.</div><div class="ttdef"><b>Definition:</b> Window.hpp:15</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

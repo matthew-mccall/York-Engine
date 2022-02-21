@@ -8,15 +8,38 @@
 
 #include "york/Graphics/Shader.hpp"
 #include "york/Log.hpp"
+#include "york/Asset.hpp"
 
 namespace york::graphics {
 
-Shader::Shader(Device& m_device, std::string glsl, Type type)
+Shader::Shader(Device& m_device, const Asset& asset)
     : m_device(m_device)
-    , m_glsl(std::move(glsl))
-    , m_type(type)
+    , m_asset(asset)
 {
     addDependency(m_device);
+
+    switch (asset.getType()) {
+    case Asset::Type::SHADER_VERT_GLSL:
+        m_type = Type::Vertex;
+        break;
+    case Asset::Type::SHADER_FRAG_GLSL:
+        m_type = Type::Fragment;
+        break;
+    case Asset::Type::SHADER_COMP_GLSL:
+        m_type = Type::Compute;
+        break;
+    case Asset::Type::SHADER_GEOM_GLSL:
+        m_type = Type::Geometry;
+        break;
+    case Asset::Type::SHADER_TESE_GLSL:
+        m_type = Type::TessellationEvaluation;
+        break;
+    case Asset::Type::SHADER_TESC_GLSL:
+        m_type = Type::TessellationControl;
+        break;
+    default:
+        break;
+    }
 
 }
 
@@ -44,7 +67,9 @@ bool Shader::createImpl()
         break;
     }
 
-    auto result = compiler.CompileGlslToSpv(m_glsl, kind, "");
+    std::string glsl = { m_asset->data() };
+
+    auto result = compiler.CompileGlslToSpv(glsl, kind, "");
 
     if (result.GetCompilationStatus() == shaderc_compilation_status_success) {
         std::vector<std::uint32_t> spirv {result.begin(), result.end() };

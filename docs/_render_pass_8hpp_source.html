@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -118,18 +121,18 @@ $(document).ready(function(){initNavTree('_render_pass_8hpp_source.html',''); in
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// YORK_GRAPHICS_RENDERPASS_HPP</span></div>
-<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div></div>
+<div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.</div></div>
 <div class="ttc" id="a_swap_chain_8hpp_html"><div class="ttname"><a href="_swap_chain_8hpp.html">SwapChain.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device. You can request extensions and it will automatically pick an appro...</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdef"><b>Definition:</b> Handle.hpp:75</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_device_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_device.html">york::graphics::Device</a></div><div class="ttdoc">A class representing a GPU device.</div><div class="ttdef"><b>Definition:</b> Device.hpp:33</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_handle_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle</a></div><div class="ttdoc">A template wrapper that allows any type to be treated as handle.</div><div class="ttdef"><b>Definition:</b> Handle.hpp:79</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html">york::graphics::RenderPass</a></div><div class="ttdoc">Handle wrapper for Vulkan Render Pass.</div><div class="ttdef"><b>Definition:</b> RenderPass.hpp:18</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html_a326522389502a8ab30061eb74fa15441"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html#a326522389502a8ab30061eb74fa15441">york::graphics::RenderPass::getSwapChain</a></div><div class="ttdeci">SwapChain &amp; getSwapChain()</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html_a57a6819223847c944b4b8e8a76a2cd4c"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html#a57a6819223847c944b4b8e8a76a2cd4c">york::graphics::RenderPass::getDevice</a></div><div class="ttdeci">Device &amp; getDevice()</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html_ab6995f8572c37021f96c250118c0236f"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html#ab6995f8572c37021f96c250118c0236f">york::graphics::RenderPass::createImpl</a></div><div class="ttdeci">bool createImpl() override</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html_acd85c0b424a1bd8a3a3f12c62245c792"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html#acd85c0b424a1bd8a3a3f12c62245c792">york::graphics::RenderPass::RenderPass</a></div><div class="ttdeci">RenderPass(SwapChain &amp;swapChain)</div></div>
 <div class="ttc" id="aclassyork_1_1graphics_1_1_render_pass_html_aefab8ace426e5997c84e61f8b402845b"><div class="ttname"><a href="classyork_1_1graphics_1_1_render_pass.html#aefab8ace426e5997c84e61f8b402845b">york::graphics::RenderPass::destroyImpl</a></div><div class="ttdeci">void destroyImpl() override</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
-<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
+<div class="ttc" id="aclassyork_1_1graphics_1_1_swap_chain_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_swap_chain.html">york::graphics::SwapChain</a></div><div class="ttdoc">Handle wrapper for Vulkan Swapchain.</div><div class="ttdef"><b>Definition:</b> SwapChain.hpp:19</div></div>
+<div class="ttc" id="anamespaceyork_1_1graphics_html"><div class="ttname"><a href="namespaceyork_1_1graphics.html">york::graphics</a></div><div class="ttdoc">A base for a system that allows handles to be attached to other handles and recreating handles and th...</div><div class="ttdef"><b>Definition:</b> CommandPool.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -88,46 +91,64 @@ $(document).ready(function(){initNavTree('namespaceyork_1_1graphics.html',''); i
   <div class="headertitle"><div class="title">york::graphics Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A base for a system that allows handles to be attached to other handles and recreating handles and their dependents.  
+<a href="namespaceyork_1_1graphics.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_command_pool.html">CommandPool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Command Pool.  <a href="classyork_1_1graphics_1_1_command_pool.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_device.html">Device</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class representing a GPU device. You can request extensions and it will automatically pick an appropriate device accordingly upon <a class="el" href="classyork_1_1graphics_1_1_handle_base.html#ac8f8d4813da765bcd74a2a8d4e2e1160" title="Creates a handle.">create()</a>.  <a href="classyork_1_1graphics_1_1_device.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class representing a GPU device.  <a href="classyork_1_1graphics_1_1_device.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_fence.html">Fence</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_fence.html" title="Handle wrapper for Vulkan Fence.">Fence</a>.  <a href="classyork_1_1graphics_1_1_fence.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_framebuffer.html">Framebuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_framebuffer.html" title="Handle wrapper for Vulkan Framebuffer.">Framebuffer</a>.  <a href="classyork_1_1graphics_1_1_framebuffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_frame_data.html">FrameData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the necessary synchronization data structures, framebuffer and command buffer for a frame.  <a href="classyork_1_1graphics_1_1_frame_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle.html">Handle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template wrapper that allows any type to be treated as handle.  <a href="classyork_1_1graphics_1_1_handle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html">HandleBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_image_view.html">ImageView</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Image Views.  <a href="classyork_1_1graphics_1_1_image_view.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_instance.html">Instance</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle for Vulkan instances.  <a href="classyork_1_1graphics_1_1_instance.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html">PhysicalDevice</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class representing properties about a physical GPU.  <a href="classyork_1_1graphics_1_1_physical_device.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_pipeline.html">Pipeline</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_pipeline.html" title="Handle wrapper for Vulkan Pipeline.">Pipeline</a>.  <a href="classyork_1_1graphics_1_1_pipeline.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_pipeline_layout.html">PipelineLayout</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_pipeline.html" title="Handle wrapper for Vulkan Pipeline.">Pipeline</a> Layout.  <a href="classyork_1_1graphics_1_1_pipeline_layout.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_render_pass.html">RenderPass</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Render Pass.  <a href="classyork_1_1graphics_1_1_render_pass.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_semaphore.html">Semaphore</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_semaphore.html" title="Handle wrapper for Vulkan Semaphore.">Semaphore</a>.  <a href="classyork_1_1graphics_1_1_semaphore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_shader.html">Shader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a SPIR-V shaders for use with a <a class="el" href="classyork_1_1graphics_1_1_pipeline.html" title="Handle wrapper for Vulkan Pipeline.">Pipeline</a>.  <a href="classyork_1_1graphics_1_1_shader.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_surface.html">Surface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan <a class="el" href="classyork_1_1graphics_1_1_surface.html" title="Handle wrapper for Vulkan Surface.">Surface</a>.  <a href="classyork_1_1graphics_1_1_surface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_swap_chain.html">SwapChain</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Swapchain.  <a href="classyork_1_1graphics_1_1_swap_chain.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_window.html">Window</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A graphical window to which we can render to.  <a href="classyork_1_1graphics_1_1_window.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -144,9 +165,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:aeb147f28350362b55cf9124d32f9cbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Contains the declarations for the <a class="el" href="classyork_1_1graphics_1_1_handle.html">Handle</a> classes which form the basis of our Vulkan implementation.</p>
-<p >Credit to <a href="https://github.com/MarcasRealAccount/">Markus</a> for the <a class="el" href="classyork_1_1graphics_1_1_handle.html">Handle</a> system.</p>
-<p >The namespace for everything Vulkan related. Engine only. (Except <a class="el" href="classyork_1_1graphics_1_1_window.html">Window</a>) </p>
+<div class="textblock"><p >A base for a system that allows handles to be attached to other handles and recreating handles and their dependents. </p>
+<p >The namespace for everything Vulkan related.</p>
+<p >Engine only. (Except <a class="el" href="classyork_1_1graphics_1_1_window.html" title="A graphical window to which we can render to.">Window</a>) </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a1d366dc9087cda8533149e4eff31ded5" name="a1d366dc9087cda8533149e4eff31ded5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d366dc9087cda8533149e4eff31ded5">&#9670;&nbsp;</a></span>DeviceExtension</h2>

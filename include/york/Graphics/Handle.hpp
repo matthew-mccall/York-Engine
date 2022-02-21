@@ -2,7 +2,9 @@
 #define YORK_GRAPHICS_HANDLE_HPP
 
 /**
- * Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.
+ * @file Handle.hpp
+ *
+ * @brief Contains the declarations for the Handle classes which form the basis of our Vulkan implementation.
  *
  * Credit to <a href="https://github.com/MarcasRealAccount/">Markus</a> for the Handle system.
  */
@@ -15,7 +17,9 @@
 namespace york::graphics {
 
 /**
- * A base for a system that allows handles to be attached to other handles and recreating handles and their dependents.
+ * @namespace york::graphics
+ *
+ * @brief A base for a system that allows handles to be attached to other handles and recreating handles and their dependents.
  */
 class HandleBase : public Identifiable {
 public:

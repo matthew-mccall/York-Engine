@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -90,18 +93,22 @@ $(document).ready(function(){initNavTree('classyork_1_1graphics_1_1_render_pass.
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Render Pass.  
+ <a href="classyork_1_1graphics_1_1_render_pass.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_render_pass_8hpp_source.html">RenderPass.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for york::graphics::RenderPass:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classyork_1_1graphics_1_1_render_pass.png" usemap="#york::graphics::RenderPass_map" alt=""/>
-  <map id="york::graphics::RenderPass_map" name="york::graphics::RenderPass_map">
-<area href="classyork_1_1graphics_1_1_handle.html" alt="york::graphics::Handle&lt; vk::RenderPass &gt;" shape="rect" coords="0,112,249,136"/>
-<area href="classyork_1_1graphics_1_1_handle_base.html" alt="york::graphics::HandleBase" shape="rect" coords="0,56,249,80"/>
-<area href="classyork_1_1_identifiable.html" alt="york::Identifiable" shape="rect" coords="0,0,249,24"/>
-  </map>
-</div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classyork_1_1graphics_1_1_render_pass__inherit__graph.svg" width="195" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for york::graphics::RenderPass:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classyork_1_1graphics_1_1_render_pass__coll__graph.svg" width="195" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -113,6 +120,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a326522389502a8ab30061eb74fa15441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classyork_1_1graphics_1_1_handle"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classyork_1_1graphics_1_1_handle')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classyork_1_1graphics_1_1_handle.html">york::graphics::Handle&lt; vk::RenderPass &gt;</a></td></tr>
 <tr class="memitem:a558232dbcdd4831d3bad96256ae380f2 inherit pub_methods_classyork_1_1graphics_1_1_handle"><td class="memItemLeft" align="right" valign="top">vk::RenderPass&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle.html#a558232dbcdd4831d3bad96256ae380f2">getHandle</a> ()</td></tr>
+<tr class="memdesc:a558232dbcdd4831d3bad96256ae380f2 inherit pub_methods_classyork_1_1graphics_1_1_handle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle.  <a href="classyork_1_1graphics_1_1_handle.html#a558232dbcdd4831d3bad96256ae380f2">More...</a><br /></td></tr>
 <tr class="separator:a558232dbcdd4831d3bad96256ae380f2 inherit pub_methods_classyork_1_1graphics_1_1_handle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fbc55bfada927edaa9a33f78f7baab7 inherit pub_methods_classyork_1_1graphics_1_1_handle"><td class="memItemLeft" align="right" valign="top">vk::RenderPass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle.html#a8fbc55bfada927edaa9a33f78f7baab7">operator-&gt;</a> ()</td></tr>
 <tr class="separator:a8fbc55bfada927edaa9a33f78f7baab7 inherit pub_methods_classyork_1_1graphics_1_1_handle"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,12 +131,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac8f8d4813da765bcd74a2a8d4e2e1160 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a handle.  <a href="classyork_1_1graphics_1_1_handle_base.html#ac8f8d4813da765bcd74a2a8d4e2e1160">More...</a><br /></td></tr>
 <tr class="separator:ac8f8d4813da765bcd74a2a8d4e2e1160 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172c17fdd6e90d053dcf1792c53a43f4 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a172c17fdd6e90d053dcf1792c53a43f4">destroy</a> ()</td></tr>
+<tr class="memdesc:a172c17fdd6e90d053dcf1792c53a43f4 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a handle, including its dependents.  <a href="classyork_1_1graphics_1_1_handle_base.html#a172c17fdd6e90d053dcf1792c53a43f4">More...</a><br /></td></tr>
 <tr class="separator:a172c17fdd6e90d053dcf1792c53a43f4 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f61ce14a38802d3a9ce4b48c497011 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#af3f61ce14a38802d3a9ce4b48c497011">isCreated</a> () const</td></tr>
+<tr class="memdesc:af3f61ce14a38802d3a9ce4b48c497011 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether is handle was created.  <a href="classyork_1_1graphics_1_1_handle_base.html#af3f61ce14a38802d3a9ce4b48c497011">More...</a><br /></td></tr>
 <tr class="separator:af3f61ce14a38802d3a9ce4b48c497011 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d55ab99b07011777f054bf1ae4cb61 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a40d55ab99b07011777f054bf1ae4cb61">addDependent</a> (<a class="el" href="classyork_1_1graphics_1_1_handle_base.html">HandleBase</a> &amp;handle)</td></tr>
+<tr class="memdesc:a40d55ab99b07011777f054bf1ae4cb61 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a handle to its dependents list.  <a href="classyork_1_1graphics_1_1_handle_base.html#a40d55ab99b07011777f054bf1ae4cb61">More...</a><br /></td></tr>
 <tr class="separator:a40d55ab99b07011777f054bf1ae4cb61 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa95f8f8273ba3e7f2ef580b4016f2f21 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#aa95f8f8273ba3e7f2ef580b4016f2f21">removeDependent</a> (<a class="el" href="classyork_1_1graphics_1_1_handle_base.html">HandleBase</a> &amp;handle)</td></tr>
+<tr class="memdesc:aa95f8f8273ba3e7f2ef580b4016f2f21 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a handle from its dependents list.  <a href="classyork_1_1graphics_1_1_handle_base.html#aa95f8f8273ba3e7f2ef580b4016f2f21">More...</a><br /></td></tr>
 <tr class="separator:aa95f8f8273ba3e7f2ef580b4016f2f21 inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36344181663af409d5d45ad42a8497fd inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_handle_base.html#a36344181663af409d5d45ad42a8497fd">~HandleBase</a> ()</td></tr>
 <tr class="separator:a36344181663af409d5d45ad42a8497fd inherit pub_methods_classyork_1_1graphics_1_1_handle_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,7 +175,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ad15cb2bd9f0e3a10dc7b5053d20c3260 inherit pro_attribs_classyork_1_1graphics_1_1_handle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="classyork_1_1graphics_1_1_handle.html">Handle</a> wrapper for Vulkan Render Pass </p>
+<div class="textblock"><p ><a class="el" href="classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle.">Handle</a> wrapper for Vulkan Render Pass. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acd85c0b424a1bd8a3a3f12c62245c792" name="acd85c0b424a1bd8a3a3f12c62245c792"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd85c0b424a1bd8a3a3f12c62245c792">&#9670;&nbsp;</a></span>RenderPass()</h2>

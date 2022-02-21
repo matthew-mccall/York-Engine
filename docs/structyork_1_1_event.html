@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +94,9 @@ $(document).ready(function(){initNavTree('structyork_1_1_event.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>Represents <a class="el" href="structyork_1_1_event.html" title="Represents Event data.">Event</a> data.  
+ <a href="structyork_1_1_event.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_event_8hpp_source.html">Event.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -117,6 +123,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac7424a5d37d9b4f569941a06274ff5e1">ControllerButtonReleased</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a4102b14864a4fc389166a625f9b43d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of event.  <a href="structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69">More...</a><br /></td></tr>
 <tr class="separator:a4102b14864a4fc389166a625f9b43d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -126,16 +133,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad01a2400374d1c945c39eceb5a3ddc29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#ad01a2400374d1c945c39eceb5a3ddc29">Event</a> (SDL_Event e)</td></tr>
 <tr class="separator:ad01a2400374d1c945c39eceb5a3ddc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac56e1cb0b3ef2c252220ee650fe6b95e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#ac56e1cb0b3ef2c252220ee650fe6b95e">getType</a> () const</td></tr>
+<tr class="memdesc:ac56e1cb0b3ef2c252220ee650fe6b95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type of the event.  <a href="structyork_1_1_event.html#ac56e1cb0b3ef2c252220ee650fe6b95e">More...</a><br /></td></tr>
 <tr class="separator:ac56e1cb0b3ef2c252220ee650fe6b95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0be9a9f161d6ff698773fc7ce298075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceyork.html#a748e9412565f10fa7247a2eae399f618">KeyCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#ac0be9a9f161d6ff698773fc7ce298075">getKeyCode</a> () const</td></tr>
+<tr class="memdesc:ac0be9a9f161d6ff698773fc7ce298075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the key code of the event.  <a href="structyork_1_1_event.html#ac0be9a9f161d6ff698773fc7ce298075">More...</a><br /></td></tr>
 <tr class="separator:ac0be9a9f161d6ff698773fc7ce298075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03bc3bdff2fdf95de4eddf83b098b63c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#a03bc3bdff2fdf95de4eddf83b098b63c">getMouseButton</a> () const</td></tr>
+<tr class="memdesc:a03bc3bdff2fdf95de4eddf83b098b63c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the mouse button number of the event.  <a href="structyork_1_1_event.html#a03bc3bdff2fdf95de4eddf83b098b63c">More...</a><br /></td></tr>
 <tr class="separator:a03bc3bdff2fdf95de4eddf83b098b63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5e32813383ceef8933a74265c14ae5"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#acd5e32813383ceef8933a74265c14ae5">getMouseX</a> () const</td></tr>
+<tr class="memdesc:acd5e32813383ceef8933a74265c14ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the horizontal component of the mouse data.  <a href="structyork_1_1_event.html#acd5e32813383ceef8933a74265c14ae5">More...</a><br /></td></tr>
 <tr class="separator:acd5e32813383ceef8933a74265c14ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0b571e0a743068c5304230b642e0fa1"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#af0b571e0a743068c5304230b642e0fa1">getMouseY</a> () const</td></tr>
+<tr class="memdesc:af0b571e0a743068c5304230b642e0fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the vertical component of the mouse data.  <a href="structyork_1_1_event.html#af0b571e0a743068c5304230b642e0fa1">More...</a><br /></td></tr>
 <tr class="separator:af0b571e0a743068c5304230b642e0fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8835a60ca01497c7949e511f59afb1bf"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structyork_1_1_event.html#a8835a60ca01497c7949e511f59afb1bf">getWindowID</a> () const</td></tr>
+<tr class="memdesc:a8835a60ca01497c7949e511f59afb1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window ID of the event.  <a href="structyork_1_1_event.html#a8835a60ca01497c7949e511f59afb1bf">More...</a><br /></td></tr>
 <tr class="separator:a8835a60ca01497c7949e511f59afb1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -169,7 +182,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a6f466ce823090b33f6405f150669dc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Represents <a class="el" href="structyork_1_1_event.html">Event</a> data </p>
+<div class="textblock"><p >Represents <a class="el" href="structyork_1_1_event.html" title="Represents Event data.">Event</a> data. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a4102b14864a4fc389166a625f9b43d69" name="a4102b14864a4fc389166a625f9b43d69"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4102b14864a4fc389166a625f9b43d69">&#9670;&nbsp;</a></span>Type</h2>
@@ -190,7 +203,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >The type of event. </p>
+
+<p>The type of event. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4102b14864a4fc389166a625f9b43d69a6adf97f83acf6453d4a6a4b1070f3754" name="a4102b14864a4fc389166a625f9b43d69a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4102b14864a4fc389166a625f9b43d69ad5fd4d75b6f548b8e6e7c11665a4355f" name="a4102b14864a4fc389166a625f9b43d69ad5fd4d75b6f548b8e6e7c11665a4355f"></a>AppClosing&#160;</td><td class="fielddoc"></td></tr>
@@ -279,7 +293,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the key code of the event.</p>
+
+<p>Gets the key code of the event. </p>
 <p >Assumes the event has key data. May fail otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd>The key code of the event. </dd></dl>
 
@@ -299,7 +314,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the mouse button number of the event.</p>
+
+<p>Gets the mouse button number of the event. </p>
 <p >Assumes the event has mouse button data. May fail otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
@@ -319,7 +335,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the horizontal component of the mouse data.</p>
+
+<p>Gets the horizontal component of the mouse data. </p>
 <p >Assumes the event has horizontal and vertical mouse data. May fail otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd>The horizontal component of the mouse data. </dd></dl>
 
@@ -339,7 +356,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the vertical component of the mouse data.</p>
+
+<p>Gets the vertical component of the mouse data. </p>
 <p >Assumes the event has horizontal and vertical mouse data. May fail otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd>The vertical component of the mouse data. </dd></dl>
 
@@ -359,7 +377,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the type of the event.</p>
+
+<p>Gets the type of the event. </p>
 <dl class="section return"><dt>Returns</dt><dd>The type of the event </dd></dl>
 
 </div>
@@ -378,7 +397,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the window ID of the event</p>
+
+<p>Gets the window ID of the event. </p>
 <p >Assumes the event has window data.</p>
 <dl class="section return"><dt>Returns</dt><dd>The window ID of the event. </dd></dl>
 

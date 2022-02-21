@@ -1,10 +1,5 @@
 var classyork_1_1_asset =
 [
-    [ "Source", "classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87", [
-      [ "FILE", "classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a9fc5887c030f7a3e19821ebec457e719", null ],
-      [ "NETWORK", "classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a25835188a2355e9530d3a10fcbe4c65b", null ],
-      [ "MEMORY", "classyork_1_1_asset.html#a1dffc06a1c36b59e362c9c108c759a87a7014705458ee3cf0192f6aa52cfddea5", null ]
-    ] ],
     [ "Type", "classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34", [
       [ "IMG_PNG", "classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230", null ],
       [ "SHADER_FRAG_GLSL", "classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9", null ],
@@ -24,11 +19,15 @@ var classyork_1_1_asset =
       [ "RAW", "classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a633d6abff0a3fc22404347728d195059", null ],
       [ "AUTO", "classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae1f2d5134ed2543d38a0de9751cf75d9", null ]
     ] ],
-    [ "Asset", "classyork_1_1_asset.html#ab0bca9a1f906e7b7557c070ebc545c27", null ],
-    [ "~Asset", "classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1", null ],
-    [ "getData", "classyork_1_1_asset.html#a3e29c517714d2b43e2a5105a49c9eb8c", null ],
+    [ "Asset", "classyork_1_1_asset.html#a01055311b491ebf8e82a81cf2019c2ae", null ],
+    [ "~Asset", "classyork_1_1_asset.html#a3a88638b38bf5460deef224f93bced03", null ],
+    [ "getData", "classyork_1_1_asset.html#a171938f97be775b0860b296c47166db3", null ],
     [ "getType", "classyork_1_1_asset.html#a79b757fc3517a933d087088adf515af7", null ],
-    [ "operator*", "classyork_1_1_asset.html#a465b5485f32cfc06d029f867f1018760", null ],
+    [ "operator*", "classyork_1_1_asset.html#a1bd34a33008af325418653ef80d39c1c", null ],
     [ "operator->", "classyork_1_1_asset.html#ac4ff64babb766653aa37c4de8bb8af5a", null ],
-    [ "operator[]", "classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2", null ]
+    [ "operator[]", "classyork_1_1_asset.html#ab2e27974c4451099ae689581749d99d2", null ],
+    [ "m_data", "classyork_1_1_asset.html#a87e1ec67a5a6b247bb6a9447dcfa12a8", null ],
+    [ "m_location", "classyork_1_1_asset.html#a757c7d4100b5d542c6c82385fad9a31d", null ],
+    [ "m_size", "classyork_1_1_asset.html#adea59bdf6953b07347d4511df40e38a7", null ],
+    [ "m_type", "classyork_1_1_asset.html#a3fb5b165973b471c5c0738173d77bdf7", null ]
 ];

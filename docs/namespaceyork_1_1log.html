@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -88,38 +91,55 @@ $(document).ready(function(){initNavTree('namespaceyork_1_1log.html',''); initRe
   <div class="headertitle"><div class="title">york::log Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contains all the logging functions.  
+<a href="namespaceyork_1_1log.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceyork_1_1log_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log_1_1core.html">core</a></td></tr>
+<tr class="memdesc:namespaceyork_1_1log_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved logging methods for Engine only. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1427d4278ade6e0dc5979a65888c1377"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a1427d4278ade6e0dc5979a65888c1377">commonEngine</a> ()</td></tr>
+<tr class="memdesc:a1427d4278ade6e0dc5979a65888c1377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by the Engine.  <a href="namespaceyork_1_1log.html#a1427d4278ade6e0dc5979a65888c1377">More...</a><br /></td></tr>
 <tr class="separator:a1427d4278ade6e0dc5979a65888c1377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74327454f400660c15d3c5eaf949f15e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a74327454f400660c15d3c5eaf949f15e">commonClient</a> ()</td></tr>
+<tr class="memdesc:a74327454f400660c15d3c5eaf949f15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by the Engine.  <a href="namespaceyork_1_1log.html#a74327454f400660c15d3c5eaf949f15e">More...</a><br /></td></tr>
 <tr class="separator:a74327454f400660c15d3c5eaf949f15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f04e62156d5faec184e52afd859794"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:a81f04e62156d5faec184e52afd859794"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">trace</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a81f04e62156d5faec184e52afd859794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs trace messages.  <a href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">More...</a><br /></td></tr>
 <tr class="separator:a81f04e62156d5faec184e52afd859794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e46f03859ea059f11e92db73fa27f8d"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:a9e46f03859ea059f11e92db73fa27f8d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">info</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a9e46f03859ea059f11e92db73fa27f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs informational messages.  <a href="namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d">More...</a><br /></td></tr>
 <tr class="separator:a9e46f03859ea059f11e92db73fa27f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">debug</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a4c6c122332e361c5b1a86ac12df6c6af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs debug messages.  <a href="namespaceyork_1_1log.html#a4c6c122332e361c5b1a86ac12df6c6af">More...</a><br /></td></tr>
 <tr class="separator:a4c6c122332e361c5b1a86ac12df6c6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2facb559d1927f80df04663c19dae20"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:aa2facb559d1927f80df04663c19dae20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">warn</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:aa2facb559d1927f80df04663c19dae20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs warning messages.  <a href="namespaceyork_1_1log.html#aa2facb559d1927f80df04663c19dae20">More...</a><br /></td></tr>
 <tr class="separator:aa2facb559d1927f80df04663c19dae20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">error</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a88736716d4a3473c04b46c0eaef2d1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs non-fatal error messages.  <a href="namespaceyork_1_1log.html#a88736716d4a3473c04b46c0eaef2d1aa">More...</a><br /></td></tr>
 <tr class="separator:a88736716d4a3473c04b46c0eaef2d1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">critical</a> (Ts &amp;&amp;... args)</td></tr>
+<tr class="memdesc:adc0ff5b73ceb9a7edc618dfca538511c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs fatal error messages.  <a href="namespaceyork_1_1log.html#adc0ff5b73ceb9a7edc618dfca538511c">More...</a><br /></td></tr>
 <tr class="separator:adc0ff5b73ceb9a7edc618dfca538511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Contains all the logging functions. </p>
+<p >Our logging uses <a href="https://fmt.dev">{fmt}</a>. See <a href="https://fmt.dev/latest/syntax.html">https://fmt.dev/latest/syntax.html</a> on how to use format strings. See macros for compile-time logging disabling.</p>
+<p >Example: </p><div class="fragment"><div class="line"><a class="code hl_function" href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">york::log::trace</a>(<span class="stringliteral">&quot;Hello, {}!&quot;</span>, 42); <span class="comment">// Outputs &quot;Hello, 42!&quot;</span></div>
+<div class="ttc" id="anamespaceyork_1_1log_html_a81f04e62156d5faec184e52afd859794"><div class="ttname"><a href="namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794">york::log::trace</a></div><div class="ttdeci">void trace(Ts &amp;&amp;... args)</div><div class="ttdoc">Logs trace messages.</div><div class="ttdef"><b>Definition:</b> Log.hpp:40</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a74327454f400660c15d3c5eaf949f15e" name="a74327454f400660c15d3c5eaf949f15e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74327454f400660c15d3c5eaf949f15e">&#9670;&nbsp;</a></span>commonClient()</h2>
 
@@ -134,6 +154,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Used by the Engine. </p>
+<p >Please disregard. </p>
 
 </div>
 </div>
@@ -151,6 +174,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Used by the Engine. </p>
+<p >Please disregard. </p>
 
 </div>
 </div>
@@ -172,6 +198,20 @@ template&lt;typename... Ts&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Logs fatal error messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4c6c122332e361c5b1a86ac12df6c6af" name="a4c6c122332e361c5b1a86ac12df6c6af"></a>
@@ -191,6 +231,20 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Logs debug messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -212,6 +266,20 @@ template&lt;typename... Ts&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Logs non-fatal error messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9e46f03859ea059f11e92db73fa27f8d" name="a9e46f03859ea059f11e92db73fa27f8d"></a>
@@ -231,6 +299,20 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Logs informational messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -252,6 +334,20 @@ template&lt;typename... Ts&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Logs trace messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa2facb559d1927f80df04663c19dae20" name="aa2facb559d1927f80df04663c19dae20"></a>
@@ -271,6 +367,20 @@ template&lt;typename... Ts&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Logs warning messages. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ts</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

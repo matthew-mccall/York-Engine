@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -125,18 +128,18 @@ $(document).ready(function(){initNavTree('_layer_8hpp_source.html',''); initResi
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">// YORK_LAYER_HPP</span></div>
 <div class="ttc" id="a_event_8hpp_html"><div class="ttname"><a href="_event_8hpp.html">Event.hpp</a></div></div>
 <div class="ttc" id="a_identifiable_8hpp_html"><div class="ttname"><a href="_identifiable_8hpp.html">Identifiable.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdef"><b>Definition:</b> Event.hpp:111</div></div>
+<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdoc">Override this to handle events.</div><div class="ttdef"><b>Definition:</b> Event.hpp:111</div></div>
 <div class="ttc" id="aclassyork_1_1_layer_html"><div class="ttname"><a href="classyork_1_1_layer.html">york::Layer</a></div><div class="ttdef"><b>Definition:</b> Layer.hpp:13</div></div>
 <div class="ttc" id="aclassyork_1_1_layer_html_a0ccfefe3dfbf62af803ad7a1c801512f"><div class="ttname"><a href="classyork_1_1_layer.html#a0ccfefe3dfbf62af803ad7a1c801512f">york::Layer::Layer</a></div><div class="ttdeci">Layer(Registry &amp;registry)</div></div>
-<div class="ttc" id="aclassyork_1_1_layer_html_a2b657b79db3e4de404cb5cc905a4d8bb"><div class="ttname"><a href="classyork_1_1_layer.html#a2b657b79db3e4de404cb5cc905a4d8bb">york::Layer::onAttach</a></div><div class="ttdeci">virtual void onAttach()</div><div class="ttdef"><b>Definition:</b> Layer.hpp:20</div></div>
+<div class="ttc" id="aclassyork_1_1_layer_html_a2b657b79db3e4de404cb5cc905a4d8bb"><div class="ttname"><a href="classyork_1_1_layer.html#a2b657b79db3e4de404cb5cc905a4d8bb">york::Layer::onAttach</a></div><div class="ttdeci">virtual void onAttach()</div><div class="ttdoc">A function that will be called when the layer is attached to the stack.</div><div class="ttdef"><b>Definition:</b> Layer.hpp:20</div></div>
 <div class="ttc" id="aclassyork_1_1_layer_html_a5dfef397f297ce82098beae21d041465"><div class="ttname"><a href="classyork_1_1_layer.html#a5dfef397f297ce82098beae21d041465">york::Layer::requestExit</a></div><div class="ttdeci">void requestExit()</div></div>
-<div class="ttc" id="aclassyork_1_1_layer_html_a71754d104f7966d5e729d516dbebc84d"><div class="ttname"><a href="classyork_1_1_layer.html#a71754d104f7966d5e729d516dbebc84d">york::Layer::onRender</a></div><div class="ttdeci">virtual void onRender()</div><div class="ttdef"><b>Definition:</b> Layer.hpp:32</div></div>
+<div class="ttc" id="aclassyork_1_1_layer_html_a71754d104f7966d5e729d516dbebc84d"><div class="ttname"><a href="classyork_1_1_layer.html#a71754d104f7966d5e729d516dbebc84d">york::Layer::onRender</a></div><div class="ttdeci">virtual void onRender()</div><div class="ttdoc">A function that will be called on every frame.</div><div class="ttdef"><b>Definition:</b> Layer.hpp:32</div></div>
 <div class="ttc" id="aclassyork_1_1_layer_html_a928841c5b3e2d6554008f8b7ae9cba57"><div class="ttname"><a href="classyork_1_1_layer.html#a928841c5b3e2d6554008f8b7ae9cba57">york::Layer::getExit</a></div><div class="ttdeci">bool getExit() const</div></div>
 <div class="ttc" id="aclassyork_1_1_layer_html_a9e2de91295a4c1825c632f978d1b46d2"><div class="ttname"><a href="classyork_1_1_layer.html#a9e2de91295a4c1825c632f978d1b46d2">york::Layer::~Layer</a></div><div class="ttdeci">virtual ~Layer()=default</div></div>
-<div class="ttc" id="aclassyork_1_1_layer_html_adeeb05288805f99d152b0b37580393a3"><div class="ttname"><a href="classyork_1_1_layer.html#adeeb05288805f99d152b0b37580393a3">york::Layer::onDetach</a></div><div class="ttdeci">virtual void onDetach()</div><div class="ttdef"><b>Definition:</b> Layer.hpp:37</div></div>
-<div class="ttc" id="aclassyork_1_1_layer_html_ae0a1e174f2dcc69097e3f7a721f513d7"><div class="ttname"><a href="classyork_1_1_layer.html#ae0a1e174f2dcc69097e3f7a721f513d7">york::Layer::onUpdate</a></div><div class="ttdeci">virtual void onUpdate(float deltaTime)</div><div class="ttdef"><b>Definition:</b> Layer.hpp:27</div></div>
-<div class="ttc" id="aclassyork_1_1_registry_html"><div class="ttname"><a href="classyork_1_1_registry.html">york::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:15</div></div>
-<div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:10</div></div>
+<div class="ttc" id="aclassyork_1_1_layer_html_adeeb05288805f99d152b0b37580393a3"><div class="ttname"><a href="classyork_1_1_layer.html#adeeb05288805f99d152b0b37580393a3">york::Layer::onDetach</a></div><div class="ttdeci">virtual void onDetach()</div><div class="ttdoc">A function that will be called when the layer is detached from the stack.</div><div class="ttdef"><b>Definition:</b> Layer.hpp:37</div></div>
+<div class="ttc" id="aclassyork_1_1_layer_html_ae0a1e174f2dcc69097e3f7a721f513d7"><div class="ttname"><a href="classyork_1_1_layer.html#ae0a1e174f2dcc69097e3f7a721f513d7">york::Layer::onUpdate</a></div><div class="ttdeci">virtual void onUpdate(float deltaTime)</div><div class="ttdoc">A function that will be called on every tick.</div><div class="ttdef"><b>Definition:</b> Layer.hpp:27</div></div>
+<div class="ttc" id="aclassyork_1_1_registry_html"><div class="ttname"><a href="classyork_1_1_registry.html">york::Registry</a></div><div class="ttdoc">A singleton class for sharing data between multiple instances of York-Engine.</div><div class="ttdef"><b>Definition:</b> Registry.hpp:20</div></div>
+<div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

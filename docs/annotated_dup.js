@@ -31,9 +31,11 @@ var annotated_dup =
       [ "Identifiable", "classyork_1_1_identifiable.html", "classyork_1_1_identifiable" ],
       [ "Layer", "classyork_1_1_layer.html", "classyork_1_1_layer" ],
       [ "LayerStack", "classyork_1_1_layer_stack.html", "classyork_1_1_layer_stack" ],
+      [ "NetworkAsset", "classyork_1_1_network_asset.html", "classyork_1_1_network_asset" ],
       [ "Registry", "classyork_1_1_registry.html", "classyork_1_1_registry" ],
       [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
       [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
+      [ "StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ],
       [ "Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ]
     ] ]
 ];

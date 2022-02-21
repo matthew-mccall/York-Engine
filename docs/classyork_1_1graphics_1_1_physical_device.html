@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -98,20 +101,27 @@ $(document).ready(function(){initNavTree('classyork_1_1graphics_1_1_physical_dev
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a660776d73890a718623727e83964bae4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a660776d73890a718623727e83964bae4">PhysicalDevice</a> (vk::PhysicalDevice device, vk::SurfaceKHR surface, std::vector&lt; <a class="el" href="structyork_1_1_requestable_item.html">RequestableItem</a> &gt; &amp;requestedExtensions)</td></tr>
+<tr class="memdesc:a660776d73890a718623727e83964bae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a class representing information about a specific GPU.  <a href="classyork_1_1graphics_1_1_physical_device.html#a660776d73890a718623727e83964bae4">More...</a><br /></td></tr>
 <tr class="separator:a660776d73890a718623727e83964bae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8474e4715313343b7de0a57fe9a2714b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a8474e4715313343b7de0a57fe9a2714b">getRequiredExtensionsSupported</a> () const</td></tr>
+<tr class="memdesc:a8474e4715313343b7de0a57fe9a2714b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of requested required extensions supported.  <a href="classyork_1_1graphics_1_1_physical_device.html#a8474e4715313343b7de0a57fe9a2714b">More...</a><br /></td></tr>
 <tr class="separator:a8474e4715313343b7de0a57fe9a2714b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd9064cae2cf2633771e02f2c182a7d1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#acd9064cae2cf2633771e02f2c182a7d1">getOptionalExtensionsSupported</a> () const</td></tr>
+<tr class="memdesc:acd9064cae2cf2633771e02f2c182a7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of requested optional extensions supported.  <a href="classyork_1_1graphics_1_1_physical_device.html#acd9064cae2cf2633771e02f2c182a7d1">More...</a><br /></td></tr>
 <tr class="separator:acd9064cae2cf2633771e02f2c182a7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7a21a2ab826cd5713d7285405361f2f"><td class="memItemLeft" align="right" valign="top">const vk::PhysicalDevice &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#ad7a21a2ab826cd5713d7285405361f2f">getPhysicalDevice</a> () const</td></tr>
+<tr class="memdesc:ad7a21a2ab826cd5713d7285405361f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Vulkan handle for the device.  <a href="classyork_1_1graphics_1_1_physical_device.html#ad7a21a2ab826cd5713d7285405361f2f">More...</a><br /></td></tr>
 <tr class="separator:ad7a21a2ab826cd5713d7285405361f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22a4f4d56da3181e55f10a59bbdb3737"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a22a4f4d56da3181e55f10a59bbdb3737">getGraphicsFamilyQueueIndex</a> () const</td></tr>
+<tr class="memdesc:a22a4f4d56da3181e55f10a59bbdb3737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the index of the graphics queue of the device.  <a href="classyork_1_1graphics_1_1_physical_device.html#a22a4f4d56da3181e55f10a59bbdb3737">More...</a><br /></td></tr>
 <tr class="separator:a22a4f4d56da3181e55f10a59bbdb3737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33b28a3efb1e19f55a6b91bd46ac8c6f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a33b28a3efb1e19f55a6b91bd46ac8c6f">getPresentFamilyQueueIndex</a> () const</td></tr>
 <tr class="separator:a33b28a3efb1e19f55a6b91bd46ac8c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a18bff5126c35e9d640f8775448030d"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a1a18bff5126c35e9d640f8775448030d">getEnabledExtensions</a> () const</td></tr>
+<tr class="memdesc:a1a18bff5126c35e9d640f8775448030d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of the requested extensions that are supported by the device.  <a href="classyork_1_1graphics_1_1_physical_device.html#a1a18bff5126c35e9d640f8775448030d">More...</a><br /></td></tr>
 <tr class="separator:a1a18bff5126c35e9d640f8775448030d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa11c6d62410d7f02506abff339f88b58"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#aa11c6d62410d7f02506abff339f88b58">getMaximumImageResolution</a> () const</td></tr>
+<tr class="memdesc:aa11c6d62410d7f02506abff339f88b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the highest resolution supported by the device.  <a href="classyork_1_1graphics_1_1_physical_device.html#aa11c6d62410d7f02506abff339f88b58">More...</a><br /></td></tr>
 <tr class="separator:aa11c6d62410d7f02506abff339f88b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e5f813db99be268d06f935e7095944"><td class="memItemLeft" align="right" valign="top">vk::SurfaceCapabilitiesKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1graphics_1_1_physical_device.html#a80e5f813db99be268d06f935e7095944">getSurfaceCapabilities</a> ()</td></tr>
 <tr class="separator:a80e5f813db99be268d06f935e7095944"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +144,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class representing properties about a physical GPU. </p>
-<p >Not to be confused with <a class="el" href="classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device. You can request extensions and it will automatically pick an appro...">Device</a>. <a class="el" href="classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device. You can request extensions and it will automatically pick an appro...">Device</a> actually initializes the GPU and interacts with it. <a class="el" href="classyork_1_1graphics_1_1_physical_device.html" title="A class representing properties about a physical GPU.">PhysicalDevice</a> gets properties about it. </p>
+<p >Not to be confused with <a class="el" href="classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device.">Device</a>. <a class="el" href="classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device.">Device</a> actually initializes the GPU and interacts with it. <a class="el" href="classyork_1_1graphics_1_1_physical_device.html" title="A class representing properties about a physical GPU.">PhysicalDevice</a> gets properties about it. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a660776d73890a718623727e83964bae4" name="a660776d73890a718623727e83964bae4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a660776d73890a718623727e83964bae4">&#9670;&nbsp;</a></span>PhysicalDevice()</h2>
@@ -167,7 +177,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Creates a class representing information about a specific GPU.</p>
+
+<p>Creates a class representing information about a specific GPU. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>The Vulkan handle for the physical device to get the information about. </td></tr>
@@ -280,7 +291,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets a list of the requested extensions that are supported by the device</p>
+
+<p>Gets a list of the requested extensions that are supported by the device. </p>
 <dl class="section return"><dt>Returns</dt><dd>A list of the requested extensions that are supported by the device </dd></dl>
 
 </div>
@@ -316,7 +328,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the index of the graphics queue of the device.</p>
+
+<p>Gets the index of the graphics queue of the device. </p>
 <dl class="section return"><dt>Returns</dt><dd>The index of the graphics queue of the device. </dd></dl>
 
 </div>
@@ -335,7 +348,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the highest resolution supported by the device.</p>
+
+<p>Gets the highest resolution supported by the device. </p>
 <dl class="section return"><dt>Returns</dt><dd>The highest resolution supported by the device. </dd></dl>
 
 </div>
@@ -354,7 +368,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the number of requested optional extensions supported.</p>
+
+<p>Gets the number of requested optional extensions supported. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of requested optional extensions supported. </dd></dl>
 
 </div>
@@ -373,7 +388,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the Vulkan handle for the device.</p>
+
+<p>Gets the Vulkan handle for the device. </p>
 <dl class="section return"><dt>Returns</dt><dd>The Vulkan handle for the device. </dd></dl>
 
 </div>
@@ -409,7 +425,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Gets the number of requested required extensions supported.</p>
+
+<p>Gets the number of requested required extensions supported. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of requested required extensions supported. </dd></dl>
 
 </div>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7easset_0',['~Asset',['../classyork_1_1_asset.html#a46faa87b30acd6bca0aa6bbe9ac85cc1',1,'york::Asset']]],
+  ['_7easset_0',['~Asset',['../classyork_1_1_asset.html#a3a88638b38bf5460deef224f93bced03',1,'york::Asset']]],
   ['_7edocument_1',['~Document',['../classyork_1_1xml_1_1_document.html#a920d346dad553e10d28d42fc16ed5d7f',1,'york::xml::Document']]],
   ['_7eeventhandler_2',['~EventHandler',['../classyork_1_1_event_handler.html#aa36240adcfe8a9ba81682a3b419526ca',1,'york::EventHandler']]],
   ['_7ehandlebase_3',['~HandleBase',['../classyork_1_1graphics_1_1_handle_base.html#a36344181663af409d5d45ad42a8497fd',1,'york::graphics::HandleBase']]],

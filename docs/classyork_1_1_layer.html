@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,8 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">York Engine
+   <div id="projectname">York Engine<span id="projectnumber">&#160;0.1.0</span>
    </div>
+   <div id="projectbrief">A platform for developing realtime interactive 3D media.</div>
   </td>
  </tr>
  </tbody>
@@ -94,25 +97,31 @@ $(document).ready(function(){initNavTree('classyork_1_1_layer.html',''); initRes
 <div class="dynheader">
 Inheritance diagram for york::Layer:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classyork_1_1_layer.png" usemap="#york::Layer_map" alt=""/>
-  <map id="york::Layer_map" name="york::Layer_map">
-<area href="classyork_1_1_event_handler.html" alt="york::EventHandler" shape="rect" coords="0,56,120,80"/>
-<area href="classyork_1_1_identifiable.html" alt="york::Identifiable" shape="rect" coords="0,0,120,24"/>
-  </map>
-</div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classyork_1_1_layer__inherit__graph.svg" width="146" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for york::Layer:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classyork_1_1_layer__coll__graph.svg" width="146" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ccfefe3dfbf62af803ad7a1c801512f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#a0ccfefe3dfbf62af803ad7a1c801512f">Layer</a> (<a class="el" href="classyork_1_1_registry.html">Registry</a> &amp;registry)</td></tr>
 <tr class="separator:a0ccfefe3dfbf62af803ad7a1c801512f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b657b79db3e4de404cb5cc905a4d8bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#a2b657b79db3e4de404cb5cc905a4d8bb">onAttach</a> ()</td></tr>
+<tr class="memdesc:a2b657b79db3e4de404cb5cc905a4d8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that will be called when the layer is attached to the stack.  <a href="classyork_1_1_layer.html#a2b657b79db3e4de404cb5cc905a4d8bb">More...</a><br /></td></tr>
 <tr class="separator:a2b657b79db3e4de404cb5cc905a4d8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0a1e174f2dcc69097e3f7a721f513d7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#ae0a1e174f2dcc69097e3f7a721f513d7">onUpdate</a> (float deltaTime)</td></tr>
+<tr class="memdesc:ae0a1e174f2dcc69097e3f7a721f513d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that will be called on every tick.  <a href="classyork_1_1_layer.html#ae0a1e174f2dcc69097e3f7a721f513d7">More...</a><br /></td></tr>
 <tr class="separator:ae0a1e174f2dcc69097e3f7a721f513d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71754d104f7966d5e729d516dbebc84d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#a71754d104f7966d5e729d516dbebc84d">onRender</a> ()</td></tr>
+<tr class="memdesc:a71754d104f7966d5e729d516dbebc84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that will be called on every frame.  <a href="classyork_1_1_layer.html#a71754d104f7966d5e729d516dbebc84d">More...</a><br /></td></tr>
 <tr class="separator:a71754d104f7966d5e729d516dbebc84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeeb05288805f99d152b0b37580393a3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#adeeb05288805f99d152b0b37580393a3">onDetach</a> ()</td></tr>
+<tr class="memdesc:adeeb05288805f99d152b0b37580393a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that will be called when the layer is detached from the stack.  <a href="classyork_1_1_layer.html#adeeb05288805f99d152b0b37580393a3">More...</a><br /></td></tr>
 <tr class="separator:adeeb05288805f99d152b0b37580393a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a928841c5b3e2d6554008f8b7ae9cba57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_layer.html#a928841c5b3e2d6554008f8b7ae9cba57">getExit</a> () const</td></tr>
 <tr class="separator:a928841c5b3e2d6554008f8b7ae9cba57"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,7 +231,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >A function that will be called when the layer is attached to the stack. Use this for initialization. </p>
+
+<p>A function that will be called when the layer is attached to the stack. </p>
+<p >Use this for initialization. </p>
 
 </div>
 </div>
@@ -248,7 +259,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >A function that will be called when the layer is detached from the stack. Use this to clean up. </p>
+
+<p>A function that will be called when the layer is detached from the stack. </p>
+<p >Use this to clean up. </p>
 
 </div>
 </div>
@@ -274,7 +287,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >A function that will be called on every frame. Override this to implement your rendering logic. </p>
+
+<p>A function that will be called on every frame. </p>
+<p >Override this to implement your rendering logic. </p>
 
 </div>
 </div>
@@ -301,7 +316,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >A function that will be called on every tick. Override this to implement your game logic.</p>
+
+<p>A function that will be called on every tick. </p>
+<p >Override this to implement your game logic.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">deltaTime</td><td>The time since last tick. </td></tr>

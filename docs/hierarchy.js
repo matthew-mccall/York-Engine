@@ -1,6 +1,9 @@
 var hierarchy =
 [
-    [ "york::Asset", "classyork_1_1_asset.html", null ],
+    [ "york::Asset", "classyork_1_1_asset.html", [
+      [ "york::NetworkAsset", "classyork_1_1_network_asset.html", null ],
+      [ "york::StringAsset", "classyork_1_1_string_asset.html", null ]
+    ] ],
     [ "york::xml::Document", "classyork_1_1xml_1_1_document.html", null ],
     [ "york::Event", "structyork_1_1_event.html", null ],
     [ "york::Identifiable", "classyork_1_1_identifiable.html", [

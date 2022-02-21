@@ -127,8 +127,7 @@ set(SRC
 set(RUNTIME_SRC
         runtime/Runtime.cpp
         runtime/LayerLoader.cpp
-        runtime/LayerLoader.hpp
-        )
+        runtime/LayerLoader.hpp)
 
 source_group(Engine FILES ${SRC})
 source_group(Runtime FILES ${RUNTIME_SRC})

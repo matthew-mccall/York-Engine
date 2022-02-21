@@ -27,27 +27,14 @@ var menudata={children:[
 {text:"Namespaces",url:"namespaces.html",children:[
 {text:"Namespace List",url:"namespaces.html"},
 {text:"Namespace Members",url:"namespacemembers.html",children:[
-{text:"All",url:"namespacemembers.html",children:[
-{text:"c",url:"namespacemembers.html#index_c"},
-{text:"d",url:"namespacemembers_d.html#index_d"},
-{text:"e",url:"namespacemembers_e.html#index_e"},
-{text:"f",url:"namespacemembers_f.html#index_f"},
-{text:"g",url:"namespacemembers_g.html#index_g"},
-{text:"i",url:"namespacemembers_i.html#index_i"},
-{text:"k",url:"namespacemembers_k.html#index_k"},
-{text:"n",url:"namespacemembers_n.html#index_n"},
-{text:"p",url:"namespacemembers_p.html#index_p"},
-{text:"t",url:"namespacemembers_t.html#index_t"},
-{text:"w",url:"namespacemembers_w.html#index_w"}]},
+{text:"All",url:"namespacemembers.html"},
 {text:"Functions",url:"namespacemembers_func.html"},
 {text:"Typedefs",url:"namespacemembers_type.html"},
-{text:"Enumerations",url:"namespacemembers_enum.html"},
-{text:"Enumerator",url:"namespacemembers_eval.html",children:[
-{text:"k",url:"namespacemembers_eval.html#index_k"}]}]}]},
+{text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"hierarchy.html"},
+{text:"Class Hierarchy",url:"inherits.html"},
 {text:"Class Members",url:"functions.html",children:[
 {text:"All",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},
@@ -78,6 +65,7 @@ var menudata={children:[
 {text:"g",url:"functions_func.html#index_g"},
 {text:"i",url:"functions_func.html#index_i"},
 {text:"l",url:"functions_func.html#index_l"},
+{text:"n",url:"functions_func.html#index_n"},
 {text:"o",url:"functions_func.html#index_o"},
 {text:"p",url:"functions_func.html#index_p"},
 {text:"r",url:"functions_func.html#index_r"},

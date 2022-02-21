@@ -3,7 +3,10 @@
 
 namespace york {
 
-enum KeyCode {
+/**
+ * Key codes from <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_keycode.h">SDL</a>
+ */
+enum class KeyCode {
     KEY_A = 4,
     KEY_B = 5,
     KEY_C = 6,
