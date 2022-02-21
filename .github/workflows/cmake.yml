@@ -29,11 +29,6 @@ jobs:
     - run: sudo apt-get update  -y
     - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev libcurl4-openssl-dev libxerces-c-dev
 
-    - name: Restore Build Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: cmake-build
-
     - name: Prebuild
       run: ./utils/Setup.sh
 
@@ -45,13 +40,7 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-      
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: cmake-build
-        path: ${{github.workspace}}/build
-        
+
     - name: Test
       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
