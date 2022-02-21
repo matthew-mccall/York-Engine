@@ -10,6 +10,8 @@ find_package(SDL 2.0.18)
 find_package(XercesC)
 find_package(Threads)
 
+option(BUILD_SHADERC "Build libshaderc instead of linking with system install" OFF)
+
 set(SDL_BUILDING_LIBRARY)
 
 if (SDL_FOUND)
@@ -39,11 +41,17 @@ else ()
     set(XML_DEP xerces-c)
 endif ()
 
+if (BUILD_SHADERC)
+    set(SHADERC_SKIP_TESTS ON)
+    add_subdirectory(libs/shaderc)
+    set(SHADERC_DEP shaderc)
+else()
+    set(SHADERC_DEP shaderc_combined)
+endif()
+
 add_subdirectory(libs/fmt)
 add_subdirectory(libs/curlpp)
 
-set(SHADERC_SKIP_TESTS ON)
-add_subdirectory(libs/shaderc)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -139,6 +147,7 @@ add_library(${PROJECT_NAME} ${SRC})
 message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
 
 link_directories($ENV{LD_LIBRARY_PATH})
+link_directories($ENV{VULKAN_SDK}/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -147,8 +156,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         Threads::Threads
         ${SDL_DEP}
         ${XML_DEP}
-        curlpp
-        shaderc)
+        ${SHADERC_DEP}
+        curlpp)
 
 if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
     set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
