@@ -34,13 +34,17 @@ var NAVTREE =
           [ "libcurl", "index.html#autotoc_md6", null ],
           [ "In-Tree Dependencies", "index.html#autotoc_md7", null ]
         ] ],
-        [ "CMake", "index.html#autotoc_md8", null ]
+        [ "CMake", "index.html#autotoc_md8", [
+          [ "CMake Options", "index.html#autotoc_md9", [
+            [ "BUILD_SHADERC", "index.html#autotoc_md10", null ]
+          ] ]
+        ] ]
       ] ],
-      [ "Using", "index.html#autotoc_md9", [
-        [ "Sample", "index.html#autotoc_md10", null ],
-        [ "How it works", "index.html#autotoc_md11", [
-          [ "createFunction", "index.html#autotoc_md12", null ],
-          [ "Client.xml", "index.html#autotoc_md13", null ]
+      [ "Using", "index.html#autotoc_md11", [
+        [ "Sample", "index.html#autotoc_md12", null ],
+        [ "How it works", "index.html#autotoc_md13", [
+          [ "createFunction", "index.html#autotoc_md14", null ],
+          [ "Client.xml", "index.html#autotoc_md15", null ]
         ] ]
       ] ]
     ] ],
@@ -82,7 +86,7 @@ var NAVTREEINDEX =
 "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adf9a973f21d23d40a8f8c8192db00a2f",
 "classyork_1_1graphics_1_1_command_pool.html#a475aa98f8519d64ec01d8e407e9c164d",
 "classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac88edf170394ec39beaba43bf06b7549"
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac6ff381bfd152f5589c312dde49d142d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

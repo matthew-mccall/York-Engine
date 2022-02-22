@@ -1,5 +1,17 @@
 # York-Engine
-https://mxtt-mmxix.github.io/York-Engine
+
+<div>
+<a href="https://mxtt-mmxix.github.io/York-Engine">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+<path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+</svg> Documentation</a>
+</div>
+<div>
+<a href="https://github.com/mxtt-mmxix/York-Engine"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg> GitHub</a>
+</div>
 
 ![workflow](https://github.com/mxtt-mmxix/York-Engine/actions/workflows/cmake.yml/badge.svg) 
 
@@ -28,10 +40,14 @@ York-Engine includes source copies third-party dependencies in the `/libs/` fold
 
 ### CMake
 To build the York-Engine Library and Runtime: 
-- Run the setup script: `./utils/Setup.sh`.
+- Run the setup script: `./utils/Setup.sh`. (Make sure submodules are cloned recursively)
 - Use [CMake](https://cmake.org/) to generate the build files for the project: `cmake -B build .`. 
 - Then, build the project: `cmake --build build`.
 - To build the sample: `cmake --build build -- SampleLayer`.
+
+#### CMake Options
+##### BUILD_SHADERC
+It has been observed on some platforms (so far Linux) that there may be issues with linking libshaderc. As such, set this option to `ON` (`-DLIBSHADERC=ON`) when invoking CMake. This will cause libshaderc to be built from source and linked to the Engine.
 
 ## Using
 ### Sample
