@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
 
 #include "curlpp/cURLpp.hpp"

@@ -180,7 +180,7 @@ enum class KeyCode {
     KEY_F22 = 113,
     KEY_F23 = 114,
     KEY_F24 = 115,
-    KEY_EXECUTE = 116,
+    // KEY_EXECUTE = 116,
     KEY_HELP = 117,
     KEY_MENU = 118,
     KEY_SELECT = 119,

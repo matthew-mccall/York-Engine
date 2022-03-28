@@ -154,6 +154,10 @@ if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
     set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 endif()
 
+if(NOT XercesC_FOUND)
+    # target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/libs/xerces-c/src/")
+endif()
+
 unset(SDL_BUILDING_LIBRARY)
 
 add_executable(YorkRuntime ${RUNTIME_SRC})

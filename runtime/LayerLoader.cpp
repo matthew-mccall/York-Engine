@@ -2,7 +2,7 @@
 // Created by Matthew McCall on 1/29/22.
 //
 
-#include <SDL_loadso.h>
+#include <SDL2/SDL_loadso.h>
 
 #include "york/Log.hpp"
 #include "york/Registry.hpp"
