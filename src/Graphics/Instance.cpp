@@ -1,7 +1,7 @@
 #include <sstream>
 #include <vector>
 
-#include <SDL_vulkan.h>
+#include <SDL2/SDL_vulkan.h>
 
 #include "york/Graphics/Instance.hpp"
 #include "york/Log.hpp"

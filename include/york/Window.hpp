@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <SDL_video.h>
+#include <SDL2/SDL_video.h>
 
 #include "york/Graphics/Handle.hpp"
 

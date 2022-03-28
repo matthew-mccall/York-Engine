@@ -2,7 +2,7 @@
 #include <queue>
 #include <vector>
 
-#include "SDL_events.h"
+#include "SDL2/SDL_events.h"
 
 #include "york/Event.hpp"
 

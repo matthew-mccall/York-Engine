@@ -5,7 +5,7 @@
 #include <limits>
 #include <cstdint>
 
-#include <SDL_vulkan.h>
+#include <SDL2/SDL_vulkan.h>
 
 #include "york/Graphics/PhysicalDevice.hpp"
 #include "york/Log.hpp"
@@ -23,11 +23,11 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface
             if (requestedExtension.name == availableExtension.extensionName) {
                 if (requestedExtension.required) {
                     m_requiredExtensionsSupported++;
-                    m_enabledExtensions.emplace_back(availableExtension.extensionName);
+                    m_enabledExtensions.emplace_back(availableExtension.extensionName.begin(), availableExtension.extensionName.end());
                     break;
                 }
                 m_optionalExtensionsSupported++;
-                m_enabledExtensions.emplace_back(availableExtension.extensionName);
+                m_enabledExtensions.emplace_back(availableExtension.extensionName.begin(), availableExtension.extensionName.end());
                 break;
             }
         }

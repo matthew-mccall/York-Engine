@@ -2,7 +2,7 @@
 // Created by Matthew McCall on 12/21/21.
 //
 
-#include <SDL_vulkan.h>
+#include <SDL2/SDL_vulkan.h>
 
 #include "york/Graphics/Surface.hpp"
 #include "york/Log.hpp"

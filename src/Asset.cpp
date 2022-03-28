@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <SDL_rwops.h>
+#include <SDL2/SDL_rwops.h>
 
 #include "curlpp/Easy.hpp"
 #include "curlpp/Options.hpp"
