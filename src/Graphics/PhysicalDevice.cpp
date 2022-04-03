@@ -2,7 +2,6 @@
 // Created by Matthew McCall on 12/9/21.
 //
 
-#include <limits>
 #include <cstdint>
 
 #include <SDL2/SDL_vulkan.h>
@@ -12,8 +11,9 @@
 
 namespace york::graphics {
 
-PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface, std::vector<RequestableItem>& requestedExtensions)
+PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std::vector<RequestableItem>& requestedExtensions)
     : m_physicalDevice(device)
+    , m_surface(surface)
 {
     std::vector<vk::ExtensionProperties> availableDeviceExtensions;
     availableDeviceExtensions = m_physicalDevice.enumerateDeviceExtensionProperties();
@@ -33,30 +33,20 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface
         }
     }
 
-    std::vector<vk::QueueFamilyProperties> queueFamilies = m_physicalDevice.getQueueFamilyProperties();
+    m_queueFamilyProperties = m_physicalDevice.getQueueFamilyProperties();
 
     unsigned int graphicsQueueFamilyIndex = 0;
-    for (const vk::QueueFamilyProperties& queueFamily : queueFamilies) {
+    for (const vk::QueueFamilyProperties& queueFamily : m_queueFamilyProperties) {
         if (queueFamily.queueFlags & vk::QueueFlagBits::eGraphics) {
             m_graphicsFamilyQueueIndex = graphicsQueueFamilyIndex;
         }
         graphicsQueueFamilyIndex++;
     }
 
-    unsigned int presentQueueFamilyIndex = 0;
-    for (const vk::QueueFamilyProperties& queueFamily : queueFamilies) {
-        if (m_physicalDevice.getSurfaceSupportKHR(presentQueueFamilyIndex, surface) == VK_TRUE) {
-            m_presentFamilyQueueIndex = presentQueueFamilyIndex;
-            break;
-        }
-        graphicsQueueFamilyIndex++;
-    }
-
     m_maximumImageResolution = device.getProperties().limits.maxImageDimension2D;
-    
-    m_capabilities = m_physicalDevice.getSurfaceCapabilitiesKHR(surface);
-    m_formats = m_physicalDevice.getSurfaceFormatsKHR(surface);
-    std::vector<vk::PresentModeKHR> presentModes = m_physicalDevice.getSurfacePresentModesKHR(surface);
+
+    m_formats = m_physicalDevice.getSurfaceFormatsKHR(*surface);
+    std::vector<vk::PresentModeKHR> presentModes = m_physicalDevice.getSurfacePresentModesKHR(*surface);
 
     m_presentBestMode = vk::PresentModeKHR::eFifo;
 
@@ -65,7 +55,6 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface
             m_presentBestMode = availablePresentMode;
         }
     }
-
 }
 
 unsigned int PhysicalDevice::getRequiredExtensionsSupported() const
@@ -88,8 +77,17 @@ uint32_t PhysicalDevice::getGraphicsFamilyQueueIndex() const
     return m_graphicsFamilyQueueIndex;
 }
 
-uint32_t PhysicalDevice::getPresentFamilyQueueIndex() const
+uint32_t PhysicalDevice::getPresentFamilyQueueIndex()
 {
+    unsigned int presentQueueFamilyIndex = 0;
+    for (const vk::QueueFamilyProperties& queueFamily : m_queueFamilyProperties) {
+        if (m_physicalDevice.getSurfaceSupportKHR(presentQueueFamilyIndex, *m_surface) == VK_TRUE) {
+            m_presentFamilyQueueIndex = presentQueueFamilyIndex;
+            break;
+        }
+        presentQueueFamilyIndex++;
+    }
+
     return m_presentFamilyQueueIndex;
 }
 
@@ -102,7 +100,7 @@ uint32_t PhysicalDevice::getMaximumImageResolution() const
 {
     return m_maximumImageResolution;
 }
-std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, vk::SurfaceKHR surface, std::vector<RequestableItem>& requestedExtensions)
+std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, Surface& surface, std::vector<RequestableItem>& requestedExtensions)
 {
     std::vector<vk::PhysicalDevice> physicalDevices = instance.enumeratePhysicalDevices();
 
@@ -118,7 +116,7 @@ std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, vk:
         sortedPhysicalDevices.emplace_back(physicalDevice, surface, requestedExtensions);
     }
 
-    std::sort(sortedPhysicalDevices.begin(), sortedPhysicalDevices.end(), [](const PhysicalDevice& a, const PhysicalDevice& b) -> bool {
+    std::sort(sortedPhysicalDevices.begin(), sortedPhysicalDevices.end(), [](PhysicalDevice& a, PhysicalDevice& b) -> bool {
         if ((a.getPhysicalDevice().getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu) && (b.getPhysicalDevice().getProperties().deviceType != vk::PhysicalDeviceType::eDiscreteGpu)) {
             return true;
         } else if ((a.getPhysicalDevice().getProperties().deviceType != vk::PhysicalDeviceType::eDiscreteGpu) && (b.getPhysicalDevice().getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu)) {
@@ -155,45 +153,32 @@ std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, vk:
     return sortedPhysicalDevices.front();
 }
 
-vk::SurfaceCapabilitiesKHR PhysicalDevice::getSurfaceCapabilities() {
-    return m_capabilities;
+vk::SurfaceCapabilitiesKHR PhysicalDevice::getSurfaceCapabilities()
+{
+    return m_physicalDevice.getSurfaceCapabilitiesKHR(*m_surface);
+    ;
 }
 
-std::vector<vk::SurfaceFormatKHR>& PhysicalDevice::getFormats() {
+std::vector<vk::SurfaceFormatKHR>& PhysicalDevice::getFormats()
+{
+    m_formats = m_physicalDevice.getSurfaceFormatsKHR(*m_surface);
     return m_formats;
 }
 
-vk::SurfaceFormatKHR PhysicalDevice::getBestFormat() const {
+vk::SurfaceFormatKHR PhysicalDevice::getBestFormat()
+{
     for (const auto& availableFormat : m_formats) {
-            if (availableFormat.format == vk::Format::eB8G8R8Srgb && availableFormat.colorSpace == vk::ColorSpaceKHR::eSrgbNonlinear) {
-                return availableFormat;
-            }
+        if (availableFormat.format == vk::Format::eB8G8R8Srgb && availableFormat.colorSpace == vk::ColorSpaceKHR::eSrgbNonlinear) {
+            return availableFormat;
         }
-
-    return m_formats[0];
-}
-
-vk::PresentModeKHR PhysicalDevice::getBestPresentMode() const {
-    return m_presentBestMode;
-}
-
-vk::Extent2D PhysicalDevice::getSwapExtent(Window& window) const {
-    if (m_capabilities.currentExtent.width != std::numeric_limits<std::uint32_t>::max()) {
-        return m_capabilities.currentExtent;
-    } else {
-        int width, height;
-        SDL_Vulkan_GetDrawableSize(*window, &width, &height);
-        
-        VkExtent2D actualExtent = {
-            static_cast<uint32_t>(width),
-            static_cast<uint32_t>(height)
-        };
-        
-        actualExtent.width = std::clamp(actualExtent.width, m_capabilities.minImageExtent.width, m_capabilities.maxImageExtent.width);
-        actualExtent.height = std::clamp(actualExtent.height, m_capabilities.minImageExtent.height, m_capabilities.maxImageExtent.height);
-        
-        return actualExtent;
     }
+
+    return getFormats()[0];
+}
+
+vk::PresentModeKHR PhysicalDevice::getBestPresentMode() const
+{
+    return m_presentBestMode;
 }
 
 }

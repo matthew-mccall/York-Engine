@@ -13,7 +13,6 @@ Surface::Surface(Instance& instance, Window& window)
     : m_instance(instance)
     , m_window(window)
 {
-    addDependency(m_window);
     addDependency(m_instance);
 }
 

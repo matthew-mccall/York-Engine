@@ -12,25 +12,17 @@
 
 namespace york {
 
-Renderer::Renderer(graphics::Window& window)
-    : m_window(window)
-    , m_instance(m_window)
+Renderer::Renderer(graphics::Window& window, Registry& registry)
+    : EventHandler(registry)
+    , m_window(window)
+    , m_instance()
     , m_surface(m_instance, m_window)
     , m_device(m_instance, m_surface)
     , m_swapchain(m_device, m_window, m_surface)
-    , m_renderPass(m_swapchain)
+    , m_renderPass(m_device)
     , m_pipeline(m_swapchain, m_renderPass)
     , m_commandPool(m_device)
 {
-    addDependency(m_window);
-    addDependency(m_swapchain);
-    addDependency(m_renderPass);
-    addDependency(m_commandPool);
-    addDependency(m_pipeline);
-    // addDependency(m_instance);
-    // addDependency(m_surface);
-    // addDependency(m_device);
-
     york::Asset vert { "shaders/shader.vert", york::Asset::Type::SHADER_VERT_GLSL };
 
     if (vert->empty()) {
@@ -52,10 +44,9 @@ Renderer::Renderer(graphics::Window& window)
     std::vector<york::graphics::Shader> shaders { vertShader, fragShader };
 
     m_pipeline.setShaders(shaders);
-}
 
-bool Renderer::createImpl()
-{
+    m_instance.create();
+
     std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
 
@@ -63,10 +54,31 @@ bool Renderer::createImpl()
     m_commandBuffers = m_device->allocateCommandBuffers(commandBufferAllocateInfo);
 
     m_frames.reserve(m_maxFrames);
-    m_swapFences.resize(m_maxFrames, VK_NULL_HANDLE);
+    m_fences.reserve(m_maxFrames);
+    m_imageAvailableSemaphores.reserve(m_maxFrames);
+    m_renderFinishedSemaphores.reserve(m_maxFrames);
 
     for (unsigned i = 0; i < m_maxFrames; i++) {
-        m_frames.emplace_back(m_renderPass, imageViews[i], m_commandBuffers[i]);
+        m_fences.emplace_back(m_device);
+        m_fences.back().create();
+
+        m_imageAvailableSemaphores.emplace_back(m_device);
+        m_imageAvailableSemaphores.back().create();
+
+        m_renderFinishedSemaphores.emplace_back(m_device);
+        m_renderFinishedSemaphores.back().create();
+    }
+
+    createImpl();
+}
+
+bool Renderer::createImpl()
+{
+    std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
+    m_maxFrames = imageViews.size();
+
+    for (unsigned i = 0; i < m_maxFrames; i++) {
+        m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);
         m_frames.back().create();
     }
 
@@ -75,24 +87,24 @@ bool Renderer::createImpl()
 
 bool Renderer::draw()
 {
-    if (isCreated()) {
         graphics::FrameData& frame = m_frames[m_frameIndex];
 
-        std::array<vk::Fence, 1> fences = { *frame.getFence() };
-        auto waitResult =  m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
+        std::array<vk::Fence, 1> fences = { *m_fences[m_frameIndex] };
+        auto waitResult = m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
 
-        auto imageIndex = m_device->acquireNextImageKHR(*m_swapchain, std::numeric_limits<std::uint64_t>::max(), *frame.getImageAvailableSemaphore(), VK_NULL_HANDLE);
-        if (imageIndex.result != vk::Result::eSuccess) {
+        auto imageIndex = m_device->acquireNextImageKHR(*m_swapchain, std::numeric_limits<std::uint64_t>::max(), *m_imageAvailableSemaphores[m_frameIndex], VK_NULL_HANDLE);
+
+        if (imageIndex.result == vk::Result::eErrorOutOfDateKHR) {
+            m_device->waitIdle();
+            // this->destroyImpl();
+            m_swapchain.create();
+            return false;
+        } else if ((imageIndex.result != vk::Result::eSuccess) && (imageIndex.result != vk::Result::eSuboptimalKHR)) {
             log::core::error("Failed to get next image!");
             return false;
         }
 
-        if (static_cast<VkFence>(m_swapFences[imageIndex.value]) != VK_NULL_HANDLE) {
-            std::array<vk::Fence, 1> swapFences { m_swapFences[imageIndex.value] };
-            auto swapWaitResult = m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
-        }
-
-        m_swapFences[imageIndex.value] = *frame.getFence();
+        m_device->resetFences(fences);
 
         vk::CommandBuffer commandBuffer = m_commandBuffers[m_frameIndex];
 
@@ -100,7 +112,7 @@ bool Renderer::draw()
         commandBuffer.begin(commandBufferBeginInfo);
 
         vk::ClearValue clearValue { vk::ClearColorValue().setFloat32({ 0, 0, 0, 0 }) };
-        vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(m_frames[m_frameIndex].getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
+        vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(frame.getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
         commandBuffer.beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
 
         commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, *m_pipeline);
@@ -109,8 +121,8 @@ bool Renderer::draw()
         commandBuffer.endRenderPass();
         commandBuffer.end();
 
-        std::array<vk::Semaphore, 1> waitSemaphores { *frame.getImageAvailableSemaphore() };
-        std::array<vk::Semaphore, 1> signalSemaphores { *frame.getRenderFinishedSemaphore() };
+        std::array<vk::Semaphore, 1> waitSemaphores { *m_imageAvailableSemaphores[m_frameIndex] };
+        std::array<vk::Semaphore, 1> signalSemaphores { *m_renderFinishedSemaphores[m_frameIndex] };
         std::array<vk::PipelineStageFlags, 1> waitStages { vk::PipelineStageFlagBits::eColorAttachmentOutput };
 
         std::array<vk::CommandBuffer, 1> commandBuffers = { commandBuffer };
@@ -121,7 +133,7 @@ bool Renderer::draw()
 
         m_device->resetFences(fences);
 
-        m_device.getGraphicsQueue().submit(submitInfos, *frame.getFence());
+        m_device.getGraphicsQueue().submit(submitInfos, *m_fences[m_frameIndex]);
 
         std::array<vk::SwapchainKHR, 1> swapchains { *m_swapchain };
         std::array<std::uint32_t, 1> imageIndices = { imageIndex.value };
@@ -129,13 +141,25 @@ bool Renderer::draw()
         vk::PresentInfoKHR presentInfo { signalSemaphores, swapchains, imageIndices };
 
         auto presentResult = m_device.getPresentQueue().presentKHR(presentInfo);
+
+        if ((presentResult == vk::Result::eErrorOutOfDateKHR) || (presentResult == vk::Result::eSuboptimalKHR) || resize) {
+            resize = false;
+            m_device->waitIdle();
+            // this->destroyImpl();
+            m_swapchain.create();
+        } else if (presentResult != vk::Result::eSuccess) {
+            log::core::error("Failed to get next image!");
+            return false;
+        }
+
         ++m_frameIndex %= m_maxFrames;
 
         return true;
-    }
 
+        /*
     york::log::error("Renderer has not been created!");
     return false;
+         */
 }
 
 void Renderer::destroyImpl()
@@ -153,6 +177,29 @@ Renderer::~Renderer()
 {
     if (m_device.isCreated()) {
         m_device->waitIdle();
+
+        for (unsigned i = 0; i < m_maxFrames; i++) {
+            m_fences[i].destroy();
+            m_imageAvailableSemaphores[i].destroy();
+            m_renderFinishedSemaphores[i].destroy();
+        }
+
+        m_fences.clear();
+        m_imageAvailableSemaphores.clear();
+        m_renderFinishedSemaphores.clear();
+
+        destroyImpl();
+
+        m_instance.destroy();
+    }
+}
+
+void Renderer::onEvent(Event& e)
+{
+    if (e.getType() == Event::Type::WindowResize) {
+        if (m_window.getWindowID() == e.getWindowID()) {
+            resize = true;
+        }
     }
 }
 

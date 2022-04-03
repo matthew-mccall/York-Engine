@@ -18,12 +18,9 @@ namespace york::graphics {
  */
 class FrameData : public HandleBase {
 public:
-    FrameData(RenderPass& renderPass, ImageView& imageView, vk::CommandBuffer commandBuffer);
+    FrameData(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain, vk::CommandBuffer commandBuffer);
 
-    [[nodiscard]] Semaphore& getImageAvailableSemaphore();
-    [[nodiscard]] Semaphore& getRenderFinishedSemaphore();
     [[nodiscard]] Framebuffer& getFramebuffer();
-    Fence& getFence();
     [[nodiscard]] vk::CommandBuffer getCommandBuffer();
 
 protected:
@@ -31,10 +28,10 @@ protected:
     void destroyImpl() override;
 
 private:
-    Semaphore m_imageAvailableSemaphore, m_renderFinishedSemaphore;
-    Fence m_fence;
-    Framebuffer m_framebuffer;
     vk::CommandBuffer m_commandBuffer;
+
+    SwapChain& m_swapChain;
+    Framebuffer m_framebuffer;
 };
 
 }

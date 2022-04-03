@@ -18,7 +18,7 @@ namespace york::graphics {
  */
 class Framebuffer : public Handle<vk::Framebuffer> {
 public:
-    explicit Framebuffer(RenderPass& renderPass, ImageView& imageView);
+    explicit Framebuffer(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain);
 
 protected:
     bool createImpl() override;
@@ -28,6 +28,7 @@ private:
     RenderPass& m_renderPass;
     ImageView& m_imageView;
     Device& m_device;
+    SwapChain& m_swapChain;
 };
 
 }

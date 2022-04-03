@@ -17,16 +17,14 @@ namespace york::graphics {
  */
 class RenderPass : public Handle<vk::RenderPass> {
 public:
-    explicit RenderPass(SwapChain& swapChain);
+    explicit RenderPass(Device& device);
     Device& getDevice();
-    SwapChain& getSwapChain();
 
 protected:
     bool createImpl() override;
     void destroyImpl() override;
 
 private:
-    SwapChain& m_swapChain;
     Device& m_device;
 };
 

@@ -8,5 +8,6 @@ var searchData=
   ['_7elayer_5',['~Layer',['../classyork_1_1_layer.html#a9e2de91295a4c1825c632f978d1b46d2',1,'york::Layer']]],
   ['_7elayerstack_6',['~LayerStack',['../classyork_1_1_layer_stack.html#a5095fa46e401cb9a2439f8e7be86ec05',1,'york::LayerStack']]],
   ['_7erenderer_7',['~Renderer',['../classyork_1_1_renderer.html#a49c962ad7962371567075b874684df1a',1,'york::Renderer']]],
-  ['_7eshader_8',['~Shader',['../classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd',1,'york::graphics::Shader']]]
+  ['_7eshader_8',['~Shader',['../classyork_1_1graphics_1_1_shader.html#a845258e35c6cea8eaeda7a035a5150cd',1,'york::graphics::Shader']]],
+  ['_7ewindow_9',['~Window',['../classyork_1_1graphics_1_1_window.html#a30b0ba79c7ad62eb80db08fea8aa02f8',1,'york::graphics::Window']]]
 ];

@@ -1,5 +1,5 @@
 <map id="york::graphics::HandleBase" name="york::graphics::HandleBase">
-<area shape="rect" id="node1" title=" " alt="" coords="172,535,355,562"/>
+<area shape="rect" id="node1" title=" " alt="" coords="172,470,355,497"/>
 <area shape="rect" id="node3" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="418,5,573,47"/>
 <area shape="rect" id="node5" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,71,572,112"/>
 <area shape="rect" id="node7" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,136,572,177"/>
@@ -13,11 +13,9 @@
 <area shape="rect" id="node23" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,659,572,700"/>
 <area shape="rect" id="node25" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,724,572,765"/>
 <area shape="rect" id="node27" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="415,789,576,831"/>
-<area shape="rect" id="node29" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,855,572,896"/>
-<area shape="rect" id="node31" href="$classyork_1_1_renderer.html" title="The Renderer allows you to draw content to a Window." alt="" coords="441,921,549,947"/>
-<area shape="rect" id="node32" href="$classyork_1_1graphics_1_1_frame_data.html" title="Contains the necessary synchronization data structures, framebuffer and command buffer for a frame." alt="" coords="407,971,584,998"/>
-<area shape="rect" id="node33" href="$classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle." alt="" coords="403,1022,588,1049"/>
-<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="5,535,124,562"/>
+<area shape="rect" id="node29" href="$classyork_1_1graphics_1_1_frame_data.html" title="Contains the necessary synchronization data structures, framebuffer and command buffer for a frame." alt="" coords="407,855,584,882"/>
+<area shape="rect" id="node30" href="$classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle." alt="" coords="403,906,588,933"/>
+<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="5,470,124,497"/>
 <area shape="rect" id="node4" href="$classyork_1_1graphics_1_1_command_pool.html" title="Handle wrapper for Vulkan Command Pool." alt="" coords="636,13,835,39"/>
 <area shape="rect" id="node6" href="$classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device." alt="" coords="659,78,812,105"/>
 <area shape="rect" id="node8" href="$classyork_1_1graphics_1_1_fence.html" title="Handle wrapper for Vulkan Fence." alt="" coords="661,143,809,170"/>
@@ -31,5 +29,4 @@
 <area shape="rect" id="node24" href="$classyork_1_1graphics_1_1_shader.html" title="Represents a SPIR&#45;V shaders for use with a Pipeline." alt="" coords="659,666,812,693"/>
 <area shape="rect" id="node26" href="$classyork_1_1graphics_1_1_surface.html" title="Handle wrapper for Vulkan Surface." alt="" coords="657,731,814,758"/>
 <area shape="rect" id="node28" href="$classyork_1_1graphics_1_1_swap_chain.html" title="Handle wrapper for Vulkan Swapchain." alt="" coords="646,797,825,823"/>
-<area shape="rect" id="node30" href="$classyork_1_1graphics_1_1_window.html" title="A graphical window to which we can render to." alt="" coords="656,862,815,889"/>
 </map>

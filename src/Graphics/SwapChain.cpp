@@ -4,6 +4,7 @@
 
 #include <array>
 #include <cstdint>
+#include <SDL_vulkan.h>
 
 #include "york/Graphics/SwapChain.hpp"
 
@@ -16,7 +17,6 @@ SwapChain::SwapChain(Device& device, Window& window, Surface& surface)
     , m_presentMode(m_device.getPhysicalDevice().getBestPresentMode())
 {
     addDependency(m_device);
-    addDependency(m_window);
     addDependency(m_surface);
 }
 
@@ -26,8 +26,24 @@ bool SwapChain::createImpl()
 
     m_surfaceFormat = physicalDevice.getBestFormat();
     m_presentMode = physicalDevice.getBestPresentMode();
-    m_extent = physicalDevice.getSwapExtent(m_window);
     m_capabilities = physicalDevice.getSurfaceCapabilities();
+
+    if (m_capabilities.currentExtent.width != std::numeric_limits<std::uint32_t>::max()) {
+        m_extent = m_capabilities.currentExtent;
+    } else {
+        int width, height;
+        SDL_Vulkan_GetDrawableSize(m_window.getHandle(), &width, &height);
+
+        VkExtent2D actualExtent = {
+            static_cast<uint32_t>(width),
+            static_cast<uint32_t>(height)
+        };
+
+        actualExtent.width = std::clamp(actualExtent.width, m_capabilities.minImageExtent.width, m_capabilities.maxImageExtent.width);
+        actualExtent.height = std::clamp(actualExtent.height, m_capabilities.minImageExtent.height, m_capabilities.maxImageExtent.height);
+
+        m_extent = actualExtent;
+    }
 
     std::uint32_t imageCount = m_capabilities.minImageCount + 1;
     std::uint32_t maxImageCount = m_capabilities.maxImageCount;
@@ -52,7 +68,7 @@ bool SwapChain::createImpl()
         vk::CompositeAlphaFlagBitsKHR::eOpaque,
         m_presentMode,
         VK_TRUE,
-        VK_NULL_HANDLE
+        nullptr
     };
 
     std::array<std::uint32_t, 2> queueFamilyIndices = { physicalDevice.getGraphicsFamilyQueueIndex(), physicalDevice.getPresentFamilyQueueIndex() };

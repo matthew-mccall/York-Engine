@@ -1,3 +1,4 @@
+#include "york/Log.hpp"
 #include "york/Graphics/Handle.hpp"
 
 namespace york::graphics {
@@ -29,9 +30,10 @@ void HandleBase::create()
 
 void HandleBase::destroy()
 {
-    for (HandleBase& dependent : m_dependents) {
-        if (dependent.isCreated()) {
-            dependent.destroy();
+    for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) { // Dependents may change as other dependents are created.
+        if (i->get().isCreated()) {
+            i->get().destroy();
+            i = m_dependents.begin();
         }
     }
 

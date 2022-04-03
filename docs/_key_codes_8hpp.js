@@ -113,7 +113,6 @@ var _key_codes_8hpp =
       [ "KEY_F22", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618a4b050b75dac021fff83bf0df16b79ea9", null ],
       [ "KEY_F23", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618a5700f59e124c244f242ff309d788816f", null ],
       [ "KEY_F24", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618a0cef0bc77b3993d4f6efbd212d1b6f9d", null ],
-      [ "KEY_EXECUTE", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618a054d51f90340e7fc3174bbb7d3777a70", null ],
       [ "KEY_HELP", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618af405fdaee041cb1a7b5e9b9dcf913dc7", null ],
       [ "KEY_MENU", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618a4b83fc98b75c2d07a8e40f12680a9f2c", null ],
       [ "KEY_SELECT", "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618af640aa93230b271a8b39937a6c7796f3", null ],

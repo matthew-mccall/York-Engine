@@ -8,10 +8,10 @@
 
 class SampleLayer : public york::Layer {
 public:
-    SampleLayer(york::Registry& registry)
+    explicit SampleLayer(york::Registry& registry)
         : Layer(registry)
         , m_window("Test")
-        , m_renderer(m_window)
+        , m_renderer(m_window, registry)
     {
     }
 
@@ -27,9 +27,6 @@ public:
 
         // york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
         // york::log::info(website->data());
-
-        m_renderer.create();
-
     }
 
     void onEvent(york::Event& e) override
@@ -50,7 +47,7 @@ public:
 
     void onDetach() override
     {
-        m_window.destroy();
+        m_window.close();
     }
 
 private:

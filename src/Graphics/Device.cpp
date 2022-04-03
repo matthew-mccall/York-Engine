@@ -25,12 +25,10 @@ Device::Device(Instance& instance, Surface& surface)
 
 bool Device::createImpl()
 {
-    std::optional<PhysicalDevice> physicalDevice = std::move(PhysicalDevice::getBest(*m_instance, *m_surface, m_requestedExtensions));
+    m_physicalDevice = std::move(PhysicalDevice::getBest(*m_instance, m_surface, m_requestedExtensions));
 
-    if (!physicalDevice)
+    if (!m_physicalDevice)
         return false;
-
-    m_physicalDevice = physicalDevice;
 
     float queuePriorities = 1.0;
 

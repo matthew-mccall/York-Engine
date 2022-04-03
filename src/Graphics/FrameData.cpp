@@ -6,27 +6,13 @@
 
 namespace york::graphics {
 
-FrameData::FrameData(RenderPass& renderPass, ImageView& imageView, vk::CommandBuffer commandBuffer)
-    : m_framebuffer(renderPass, imageView)
-    , m_imageAvailableSemaphore(renderPass.getDevice())
-    , m_renderFinishedSemaphore(renderPass.getDevice())
-    , m_fence(renderPass.getDevice())
-    , m_commandBuffer(commandBuffer)
+FrameData::FrameData(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain, vk::CommandBuffer commandBuffer)
+    : m_commandBuffer(commandBuffer)
+    , m_swapChain(swapChain)
+    , m_framebuffer(renderPass, imageView, m_swapChain)
 {
     addDependent(m_framebuffer);
-    addDependent(m_renderFinishedSemaphore);
-    addDependent(m_imageAvailableSemaphore);
-    addDependent(m_fence);
-}
-
-Semaphore& FrameData::getImageAvailableSemaphore()
-{
-    return m_imageAvailableSemaphore;
-}
-
-Semaphore& FrameData::getRenderFinishedSemaphore()
-{
-    return m_renderFinishedSemaphore;
+    // addDependency(m_swapChain);
 }
 
 Framebuffer& FrameData::getFramebuffer()
@@ -39,11 +25,6 @@ vk::CommandBuffer FrameData::getCommandBuffer()
     return m_commandBuffer;
 }
 
-Fence& FrameData::getFence()
-{
-    return m_fence;
-}
-
 bool FrameData::createImpl()
 {
     return true;
@@ -52,6 +33,5 @@ bool FrameData::createImpl()
 void FrameData::destroyImpl()
 {
 }
-
 
 }

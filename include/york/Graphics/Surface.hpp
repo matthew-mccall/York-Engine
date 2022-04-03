@@ -7,9 +7,10 @@
 
 #include <vulkan/vulkan.hpp>
 
+#include <york/Window.hpp>
+
 #include "Handle.hpp"
 #include "Instance.hpp"
-#include "york/Window.hpp"
 
 namespace york::graphics {
 

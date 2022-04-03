@@ -62,6 +62,16 @@ Event::Event(SDL_Event e)
             m_windowID = e.window.windowID;
             break;
 
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+            m_type = Type::WindowResize;
+            m_windowID = e.window.windowID;
+            break;
+
+        case SDL_WINDOWEVENT_MOVED:
+            m_type = Type::WindowMoved;
+            m_windowID = e.window.windowID;
+            break;
+
         default:
             break;
         }

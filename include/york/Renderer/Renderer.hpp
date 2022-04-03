@@ -5,8 +5,9 @@
 #ifndef YORK_RENDERER_RENDERER_HPP
 #define YORK_RENDERER_RENDERER_HPP
 
-#include "york/Graphics/Framebuffer.hpp"
+#include "york/Event.hpp"
 #include "york/Window.hpp"
+#include "york/Graphics/Framebuffer.hpp"
 #include "york/Graphics/Pipeline.hpp"
 #include "york/Graphics/CommandPool.hpp"
 #include "york/Graphics/Semaphore.hpp"
@@ -17,14 +18,14 @@ namespace york {
 /**
  * The Renderer allows you to draw content to a Window.
  */
-class Renderer : public graphics::HandleBase {
+class Renderer : public EventHandler{
 public:
     /**
      * Create a Renderer bound to a window.
      *
      * @param window The window to bind to.
      */
-    explicit Renderer(graphics::Window& window);
+    explicit Renderer(graphics::Window& window, Registry& registry);
 
     /**
      * Draws to the window bound to.
@@ -33,11 +34,13 @@ public:
      */
     bool draw();
 
+    void onEvent(Event &e) override;
+
     virtual ~Renderer();
 
 protected:
-    bool createImpl() override;
-    void destroyImpl() override;
+    bool createImpl();
+    void destroyImpl();
 
 private:
     york::graphics::Window& m_window;
@@ -48,12 +51,16 @@ private:
     york::graphics::RenderPass m_renderPass;
     york::graphics::Pipeline m_pipeline;
     york::graphics::CommandPool m_commandPool;
-    std::vector<york::graphics::FrameData> m_frames;
+
+    std::vector<graphics::FrameData> m_frames;
+    std::vector<graphics::Fence> m_fences;
+    std::vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
     std::vector<vk::CommandBuffer> m_commandBuffers;
-    std::vector<vk::Fence> m_swapFences;
 
     std::uint32_t m_frameIndex = 0;
-    std::uint32_t m_maxFrames;
+    std::uint32_t m_maxFrames = 0;
+
+    bool resize = false;
 };
 
 }

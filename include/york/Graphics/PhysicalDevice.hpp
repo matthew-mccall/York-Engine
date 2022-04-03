@@ -9,8 +9,8 @@
 
 #include <vulkan/vulkan.hpp>
 
+#include "Surface.hpp"
 #include "RequestableItem.hpp"
-#include "york/Window.hpp"
 
 namespace york::graphics {
 
@@ -27,7 +27,7 @@ public:
      * @param device The Vulkan handle for the physical device to get the information about.
      * @param requestedExtensions The extensions to check against this device's support for.
      */
-    PhysicalDevice(vk::PhysicalDevice device, vk::SurfaceKHR surface, std::vector<RequestableItem>& requestedExtensions);
+    PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std::vector<RequestableItem>& requestedExtensions);
 
     /**
      * Gets the number of requested required extensions supported.
@@ -57,7 +57,7 @@ public:
      */
     [[nodiscard]] uint32_t getGraphicsFamilyQueueIndex() const;
 
-    [[nodiscard]] uint32_t getPresentFamilyQueueIndex() const;
+    [[nodiscard]] uint32_t getPresentFamilyQueueIndex();
 
     /**
      * Gets a list of the requested extensions that are supported by the device
@@ -76,9 +76,8 @@ public:
     vk::SurfaceCapabilitiesKHR getSurfaceCapabilities();
     std::vector<vk::SurfaceFormatKHR>& getFormats();
 
-    [[nodiscard]] vk::SurfaceFormatKHR getBestFormat() const;
+    [[nodiscard]] vk::SurfaceFormatKHR getBestFormat();
     [[nodiscard]] vk::PresentModeKHR getBestPresentMode() const;
-    vk::Extent2D getSwapExtent(Window& window) const;
 
     /**
      * @brief Returns the best physical device.
@@ -91,26 +90,34 @@ public:
      * @param requestedExtensions The extensions to check the devices against.
      * @return
      */
-    static std::optional<PhysicalDevice> getBest(vk::Instance instance, vk::SurfaceKHR surface, std::vector<RequestableItem>& requestedExtensions);
+    static std::optional<PhysicalDevice> getBest(vk::Instance instance, Surface& surface, std::vector<RequestableItem>& requestedExtensions);
 
     vk::PhysicalDevice* operator->()
     {
         return &m_physicalDevice;
     }
 
+    PhysicalDevice& operator=(const PhysicalDevice& rhs)
+    {
+        return *this;
+    }
+
 private:
     unsigned m_requiredExtensionsSupported = 0;
     unsigned m_optionalExtensionsSupported = 0;
+
+    Surface& m_surface;
+
+    vk::PhysicalDevice m_physicalDevice;
+    vk::PresentModeKHR m_presentBestMode;
+
     std::uint32_t m_graphicsFamilyQueueIndex = -1;
     std::uint32_t m_presentFamilyQueueIndex = -1;
     std::uint32_t m_maximumImageResolution;
 
-    vk::PhysicalDevice m_physicalDevice;
-    vk::PresentModeKHR m_presentBestMode;
-    vk::SurfaceCapabilitiesKHR m_capabilities;
-
     std::vector<std::string> m_enabledExtensions;
     std::vector<vk::SurfaceFormatKHR> m_formats;
+    std::vector<vk::QueueFamilyProperties> m_queueFamilyProperties;
 };
 
 }

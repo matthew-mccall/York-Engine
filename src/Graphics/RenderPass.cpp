@@ -6,16 +6,16 @@
 
 namespace york::graphics {
 
-RenderPass::RenderPass(SwapChain& swapChain) : m_swapChain(swapChain), m_device(swapChain.getDevice())
+RenderPass::RenderPass(Device& device) : m_device(device)
 {
-    addDependency(m_swapChain);
+    addDependency(m_device);
 }
 
 bool RenderPass::createImpl()
 {
     vk::AttachmentDescription attachmentDescription {
         {},
-        m_swapChain.getFormat().format,
+        m_device.getPhysicalDevice().getBestFormat().format,
         vk::SampleCountFlagBits::e1,
         vk::AttachmentLoadOp::eClear,
         vk::AttachmentStoreOp::eStore,
@@ -67,8 +67,5 @@ Device& RenderPass::getDevice()
 {
     return m_device;
 }
-SwapChain& RenderPass::getSwapChain()
-{
-    return m_swapChain;
-}
+
 }

@@ -8,7 +8,8 @@ var hierarchy =
     [ "york::Event", "structyork_1_1_event.html", null ],
     [ "york::Identifiable", "classyork_1_1_identifiable.html", [
       [ "york::EventHandler", "classyork_1_1_event_handler.html", [
-        [ "york::Layer", "classyork_1_1_layer.html", null ]
+        [ "york::Layer", "classyork_1_1_layer.html", null ],
+        [ "york::Renderer", "classyork_1_1_renderer.html", null ]
       ] ],
       [ "york::graphics::HandleBase", "classyork_1_1graphics_1_1_handle_base.html", [
         [ "york::graphics::Handle< vk::CommandPool >", "classyork_1_1graphics_1_1_handle.html", [
@@ -50,10 +51,6 @@ var hierarchy =
         [ "york::graphics::Handle< vk::SwapchainKHR >", "classyork_1_1graphics_1_1_handle.html", [
           [ "york::graphics::SwapChain", "classyork_1_1graphics_1_1_swap_chain.html", null ]
         ] ],
-        [ "york::graphics::Handle< SDL_Window * >", "classyork_1_1graphics_1_1_handle.html", [
-          [ "york::graphics::Window", "classyork_1_1graphics_1_1_window.html", null ]
-        ] ],
-        [ "york::Renderer", "classyork_1_1_renderer.html", null ],
         [ "york::graphics::FrameData", "classyork_1_1graphics_1_1_frame_data.html", null ],
         [ "york::graphics::Handle< T >", "classyork_1_1graphics_1_1_handle.html", null ]
       ] ]
@@ -63,5 +60,6 @@ var hierarchy =
     [ "york::Registry", "classyork_1_1_registry.html", null ],
     [ "york::RequestableItem", "structyork_1_1_requestable_item.html", null ],
     [ "york::xml::Tag", "classyork_1_1xml_1_1_tag.html", null ],
-    [ "york::Timer", "classyork_1_1_timer.html", null ]
+    [ "york::Timer", "classyork_1_1_timer.html", null ],
+    [ "york::graphics::Window", "classyork_1_1graphics_1_1_window.html", null ]
 ];

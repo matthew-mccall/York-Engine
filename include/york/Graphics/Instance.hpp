@@ -28,7 +28,7 @@ public:
      *
      * @param window The window which we will be drawing to.
      */
-    explicit Instance(Window& window);
+    explicit Instance() = default;
 
 protected:
     bool createImpl() override;
@@ -54,10 +54,7 @@ protected:
     void destroyImpl() override;
 
 private:
-    Window& m_window;
-
     vk::DebugUtilsMessengerEXT debugUtilsMessenger = {};
-
     std::vector<InstanceLayer> m_requestedLayers;
     std::vector<InstanceExtension> m_requestedExtensions;
 };

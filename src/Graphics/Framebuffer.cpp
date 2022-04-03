@@ -6,15 +6,17 @@
 
 namespace york::graphics {
 
-Framebuffer::Framebuffer(RenderPass& renderPass, ImageView& imageView)
+Framebuffer::Framebuffer(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain)
     : m_renderPass(renderPass)
     , m_imageView(imageView)
     , m_device(m_renderPass.getDevice())
+    , m_swapChain(swapChain)
 {
     assert(m_renderPass.getDevice() == m_imageView.getDevice());
 
     addDependency(m_renderPass);
     addDependency(m_imageView);
+    addDependency(m_swapChain);
 }
 
 bool Framebuffer::createImpl()
@@ -25,8 +27,8 @@ bool Framebuffer::createImpl()
         {},
         *m_renderPass,
         attachments,
-        m_renderPass.getSwapChain().getExtent().width,
-        m_renderPass.getSwapChain().getExtent().height,
+        m_swapChain.getExtent().width,
+        m_swapChain.getExtent().height,
         1
     };
 

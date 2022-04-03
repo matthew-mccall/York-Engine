@@ -1,5 +1,6 @@
 <map id="york::EventHandler" name="york::EventHandler">
-<area shape="rect" id="node1" title="Override this to handle events." alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node3" href="$classyork_1_1_layer.html" title=" " alt="" coords="29,155,116,181"/>
-<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="13,5,132,32"/>
+<area shape="rect" id="node1" title="Override this to handle events." alt="" coords="41,80,176,107"/>
+<area shape="rect" id="node3" href="$classyork_1_1_layer.html" title=" " alt="" coords="5,155,92,181"/>
+<area shape="rect" id="node4" href="$classyork_1_1_renderer.html" title="The Renderer allows you to draw content to a Window." alt="" coords="116,155,224,181"/>
+<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="49,5,168,32"/>
 </map>

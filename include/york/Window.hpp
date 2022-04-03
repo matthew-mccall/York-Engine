@@ -12,7 +12,7 @@ namespace york::graphics {
 /**
  * A graphical window to which we can render to.
  */
-class Window : public Handle<SDL_Window*> {
+class Window {
 public:
     /**
      * Creates a Window.
@@ -37,12 +37,15 @@ public:
      */
     unsigned getWindowID();
 
-private:
-    std::string m_name;
-    unsigned m_width, m_height;
+    bool isOpen();
+    void close();
+    SDL_Window* getHandle();
+    virtual ~Window();
 
-    bool createImpl() override;
-    void destroyImpl() override;
+private:
+    unsigned m_width, m_height;
+    std::string m_name;
+    SDL_Window* m_handle = nullptr;
 };
 
 } // namespace york::graphics
