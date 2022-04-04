@@ -14,6 +14,7 @@
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/spirv-headers" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/spirv-tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/taskflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/vcpkg" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/xerces-c" vcs="Git" />
   </component>
 </project>
