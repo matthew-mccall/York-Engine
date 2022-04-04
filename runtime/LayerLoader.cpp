@@ -39,9 +39,20 @@ LayerLoader::LayerLoader(std::string layerName, const std::string& createLayerNa
         return;
     }
 
-    auto createLayer = reinterpret_cast<createLayerFunc>(createLayerPtr);
+    auto createLayer = reinterpret_cast<createLayerFunc_t>(createLayerPtr);
 
-    m_layer = createLayer(york::Registry::getInstance());
+    void* registerRegistryPtr = SDL_LoadFunction(m_so, "registerRegistry");
+
+    if (registerRegistryPtr == nullptr) {
+        YORK_CORE_ERROR(SDL_GetError());
+        YORK_CORE_ERROR("Failed to find registerRegistry(Registry&)!");
+        return;
+    }
+
+    auto registerRegistryFunc = reinterpret_cast<registerRegistry_t>(registerRegistryPtr);
+
+    registerRegistryFunc(york::Registry::getInstance());
+    m_layer = createLayer();
 }
 
 LayerLoader::~LayerLoader()

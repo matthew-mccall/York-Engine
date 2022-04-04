@@ -8,10 +8,9 @@
 
 class SampleLayer : public york::Layer {
 public:
-    explicit SampleLayer(york::Registry& registry)
-        : Layer(registry)
-        , m_window("Test")
-        , m_renderer(m_window, registry)
+    explicit SampleLayer()
+        : m_window("Test")
+        , m_renderer(m_window)
     {
     }
 
@@ -55,7 +54,7 @@ private:
     york::Renderer m_renderer;
 };
 
-extern "C" york::Layer* createLayer(york::Registry& registry)
+extern "C" york::Layer* createLayer()
 {
-    return new SampleLayer(registry);
+    return new SampleLayer();
 }

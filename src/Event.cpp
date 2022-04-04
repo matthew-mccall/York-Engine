@@ -5,6 +5,7 @@
 #include "SDL2/SDL_events.h"
 
 #include "york/Event.hpp"
+#include "york/Registry.hpp"
 
 namespace {
 
@@ -140,14 +141,14 @@ void dispatchEvents()
     }
 }
 
-EventHandler::EventHandler(Registry& registry) : m_registry(registry)
+EventHandler::EventHandler()
 {
-    m_registry.m_eventHandlers.emplace_back(*this);
+    Registry::getInstance().m_eventHandlers.emplace_back(*this);
 }
 
 EventHandler::~EventHandler()
 {
-    auto& handlers = m_registry.m_eventHandlers;
+    auto& handlers = Registry::getInstance().m_eventHandlers;
 
     for (auto i = handlers.begin(); i != handlers.end(); i++) {
         if (*this == i->get()) {

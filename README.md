@@ -67,7 +67,7 @@ The York-Engine is a library that provides an API to make developing real-time, 
 
 class SampleLayer : public york::Layer {
 public:
-    SampleLayer(york::Registry registry) : york::Layer(registry) {}
+    SampleLayer() {}
 
     void onAttach() override {}
 
@@ -80,14 +80,12 @@ public:
     void onDetach() override {}
 };
 
-extern "C" york::Layer* createLayer(york::Registry& registry)
+extern "C" york::Layer* createLayer()
 {
-    return new SampleLayer(registry);
+    return new SampleLayer();
 }
 ```
-It is important to note that your create function must not be name-mangled as to make it easier for the Runtime to search and call the function, hence the `extern "C"`. Otherwise, this how client applications will be structured: A series of classes that implement `york::Layer`, each defining a create function and compiled into a separate standalone shared object. The name of the shared object, excluding any platform prefixes such as "lib" and file extension will be the name of the layer. For example, `libSampleLayer.so` will be treated as a layer with the name `SampleLayer`. 
-#### createFunction
-Also note that the Runtime will pass a `Registry` to the create function. This is because the Runtime is also linked to the Engine. On most modern operating systems, this results in the Engine library being loaded twice, with the Runtime and your Client have their own copies loaded. As a result these two copies of the Engine have their own memory allocated. Thus, internal data structures created in one copy will not be available in the other copy. As such, the `Registry` will contain the necessary data initialized by the Runtime for use in your client. You need to accept this `Registry` and pass it to the base constructor of the `Layer`.   
+It is important to note that your create function must not be name-mangled as to make it easier for the Runtime to search and call the function, hence the `extern "C"`. Otherwise, this is how client applications will be structured: A series of classes that implement `york::Layer`, each defining a create function and compiled into a separate standalone shared object. The name of the shared object, excluding any platform prefixes such as "lib" and file extension will be the name of the layer. For example, `libSampleLayer.so` will be treated as a layer with the name `SampleLayer`. 
 
 #### Client.xml
 The Runtime will search for and load layers from the current working directory only. However, the Runtime needs to know which layers its looking for. Thus, the Runtime expects each application to have a `Client.xml` manifest. This manifest contains the name of the client, the name of the layers, and the name of the create function. A `Client.xml` file might look like the following:

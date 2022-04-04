@@ -25,7 +25,7 @@ public:
      *
      * @param window The window to bind to.
      */
-    explicit Renderer(graphics::Window& window, Registry& registry);
+    explicit Renderer(graphics::Window& window);
 
     /**
      * Draws to the window bound to.
@@ -37,10 +37,6 @@ public:
     void onEvent(Event &e) override;
 
     virtual ~Renderer();
-
-protected:
-    bool createImpl();
-    void destroyImpl();
 
 private:
     york::graphics::Window& m_window;

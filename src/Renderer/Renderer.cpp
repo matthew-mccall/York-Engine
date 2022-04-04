@@ -12,9 +12,8 @@
 
 namespace york {
 
-Renderer::Renderer(graphics::Window& window, Registry& registry)
-    : EventHandler(registry)
-    , m_window(window)
+Renderer::Renderer(graphics::Window& window)
+    : m_window(window)
     , m_instance()
     , m_surface(m_instance, m_window)
     , m_device(m_instance, m_surface)
@@ -69,21 +68,10 @@ Renderer::Renderer(graphics::Window& window, Registry& registry)
         m_renderFinishedSemaphores.back().create();
     }
 
-    createImpl();
-}
-
-bool Renderer::createImpl()
-{
-    std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
-    m_maxFrames = imageViews.size();
-
     for (unsigned i = 0; i < m_maxFrames; i++) {
         m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);
         m_frames.back().create();
-    }
-
-    return true;
-}
+    }}
 
 bool Renderer::draw()
 {
@@ -96,7 +84,6 @@ bool Renderer::draw()
 
         if (imageIndex.result == vk::Result::eErrorOutOfDateKHR) {
             m_device->waitIdle();
-            // this->destroyImpl();
             m_swapchain.create();
             return false;
         } else if ((imageIndex.result != vk::Result::eSuccess) && (imageIndex.result != vk::Result::eSuboptimalKHR)) {
@@ -145,7 +132,6 @@ bool Renderer::draw()
         if ((presentResult == vk::Result::eErrorOutOfDateKHR) || (presentResult == vk::Result::eSuboptimalKHR) || resize) {
             resize = false;
             m_device->waitIdle();
-            // this->destroyImpl();
             m_swapchain.create();
         } else if (presentResult != vk::Result::eSuccess) {
             log::core::error("Failed to get next image!");
@@ -155,22 +141,6 @@ bool Renderer::draw()
         ++m_frameIndex %= m_maxFrames;
 
         return true;
-
-        /*
-    york::log::error("Renderer has not been created!");
-    return false;
-         */
-}
-
-void Renderer::destroyImpl()
-{
-    m_device->waitIdle();
-
-    for (graphics::FrameData& frame : m_frames) {
-        frame.destroy();
-    }
-
-    m_frames.clear();
 }
 
 Renderer::~Renderer()
@@ -179,16 +149,16 @@ Renderer::~Renderer()
         m_device->waitIdle();
 
         for (unsigned i = 0; i < m_maxFrames; i++) {
+            m_frames[i].destroy();
             m_fences[i].destroy();
             m_imageAvailableSemaphores[i].destroy();
             m_renderFinishedSemaphores[i].destroy();
         }
 
+        m_frames.clear();
         m_fences.clear();
         m_imageAvailableSemaphores.clear();
         m_renderFinishedSemaphores.clear();
-
-        destroyImpl();
 
         m_instance.destroy();
     }

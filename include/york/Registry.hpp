@@ -38,6 +38,8 @@ private:
     std::vector<std::reference_wrapper<EventHandler>> m_eventHandlers;
 };
 
+extern "C" void registerRegistry(Registry& registry);
+
 }
 
 #endif // YORK_REGISTRY_HPP

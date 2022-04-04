@@ -12,7 +12,7 @@ namespace york {
 
 class Layer : public EventHandler {
 public:
-    Layer(Registry& registry);
+    Layer() = default;
 
     /**
      * A function that will be called when the layer is attached to the stack. Use this for initialization.

@@ -110,12 +110,9 @@ void pushEvent(SDL_Event e);
  */
 class EventHandler : public Identifiable {
 public:
-    explicit EventHandler(Registry& registry);
+    explicit EventHandler();
     virtual void onEvent(Event& e) = 0;
     virtual ~EventHandler();
-
-private:
-    Registry& m_registry;
 };
 
 void dispatchEvents();

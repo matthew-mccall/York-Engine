@@ -5,6 +5,9 @@
 # Update submodules
 git submodule update --init --recursive
 
+# Initialize vcpkg
+./libs/vcpkg/bootstrap-vcpkg.sh
+
 # Initialize shaderc dependency
 cd libs/shaderc
 ./utils/git-sync-deps
