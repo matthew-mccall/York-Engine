@@ -78,15 +78,18 @@ int main()
 
     YORK_CORE_INFO("Initialization took {} seconds on {}!", timer.getTime(), YORK_PLATFORM);
 
-    SDL_Event event;
 
     timer.reset();
 
     try {
         while (!layerStack.empty()) {
 
+            SDL_Event event;
+
             while (SDL_PollEvent(&event)) {
-                york::pushEvent(event);
+                york::Event yEvent { event };
+
+                york::pushEvent(yEvent);
             }
 
             york::dispatchEvents();

@@ -104,6 +104,7 @@ struct Event {
 };
 
 void pushEvent(SDL_Event e);
+void pushEvent(const Event& e);
 
 /**
  * Override this to handle events.

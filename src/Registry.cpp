@@ -4,11 +4,11 @@
 
 #include "york/Registry.hpp"
 
-namespace york {
-
 namespace {
-    Registry* s_registry = nullptr;
+    york::Registry* s_registry;
 }
+
+namespace york {
 
 Registry& Registry::getInstance()
 {
