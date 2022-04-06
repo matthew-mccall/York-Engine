@@ -33,11 +33,17 @@ jobs:
       run: ./utils/Setup.sh
       
     - name: Cache vcpkg packages
+      env:
+        cache-name: york-vcpkg
       uses: actions/cache@v3
       with:
-        key: ${{ runner.os }}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
         path: |
-          ${{env.HOME}}/.cache/vcpkg/archives
+          /home/runner/.cache/vcpkg/archives
 
     - name: Install Dependencies
       run: ./utils/InstallDependencies.sh
