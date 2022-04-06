@@ -37,7 +37,7 @@ jobs:
       with:
         key: ${{ runner.os }}
         path: |
-          ${{env.VCPKG_DEFAULT_BINARY_CACHE}}
+          ${{env.HOME}}/.cache/vcpkg/archives
 
     - name: Install Dependencies
       run: ./utils/InstallDependencies.sh
