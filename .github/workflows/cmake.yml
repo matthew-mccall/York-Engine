@@ -27,10 +27,17 @@ jobs:
     - run: wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
     - run: sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
     - run: sudo apt-get update  -y
-    - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev
+    - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev
 
     - name: Prebuild
       run: ./utils/Setup.sh
+      
+    - name: Cache vcpkg packages
+      uses: actions/cache@v3
+      with:
+        key: ${{ runner.os }}
+        path: |
+          ${{env.VCPKG_DEFAULT_BINARY_CACHE}}
 
     - name: Install Dependencies
       run: ./utils/InstallDependencies.sh
