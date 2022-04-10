@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
 
 #include "curlpp/cURLpp.hpp"
@@ -87,9 +87,7 @@ int main()
             SDL_Event event;
 
             while (SDL_PollEvent(&event)) {
-                york::Event yEvent { event };
-
-                york::pushEvent(yEvent);
+                york::pushEvent(event);
             }
 
             york::dispatchEvents();

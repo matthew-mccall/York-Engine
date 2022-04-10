@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-#include <SDL2/SDL_vulkan.h>
+#include <SDL_vulkan.h>
 
 #include "york/Graphics/PhysicalDevice.hpp"
 #include "york/Log.hpp"
