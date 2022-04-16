@@ -4,7 +4,7 @@
 
 #include "york/Log.hpp"
 
-#include <SDL2/SDL_timer.h>
+#include <SDL_timer.h>
 
 #include <sstream>
 #include <thread>

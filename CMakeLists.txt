@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/libs/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
 
 project(YorkEngine VERSION 0.1.0)
 
@@ -6,40 +8,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Vulkan REQUIRED)
 find_package(PkgConfig)
-find_package(SDL 2.0.18)
-find_package(XercesC)
+find_package(SDL2 CONFIG REQUIRED)
+find_package(XercesC CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
+find_package(unofficial-curlpp CONFIG REQUIRED)
 find_package(Threads)
 
 option(BUILD_SHADERC "Build libshaderc instead of linking with system install" OFF)
 
 set(SDL_BUILDING_LIBRARY)
-
-if (SDL_FOUND)
-    set(SDL_DEP SDL::SDL)
-else ()
-    if (PKG_CONFIG_FOUND)
-        pkg_check_modules(SDL IMPORTED_TARGET sdl2>=2.0.18)
-        if (sdl2_FOUND)
-            set(SDL_DEP PkgConfig::SDL)
-        else()
-            message(NOTICE "SDL not found, building from source.")
-            add_subdirectory(libs/SDL)
-            set(SDL_DEP SDL2::SDL2)
-        endif()
-    else()
-        message(NOTICE "SDL not found, building from source.")
-        add_subdirectory(libs/SDL)
-        set(SDL_DEP SDL2::SDL2)
-    endif()
-endif ()
-
-if (XercesC_FOUND)
-    set(XML_DEP XercesC::XercesC)
-else ()
-    message(NOTICE "Xerces-C not found, building from source.")
-    add_subdirectory(libs/xerces-c)
-    set(XML_DEP xerces-c)
-endif ()
 
 if (BUILD_SHADERC)
     set(SHADERC_SKIP_TESTS ON)
@@ -48,10 +25,6 @@ if (BUILD_SHADERC)
 else()
     set(SHADERC_DEP shaderc_combined)
 endif()
-
-add_subdirectory(libs/fmt)
-add_subdirectory(libs/curlpp)
-
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -151,20 +124,19 @@ link_directories($ENV{VULKAN_SDK}/lib)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
-        fmt::fmt
         Vulkan::Vulkan
         Threads::Threads
-        ${SDL_DEP}
-        ${XML_DEP}
         ${SHADERC_DEP}
-        curlpp)
+        fmt::fmt
+        SDL2::SDL2
+#        SDL2::SDL2main
+#        SDL2::SDL2-static
+        xerces_xerces-c
+        XercesC::XercesC
+	    unofficial::curlpp::curlpp)
 
 if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
     set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
-endif()
-
-if(NOT XercesC_FOUND)
-    # target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/libs/xerces-c/src/")
 endif()
 
 unset(SDL_BUILDING_LIBRARY)

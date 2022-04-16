@@ -2,7 +2,7 @@
 #include <queue>
 #include <vector>
 
-#include "SDL2/SDL_events.h"
+#include <SDL_events.h>
 
 #include "york/Event.hpp"
 #include "york/Registry.hpp"
@@ -126,7 +126,7 @@ void pushEvent(SDL_Event e)
     s_eventQueue.emplace(e);
 }
 
-void pushEvent(const Event& e)
+void pushEvent(const Event e)
 {
     s_eventQueue.push(e);
 }

@@ -4,7 +4,7 @@
 #include <vector>
 #include <functional>
 
-#include <SDL2/SDL_events.h>
+#include <SDL_events.h>
 
 #include "KeyCodes.hpp"
 #include "Identifiable.hpp"
@@ -104,6 +104,7 @@ struct Event {
 };
 
 void pushEvent(SDL_Event e);
+void pushEvent(Event e);
 
 /**
  * Override this to handle events.

@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <xercesc/util/PlatformUtils.hpp>
 
 #include "curlpp/cURLpp.hpp"
@@ -78,12 +78,13 @@ int main()
 
     YORK_CORE_INFO("Initialization took {} seconds on {}!", timer.getTime(), YORK_PLATFORM);
 
-    SDL_Event event;
 
     timer.reset();
 
     try {
         while (!layerStack.empty()) {
+
+            SDL_Event event;
 
             while (SDL_PollEvent(&event)) {
                 york::pushEvent(event);
