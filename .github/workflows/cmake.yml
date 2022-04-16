@@ -46,7 +46,7 @@ jobs:
           /home/runner/.cache/vcpkg/archives
           
     - name: Install SDL2
-      run: ./autogen.sh && ./configure && make && make install
+      run: ./autogen.sh && ./configure && make && sudo make install
       working-directory: ./libs/SDL
 
     - name: Install Dependencies
