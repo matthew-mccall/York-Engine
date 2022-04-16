@@ -27,7 +27,7 @@ jobs:
     - run: wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
     - run: sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
     - run: sudo apt-get update  -y
-    - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev
+    - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev autoconf
 
     - name: Prebuild
       run: ./utils/Setup.sh
@@ -44,6 +44,10 @@ jobs:
           ${{ runner.os }}-
         path: |
           /home/runner/.cache/vcpkg/archives
+          
+    - name: Install SDL2
+      run: ./autogen.sh && ./configure && make && make install
+      working-directory: ./libs/SDL
 
     - name: Install Dependencies
       run: ./utils/InstallDependencies.sh
