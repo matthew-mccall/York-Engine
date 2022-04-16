@@ -1,46 +1,32 @@
 # York-Engine
-
-<div>
-<a href="https://mxtt-mmxix.github.io/York-Engine">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
-<path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
-<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-</svg> Documentation</a>
-</div>
-<div>
-<a href="https://github.com/mxtt-mmxix/York-Engine"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-</svg> GitHub</a>
-</div>
-
-![workflow](https://github.com/mxtt-mmxix/York-Engine/actions/workflows/cmake.yml/badge.svg) 
+![Ubuntu Build Support](https://img.shields.io/github/workflow/status/mxtt-mmxix/York-Engine/CMake?logo=ubuntu)
+![BSD-2-Clause License](https://img.shields.io/github/license/mxtt-mmxix/York-Engine)
+[![Documentation](https://img.shields.io/badge/Documentation-https%3A%2F%2Fyork.mmccall.dev-blue)](https://img.shields.io/badge/Documentation-https%3A%2F%2Fyork.mmccall.dev-blue)
 
 A platform for developing realtime interactive 3D media.
 
 ## Building
 ### Dependencies
+York-Engine uses [vcpkg](https://github.com/microsoft/vcpkg) to manage its dependencies. As a result, it is a matter of running `./utils/Setup.sh` then `./utils/InstallDependencies.sh` (or `.\utils\Setup.bat` and `.\utils\InstallDependencies.bat` on Windows respectively) for the end user. The following describes the projects used and some install notes. Please note that any redistributions of York-Engine must not only respect our [license](https://github.com/mxtt-mmxix/York-Engine/blob/main/LICENSE), but our dependencies' licenses as well.
 #### LunarG Vulkan SDK
 https://vulkan.lunarg.com/sdk/home
 
-You may *optionally* install the tools included in the SDK instead of the SDK itself. See the LunarG documentation for more information. At bare minimum, York-Engine needs the [C++ Vulkan Headers](https://github.com/khronosgroup/vulkan-hpp), [Vulkan Loader](https://github.com/KhronosGroup/Vulkan-Loader), and any other development packages provided if you were to opt out of installing the SDK.
+You may *optionally* install the tools included in the SDK instead of the SDK itself. See the LunarG documentation for more information. At bare minimum, York-Engine needs the [C++ Vulkan Headers](https://github.com/khronosgroup/vulkan-hpp), [Vulkan Loader](https://github.com/KhronosGroup/Vulkan-Loader), [Validation Layers](https://github.com/KhronosGroup/Vulkan-ValidationLayers), and any other development packages or drivers necessary if you were to opt out of installing the SDK.
 #### SDL2
 https://libsdl.org/ 
 
-Version 2.0.18 or newer. If CMake could not automatically find and link to a suitable local copy, it will build SDL2 from source. You can specify `SDL_LIBRARY` and `SDL_INCLUDE_DIR` to assist CMake in finding SDL2.
-#### Apache Xerces-C++
-https://xerces.apache.org/xerces-c/
+Version 2.0.18 or newer. On Windows, vcpkg should try to install the dynamic libraries for SDL2. This is necessary as dynamic linking prevents some issues that will occur with static linking. However on macOS and Linux, vcpkg will try to reference an existing installation of SDL2. As such, one needs to install the SDL2 dynamic libraries on macOS and Linux via their package manager (including Homebrew or MacPorts). If version 2.0.18 or newer is not available, SDL2 comes submoduled. In this case you must [build and install SDL2](https://wiki.libsdl.org/Installation#linuxunix) manually prior to running that startup scripts. (You may need Autotools)
 
-Version 3.2.3 or newer. If CMake could not automatically find and link to a suitable local copy, it will build Xerces-C++ from source.
 #### libcurl
 https://curl.se/libcurl/
 
-Used to perform network requests.
-#### In-Tree Dependencies
-York-Engine includes source copies third-party dependencies in the `/libs/` folder. This makes dependency management simple as we can just simply build what we need from source without worrying about how and where to search for local installations. Libraries that are shipped with York-Engine include [{fmt}](https://fmt.dev/latest/index.html), [curlpp](https://www.curlpp.org/), [shaderc](https://github.com/google/shaderc), and [taskflow](https://taskflow.github.io/). Please note that any redistributions of York-Engine must not only respect our [license](https://github.com/mxtt-mmxix/York-Engine/blob/main/LICENSE), but our dependencies' licenses as well.
+Used to perform network requests. You may need to [install Perl to build OpenSSL](https://github.com/openssl/openssl/issues/13761#issuecomment-753686265) which is a dependency of curl, otherwise vcpkg installation may fail. 
 
 ### CMake
 To build the York-Engine Library and Runtime: 
-- Run the setup script: `./utils/Setup.sh`. (Make sure submodules are cloned recursively)
+- Install SDL2 and Perl if not already installed.
+- Run the setup script: `./utils/Setup.sh`.
+- Install dependencies: `./utils/InstallDependencies.sh`.
 - Use [CMake](https://cmake.org/) to generate the build files for the project: `cmake -B build .`. 
 - Then, build the project: `cmake --build build`.
 - To build the sample: `cmake --build build -- SampleLayer`.
