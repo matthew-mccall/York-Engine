@@ -1,9 +1,4 @@
 # Starter pipeline
-- task: CMake@1
-  inputs:
-    workingDirectory: '.'
-    cmakeArgs: '-G Ninja -DBUILD=SHADERC=ON'
-    runInsideShell: true
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -15,10 +10,28 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
+    sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
+    sudo apt-get update  -y
+    sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev autoconf
+  displayName: Install Vulkan and Build Tools
+
+- script: |
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+  displayName: 'Install SDL2'
+  workingDirectory: ./libs/SDL
+
+- script: |
+    ./utils/Setup.sh
+    ./utils/InstallDependencies.sh
+  displayName: 'Install Dependencies'
+- task: CMake@1
+  inputs:
+    workingDirectory: '.'
+    cmakeArgs: '-G Ninja -DBUILD_SHADERC=ON'
+    runInsideShell: true
