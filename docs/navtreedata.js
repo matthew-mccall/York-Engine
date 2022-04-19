@@ -30,20 +30,18 @@ var NAVTREE =
         [ "Dependencies", "index.html#autotoc_md2", [
           [ "LunarG Vulkan SDK", "index.html#autotoc_md3", null ],
           [ "SDL2", "index.html#autotoc_md4", null ],
-          [ "Apache Xerces-C++", "index.html#autotoc_md5", null ],
-          [ "libcurl", "index.html#autotoc_md6", null ],
-          [ "In-Tree Dependencies", "index.html#autotoc_md7", null ]
+          [ "libcurl", "index.html#autotoc_md5", null ]
         ] ],
-        [ "CMake", "index.html#autotoc_md8", [
-          [ "CMake Options", "index.html#autotoc_md9", [
-            [ "BUILD_SHADERC", "index.html#autotoc_md10", null ]
+        [ "CMake", "index.html#autotoc_md6", [
+          [ "CMake Options", "index.html#autotoc_md7", [
+            [ "BUILD_SHADERC", "index.html#autotoc_md8", null ]
           ] ]
         ] ]
       ] ],
-      [ "Using", "index.html#autotoc_md11", [
-        [ "Sample", "index.html#autotoc_md12", null ],
-        [ "How it works", "index.html#autotoc_md13", [
-          [ "Client.xml", "index.html#autotoc_md14", null ]
+      [ "Using", "index.html#autotoc_md9", [
+        [ "Sample", "index.html#autotoc_md10", null ],
+        [ "How it works", "index.html#autotoc_md11", [
+          [ "Client.xml", "index.html#autotoc_md12", null ]
         ] ]
       ] ]
     ] ],
@@ -85,7 +83,7 @@ var NAVTREEINDEX =
 "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adf9a973f21d23d40a8f8c8192db00a2f",
 "classyork_1_1graphics_1_1_command_pool.html#a475aa98f8519d64ec01d8e407e9c164d",
 "classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618aca5eda3cb7ef69f041e555aa4f0fe876"
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618acbc55a981874476c41bbc954dfe3ec6e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
