@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Desgined for use in automated builds only
+
 import platform
 import subprocess
 import sys
@@ -10,9 +12,7 @@ args = sys.argv
 if os == "Windows":
     subprocess.run("./utils/Setup.bat")
 else:
-    if 'ubuntu' in platform.platform().lower():
-        print("Installing VulkanSDK and other build tools on Ubuntu")
-        subprocess.run("./utils/pipeline/Ubuntu.sh")
+    subprocess.run("./utils/pipeline/Ubuntu.sh")
         
     args[0] = "./utils/Setup.sh"
     subprocess.run(args)
