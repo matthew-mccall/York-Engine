@@ -17,6 +17,6 @@ steps:
 
 - task: CMake@1
   inputs:
-    workingDirectory: '.'
-    cmakeArgs: '-G Ninja -DBUILD_SHADERC=ON'
+    workingDirectory: 'build'
+    cmakeArgs: '-G Ninja -DBUILD_SHADERC=ON -S ..'
     runInsideShell: true

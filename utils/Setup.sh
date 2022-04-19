@@ -23,7 +23,7 @@ cd libs/shaderc
 cd ../../
 
 if [[ -n $INSTALL_SDL ]]; then
-    "Installing SDL2"
+    echo "Installing SDL2"
     rm -rf ./libs/SDL/build
     
     if which ninja; then
