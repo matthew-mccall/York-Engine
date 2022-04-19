@@ -43,8 +43,7 @@ var NAVTREE =
       [ "Using", "index.html#autotoc_md11", [
         [ "Sample", "index.html#autotoc_md12", null ],
         [ "How it works", "index.html#autotoc_md13", [
-          [ "createFunction", "index.html#autotoc_md14", null ],
-          [ "Client.xml", "index.html#autotoc_md15", null ]
+          [ "Client.xml", "index.html#autotoc_md14", null ]
         ] ]
       ] ]
     ] ],
@@ -83,10 +82,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_asset_8hpp.html",
-"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618ae07b68307970f2ccd8a5f9f7ffa512dc",
-"classyork_1_1graphics_1_1_command_pool.html",
-"classyork_1_1xml_1_1_document.html",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac6ff381bfd152f5589c312dde49d142d"
+"_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618adf9a973f21d23d40a8f8c8192db00a2f",
+"classyork_1_1graphics_1_1_command_pool.html#a475aa98f8519d64ec01d8e407e9c164d",
+"classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae",
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618aca5eda3cb7ef69f041e555aa4f0fe876"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

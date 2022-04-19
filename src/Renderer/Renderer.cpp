@@ -118,8 +118,6 @@ bool Renderer::draw()
 
         std::array<vk::SubmitInfo, 1> submitInfos { submitInfo };
 
-        m_device->resetFences(fences);
-
         m_device.getGraphicsQueue().submit(submitInfos, *m_fences[m_frameIndex]);
 
         std::array<vk::SwapchainKHR, 1> swapchains { *m_swapchain };

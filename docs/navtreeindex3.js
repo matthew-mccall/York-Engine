@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classyork_1_1xml_1_1_document.html":[1,0,0,3,0],
-"classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae":[1,0,0,3,0,0],
 "classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae":[2,0,0,1,0,0],
 "classyork_1_1xml_1_1_document.html#a920d346dad553e10d28d42fc16ed5d7f":[1,0,0,3,0,1],
 "classyork_1_1xml_1_1_document.html#a920d346dad553e10d28d42fc16ed5d7f":[2,0,0,1,0,1],
@@ -11,8 +9,8 @@ var NAVTREEINDEX3 =
 "classyork_1_1xml_1_1_tag.html":[2,0,0,1,1],
 "classyork_1_1xml_1_1_tag.html#a2018877981eef8f6fe45efb1a87248ff":[1,0,0,3,1,2],
 "classyork_1_1xml_1_1_tag.html#a2018877981eef8f6fe45efb1a87248ff":[2,0,0,1,1,2],
-"classyork_1_1xml_1_1_tag.html#a334e69643eb4941a6d82c0a9bc669bd1":[1,0,0,3,1,3],
 "classyork_1_1xml_1_1_tag.html#a334e69643eb4941a6d82c0a9bc669bd1":[2,0,0,1,1,3],
+"classyork_1_1xml_1_1_tag.html#a334e69643eb4941a6d82c0a9bc669bd1":[1,0,0,3,1,3],
 "classyork_1_1xml_1_1_tag.html#a375868e996e84c4ed717c2e5a73ca7eb":[1,0,0,3,1,6],
 "classyork_1_1xml_1_1_tag.html#a375868e996e84c4ed717c2e5a73ca7eb":[2,0,0,1,1,6],
 "classyork_1_1xml_1_1_tag.html#acc95d85f703120b4507734ae6c5890d5":[1,0,0,3,1,0],
@@ -21,8 +19,8 @@ var NAVTREEINDEX3 =
 "classyork_1_1xml_1_1_tag.html#ad0482d2f9611beddcdedcc646cda6f18":[2,0,0,1,1,1],
 "classyork_1_1xml_1_1_tag.html#ae2987dcd60a873e1035fdfae25a1b7b7":[2,0,0,1,1,4],
 "classyork_1_1xml_1_1_tag.html#ae2987dcd60a873e1035fdfae25a1b7b7":[1,0,0,3,1,4],
-"classyork_1_1xml_1_1_tag.html#afac6de0a0fd46db31bc45806e4a67d83":[1,0,0,3,1,5],
 "classyork_1_1xml_1_1_tag.html#afac6de0a0fd46db31bc45806e4a67d83":[2,0,0,1,1,5],
+"classyork_1_1xml_1_1_tag.html#afac6de0a0fd46db31bc45806e4a67d83":[1,0,0,3,1,5],
 "dir_1b88ee86b1512d6914ad6c1918e935fe.html":[3,0,0,0,2],
 "dir_6e57488b9d8d79f3ed220c25147c75f5.html":[3,0,0,0,0],
 "dir_8d12484c773ab45ee79a32279975bc3b.html":[3,0,0,0],
@@ -46,7 +44,6 @@ var NAVTREEINDEX3 =
 "index.html#autotoc_md12":[0,1,0],
 "index.html#autotoc_md13":[0,1,1],
 "index.html#autotoc_md14":[0,1,1,0],
-"index.html#autotoc_md15":[0,1,1,1],
 "index.html#autotoc_md2":[0,0,0],
 "index.html#autotoc_md3":[0,0,0,0],
 "index.html#autotoc_md4":[0,0,0,1],
@@ -62,7 +59,7 @@ var NAVTREEINDEX3 =
 "namespaces.html":[1,0],
 "namespaceyork.html":[1,0,0],
 "namespaceyork.html#a081c411bfa184df7cc3e83094ed59d8c":[1,0,0,16],
-"namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd":[1,0,0,19],
+"namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd":[1,0,0,20],
 "namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52":[1,0,0,18],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618":[1,0,0,17],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a00bec9d50d87ee004d0d2b4c62e22255":[1,0,0,17,134],
@@ -249,5 +246,8 @@ var NAVTREEINDEX3 =
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac47d8e9cf440aed061d3a1154f4a95ba":[1,0,0,17,215],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac59234c2ddc1b5c22b1ff1a5f5941b76":[1,0,0,17,106],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac63eef540a3ec61bad528bd7baba0b0f":[1,0,0,17,88],
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac63f5278067fdf3504be0c889bf7333d":[1,0,0,17,203]
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac63f5278067fdf3504be0c889bf7333d":[1,0,0,17,203],
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac6ff381bfd152f5589c312dde49d142d":[1,0,0,17,147],
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac7adf60d3b33fb6a9f464bb6f15488dc":[1,0,0,17,59],
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ac88edf170394ec39beaba43bf06b7549":[1,0,0,17,213]
 };

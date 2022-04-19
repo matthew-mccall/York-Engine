@@ -1,7 +1,7 @@
 #include <cassert>
-#include <queue>
 #include <vector>
 
+#include <boost/circular_buffer.hpp>
 #include <SDL_events.h>
 
 #include "york/Event.hpp"
@@ -9,7 +9,7 @@
 
 namespace {
 
-std::queue<york::Event> s_eventQueue;
+boost::circular_buffer<york::Event> s_eventQueue { 256 };
 
 } // namespace
 
@@ -123,12 +123,12 @@ unsigned Event::getWindowID() const
 
 void pushEvent(SDL_Event e)
 {
-    s_eventQueue.emplace(e);
+    s_eventQueue.push_back(york::Event(e));
 }
 
 void pushEvent(const Event e)
 {
-    s_eventQueue.push(e);
+    s_eventQueue.push_back(e);
 }
 
 void dispatchEvents()
@@ -137,7 +137,7 @@ void dispatchEvents()
         for (EventHandler& handler : Registry::getInstance().m_eventHandlers) {
             handler.onEvent(s_eventQueue.front());
         }
-        s_eventQueue.pop();
+        s_eventQueue.pop_front();
     }
 }
 
