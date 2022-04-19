@@ -12,14 +12,7 @@ pool:
 steps:
 
 - script: |
-    wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
-    sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
-    sudo apt-get update  -y
-    sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev autoconf
-  displayName: Install Vulkan and Build Tools
-
-- script: |
-    ./utils/Setup.sh --install-sdl
+    python3 ./utils/Setup.py --install-sdl
   displayName: 'Setup Script'
 
 - task: CMake@1

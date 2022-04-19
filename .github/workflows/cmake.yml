@@ -23,15 +23,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         submodules: recursive
-
-    - run: wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
-    - run: sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
-    - run: sudo apt-get update  -y
-    - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev autoconf
-
-    - name: Prebuild
-      run: ./utils/Setup.sh --install-sdl
-      
+        
     - name: Cache vcpkg packages
       env:
         cache-name: york-vcpkg
@@ -45,10 +37,13 @@ jobs:
         path: |
           /home/runner/.cache/vcpkg/archives
 
+    - name: Setup script
+      run: python3 ./utils/Setup.py --install-sdl
+
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -G Ninja -B${{github.workspace}}/build -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_CXX_FLAGS=-I/usr/local/include -DBUILD_SHADERC=ON .
+      run: cmake -G Ninja -B${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_SHADERC=ON .
 
     - name: Build
       # Build your program with the given configuration
