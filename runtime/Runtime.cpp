@@ -2,6 +2,8 @@
 #include <vector>
 
 #include <SDL.h>
+#undef main
+
 #include <xercesc/util/PlatformUtils.hpp>
 
 #include "curlpp/cURLpp.hpp"

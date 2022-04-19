@@ -86,5 +86,6 @@
         "unordered_set": "cpp"
     },
     "C_Cpp.clang_format_fallbackStyle": "WebKit",
-    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug"
+    "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug",
+    "cmake.configureOnOpen": false
 }

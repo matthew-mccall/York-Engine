@@ -131,7 +131,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         fmt::fmt
         SDL2::SDL2
         SDL2::SDL2main
-        SDL2::SDL2-static
         xerces_xerces-c
         XercesC::XercesC
         Boost::boost
