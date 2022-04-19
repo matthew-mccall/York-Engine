@@ -11,6 +11,7 @@ find_package(PkgConfig)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(XercesC CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
+find_package(Boost REQUIRED)
 find_package(unofficial-curlpp CONFIG REQUIRED)
 find_package(Threads)
 
@@ -110,8 +111,8 @@ set(RUNTIME_SRC
         runtime/LayerLoader.cpp
         runtime/LayerLoader.hpp)
 
-source_group(Engine FILES ${SRC})
-source_group(Runtime FILES ${RUNTIME_SRC})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SRC})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${RUNTIME_SRC})
 
 configure_file(include/york/Config.hpp.in include/york/Config.hpp)
 
@@ -129,10 +130,11 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${SHADERC_DEP}
         fmt::fmt
         SDL2::SDL2
-#        SDL2::SDL2main
-#        SDL2::SDL2-static
+        SDL2::SDL2main
+        SDL2::SDL2-static
         xerces_xerces-c
         XercesC::XercesC
+        Boost::boost
 	    unofficial::curlpp::curlpp)
 
 if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")

@@ -41,7 +41,9 @@ public:
 
     void onRender() override
     {
-        m_renderer.draw();
+        if (!m_renderer.draw()) {
+            requestExit();
+        }
     }
 
     void onDetach() override
