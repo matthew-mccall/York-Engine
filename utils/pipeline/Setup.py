@@ -10,7 +10,7 @@ os = platform.system()
 args = sys.argv
 
 if os == "Windows":
-    subprocess.run("./utils/pipeline/Windows.bat")
+    subprocess.run(["pwsh", ".\\utils\\pipeline\\Windows.ps"])
     subprocess.run("./utils/Setup.bat")
     
 else:
