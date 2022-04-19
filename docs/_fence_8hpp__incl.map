@@ -1,12 +1,12 @@
 <map id="include/york/Graphics/Fence.hpp" name="include/york/Graphics/Fence.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="273,5,421,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="61,393,187,420"/>
-<area shape="rect" id="node3" href="$_handle_8hpp.html" title="Contains the declarations for the Handle classes which form the basis of our Vulkan implementation." alt="" coords="648,468,736,495"/>
+<area shape="rect" id="node3" href="$_handle_8hpp.html" title="Contains the declarations for the Handle classes which form the basis of our Vulkan implementation." alt="" coords="635,468,723,495"/>
 <area shape="rect" id="node8" href="$_device_8hpp.html" title=" " alt="" coords="303,95,391,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="479,543,537,569"/>
-<area shape="rect" id="node5" title=" " alt="" coords="755,543,834,569"/>
-<area shape="rect" id="node6" href="$_identifiable_8hpp.html" title=" " alt="" coords="592,543,731,569"/>
-<area shape="rect" id="node7" title=" " alt="" coords="631,617,692,644"/>
+<area shape="rect" id="node4" title=" " alt="" coords="472,543,531,569"/>
+<area shape="rect" id="node5" title=" " alt="" coords="745,543,823,569"/>
+<area shape="rect" id="node6" href="$_identifiable_8hpp.html" title=" " alt="" coords="581,543,720,569"/>
+<area shape="rect" id="node7" title=" " alt="" coords="620,617,681,644"/>
 <area shape="rect" id="node9" title=" " alt="" coords="93,169,147,196"/>
 <area shape="rect" id="node10" href="$_instance_8hpp.html" title=" " alt="" coords="419,319,517,345"/>
 <area shape="rect" id="node12" href="$_requestable_item_8hpp.html" title=" " alt="" coords="212,393,359,420"/>
@@ -14,6 +14,6 @@
 <area shape="rect" id="node17" href="$_surface_8hpp.html" title=" " alt="" coords="435,244,527,271"/>
 <area shape="rect" id="node11" title=" " alt="" coords="354,468,409,495"/>
 <area shape="rect" id="node13" href="$_window_8hpp.html" title=" " alt="" coords="485,393,606,420"/>
-<area shape="rect" id="node14" title=" " alt="" coords="485,468,619,495"/>
+<area shape="rect" id="node14" title=" " alt="" coords="497,468,594,495"/>
 <area shape="rect" id="node16" title=" " alt="" coords="176,244,243,271"/>
 </map>

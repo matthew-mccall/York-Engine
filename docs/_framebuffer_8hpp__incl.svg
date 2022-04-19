@@ -361,16 +361,16 @@
 <g id="node16" class="node">
 <title>Node16</title>
 <g id="a_node16"><a xlink:title=" ">
-<polygon fill="none" stroke="#bfbfbf" points="481.5,-112.5 481.5,-131.5 582.5,-131.5 582.5,-112.5 481.5,-112.5"/>
-<text text-anchor="middle" x="532" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL2/SDL_video.h</text>
+<polygon fill="none" stroke="#bfbfbf" points="481.5,-112.5 481.5,-131.5 554.5,-131.5 554.5,-112.5 481.5,-112.5"/>
+<text text-anchor="middle" x="518" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL_video.h</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node16 -->
 <g id="edge24" class="edge">
 <title>Node15&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M510.29,-168.08C513.85,-160.69 519.02,-149.95 523.42,-140.81"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="526.6,-142.28 527.79,-131.75 520.29,-139.24 526.6,-142.28"/>
+<path fill="none" stroke="midnightblue" d="M507.98,-168.08C509.57,-160.93 511.86,-150.64 513.85,-141.69"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="517.3,-142.27 516.06,-131.75 510.47,-140.75 517.3,-142.27"/>
 </g>
 <!-- Node17&#45;&gt;Node8 -->
 <g id="edge28" class="edge">

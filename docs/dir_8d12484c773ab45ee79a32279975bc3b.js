@@ -19,9 +19,7 @@ var dir_8d12484c773ab45ee79a32279975bc3b =
       [ "york::LayerStack", "classyork_1_1_layer_stack.html", "classyork_1_1_layer_stack" ]
     ] ],
     [ "Log.hpp", "_log_8hpp.html", "_log_8hpp" ],
-    [ "Registry.hpp", "_registry_8hpp.html", [
-      [ "york::Registry", "classyork_1_1_registry.html", "classyork_1_1_registry" ]
-    ] ],
+    [ "Registry.hpp", "_registry_8hpp.html", "_registry_8hpp" ],
     [ "Timer.hpp", "_timer_8hpp.html", [
       [ "york::Timer", "classyork_1_1_timer.html", "classyork_1_1_timer" ]
     ] ],
