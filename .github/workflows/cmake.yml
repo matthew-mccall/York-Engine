@@ -30,7 +30,7 @@ jobs:
     - run: sudo apt-get install -y vulkan-sdk ninja-build llvm clang libpthread-stubs0-dev xorg-dev autoconf
 
     - name: Prebuild
-      run: ./utils/Setup.sh
+      run: ./utils/Setup.sh --install-sdl
       
     - name: Cache vcpkg packages
       env:
@@ -44,13 +44,6 @@ jobs:
           ${{ runner.os }}-
         path: |
           /home/runner/.cache/vcpkg/archives
-          
-    - name: Install SDL2
-      run: ./autogen.sh && ./configure && make && sudo make install
-      working-directory: ./libs/SDL
-
-    - name: Install Dependencies
-      run: ./utils/InstallDependencies.sh
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
