@@ -10,9 +10,11 @@ os = platform.system()
 args = sys.argv
 
 if os == "Windows":
+    subprocess.run("./utils/pipeline/Windows.bat")
     subprocess.run("./utils/Setup.bat")
+    
 else:
-    subprocess.run("./utils/pipeline/Ubuntu.sh")
-        
     args[0] = "./utils/Setup.sh"
+    
+    subprocess.run("./utils/pipeline/Ubuntu.sh") 
     subprocess.run(args)
