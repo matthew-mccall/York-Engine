@@ -75,7 +75,7 @@ bool Shader::createImpl()
         std::vector<std::uint32_t> spirv {result.begin(), result.end() };
         vk::ShaderModuleCreateInfo createInfo = { {}, spirv };
         m_handle = m_device->createShaderModule(createInfo);
-        log::core::debug("Compiled shaders!");
+        YORK_CORE_DEBUG("Compiled shaders!");
         return true;
     }
 

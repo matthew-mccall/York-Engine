@@ -74,12 +74,14 @@ Event::Event(SDL_Event e)
             break;
 
         default:
+            m_type = Type::None;
             break;
         }
 
         break;
 
     default:
+        m_type = Type::None;
         break;
     }
 }

@@ -75,7 +75,7 @@ std::vector<char>& Asset::getData()
         }
 
         m_data.resize(size);
-        log::core::debug("Loading {}!", m_location);
+        YORK_CORE_TRACE("Loading {}!", m_location);
 
         std::size_t totalSizeRead = 0, sizeRead;
 
@@ -84,7 +84,7 @@ std::vector<char>& Asset::getData()
             totalSizeRead += sizeRead;
 
             if (sizeRead == 0 && (totalSizeRead != size)) {
-                log::core::error(SDL_GetError());
+               YORK_CORE_ERROR(SDL_GetError());
                 SDL_RWclose(file);
                 m_data.clear();
                 return m_data;
@@ -106,7 +106,7 @@ Asset::Type Asset::getType() const
 Asset::~Asset()
 {
     if (--s_referenceCount[m_location] == 0) {
-        log::core::debug("Unloading {}!", m_location);
+        YORK_CORE_TRACE("Unloading {}!", m_location);
         m_data.clear();
     }
 }
