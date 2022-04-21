@@ -7,7 +7,7 @@ project(YorkEngine VERSION 0.1.0)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Vulkan REQUIRED)
-find_package(PkgConfig)
+find_package(Taskflow CONFIG REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(XercesC CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
@@ -123,9 +123,10 @@ message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
 link_directories($ENV{LD_LIBRARY_PATH})
 link_directories($ENV{VULKAN_SDK}/lib)
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include" "${PROJECT_SOURCE_DIR}/libs/taskflow" "${PROJECT_SOURCE_DIR}/libs/curlpp/include")
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         Vulkan::Vulkan
+        Taskflow::Taskflow
         Threads::Threads
         ${SHADERC_DEP}
         fmt::fmt
