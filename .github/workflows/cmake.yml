@@ -51,6 +51,17 @@ jobs:
         path: |
           libs/SDL/build
 
+    - name: Cache Vulkan
+      env:
+        cache-name: york-vulkan
+      uses: actions/cache@v3
+      with:
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+        path: |
+          1*
+
     - name: Install Vulkan and Run Setup script
       run: |
         pip3 install distro
