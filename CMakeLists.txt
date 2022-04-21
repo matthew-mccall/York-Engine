@@ -121,7 +121,13 @@ add_library(${PROJECT_NAME} ${SRC})
 message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
 
 link_directories($ENV{LD_LIBRARY_PATH})
-link_directories($ENV{VULKAN_SDK}/lib)
+
+if (${CMAKE_SYSTEM_NAME} EQUAL "Windows")
+    link_directories($ENV{VULKAN_SDK}/Lib)
+else()
+    link_directories($ENV{VULKAN_SDK}/lib)
+endif()
+
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC

@@ -37,15 +37,22 @@ jobs:
         key: ${{ runner.os }}-build-${{ env.cache-name }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
         path: |
           /home/runner/.cache/vcpkg/archives
 
+    - name: Cache SDL2 build
+      env:
+        cache-name: york-vcpkg
+      uses: actions/cache@v3
+      with:
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+        path: |
+          libs/SDL/build
+
     - name: Install Vulkan and Run Setup script
       run: |
-        curl -fsSLO https://sdk.lunarg.com/sdk/download/latest/linux/vulkan-sdk.tar.gz
-        tar xvf vulkan-sdk*
         pip3 install distro
         python3 ./utils/pipeline/Setup.py
 

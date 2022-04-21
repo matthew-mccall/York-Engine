@@ -13,6 +13,8 @@ if os == "Windows":
     subprocess.run(".\\utils\\Setup.bat")
     
 else:
+    subprocess.run("./utils/pipeline/InstallVulkan.sh")
+
     if distro.id() == "ubuntu":
         subprocess.run("./utils/pipeline/Ubuntu.sh")
         subprocess.run(["./utils/Setup.sh", "--install-sdl"])
