@@ -15,7 +15,7 @@ if os == "Windows":
 else:
     if distro.id() == "ubuntu":
         subprocess.run("./utils/pipeline/Ubuntu.sh")
-        subprocess.run("./utils/Setup.sh --install-sdl")
+        subprocess.run(["./utils/Setup.sh", "--install-sdl"])
     elif distro.id() == "fedora":
         subprocess.run("./utils/pipeline/Fedora.sh")
         subprocess.run("./utils/Setup.sh")
