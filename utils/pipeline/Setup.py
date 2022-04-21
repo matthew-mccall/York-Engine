@@ -2,19 +2,22 @@
 
 # Desgined for use in automated builds only
 
+import distro
 import platform
 import subprocess
-import sys
 
 os = platform.system()
-args = sys.argv
 
 if os == "Windows":
     subprocess.run(["pwsh", ".\\utils\\pipeline\\Windows.ps1"])
-    subprocess.run("./utils/Setup.bat")
+    subprocess.run(".\\utils\\Setup.bat")
     
 else:
-    args[0] = "./utils/Setup.sh"
-    
-    subprocess.run("./utils/pipeline/Ubuntu.sh") 
-    subprocess.run(args)
+    if distro.id() == "ubuntu":
+        subprocess.run("./utils/pipeline/Ubuntu.sh")
+        subprocess.run("./utils/Setup.sh --install-sdl")
+    elif distro.id() == "fedora":
+        subprocess.run("./utils/pipeline/Fedora.sh")
+        subprocess.run("./utils/Setup.sh")
+    else:
+        subprocess.run("./utils/Setup.sh")
