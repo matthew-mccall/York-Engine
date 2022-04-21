@@ -3,6 +3,7 @@
 
 #include <SDL_vulkan.h>
 
+#include "york/Config.hpp"
 #include "york/Graphics/Instance.hpp"
 #include "york/Log.hpp"
 
@@ -48,12 +49,11 @@ bool Instance::createImpl()
     std::vector<InstanceLayer> unavailableLayers;
     std::vector<InstanceExtension> unavailableExtensions;
 
-#ifndef NDEBUG
-    requestLayer({ "VK_LAYER_KHRONOS_validation" });
-    requestExtension({ VK_EXT_DEBUG_UTILS_EXTENSION_NAME });
-    requestExtension({ VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME });
-
-#endif
+    if constexpr (YORK_BUILD_CONFIG == "Debug") {
+        requestLayer({ "VK_LAYER_KHRONOS_validation" });
+        requestExtension({ VK_EXT_DEBUG_UTILS_EXTENSION_NAME });
+        requestExtension({ VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME });
+    }
 
     if (s_availableLayers.empty()) {
         s_availableLayers = vk::enumerateInstanceLayerProperties();
@@ -168,15 +168,15 @@ bool Instance::createImpl()
                                                                    .setMessageType(vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral | vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation | vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance)
                                                                    .setPfnUserCallback(debugMessageFunc);
 
-#ifndef NDEBUG
-    createInfo.setPNext(reinterpret_cast<VkDebugUtilsMessengerCreateInfoEXT*>(&messengerCreateInfo));
-#endif
+    if constexpr (YORK_BUILD_CONFIG == "Debug") {
+        createInfo.setPNext(reinterpret_cast<VkDebugUtilsMessengerCreateInfoEXT*>(&messengerCreateInfo));
+    }
 
     m_handle = vk::createInstance(createInfo);
 
-#ifndef NDEBUG
-    debugUtilsMessenger = m_handle.createDebugUtilsMessengerEXT(messengerCreateInfo, nullptr, vk::DispatchLoaderDynamic(static_cast<VkInstance>(m_handle), vkGetInstanceProcAddr));
-#endif
+    if constexpr (YORK_BUILD_CONFIG == "Debug") {
+        debugUtilsMessenger = m_handle.createDebugUtilsMessengerEXT(messengerCreateInfo, nullptr, vk::DispatchLoaderDynamic(static_cast<VkInstance>(m_handle), vkGetInstanceProcAddr));
+    }
 
     return true;
 }
@@ -193,9 +193,9 @@ void Instance::requestExtension(const InstanceExtension& extension)
 
 void Instance::destroyImpl()
 {
-#ifndef NDEBUG
-    m_handle.destroy(debugUtilsMessenger, nullptr, vk::DispatchLoaderDynamic(static_cast<VkInstance>(m_handle), vkGetInstanceProcAddr));
-#endif
+    if constexpr (YORK_BUILD_CONFIG == "Debug") {
+        m_handle.destroy(debugUtilsMessenger, nullptr, vk::DispatchLoaderDynamic(static_cast<VkInstance>(m_handle), vkGetInstanceProcAddr));
+    }
 
     m_handle.destroy();
 }

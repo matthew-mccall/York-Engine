@@ -103,7 +103,6 @@ struct Event {
     };
 };
 
-void pushEvent(SDL_Event e);
 void pushEvent(Event e);
 
 /**
@@ -116,7 +115,8 @@ public:
     virtual ~EventHandler();
 };
 
-void dispatchEvents();
+void broadcastEvent(Event e);
+void flushEventQueue();
 
 } // namespace york
 

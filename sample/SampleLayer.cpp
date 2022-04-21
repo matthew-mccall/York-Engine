@@ -33,7 +33,13 @@ public:
         if (e.getType() == york::Event::Type::WindowClose) {
             if (e.getWindowID() == m_window.getWindowID()) {
                 requestExit();
+                return;
             }
+        }
+
+        if (e.getType() == york::Event::Type::AppClosing) {
+            requestExit();
+            return;
         }
     }
 

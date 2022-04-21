@@ -11,6 +11,7 @@
 namespace york {
 
 class EventHandler;
+struct Event;
 
 /**
  * A singleton class for sharing data between multiple instances of York-Engine.
@@ -19,7 +20,7 @@ class EventHandler;
  */
 class Registry {
     friend EventHandler;
-    friend void dispatchEvents();
+    friend void broadcastEvent(Event e);
 
 public:
     Registry(const Registry&) = delete;

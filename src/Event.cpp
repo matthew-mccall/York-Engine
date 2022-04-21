@@ -54,6 +54,10 @@ Event::Event(SDL_Event e)
         m_mouseY = e.wheel.y;
         break;
 
+    case SDL_QUIT:
+        m_type = Type::AppClosing;
+        break ;
+
     case SDL_WINDOWEVENT:
 
         switch (e.window.event) {
@@ -123,22 +127,22 @@ unsigned Event::getWindowID() const
     return m_windowID;
 }
 
-void pushEvent(SDL_Event e)
-{
-    s_eventQueue.push_back(york::Event(e));
-}
-
 void pushEvent(const Event e)
 {
     s_eventQueue.push_back(e);
 }
 
-void dispatchEvents()
+void broadcastEvent(Event e)
+{
+    for (EventHandler& handler : Registry::getInstance().m_eventHandlers) {
+        handler.onEvent(e);
+    }
+}
+
+void flushEventQueue()
 {
     while (!s_eventQueue.empty()) {
-        for (EventHandler& handler : Registry::getInstance().m_eventHandlers) {
-            handler.onEvent(s_eventQueue.front());
-        }
+        broadcastEvent(s_eventQueue.front());
         s_eventQueue.pop_front();
     }
 }

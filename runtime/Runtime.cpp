@@ -89,10 +89,10 @@ int main()
             SDL_Event event;
 
             while (SDL_PollEvent(&event)) {
-                york::pushEvent(event);
+                york::broadcastEvent(york::Event { event });
             }
 
-            york::dispatchEvents();
+            york::flushEventQueue();
 
             for (york::Layer& layer : layerStack) {
 

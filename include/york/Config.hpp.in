@@ -2,6 +2,7 @@
 #define YORK_CONFIG_HPP
 
 #include <cstdint>
+#include <string_view>
 
 namespace york {
     constexpr std::uint32_t VERSION_MAJOR = @YorkEngine_VERSION_MAJOR@;
@@ -9,6 +10,7 @@ namespace york {
     constexpr std::uint32_t VERSION_PATCH = @YorkEngine_VERSION_PATCH@;
 }
 
-#define YORK_PLATFORM "@CMAKE_SYSTEM_NAME@"
+#define YORK_PLATFORM std::string_view { "@CMAKE_SYSTEM_NAME@" }
+#define YORK_BUILD_CONFIG std::string_view { "@CMAKE_BUILD_TYPE@" }
 
 #endif
