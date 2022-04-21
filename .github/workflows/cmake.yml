@@ -42,7 +42,7 @@ jobs:
 
     - name: Cache SDL2 build
       env:
-        cache-name: york-vcpkg
+        cache-name: york-sdl
       uses: actions/cache@v3
       with:
         key: ${{ runner.os }}-build-${{ env.cache-name }}
