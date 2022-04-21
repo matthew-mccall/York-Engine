@@ -44,6 +44,8 @@ jobs:
 
     - name: Install Vulkan and Run Setup script
       run: |
+        curl -fsSLO https://sdk.lunarg.com/sdk/download/latest/linux/vulkan-sdk.tar.gz
+        tar xvf vulkan-sdk*
         pip3 install distro
         python3 ./utils/pipeline/Setup.py
 
