@@ -3,9 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/SDL" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/libs/curlpp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/doxygen-awesome-css" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/libs/fmt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/effcee" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/glslang" vcs="Git" />
@@ -13,8 +11,6 @@
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/re2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/spirv-headers" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/shaderc/third_party/spirv-tools" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/libs/taskflow" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/vcpkg" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/libs/xerces-c" vcs="Git" />
   </component>
 </project>
