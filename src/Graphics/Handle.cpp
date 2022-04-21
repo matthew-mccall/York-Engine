@@ -6,6 +6,13 @@ namespace york::graphics {
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "misc-no-recursion"
 
+HandleBase::HandleBase(const HandleBase& other)
+ : Identifiable(other) {
+    for (HandleBase& dependency : other.m_dependencies) {
+        addDependency(dependency);
+    }
+}
+
 void HandleBase::create()
 {
     this->destroy(); // m_created will be set false here
@@ -86,7 +93,7 @@ void HandleBase::removeDependency(HandleBase& handle)
 HandleBase::~HandleBase()
 {
     for (HandleBase& dependency : m_dependencies) {
-        dependency.removeDependent(*this);
+        removeDependency(dependency);
     }
 }
 

@@ -29,11 +29,13 @@ protected:
     void destroyImpl() override;
 
 private:
-    std::vector<Shader> m_shaders;
     SwapChain& m_swapChain;
     Device& m_device;
-    PipelineLayout m_pipelineLayout;
     RenderPass& m_renderPass;
+
+    std::vector<Shader> m_shaders;
+
+    PipelineLayout m_pipelineLayout;
 };
 
 }

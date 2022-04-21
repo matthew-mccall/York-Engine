@@ -10,20 +10,32 @@
 namespace york::graphics {
 
 Pipeline::Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders)
-    : m_shaders(std::move(shaders))
-    , m_swapChain(swapChain)
+    : m_swapChain(swapChain)
     , m_device(m_swapChain.getDevice())
-    , m_pipelineLayout(m_device)
     , m_renderPass(renderPass)
+    , m_pipelineLayout(m_device)
+    , m_shaders(std::move(shaders))
 {
     addDependency(m_swapChain);
     addDependency(m_pipelineLayout);
     addDependency(m_renderPass);
+
+    for (Shader& shader : m_shaders) {
+        addDependency(shader);
+    }
 }
 
 void Pipeline::setShaders(std::vector<Shader> shaders)
 {
+    for (Shader& shader : m_shaders) {
+        removeDependency(shader);
+    }
+
     m_shaders = std::move(shaders);
+
+    for (Shader& shader : m_shaders) {
+        addDependency(shader);
+    }
 }
 
 bool Pipeline::createImpl()
@@ -34,8 +46,6 @@ bool Pipeline::createImpl()
     vk::ShaderStageFlagBits stage;
     
     for (Shader& shader : m_shaders) {
-
-        shader.create();
 
         switch (shader.getType()) {
         case Shader::Type::Vertex:
@@ -163,10 +173,6 @@ bool Pipeline::createImpl()
     };
 
     m_handle = m_device->createGraphicsPipeline(VK_NULL_HANDLE, graphicsPipelineCreateInfo).value;
-
-    for (Shader& shader : m_shaders) {
-        shader.destroy();
-    }
 
     return true;
 }

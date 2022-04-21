@@ -18,7 +18,7 @@
 namespace york::graphics {
 
 /**
- * Represents a SPIR-V shaders for use with a Pipeline
+ * Represents a SPIR-V shader for use with a Pipeline
  */
 class Shader : public Handle<vk::ShaderModule> {
 public:
@@ -44,11 +44,11 @@ public:
     /**
      * Creates a new shader object
      *
-     * @param m_device The device to create the shader with.
+     * @param device The device to create the shader with.
      * @param asset The GLSL source to be compiled into SPIR-V.
      * @param type The type of shader to compile and bind to the pipeline.
      */
-    explicit Shader(Device& m_device, const Asset& asset);
+    explicit Shader(Device& device, const Asset& asset);
 
     /**
      * Compiles the GLSL into SPIR-V and creates the Vulkan Shader Module.

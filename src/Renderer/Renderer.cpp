@@ -29,8 +29,6 @@ Renderer::Renderer(graphics::Window& window)
         return;
     }
 
-    york::graphics::Shader vertShader { m_device, vert };
-
     york::Asset frag { "shaders/shader.frag", york::Asset::Type::SHADER_FRAG_GLSL };
 
     if (frag->empty()) {
@@ -38,11 +36,10 @@ Renderer::Renderer(graphics::Window& window)
         return;
     }
 
-    york::graphics::Shader fragShader { m_device, frag };
+    m_defaultShaders.emplace_back(m_device, vert);
+    m_defaultShaders.emplace_back(m_device, frag);
 
-    std::vector<york::graphics::Shader> shaders { vertShader, fragShader };
-
-    m_pipeline.setShaders(shaders);
+    m_pipeline.setShaders(m_defaultShaders);
 
     m_instance.create();
 
@@ -71,7 +68,8 @@ Renderer::Renderer(graphics::Window& window)
     for (unsigned i = 0; i < m_maxFrames; i++) {
         m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);
         m_frames.back().create();
-    }}
+    }
+}
 
 bool Renderer::draw()
 {
@@ -80,13 +78,13 @@ bool Renderer::draw()
         std::array<vk::Fence, 1> fences = { *m_fences[m_frameIndex] };
         auto waitResult = m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
 
-        auto imageIndex = m_device->acquireNextImageKHR(*m_swapchain, std::numeric_limits<std::uint64_t>::max(), *m_imageAvailableSemaphores[m_frameIndex], VK_NULL_HANDLE);
+        auto [result, imageIndex] = m_device->acquireNextImageKHR(*m_swapchain, std::numeric_limits<std::uint64_t>::max(), *m_imageAvailableSemaphores[m_frameIndex], VK_NULL_HANDLE);
 
-        if (imageIndex.result == vk::Result::eErrorOutOfDateKHR) {
+        if (result == vk::Result::eErrorOutOfDateKHR) {
             m_device->waitIdle();
             m_swapchain.create();
             return false;
-        } else if ((imageIndex.result != vk::Result::eSuccess) && (imageIndex.result != vk::Result::eSuboptimalKHR)) {
+        } else if ((result != vk::Result::eSuccess) && (result != vk::Result::eSuboptimalKHR)) {
             log::core::error("Failed to get next image!");
             return false;
         }
@@ -121,7 +119,7 @@ bool Renderer::draw()
         m_device.getGraphicsQueue().submit(submitInfos, *m_fences[m_frameIndex]);
 
         std::array<vk::SwapchainKHR, 1> swapchains { *m_swapchain };
-        std::array<std::uint32_t, 1> imageIndices = { imageIndex.value };
+        std::array<std::uint32_t, 1> imageIndices = { imageIndex };
 
         vk::PresentInfoKHR presentInfo { signalSemaphores, swapchains, imageIndices };
 

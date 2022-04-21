@@ -9,4 +9,8 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES SampleLayer.cpp Client.xml
 add_library(SampleLayer SHARED SampleLayer.cpp)
 target_link_libraries(SampleLayer PUBLIC YorkEngine)
 
+if (${CMAKE_SYSTEM_NAME} EQUAL "Linux")
+    set_target_properties(SampleLayer PROPERTIES POSITION_INDEPENDENT_CODE ON)
+endif()
+
 file(COPY Client.xml DESTINATION .)

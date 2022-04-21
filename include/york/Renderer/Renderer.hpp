@@ -51,6 +51,8 @@ private:
     std::vector<graphics::FrameData> m_frames;
     std::vector<graphics::Fence> m_fences;
     std::vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
+    std::vector<graphics::Shader> m_defaultShaders;
+
     std::vector<vk::CommandBuffer> m_commandBuffers;
 
     std::uint32_t m_frameIndex = 0;

@@ -51,6 +51,8 @@ bool Instance::createImpl()
 #ifndef NDEBUG
     requestLayer({ "VK_LAYER_KHRONOS_validation" });
     requestExtension({ VK_EXT_DEBUG_UTILS_EXTENSION_NAME });
+    requestExtension({ VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME });
+
 #endif
 
     if (s_availableLayers.empty()) {
@@ -159,7 +161,7 @@ bool Instance::createImpl()
         log::core::warn("The following OPTIONAL instance extensions were requested but not found!\n{}", unavailableOptionalExtensionList.str());
     }
 
-    vk::InstanceCreateInfo createInfo { {}, &appInfo, enabledLayers, enabledExtensions };
+    vk::InstanceCreateInfo createInfo { vk::InstanceCreateFlagBits::eEnumeratePortabilityKHR, &appInfo, enabledLayers, enabledExtensions };
 
     vk::DebugUtilsMessengerCreateInfoEXT messengerCreateInfo = vk::DebugUtilsMessengerCreateInfoEXT()
                                                                    .setMessageSeverity(/* vk::DebugUtilsMessageSeverityFlagBitsEXT::eVerbose | */ vk::DebugUtilsMessageSeverityFlagBitsEXT::eInfo | vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError)

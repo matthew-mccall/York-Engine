@@ -6,14 +6,14 @@
 
 #include <utility>
 
+#include "york/Asset.hpp"
 #include "york/Graphics/Shader.hpp"
 #include "york/Log.hpp"
-#include "york/Asset.hpp"
 
 namespace york::graphics {
 
-Shader::Shader(Device& m_device, const Asset& asset)
-    : m_device(m_device)
+Shader::Shader(Device& device, const Asset& asset)
+    : m_device(device)
     , m_asset(asset)
 {
     addDependency(m_device);
@@ -40,7 +40,6 @@ Shader::Shader(Device& m_device, const Asset& asset)
     default:
         break;
     }
-
 }
 
 Shader::Type Shader::getType() const
@@ -67,12 +66,12 @@ bool Shader::createImpl()
         break;
     }
 
-    std::string glsl = { m_asset->data() };
+    std::string glsl { m_asset->data() };
 
     auto result = compiler.CompileGlslToSpv(glsl, kind, "");
 
     if (result.GetCompilationStatus() == shaderc_compilation_status_success) {
-        std::vector<std::uint32_t> spirv {result.begin(), result.end() };
+        std::vector<std::uint32_t> spirv { result.begin(), result.end() };
         vk::ShaderModuleCreateInfo createInfo = { {}, spirv };
         m_handle = m_device->createShaderModule(createInfo);
         YORK_CORE_DEBUG("Compiled shaders!");

@@ -23,6 +23,9 @@ namespace york::graphics {
  */
 class HandleBase : public Identifiable {
 public:
+    HandleBase() = default;
+    HandleBase(const HandleBase& other);
+
     /**
      * @brief Creates a handle.
      *

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/libs/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
 
@@ -112,7 +112,7 @@ set(RUNTIME_SRC
         runtime/LayerLoader.hpp)
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SRC})
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${RUNTIME_SRC})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/runtime" FILES ${RUNTIME_SRC})
 
 configure_file(include/york/Config.hpp.in include/york/Config.hpp)
 
@@ -136,8 +136,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         Boost::boost
 	    unofficial::curlpp::curlpp)
 
-if ({${CMAKE_SYSTEM_NAME} EQUAL "Linux")
-    set_property(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+if (${CMAKE_SYSTEM_NAME} EQUAL "Linux")
+    set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 endif()
 
 unset(SDL_BUILDING_LIBRARY)

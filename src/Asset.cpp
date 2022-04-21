@@ -106,7 +106,9 @@ Asset::Type Asset::getType() const
 Asset::~Asset()
 {
     if (--s_referenceCount[m_location] == 0) {
-        YORK_CORE_TRACE("Unloading {}!", m_location);
+        if (!m_data.empty()) {
+            YORK_CORE_TRACE("Unloading {}!", m_location);
+        }
         m_data.clear();
     }
 }
