@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['semaphore_0',['Semaphore',['../classyork_1_1graphics_1_1_semaphore.html#ac90d4853db431d97ab243b7fd0b074c3',1,'york::graphics::Semaphore']]],
-  ['setimage_1',['setImage',['../classyork_1_1graphics_1_1_image_view.html#ad3fa575b7c50ecd39cc3dd1d91c6bd4e',1,'york::graphics::ImageView']]],
-  ['setshaders_2',['setShaders',['../classyork_1_1graphics_1_1_pipeline.html#a8c94528590deaacc3bcc9d72296c047d',1,'york::graphics::Pipeline']]],
-  ['shader_3',['Shader',['../classyork_1_1graphics_1_1_shader.html#a9d1f19e62cbb271711bd383da3f53aac',1,'york::graphics::Shader']]],
-  ['stringasset_4',['StringAsset',['../classyork_1_1_string_asset.html#a9316cda326a7a8e505efe56518d83946',1,'york::StringAsset']]],
-  ['surface_5',['Surface',['../classyork_1_1graphics_1_1_surface.html#a11bf3fe261bfbdc5943e1ec6ad85c291',1,'york::graphics::Surface']]],
-  ['swapchain_6',['SwapChain',['../classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677',1,'york::graphics::SwapChain']]]
+  ['registerregistry_0',['registerRegistry',['../namespaceyork.html#a83ff75a0b802e1414c164f6017e68556',1,'york']]],
+  ['registry_1',['Registry',['../classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850',1,'york::Registry']]],
+  ['removedependency_2',['removeDependency',['../classyork_1_1graphics_1_1_handle_base.html#a4c1e36c06732d94b6b20f8bcd1274d4d',1,'york::graphics::HandleBase']]],
+  ['removedependent_3',['removeDependent',['../classyork_1_1graphics_1_1_handle_base.html#aa95f8f8273ba3e7f2ef580b4016f2f21',1,'york::graphics::HandleBase']]],
+  ['renderer_4',['Renderer',['../classyork_1_1_renderer.html#a6ccd6d1de74948ca4157bc09d92988bf',1,'york::Renderer']]],
+  ['renderpass_5',['RenderPass',['../classyork_1_1graphics_1_1_render_pass.html#a80de6f3b0da0d76757e80f399403309c',1,'york::graphics::RenderPass']]],
+  ['requestexit_6',['requestExit',['../classyork_1_1_layer.html#a5dfef397f297ce82098beae21d041465',1,'york::Layer']]],
+  ['requestextension_7',['requestExtension',['../classyork_1_1graphics_1_1_device.html#ae05693b69f291fc55d07b748ce5386b9',1,'york::graphics::Device::requestExtension()'],['../classyork_1_1graphics_1_1_instance.html#a5ce6d861012206de05076ca804bab169',1,'york::graphics::Instance::requestExtension(const InstanceExtension &amp;extension)']]],
+  ['requestlayer_8',['requestLayer',['../classyork_1_1graphics_1_1_instance.html#a17844c1171cc9784d85cb4c9b426cbb1',1,'york::graphics::Instance']]],
+  ['reset_9',['reset',['../classyork_1_1_timer.html#aeb7bd47e91b7592485772695162a1c82',1,'york::Timer']]]
 ];

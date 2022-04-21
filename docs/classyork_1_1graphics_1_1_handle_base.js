@@ -1,5 +1,7 @@
 var classyork_1_1graphics_1_1_handle_base =
 [
+    [ "HandleBase", "classyork_1_1graphics_1_1_handle_base.html#a56e0433c8e636e0d483763fa24aada2b", null ],
+    [ "HandleBase", "classyork_1_1graphics_1_1_handle_base.html#ade8cbabc6778e5807e75ac04f08b3a42", null ],
     [ "~HandleBase", "classyork_1_1graphics_1_1_handle_base.html#a36344181663af409d5d45ad42a8497fd", null ],
     [ "addDependency", "classyork_1_1graphics_1_1_handle_base.html#aae8373d9c7dd12561e71ee0a56008b85", null ],
     [ "addDependent", "classyork_1_1graphics_1_1_handle_base.html#a40d55ab99b07011777f054bf1ae4cb61", null ],

@@ -7,6 +7,6 @@ var searchData=
   ['pipelinelayout_4',['PipelineLayout',['../classyork_1_1graphics_1_1_pipeline_layout.html#a2d443abb6fc6c5876d9dbf82af0f59e3',1,'york::graphics::PipelineLayout::PipelineLayout()'],['../classyork_1_1graphics_1_1_pipeline_layout.html',1,'york::graphics::PipelineLayout']]],
   ['pipelinelayout_2ehpp_5',['PipelineLayout.hpp',['../_pipeline_layout_8hpp.html',1,'']]],
   ['poplayer_6',['popLayer',['../classyork_1_1_layer_stack.html#a6f9432e06eebfdbc734bb9999a65cbf8',1,'york::LayerStack']]],
-  ['pushevent_7',['pushEvent',['../namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd',1,'york::pushEvent(SDL_Event e)'],['../namespaceyork.html#ae6e67199fd18fa8d78b27be5d9d608b8',1,'york::pushEvent(Event e)']]],
+  ['pushevent_7',['pushEvent',['../namespaceyork.html#ae6e67199fd18fa8d78b27be5d9d608b8',1,'york']]],
   ['pushlayer_8',['pushLayer',['../classyork_1_1_layer_stack.html#a957895d22234c528faf762f0f98f06bc',1,'york::LayerStack']]]
 ];

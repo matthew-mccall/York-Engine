@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['networkasset_0',['NetworkAsset',['../classyork_1_1_network_asset.html#a53f1683f6eb92fc9219f81dd4e773390',1,'york::NetworkAsset']]],
-  ['nrdispatch_1',['nrDispatch',['../namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f',1,'york::async']]]
+  ['layer_0',['Layer',['../classyork_1_1_layer.html#a88704065da89dd0ca8537cb8094f0fae',1,'york::Layer']]],
+  ['layerstack_1',['LayerStack',['../classyork_1_1_layer_stack.html#af4f4fba276f9f015ed009f83f2a0b8c0',1,'york::LayerStack']]]
 ];

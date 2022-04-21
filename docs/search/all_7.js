@@ -15,5 +15,5 @@ var searchData=
   ['handle_3c_20vk_3a_3ashadermodule_20_3e_12',['Handle&lt; vk::ShaderModule &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
   ['handle_3c_20vk_3a_3asurfacekhr_20_3e_13',['Handle&lt; vk::SurfaceKHR &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
   ['handle_3c_20vk_3a_3aswapchainkhr_20_3e_14',['Handle&lt; vk::SwapchainKHR &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handlebase_15',['HandleBase',['../classyork_1_1graphics_1_1_handle_base.html',1,'york::graphics']]]
+  ['handlebase_15',['HandleBase',['../classyork_1_1graphics_1_1_handle_base.html#a56e0433c8e636e0d483763fa24aada2b',1,'york::graphics::HandleBase::HandleBase()=default'],['../classyork_1_1graphics_1_1_handle_base.html#ade8cbabc6778e5807e75ac04f08b3a42',1,'york::graphics::HandleBase::HandleBase(const HandleBase &amp;other)'],['../classyork_1_1graphics_1_1_handle_base.html',1,'york::graphics::HandleBase']]]
 ];

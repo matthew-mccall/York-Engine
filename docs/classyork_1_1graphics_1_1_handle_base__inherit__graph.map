@@ -26,7 +26,7 @@
 <area shape="rect" id="node18" href="$classyork_1_1graphics_1_1_pipeline_layout.html" title="Handle wrapper for Vulkan Pipeline Layout." alt="" coords="656,463,815,504"/>
 <area shape="rect" id="node20" href="$classyork_1_1graphics_1_1_render_pass.html" title="Handle wrapper for Vulkan Render Pass." alt="" coords="643,535,827,562"/>
 <area shape="rect" id="node22" href="$classyork_1_1graphics_1_1_semaphore.html" title="Handle wrapper for Vulkan Semaphore." alt="" coords="646,601,825,627"/>
-<area shape="rect" id="node24" href="$classyork_1_1graphics_1_1_shader.html" title="Represents a SPIR&#45;V shaders for use with a Pipeline." alt="" coords="659,666,812,693"/>
+<area shape="rect" id="node24" href="$classyork_1_1graphics_1_1_shader.html" title="Represents a SPIR&#45;V shader for use with a Pipeline." alt="" coords="659,666,812,693"/>
 <area shape="rect" id="node26" href="$classyork_1_1graphics_1_1_surface.html" title="Handle wrapper for Vulkan Surface." alt="" coords="657,731,814,758"/>
 <area shape="rect" id="node28" href="$classyork_1_1graphics_1_1_swap_chain.html" title="Handle wrapper for Vulkan Swapchain." alt="" coords="646,797,825,823"/>
 </map>

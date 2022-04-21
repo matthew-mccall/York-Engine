@@ -101,33 +101,35 @@ $(document).ready(function(){initNavTree('_registry_8hpp_source.html',''); initR
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork.html">york</a> {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span>EventHandler;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1_registry.html">Registry</a> {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classyork_1_1_event_handler.html">EventHandler</a>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4">   22</a></span>    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code hl_friend" href="classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4">dispatchEvents</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850">   25</a></span>    <a class="code hl_function" href="classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850">Registry</a>(<span class="keyword">const</span> <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">   34</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp; <a class="code hl_function" href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">getInstance</a>();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::vector&lt;std::reference_wrapper&lt;EventHandler&gt;&gt; m_eventHandlers;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespaceyork.html#a83ff75a0b802e1414c164f6017e68556">   41</a></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork.html#a83ff75a0b802e1414c164f6017e68556">registerRegistry</a>(<a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp; registry);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">// YORK_REGISTRY_HPP</span></div>
-<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdoc">Override this to handle events.</div><div class="ttdef"><b>Definition:</b> Event.hpp:112</div></div>
-<div class="ttc" id="aclassyork_1_1_registry_html"><div class="ttname"><a href="classyork_1_1_registry.html">york::Registry</a></div><div class="ttdoc">A singleton class for sharing data between multiple instances of York-Engine.</div><div class="ttdef"><b>Definition:</b> Registry.hpp:20</div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">struct </span>Event;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1_registry.html">Registry</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">friend</span> <a class="code hl_class" href="classyork_1_1_event_handler.html">EventHandler</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#ae27f282ecd2efd330123f97f0fbbea3a">   23</a></span>    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code hl_friend" href="classyork_1_1_registry.html#ae27f282ecd2efd330123f97f0fbbea3a">broadcastEvent</a>(<a class="code hl_struct" href="structyork_1_1_event.html">Event</a> e);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850">   26</a></span>    <a class="code hl_function" href="classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850">Registry</a>(<span class="keyword">const</span> <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">   35</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp; <a class="code hl_function" href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">getInstance</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;std::reference_wrapper&lt;EventHandler&gt;&gt; m_eventHandlers;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespaceyork.html#a83ff75a0b802e1414c164f6017e68556">   42</a></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceyork.html#a83ff75a0b802e1414c164f6017e68556">registerRegistry</a>(<a class="code hl_class" href="classyork_1_1_registry.html">Registry</a>&amp; registry);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// YORK_REGISTRY_HPP</span></div>
+<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdoc">Override this to handle events.</div><div class="ttdef"><b>Definition:</b> Event.hpp:111</div></div>
+<div class="ttc" id="aclassyork_1_1_registry_html"><div class="ttname"><a href="classyork_1_1_registry.html">york::Registry</a></div><div class="ttdoc">A singleton class for sharing data between multiple instances of York-Engine.</div><div class="ttdef"><b>Definition:</b> Registry.hpp:21</div></div>
 <div class="ttc" id="aclassyork_1_1_registry_html_a16f66fcacac44f8c9660b8afaf63377e"><div class="ttname"><a href="classyork_1_1_registry.html#a16f66fcacac44f8c9660b8afaf63377e">york::Registry::getInstance</a></div><div class="ttdeci">static Registry &amp; getInstance()</div><div class="ttdoc">Please do not call this method in your client.</div></div>
 <div class="ttc" id="aclassyork_1_1_registry_html_a31f078d7f60c2483c9fb295481c71850"><div class="ttname"><a href="classyork_1_1_registry.html#a31f078d7f60c2483c9fb295481c71850">york::Registry::Registry</a></div><div class="ttdeci">Registry(const Registry &amp;)=delete</div></div>
-<div class="ttc" id="aclassyork_1_1_registry_html_aeda6294ee1b4642d1321c98f7afd03a4"><div class="ttname"><a href="classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4">york::Registry::dispatchEvents</a></div><div class="ttdeci">friend void dispatchEvents()</div></div>
+<div class="ttc" id="aclassyork_1_1_registry_html_ae27f282ecd2efd330123f97f0fbbea3a"><div class="ttname"><a href="classyork_1_1_registry.html#ae27f282ecd2efd330123f97f0fbbea3a">york::Registry::broadcastEvent</a></div><div class="ttdeci">friend void broadcastEvent(Event e)</div></div>
 <div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:7</div></div>
 <div class="ttc" id="anamespaceyork_html_a83ff75a0b802e1414c164f6017e68556"><div class="ttname"><a href="namespaceyork.html#a83ff75a0b802e1414c164f6017e68556">york::registerRegistry</a></div><div class="ttdeci">void registerRegistry(Registry &amp;registry)</div></div>
+<div class="ttc" id="astructyork_1_1_event_html"><div class="ttname"><a href="structyork_1_1_event.html">york::Event</a></div><div class="ttdoc">Represents Event data.</div><div class="ttdef"><b>Definition:</b> Event.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

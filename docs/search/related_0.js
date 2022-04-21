@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dispatchevents_0',['dispatchEvents',['../classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4',1,'york::Registry']]]
+  ['broadcastevent_0',['broadcastEvent',['../classyork_1_1_registry.html#ae27f282ecd2efd330123f97f0fbbea3a',1,'york::Registry']]]
 ];

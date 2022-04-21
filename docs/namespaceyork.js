@@ -268,8 +268,8 @@ var namespaceyork =
       [ "KEY_AUDIOREWIND", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae07b68307970f2ccd8a5f9f7ffa512dc", null ],
       [ "KEY_AUDIOFASTFORWARD", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a4aa922a509a704382e794fc5b7f6481b", null ]
     ] ],
-    [ "dispatchEvents", "namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52", null ],
+    [ "broadcastEvent", "namespaceyork.html#ad919a72d93ce2c58d77071a0f8ff011c", null ],
+    [ "flushEventQueue", "namespaceyork.html#a6a77e5c65beb6368b046307b98cda886", null ],
     [ "pushEvent", "namespaceyork.html#ae6e67199fd18fa8d78b27be5d9d608b8", null ],
-    [ "pushEvent", "namespaceyork.html#a4edf546751bf6162e0c0c6f52fcd3ecd", null ],
     [ "registerRegistry", "namespaceyork.html#a83ff75a0b802e1414c164f6017e68556", null ]
 ];

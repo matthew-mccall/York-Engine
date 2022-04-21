@@ -128,18 +128,20 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html',''); initR
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::vector&lt;graphics::FrameData&gt; m_frames;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::vector&lt;graphics::Fence&gt; m_fences;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::vector&lt;graphics::Semaphore&gt; m_imageAvailableSemaphores, m_renderFinishedSemaphores;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::vector&lt;vk::CommandBuffer&gt; m_commandBuffers;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::vector&lt;graphics::Shader&gt; m_defaultShaders;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::uint32_t m_frameIndex = 0;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::uint32_t m_maxFrames = 0;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> resize = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::vector&lt;vk::CommandBuffer&gt; m_commandBuffers;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::uint32_t m_frameIndex = 0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::uint32_t m_maxFrames = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> resize = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// YORK_RENDERER_RENDERER_HPP</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">// YORK_RENDERER_RENDERER_HPP</span></div>
 <div class="ttc" id="a_command_pool_8hpp_html"><div class="ttname"><a href="_command_pool_8hpp.html">CommandPool.hpp</a></div></div>
 <div class="ttc" id="a_event_8hpp_html"><div class="ttname"><a href="_event_8hpp.html">Event.hpp</a></div></div>
 <div class="ttc" id="a_frame_data_8hpp_html"><div class="ttname"><a href="_frame_data_8hpp.html">FrameData.hpp</a></div></div>
@@ -147,7 +149,7 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html',''); initR
 <div class="ttc" id="a_pipeline_8hpp_html"><div class="ttname"><a href="_pipeline_8hpp.html">Pipeline.hpp</a></div></div>
 <div class="ttc" id="a_semaphore_8hpp_html"><div class="ttname"><a href="_semaphore_8hpp.html">Semaphore.hpp</a></div></div>
 <div class="ttc" id="a_window_8hpp_html"><div class="ttname"><a href="_window_8hpp.html">Window.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdoc">Override this to handle events.</div><div class="ttdef"><b>Definition:</b> Event.hpp:112</div></div>
+<div class="ttc" id="aclassyork_1_1_event_handler_html"><div class="ttname"><a href="classyork_1_1_event_handler.html">york::EventHandler</a></div><div class="ttdoc">Override this to handle events.</div><div class="ttdef"><b>Definition:</b> Event.hpp:111</div></div>
 <div class="ttc" id="aclassyork_1_1_renderer_html"><div class="ttname"><a href="classyork_1_1_renderer.html">york::Renderer</a></div><div class="ttdoc">The Renderer allows you to draw content to a Window.</div><div class="ttdef"><b>Definition:</b> Renderer.hpp:21</div></div>
 <div class="ttc" id="aclassyork_1_1_renderer_html_a49c962ad7962371567075b874684df1a"><div class="ttname"><a href="classyork_1_1_renderer.html#a49c962ad7962371567075b874684df1a">york::Renderer::~Renderer</a></div><div class="ttdeci">virtual ~Renderer()</div></div>
 <div class="ttc" id="aclassyork_1_1_renderer_html_a5538f565972bcf0b4527657ffd908c06"><div class="ttname"><a href="classyork_1_1_renderer.html#a5538f565972bcf0b4527657ffd908c06">york::Renderer::draw</a></div><div class="ttdeci">bool draw()</div><div class="ttdoc">Draws to the window bound to.</div></div>

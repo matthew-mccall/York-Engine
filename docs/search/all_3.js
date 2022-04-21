@@ -7,8 +7,7 @@ var searchData=
   ['device_2ehpp_4',['Device.hpp',['../_device_8hpp.html',1,'']]],
   ['deviceextension_5',['DeviceExtension',['../namespaceyork_1_1graphics.html#a1d366dc9087cda8533149e4eff31ded5',1,'york::graphics']]],
   ['dispatch_6',['dispatch',['../namespaceyork_1_1async.html#ae20c34b5a5575e6560ee3a690a4eb295',1,'york::async']]],
-  ['dispatchevents_7',['dispatchEvents',['../classyork_1_1_registry.html#aeda6294ee1b4642d1321c98f7afd03a4',1,'york::Registry::dispatchEvents()'],['../namespaceyork.html#a59f65500b5eceb21af060f0a3aaeac52',1,'york::dispatchEvents()']]],
-  ['document_8',['Document',['../classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae',1,'york::xml::Document::Document()'],['../classyork_1_1xml_1_1_document.html',1,'york::xml::Document']]],
-  ['document_2ehpp_9',['Document.hpp',['../_document_8hpp.html',1,'']]],
-  ['draw_10',['draw',['../classyork_1_1_renderer.html#a5538f565972bcf0b4527657ffd908c06',1,'york::Renderer']]]
+  ['document_7',['Document',['../classyork_1_1xml_1_1_document.html#a77c8e81cab1678bbd168e38d91695eae',1,'york::xml::Document::Document()'],['../classyork_1_1xml_1_1_document.html',1,'york::xml::Document']]],
+  ['document_2ehpp_8',['Document.hpp',['../_document_8hpp.html',1,'']]],
+  ['draw_9',['draw',['../classyork_1_1_renderer.html#a5538f565972bcf0b4527657ffd908c06',1,'york::Renderer']]]
 ];
