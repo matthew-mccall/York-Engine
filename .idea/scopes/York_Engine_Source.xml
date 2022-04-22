@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="York Engine Source" pattern="file[York-Engine]:src/*" />
+</component>

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="York Engine Include" pattern="file[York-Engine]:include/*&amp;&amp;!file:include/york/Config.hpp.in&amp;&amp;!file:include/york/Graphics/ShaderDB.hpp.in" />
+</component>
