@@ -34,4 +34,9 @@ void FrameData::destroyImpl()
 {
 }
 
+FrameData::~FrameData()
+{
+    destroy();
+}
+
 }

@@ -114,7 +114,11 @@ set(RUNTIME_SRC
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SRC})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/runtime" FILES ${RUNTIME_SRC})
 
+file(READ shaders/shader.vert YORK_VERTEX_SHADER)
+file(READ shaders/shader.frag YORK_FRAGMENT_SHADER)
+
 configure_file(include/york/Config.hpp.in include/york/Config.hpp)
+configure_file(include/york/Graphics/ShaderDB.hpp.in include/york/Graphics/ShaderDB.hpp NEWLINE_STYLE UNIX)
 
 add_library(${PROJECT_NAME} ${SRC})
 
@@ -153,5 +157,3 @@ add_executable(YorkRuntime ${RUNTIME_SRC})
 target_link_libraries(YorkRuntime PUBLIC ${PROJECT_NAME})
 
 add_subdirectory(sample EXCLUDE_FROM_ALL)
-
-file(COPY shaders DESTINATION sample/)

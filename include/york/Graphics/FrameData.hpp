@@ -22,6 +22,7 @@ public:
 
     [[nodiscard]] Framebuffer& getFramebuffer();
     [[nodiscard]] vk::CommandBuffer getCommandBuffer();
+    virtual ~FrameData();
 
 protected:
     bool createImpl() override;

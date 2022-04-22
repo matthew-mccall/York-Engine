@@ -59,6 +59,8 @@ private:
     std::uint32_t m_maxFrames = 0;
 
     bool resize = false;
+
+    void recreateSwapChain();
 };
 
 }
