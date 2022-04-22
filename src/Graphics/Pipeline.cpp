@@ -150,10 +150,8 @@ bool Pipeline::createImpl()
         {0, 0, 0, 0}
     };
 
-    /*
-    std::array<vk::DynamicState, 2> dynamicStates = { vk::DynamicState::eViewport, vk::DynamicState::eLineWidth };
+    std::array<vk::DynamicState, 1> dynamicStates = { vk::DynamicState::eViewport /*, vk::DynamicState::eLineWidth */};
     vk::PipelineDynamicStateCreateInfo dynamicStateCreateInfo { {}, dynamicStates };
-    */
 
     vk::GraphicsPipelineCreateInfo graphicsPipelineCreateInfo {
         {},
@@ -166,7 +164,7 @@ bool Pipeline::createImpl()
         &multisampleStateCreateInfo,
         nullptr,
         &colorBlendStateCreateInfo,
-        nullptr,
+        &dynamicStateCreateInfo,
         *m_pipelineLayout,
         *m_renderPass,
         0

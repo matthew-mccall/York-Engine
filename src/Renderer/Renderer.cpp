@@ -96,6 +96,19 @@ bool Renderer::draw()
     vk::CommandBufferBeginInfo commandBufferBeginInfo { vk::CommandBufferUsageFlagBits::eOneTimeSubmit };
     commandBuffer.begin(commandBufferBeginInfo);
 
+    vk::Viewport viewport {
+        0,
+        0,
+        static_cast<float>(m_swapchain.getExtent().width),
+        static_cast<float>(m_swapchain.getExtent().height),
+        0,
+        1
+    };
+
+    std::array<vk::Viewport, 1> viewports { viewport };
+
+    commandBuffer.setViewport(0, viewports);
+
     vk::ClearValue clearValue { vk::ClearColorValue().setFloat32({ 0, 0, 0, 0 }) };
     vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(frame.getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
     commandBuffer.beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
@@ -170,10 +183,12 @@ void Renderer::onEvent(Event& e)
 
 void Renderer::recreateSwapChain()
 {
-    m_device->waitIdle();
-    m_swapchain.create();
 
+    m_device->waitIdle();
     m_frames.clear();
+
+    m_swapchain.create();
+    m_renderPass.create();
 
     std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
