@@ -33,25 +33,26 @@
 #ifndef YORK_IDENTIFIABLE_HPP
 #define YORK_IDENTIFIABLE_HPP
 
-#include <cstdint>
+#include <boost/uuid/uuid.hpp>
 
 namespace york {
 
-using id = std::uint64_t;
+using id = boost::uuids::uuid;
 
+/**
+ * A convience class that generates a unique id upon creation and makes for easy comparison
+ */
 class Identifiable {
 public:
     Identifiable();
     [[nodiscard]] id getID() const;
-    ~Identifiable();
+    virtual ~Identifiable() = default;
 
+    bool operator==(const Identifiable& r) const { return this->getID() == r.getID(); }
 
 private:
      id m_id;
 };
 
 }
-
-inline bool operator==(const york::Identifiable& lhs, const york::Identifiable& rhs) { return lhs.getID() == rhs.getID(); }
-
 #endif // YORK_IDENTIFIABLE_HPP

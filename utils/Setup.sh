@@ -56,6 +56,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 ./libs/vcpkg/vcpkg install boost-circular-buffer
+./libs/vcpkg/vcpkg install boost-uuid
 ./libs/vcpkg/vcpkg install xerces-c
 ./libs/vcpkg/vcpkg install curlpp
 ./libs/vcpkg/vcpkg install fmt

@@ -33,14 +33,31 @@
 
 namespace york {
 
-class Timer {
+/**
+ * Records time
+ */
+class StopWatch {
 private:
     std::uint64_t m_startTime;
 
 public:
-    Timer();
+    /**
+     * Creates and new StopWatch and starts counting
+     */
+    StopWatch();
+
+    /**
+     * Gets the current time
+     *
+     * Does not reset StopWatch
+     * @return The time since last reset or creation, in seconds.
+     */
     [[nodiscard]] float getTime() const;
-    Timer& reset();
+
+    /**
+     * Resets the StopWatch
+     */
+    void reset();
 };
 
 } // namespace york

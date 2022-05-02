@@ -117,8 +117,16 @@ public:
     std::vector<std::uint8_t>& getVector() override;
 };
 
+/**
+ * An that represents and in-memory string
+ */
 class StringAsset : public Asset {
 public:
+    /**
+     * Creates a StringAsset
+     * @param content The string to manage
+     * @param type The type of string
+     */
     explicit StringAsset(const std::string& content, Type type = Type::UTF8);
     std::vector<std::uint8_t>& getVector() override;
 
@@ -126,9 +134,18 @@ private:
     std::string m_content;
 };
 
+/**
+ * An asset that represents an in-memory byte array
+ * @tparam N The number of bytes
+ */
 template <std::size_t N>
 class BinaryAsset : public Asset {
 public:
+    /**
+     * Creates a BinaryAsset
+     * @param content The array of bytes to manage
+     * @param type The type of data
+     */
     explicit BinaryAsset(const std::array<std::uint8_t, N> content, Type type = Type::RAW)
         : Asset("BinaryAsset@" + std::to_string(reinterpret_cast<std::intptr_t>(content.data())), type), m_content(std::move(content))
     {

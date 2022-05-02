@@ -55,14 +55,13 @@ set(SRC
         src/Asset.cpp
         src/Async.cpp
         src/Event.cpp
-        src/Timer.cpp
+        src/StopWatch.cpp
         src/Window.cpp
         src/Graphics/Handle.cpp
         src/Graphics/Instance.cpp
         src/Graphics/Device.cpp
         src/Graphics/PhysicalDevice.cpp
         src/Graphics/Shader.cpp
-        src/LayerStack.cpp
         src/Identifiable.cpp
         src/Graphics/Surface.cpp
         src/Graphics/SwapChain.cpp
@@ -84,7 +83,7 @@ set(SRC
         include/york/Event.hpp
         include/york/York.hpp
         include/york/Async.hpp
-        include/york/Timer.hpp
+        include/york/StopWatch.hpp
         include/york/KeyCodes.hpp
         include/york/Graphics/Instance.hpp
         include/york/Graphics/RequestableItem.hpp
@@ -96,7 +95,6 @@ set(SRC
         include/york/Asset.hpp
         include/york/Graphics/Shader.hpp
         include/york/Layer.hpp
-        include/york/LayerStack.hpp
         include/york/Identifiable.hpp
         include/york/Graphics/Surface.hpp
         include/york/Graphics/SwapChain.hpp
@@ -117,7 +115,9 @@ set(SRC
 set(RUNTIME_SRC
         runtime/Runtime.cpp
         runtime/LayerLoader.cpp
-        runtime/LayerLoader.hpp)
+        runtime/LayerLoader.hpp
+        runtime/LayerStack.cpp
+        runtime/LayerStack.hpp)
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SRC})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/runtime" FILES ${RUNTIME_SRC})

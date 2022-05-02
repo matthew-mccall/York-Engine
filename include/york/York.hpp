@@ -34,6 +34,6 @@
 #include "Event.hpp"
 #include "Layer.hpp"
 #include "Log.hpp"
-#include "Timer.hpp"
+#include "StopWatch.hpp"
 
 #endif // YORK_YORK_HPP

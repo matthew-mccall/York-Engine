@@ -9,18 +9,18 @@
 #include "curlpp/cURLpp.hpp"
 
 #include "york/Async.hpp"
-#include "york/Event.hpp"
 #include "york/Config.hpp"
-#include "york/LayerStack.hpp"
+#include "york/Event.hpp"
 #include "york/Log.hpp"
-#include "york/Timer.hpp"
+#include "york/StopWatch.hpp"
 #include "york/XML/Document.hpp"
 
 #include "LayerLoader.hpp"
+#include "LayerStack.hpp"
 
 int main()
 {
-    york::Timer timer;
+    york::StopWatch timer;
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         YORK_CORE_ERROR(SDL_GetError());

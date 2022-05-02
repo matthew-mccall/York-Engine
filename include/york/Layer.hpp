@@ -38,6 +38,11 @@
 
 namespace york {
 
+/**
+ * A layer represents a modular part of your application
+ *
+ * Layers may be attached and detached on fly allowing for dynamic parts with your came. A layer is self-contained and should not depend on another layer.
+ */
 class Layer : public EventHandler {
 public:
     Layer() = default;

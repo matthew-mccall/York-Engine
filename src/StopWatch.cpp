@@ -26,50 +26,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-//
-// Created by Matthew McCall on 12/19/21.
-//
+#include <SDL_timer.h>
 
-#include "york/LayerStack.hpp"
+#include <york/StopWatch.hpp>
 
 namespace york {
 
-void LayerStack::pushLayer(Layer& layer)
+StopWatch::StopWatch()
 {
-    layer.onAttach();
-    m_layers.emplace_back(layer);
+    reset();
 }
 
-void LayerStack::popLayer(Layer& layer)
+void StopWatch::reset()
 {
-    for (auto i = m_layers.begin(); i != m_layers.end(); i++) {
-        if (layer == *i) {
-            i->get().onDetach();
-            m_layers.erase(i);
-            break;
-        }
-    }
+    m_startTime = SDL_GetTicks64();
+    return *this;
 }
 
-std::vector<std::reference_wrapper<Layer>>::iterator LayerStack::begin()
+float StopWatch::getTime() const
 {
-    return m_layers.begin();
+    return static_cast<float >((SDL_GetTicks64() - m_startTime)) / 1000.0f;
 }
 
-std::vector<std::reference_wrapper<Layer>>::iterator LayerStack::end()
-{
-    return m_layers.end();
-}
-
-LayerStack::~LayerStack()
-{
-    for (Layer& layer : m_layers) {
-        layer.onDetach();
-    }
-}
-bool LayerStack::empty()
-{
-    return m_layers.empty();
-}
-
-}
+} // namespace york
