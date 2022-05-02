@@ -13,6 +13,7 @@ steps:
 
 - script: |
     python3 ./utils/pipeline/Setup.py --install-sdl
+    source ./1*/setup-env.sh
   displayName: 'Setup Script'
 
 - task: CMake@1
