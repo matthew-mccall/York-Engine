@@ -1,0 +1,10 @@
+#if !defined(EMBED_@target@_HPP)
+#define EMBED_@target@_HPP
+
+#include <array>
+
+namespace Embed@target@ {
+    std::array<std::uint8_t, @DATA_SIZE@> get();
+}
+
+#endif // EMBED_@target@_HPP

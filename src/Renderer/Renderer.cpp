@@ -32,9 +32,11 @@
 
 #include "york/Renderer/Renderer.hpp"
 #include "york/Graphics/ImageView.hpp"
-#include "york/Graphics/ShaderDB.hpp"
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
+
+#include "EmbedVertexSPV.hpp"
+#include "EmbedFragSPV.hpp"
 
 #include <array>
 #include <limits>
@@ -48,17 +50,17 @@ Renderer::Renderer(graphics::Window& window)
     , m_device(m_instance, m_surface)
     , m_swapchain(m_device, m_window, m_surface)
     , m_renderPass(m_device)
-    , m_pipeline(m_swapchain, m_renderPass)
+    , m_pipeline(m_renderPass)
     , m_commandPool(m_device)
 {
-    york::StringAsset vert { YORK_DEFAULT_VERTEX_SHADER.data(), york::Asset::Type::SHADER_VERT_GLSL };
+    york::BinaryAsset vert { EmbedVertexSPV::get(), york::Asset::Type::SHADER_VERT_SPIRV };
 
     if (vert->empty()) {
         YORK_CORE_ERROR("Failed to load vertex shader!");
         return;
     }
 
-    york::StringAsset frag { YORK_DEFAULT_FRAGMENT_SHADER.data(), york::Asset::Type::SHADER_FRAG_GLSL };
+    york::BinaryAsset frag { EmbedFragSPV::get(), york::Asset::Type::SHADER_FRAG_SPIRV };
 
     if (frag->empty()) {
         YORK_CORE_ERROR("Failed to load fragment shader!");
@@ -133,9 +135,10 @@ bool Renderer::draw()
         1
     };
 
-    std::array<vk::Viewport, 1> viewports { viewport };
+    vk::Rect2D scissor { {0, 0}, m_swapchain.getExtent()};
 
-    commandBuffer.setViewport(0, viewports);
+    commandBuffer.setViewport(0, { viewport });
+    commandBuffer.setScissor(0, { scissor });
 
     vk::ClearValue clearValue { vk::ClearColorValue().setFloat32({ 0, 0, 0, 0 }) };
     vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(frame.getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
@@ -155,14 +158,12 @@ bool Renderer::draw()
 
     vk::SubmitInfo submitInfo { waitSemaphores, waitStages, commandBuffers, signalSemaphores };
 
-    std::array<vk::SubmitInfo, 1> submitInfos { submitInfo };
+    m_device.getGraphicsQueue().submit({ submitInfo }, *m_fences[m_frameIndex]);
 
-    m_device.getGraphicsQueue().submit(submitInfos, *m_fences[m_frameIndex]);
+    std::array<vk::SwapchainKHR, 1> swapChains { *m_swapchain };
+    std::array<std::uint32_t, 1> imageIndices { imageIndex };
 
-    std::array<vk::SwapchainKHR, 1> swapchains { *m_swapchain };
-    std::array<std::uint32_t, 1> imageIndices = { imageIndex };
-
-    vk::PresentInfoKHR presentInfo { signalSemaphores, swapchains, imageIndices };
+    vk::PresentInfoKHR presentInfo { signalSemaphores, swapChains, imageIndices };
 
     auto presentResult = m_device.getPresentQueue().presentKHR(presentInfo);
 
@@ -220,6 +221,8 @@ void Renderer::recreateSwapChain()
 
     std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
+
+    m_frames.reserve(m_maxFrames);
 
     for (unsigned i = 0; i < m_maxFrames; i++) {
         m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);

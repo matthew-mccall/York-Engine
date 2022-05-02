@@ -80,8 +80,10 @@ bool Instance::createImpl()
     if constexpr (YORK_BUILD_CONFIG == "Debug") {
         requestLayer({ "VK_LAYER_KHRONOS_validation" });
         requestExtension({ VK_EXT_DEBUG_UTILS_EXTENSION_NAME });
-        requestExtension({ VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME });
     }
+
+    requestExtension({ VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME });
+
 
     if (s_availableLayers.empty()) {
         s_availableLayers = vk::enumerateInstanceLayerProperties();

@@ -43,6 +43,14 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
     endif ()
 endif ()
 
+execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.vert -o ${PROJECT_BINARY_DIR}/vert.spv)
+execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.frag -o ${PROJECT_BINARY_DIR}/frag.spv)
+
+include(cmake/EmbedFile.cmake)
+
+EmbedFile("${PROJECT_BINARY_DIR}/vert.spv" VertexSPV)
+EmbedFile("${PROJECT_BINARY_DIR}/frag.spv" FragSPV)
+
 set(SRC
         src/Asset.cpp
         src/Async.cpp
@@ -114,15 +122,11 @@ set(RUNTIME_SRC
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${SRC})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/runtime" FILES ${RUNTIME_SRC})
 
-file(READ shaders/shader.vert YORK_VERTEX_SHADER)
-file(READ shaders/shader.frag YORK_FRAGMENT_SHADER)
-
-configure_file(include/york/Config.hpp.in include/york/Config.hpp)
-configure_file(include/york/Graphics/ShaderDB.hpp.in include/york/Graphics/ShaderDB.hpp NEWLINE_STYLE UNIX)
-
+configure_file(include/york/Config.hpp.in "${PROJECT_BINARY_DIR}/include/york/Config.hpp")
 add_library(${PROJECT_NAME} ${SRC})
 
 message(STATUS "Using VulkanSDK at: $ENV{VULKAN_SDK}")
+message(STATUS "Using glslc at: ${Vulkan_GLSLC_EXECUTABLE}")
 
 link_directories($ENV{LD_LIBRARY_PATH})
 
@@ -133,7 +137,7 @@ else()
 endif()
 
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include")
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include"  "${PROJECT_BINARY_DIR}/EmbedVertexSPV" "${PROJECT_BINARY_DIR}/EmbedFragSPV")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         Vulkan::Vulkan
         Taskflow::Taskflow
@@ -145,7 +149,10 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         xerces_xerces-c
         XercesC::XercesC
         Boost::boost
-	    unofficial::curlpp::curlpp)
+	      unofficial::curlpp::curlpp
+        EmbedVertexSPV
+        EmbedFragSPV
+      )
 
 if (${CMAKE_SYSTEM_NAME} EQUAL "Linux")
     set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)

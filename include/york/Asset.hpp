@@ -85,18 +85,18 @@ public:
      * This may attempt to load the data on the spot if it is the first time called, previously failed, or the data was unloaded.
      * @return
      */
-    virtual std::vector<char>& getData();
+    virtual std::vector<std::uint8_t>& getVector();
 
-    virtual std::vector<char>& operator*();
-    virtual std::vector<char>* operator->();
+    std::vector<std::uint8_t>& operator*();
+    std::vector<std::uint8_t>* operator->();
 
-    char& operator[](std::size_t idx);
+    std::uint8_t & operator[](std::size_t idx);
 
     virtual ~Asset();
 
 protected:
     std::string m_location;
-    std::vector<char>& m_data;
+    std::vector<std::uint8_t>& m_data;
     Type m_type;
     int m_size;
 };
@@ -114,16 +114,37 @@ public:
      * @param type The type of document
      */
     explicit NetworkAsset(const std::string& url, Type type = Type::UTF8);
-    std::vector<char>& getData() override;
+    std::vector<std::uint8_t>& getVector() override;
 };
 
 class StringAsset : public Asset {
 public:
     explicit StringAsset(const std::string& content, Type type = Type::UTF8);
-    std::vector<char>& getData() override;
+    std::vector<std::uint8_t>& getVector() override;
 
 private:
     std::string m_content;
+};
+
+template <std::size_t N>
+class BinaryAsset : public Asset {
+public:
+    explicit BinaryAsset(const std::array<std::uint8_t, N> content, Type type = Type::RAW)
+        : Asset("BinaryAsset@" + std::to_string(reinterpret_cast<std::intptr_t>(content.data())), type), m_content(std::move(content))
+    {
+    }
+
+    std::vector<std::uint8_t>& getVector() override
+    {
+      if (m_data.empty()) {
+        m_data = { m_content.begin(), m_content.end() };
+      }
+
+      return m_data;
+    }
+
+private:
+    std::array<std::uint8_t, N> m_content;
 };
 
 } // namespace york::asset

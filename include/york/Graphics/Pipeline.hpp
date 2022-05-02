@@ -49,7 +49,7 @@ namespace york::graphics {
  */
 class Pipeline : public Handle<vk::Pipeline> {
 public:
-    explicit Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders = {});
+    explicit Pipeline(RenderPass& renderPass, std::vector<Shader> shaders = {});
     void setShaders(std::vector<Shader> shaders);
 
 protected:
@@ -57,9 +57,8 @@ protected:
     void destroyImpl() override;
 
 private:
-    SwapChain& m_swapChain;
-    Device& m_device;
     RenderPass& m_renderPass;
+    Device& m_device;
 
     std::vector<Shader> m_shaders;
 

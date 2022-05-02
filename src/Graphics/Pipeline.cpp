@@ -37,14 +37,12 @@
 
 namespace york::graphics {
 
-Pipeline::Pipeline(SwapChain& swapChain, RenderPass& renderPass, std::vector<Shader> shaders)
-    : m_swapChain(swapChain)
-    , m_device(m_swapChain.getDevice())
-    , m_renderPass(renderPass)
+Pipeline::Pipeline(RenderPass& renderPass, std::vector<Shader> shaders)
+    : m_renderPass(renderPass)
+    , m_device(m_renderPass.getDevice())
     , m_pipelineLayout(m_device)
     , m_shaders(std::move(shaders))
 {
-    addDependency(m_swapChain);
     addDependency(m_pipelineLayout);
     addDependency(m_renderPass);
 
@@ -122,24 +120,7 @@ bool Pipeline::createImpl()
     vk::PipelineVertexInputStateCreateInfo vertexInputStateCreateInfo { {}, {} };
     vk::PipelineInputAssemblyStateCreateInfo inputAssemblyStateCreateInfo {{}, vk::PrimitiveTopology::eTriangleList, VK_FALSE};
 
-    vk::Extent2D swapExtent = m_swapChain.getExtent();
-
-    vk::Viewport viewport {
-        0,
-        0,
-        static_cast<float>(swapExtent.width),
-        static_cast<float>(swapExtent.height),
-        0,
-        1
-    };
-
-    std::array<vk::Viewport, 1> viewports { viewport };
-
-    vk::Rect2D scissor { {0, 0}, swapExtent};
-
-    std::array<vk::Rect2D, 1> scissors { scissor };
-
-    vk::PipelineViewportStateCreateInfo viewportStateCreateInfo {{}, viewports, scissors};
+    vk::PipelineViewportStateCreateInfo viewportStateCreateInfo {{}, 1, nullptr, 1, nullptr};
 
     vk::PipelineRasterizationStateCreateInfo rasterizationStateCreateInfo {
         {},
@@ -178,7 +159,7 @@ bool Pipeline::createImpl()
         {0, 0, 0, 0}
     };
 
-    std::array<vk::DynamicState, 1> dynamicStates = { vk::DynamicState::eViewport /*, vk::DynamicState::eLineWidth */};
+    std::array<vk::DynamicState, 2> dynamicStates = { vk::DynamicState::eViewport, vk::DynamicState::eScissor /*, vk::DynamicState::eLineWidth */};
     vk::PipelineDynamicStateCreateInfo dynamicStateCreateInfo { {}, dynamicStates };
 
     vk::GraphicsPipelineCreateInfo graphicsPipelineCreateInfo {

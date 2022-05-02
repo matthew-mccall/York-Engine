@@ -42,19 +42,7 @@ public:
     {
     }
 
-    void onAttach() override
-    {
-        york::Asset license { "LICENSE", york::Asset::Type::UTF8 };
-
-        if (license->empty()) {
-            YORK_ERROR("Failed to load license!");
-        } else {
-            YORK_INFO(license->data());
-        }
-
-        // york::Asset website { "https://example.com", york::Asset::Type::UTF8, york::Asset::Source::NETWORK };
-        // york::log::info(website->data());
-    }
+    void onAttach() override {}
 
     void onEvent(york::Event& e) override
     {

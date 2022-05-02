@@ -1,0 +1,11 @@
+#include "Embed@target@.hpp"
+
+namespace {
+
+std::array<std::uint8_t, @DATA_SIZE@> s_data = {
+    @DATA@
+};
+
+}
+
+std::array<std::uint8_t, @DATA_SIZE@> Embed@target@::get() { return s_data; }

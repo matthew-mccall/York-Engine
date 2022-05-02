@@ -33,6 +33,7 @@
 #include <shaderc/shaderc.hpp>
 
 #include <utility>
+#include <string>
 
 #include "york/Asset.hpp"
 #include "york/Graphics/Shader.hpp"
@@ -40,34 +41,11 @@
 
 namespace york::graphics {
 
-Shader::Shader(Device& device, const Asset& asset)
+Shader::Shader(Device& device, Asset& asset)
     : m_device(device)
     , m_asset(asset)
 {
     addDependency(m_device);
-
-    switch (asset.getType()) {
-    case Asset::Type::SHADER_VERT_GLSL:
-        m_type = Type::Vertex;
-        break;
-    case Asset::Type::SHADER_FRAG_GLSL:
-        m_type = Type::Fragment;
-        break;
-    case Asset::Type::SHADER_COMP_GLSL:
-        m_type = Type::Compute;
-        break;
-    case Asset::Type::SHADER_GEOM_GLSL:
-        m_type = Type::Geometry;
-        break;
-    case Asset::Type::SHADER_TESE_GLSL:
-        m_type = Type::TessellationEvaluation;
-        break;
-    case Asset::Type::SHADER_TESC_GLSL:
-        m_type = Type::TessellationControl;
-        break;
-    default:
-        break;
-    }
 }
 
 Shader::Type Shader::getType() const
@@ -78,6 +56,39 @@ Shader::Type Shader::getType() const
 bool Shader::createImpl()
 {
     shaderc::Compiler compiler;
+    std::string glsl;
+    shaderc::CompilationResult<std::uint32_t> result;
+
+    switch (m_asset.getType()) {
+    case Asset::Type::SHADER_VERT_GLSL:
+        m_type = Type::Vertex;
+        goto compileShader;
+    case Asset::Type::SHADER_FRAG_GLSL:
+        m_type = Type::Fragment;
+        goto compileShader;
+    case Asset::Type::SHADER_COMP_GLSL:
+        m_type = Type::Compute;
+        goto compileShader;
+    case Asset::Type::SHADER_GEOM_GLSL:
+        m_type = Type::Geometry;
+        goto compileShader;
+    case Asset::Type::SHADER_TESE_GLSL:
+        m_type = Type::TessellationEvaluation;
+        goto compileShader;
+    case Asset::Type::SHADER_TESC_GLSL:
+        m_type = Type::TessellationControl;
+        goto compileShader;
+    case Asset::Type::SHADER_VERT_SPIRV:
+        m_type = Type::Vertex;
+        goto copyShader;
+    case Asset::Type::SHADER_FRAG_SPIRV:
+        m_type = Type::Fragment;
+        goto copyShader;
+    default:
+        goto compileShader;
+    }
+
+compileShader:
     shaderc_shader_kind kind;
 
     switch (m_type) {
@@ -94,9 +105,8 @@ bool Shader::createImpl()
         break;
     }
 
-    std::string glsl { m_asset->data() };
-
-    auto result = compiler.CompileGlslToSpv(glsl, kind, "");
+    glsl = { m_asset->begin(), m_asset->end() };
+    result = compiler.CompileGlslToSpv(glsl, kind, "");
 
     if (result.GetCompilationStatus() == shaderc_compilation_status_success) {
         std::vector<std::uint32_t> spirv { result.begin(), result.end() };
@@ -109,6 +119,12 @@ bool Shader::createImpl()
     YORK_CORE_ERROR(result.GetErrorMessage());
 
     return false;
+
+copyShader:
+    vk::ShaderModuleCreateInfo createInfo = { {}, m_asset->size(), reinterpret_cast<std::uint32_t*>(m_asset->data()) };
+    m_handle = m_device->createShaderModule(createInfo);
+    YORK_CORE_DEBUG("Compiled shaders!");
+    return true;
 }
 
 void Shader::destroyImpl()

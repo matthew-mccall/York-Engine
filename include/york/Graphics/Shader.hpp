@@ -76,7 +76,7 @@ public:
      * @param asset The GLSL source to be compiled into SPIR-V.
      * @param type The type of shader to compile and bind to the pipeline.
      */
-    explicit Shader(Device& device, const Asset& asset);
+    explicit Shader(Device& device, Asset& asset);
 
     /**
      * Compiles the GLSL into SPIR-V and creates the Vulkan Shader Module.
@@ -94,7 +94,7 @@ public:
     ~Shader() override;
 
 private:
-    Asset m_asset;
+    Asset& m_asset;
     Device& m_device;
     Type m_type;
 };
