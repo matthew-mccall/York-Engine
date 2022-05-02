@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "york::Asset", "classyork_1_1_asset.html", [
+      [ "york::BinaryAsset< N >", "classyork_1_1_binary_asset.html", null ],
       [ "york::NetworkAsset", "classyork_1_1_network_asset.html", null ],
       [ "york::StringAsset", "classyork_1_1_string_asset.html", null ]
     ] ],
@@ -55,11 +56,10 @@ var hierarchy =
         [ "york::graphics::Handle< T >", "classyork_1_1graphics_1_1_handle.html", null ]
       ] ]
     ] ],
-    [ "york::LayerStack", "classyork_1_1_layer_stack.html", null ],
     [ "york::graphics::PhysicalDevice", "classyork_1_1graphics_1_1_physical_device.html", null ],
     [ "york::Registry", "classyork_1_1_registry.html", null ],
     [ "york::RequestableItem", "structyork_1_1_requestable_item.html", null ],
+    [ "york::StopWatch", "classyork_1_1_stop_watch.html", null ],
     [ "york::xml::Tag", "classyork_1_1xml_1_1_tag.html", null ],
-    [ "york::Timer", "classyork_1_1_timer.html", null ],
     [ "york::graphics::Window", "classyork_1_1graphics_1_1_window.html", null ]
 ];

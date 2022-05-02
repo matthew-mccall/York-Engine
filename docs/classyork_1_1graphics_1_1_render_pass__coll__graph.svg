@@ -51,7 +51,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classyork_1_1_identifiable.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="classyork_1_1_identifiable.html" target="_top" xlink:title="A convience class that generates a unique id upon creation and makes for easy comparison.">
 <polygon fill="none" stroke="black" points="24.5,-179.5 24.5,-198.5 113.5,-198.5 113.5,-179.5 24.5,-179.5"/>
 <text text-anchor="middle" x="69" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">york::Identifiable</text>
 </a>

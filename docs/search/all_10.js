@@ -4,7 +4,7 @@ var searchData=
   ['semaphore_2ehpp_1',['Semaphore.hpp',['../_semaphore_8hpp.html',1,'']]],
   ['setimage_2',['setImage',['../classyork_1_1graphics_1_1_image_view.html#ad3fa575b7c50ecd39cc3dd1d91c6bd4e',1,'york::graphics::ImageView']]],
   ['setshaders_3',['setShaders',['../classyork_1_1graphics_1_1_pipeline.html#a8c94528590deaacc3bcc9d72296c047d',1,'york::graphics::Pipeline']]],
-  ['shader_4',['Shader',['../classyork_1_1graphics_1_1_shader.html#a9dca511e479ca9941dd8b172f24b2bfc',1,'york::graphics::Shader::Shader()'],['../classyork_1_1graphics_1_1_shader.html',1,'york::graphics::Shader']]],
+  ['shader_4',['Shader',['../classyork_1_1graphics_1_1_shader.html#a83b04e93d966cabaafdca79255229d4c',1,'york::graphics::Shader::Shader()'],['../classyork_1_1graphics_1_1_shader.html',1,'york::graphics::Shader']]],
   ['shader_2ehpp_5',['Shader.hpp',['../_shader_8hpp.html',1,'']]],
   ['shader_5fcomp_5fglsl_6',['SHADER_COMP_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a94871f844d67ffe555d8a8d1cfee317d',1,'york::Asset']]],
   ['shader_5fcomp_5fspirv_7',['SHADER_COMP_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae99214782f98aab3cb86f44335ac870c',1,'york::Asset']]],
@@ -18,9 +18,11 @@ var searchData=
   ['shader_5ftese_5fspirv_15',['SHADER_TESE_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a5d4034950efbe5742a39dc62a86f4646',1,'york::Asset']]],
   ['shader_5fvert_5fglsl_16',['SHADER_VERT_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7',1,'york::Asset']]],
   ['shader_5fvert_5fspirv_17',['SHADER_VERT_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442',1,'york::Asset']]],
-  ['stringasset_18',['StringAsset',['../classyork_1_1_string_asset.html#a9316cda326a7a8e505efe56518d83946',1,'york::StringAsset::StringAsset()'],['../classyork_1_1_string_asset.html',1,'york::StringAsset']]],
-  ['surface_19',['Surface',['../classyork_1_1graphics_1_1_surface.html#a11bf3fe261bfbdc5943e1ec6ad85c291',1,'york::graphics::Surface::Surface()'],['../classyork_1_1graphics_1_1_surface.html',1,'york::graphics::Surface']]],
-  ['surface_2ehpp_20',['Surface.hpp',['../_surface_8hpp.html',1,'']]],
-  ['swapchain_21',['SwapChain',['../classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677',1,'york::graphics::SwapChain::SwapChain()'],['../classyork_1_1graphics_1_1_swap_chain.html',1,'york::graphics::SwapChain']]],
-  ['swapchain_2ehpp_22',['SwapChain.hpp',['../_swap_chain_8hpp.html',1,'']]]
+  ['stopwatch_18',['StopWatch',['../classyork_1_1_stop_watch.html#aa53f3d3a7a9ec9265b379f293717e304',1,'york::StopWatch::StopWatch()'],['../classyork_1_1_stop_watch.html',1,'york::StopWatch']]],
+  ['stopwatch_2ehpp_19',['StopWatch.hpp',['../_stop_watch_8hpp.html',1,'']]],
+  ['stringasset_20',['StringAsset',['../classyork_1_1_string_asset.html#a9316cda326a7a8e505efe56518d83946',1,'york::StringAsset::StringAsset()'],['../classyork_1_1_string_asset.html',1,'york::StringAsset']]],
+  ['surface_21',['Surface',['../classyork_1_1graphics_1_1_surface.html#a11bf3fe261bfbdc5943e1ec6ad85c291',1,'york::graphics::Surface::Surface()'],['../classyork_1_1graphics_1_1_surface.html',1,'york::graphics::Surface']]],
+  ['surface_2ehpp_22',['Surface.hpp',['../_surface_8hpp.html',1,'']]],
+  ['swapchain_23',['SwapChain',['../classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677',1,'york::graphics::SwapChain::SwapChain()'],['../classyork_1_1graphics_1_1_swap_chain.html',1,'york::graphics::SwapChain']]],
+  ['swapchain_2ehpp_24',['SwapChain.hpp',['../_swap_chain_8hpp.html',1,'']]]
 ];

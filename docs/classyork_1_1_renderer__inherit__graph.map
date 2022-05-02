@@ -1,5 +1,5 @@
 <map id="york::Renderer" name="york::Renderer">
 <area shape="rect" id="node1" title="The Renderer allows you to draw content to a Window." alt="" coords="19,155,127,181"/>
 <area shape="rect" id="node2" href="$classyork_1_1_event_handler.html" title="Override this to handle events." alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node3" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="13,5,132,32"/>
+<area shape="rect" id="node3" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="13,5,132,32"/>
 </map>

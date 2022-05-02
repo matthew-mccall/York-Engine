@@ -1,4 +1,4 @@
 <map id="york::StringAsset" name="york::StringAsset">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node1" title="An that represents and in&#45;memory string." alt="" coords="5,80,128,107"/>
 <area shape="rect" id="node2" href="$classyork_1_1_asset.html" title="An Asset is any file that can be loaded by the engine." alt="" coords="22,5,111,32"/>
 </map>

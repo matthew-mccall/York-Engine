@@ -20,7 +20,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classyork_1_1_layer.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classyork_1_1_layer.html" target="_top" xlink:title="A layer represents a modular part of your application.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 65,-19.5 65,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="32.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">york::Layer</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classyork_1_1_identifiable.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classyork_1_1_identifiable.html" target="_top" xlink:title="A convience class that generates a unique id upon creation and makes for easy comparison.">
 <polygon fill="none" stroke="black" points="33,-112.5 33,-131.5 122,-131.5 122,-112.5 33,-112.5"/>
 <text text-anchor="middle" x="77.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">york::Identifiable</text>
 </a>

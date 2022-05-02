@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="A class representing a GPU device." alt="" coords="20,244,173,271"/>
 <area shape="rect" id="node2" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="20,155,173,196"/>
 <area shape="rect" id="node3" href="$classyork_1_1graphics_1_1_handle_base.html" title=" " alt="" coords="5,80,188,107"/>
-<area shape="rect" id="node4" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="37,5,156,32"/>
+<area shape="rect" id="node4" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="37,5,156,32"/>
 </map>

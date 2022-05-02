@@ -17,7 +17,7 @@ var searchData=
   ['requestextension_14',['requestExtension',['../classyork_1_1graphics_1_1_device.html#ae05693b69f291fc55d07b748ce5386b9',1,'york::graphics::Device::requestExtension()'],['../classyork_1_1graphics_1_1_instance.html#a5ce6d861012206de05076ca804bab169',1,'york::graphics::Instance::requestExtension(const InstanceExtension &amp;extension)']]],
   ['requestlayer_15',['requestLayer',['../classyork_1_1graphics_1_1_instance.html#a17844c1171cc9784d85cb4c9b426cbb1',1,'york::graphics::Instance']]],
   ['required_16',['required',['../structyork_1_1_requestable_item.html#af231a8790a83623a5c6121b77602c80b',1,'york::RequestableItem']]],
-  ['reset_17',['reset',['../classyork_1_1_timer.html#aeb7bd47e91b7592485772695162a1c82',1,'york::Timer']]],
+  ['reset_17',['reset',['../classyork_1_1_stop_watch.html#ad5680a80ecc713cf67667cdec69f6430',1,'york::StopWatch']]],
   ['rtanyhit_18',['RTAnyHit',['../classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2a0fa66f670c47ef94a881ce6e56f23911',1,'york::graphics::Shader']]],
   ['rtcallable_19',['RTCallable',['../classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2ab306d1bd5da10710bdbf9b090cbe15ae',1,'york::graphics::Shader']]],
   ['rtclosesthit_20',['RTClosestHit',['../classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2a619f87f5a6b9aa05d5a2358ee2ceed38',1,'york::graphics::Shader']]],

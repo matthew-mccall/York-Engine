@@ -1,5 +1,6 @@
 <map id="york::Asset" name="york::Asset">
-<area shape="rect" id="node1" title="An Asset is any file that can be loaded by the engine." alt="" coords="107,5,197,32"/>
-<area shape="rect" id="node2" href="$classyork_1_1_network_asset.html" title="An asset to be fetched from the internet." alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node3" href="$classyork_1_1_string_asset.html" title=" " alt="" coords="168,80,291,107"/>
+<area shape="rect" id="node1" title="An Asset is any file that can be loaded by the engine." alt="" coords="214,5,303,32"/>
+<area shape="rect" id="node2" href="$classyork_1_1_binary_asset.html" title="An asset that represents an in&#45;memory byte array." alt="" coords="5,80,165,107"/>
+<area shape="rect" id="node3" href="$classyork_1_1_network_asset.html" title="An asset to be fetched from the internet." alt="" coords="189,80,328,107"/>
+<area shape="rect" id="node4" href="$classyork_1_1_string_asset.html" title="An that represents and in&#45;memory string." alt="" coords="352,80,475,107"/>
 </map>

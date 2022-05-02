@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Handle wrapper for Vulkan Command Pool." alt="" coords="5,244,204,271"/>
 <area shape="rect" id="node2" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="27,155,182,196"/>
 <area shape="rect" id="node3" href="$classyork_1_1graphics_1_1_handle_base.html" title=" " alt="" coords="13,80,196,107"/>
-<area shape="rect" id="node4" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="45,5,164,32"/>
+<area shape="rect" id="node4" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="45,5,164,32"/>
 </map>

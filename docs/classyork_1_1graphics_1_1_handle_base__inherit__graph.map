@@ -15,7 +15,7 @@
 <area shape="rect" id="node27" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="415,789,576,831"/>
 <area shape="rect" id="node29" href="$classyork_1_1graphics_1_1_frame_data.html" title="Contains the necessary synchronization data structures, framebuffer and command buffer for a frame." alt="" coords="407,855,584,882"/>
 <area shape="rect" id="node30" href="$classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle." alt="" coords="403,906,588,933"/>
-<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title=" " alt="" coords="5,470,124,497"/>
+<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="5,470,124,497"/>
 <area shape="rect" id="node4" href="$classyork_1_1graphics_1_1_command_pool.html" title="Handle wrapper for Vulkan Command Pool." alt="" coords="636,13,835,39"/>
 <area shape="rect" id="node6" href="$classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device." alt="" coords="659,78,812,105"/>
 <area shape="rect" id="node8" href="$classyork_1_1graphics_1_1_fence.html" title="Handle wrapper for Vulkan Fence." alt="" coords="661,143,809,170"/>

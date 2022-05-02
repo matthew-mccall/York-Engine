@@ -9,5 +9,5 @@ var searchData=
   ['requestexit_6',['requestExit',['../classyork_1_1_layer.html#a5dfef397f297ce82098beae21d041465',1,'york::Layer']]],
   ['requestextension_7',['requestExtension',['../classyork_1_1graphics_1_1_device.html#ae05693b69f291fc55d07b748ce5386b9',1,'york::graphics::Device::requestExtension()'],['../classyork_1_1graphics_1_1_instance.html#a5ce6d861012206de05076ca804bab169',1,'york::graphics::Instance::requestExtension(const InstanceExtension &amp;extension)']]],
   ['requestlayer_8',['requestLayer',['../classyork_1_1graphics_1_1_instance.html#a17844c1171cc9784d85cb4c9b426cbb1',1,'york::graphics::Instance']]],
-  ['reset_9',['reset',['../classyork_1_1_timer.html#aeb7bd47e91b7592485772695162a1c82',1,'york::Timer']]]
+  ['reset_9',['reset',['../classyork_1_1_stop_watch.html#ad5680a80ecc713cf67667cdec69f6430',1,'york::StopWatch']]]
 ];
