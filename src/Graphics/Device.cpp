@@ -34,10 +34,8 @@
 #include <array>
 #include <vector>
 
-#include "york/Graphics/Device.hpp"
-#include "york/Log.hpp"
-
-#include "york/Graphics/PhysicalDevice.hpp"
+#include "Device.hpp"
+#include "PhysicalDevice.hpp"
 
 namespace york::graphics {
 

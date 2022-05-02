@@ -34,9 +34,10 @@
 
 #include <vulkan/vulkan.hpp>
 
+#include <york/Window.hpp>
+
 #include "Handle.hpp"
 #include "RequestableItem.hpp"
-#include "york/Window.hpp"
 
 /**
  * The namespace for everything Vulkan related. Engine only. (Except Window)

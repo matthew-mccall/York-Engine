@@ -27,16 +27,27 @@
  */
 
 //
-// Created by Matthew McCall on 4/22/22.
+// Created by Matthew McCall on 5/2/22.
 //
 
-#ifndef YORK_GRAPHICS_SHADERDB_HPP
-#define YORK_GRAPHICS_SHADERDB_HPP
+#ifndef YORK_RENDERERIMPL_HPP
+#define YORK_RENDERERIMPL_HPP
 
-#include <string_view>
+#include <york/Window.hpp>
 
-constexpr std::string_view YORK_DEFAULT_VERTEX_SHADER  { R"V0G0N(@YORK_VERTEX_SHADER@)V0G0N" };
+namespace york {
 
-constexpr std::string_view YORK_DEFAULT_FRAGMENT_SHADER { R"V0G0N(@YORK_FRAGMENT_SHADER@)V0G0N" };
+class RendererImpl {
+public:
+    explicit RendererImpl(graphics::Window& window);
 
-#endif // YORK_GRAPHICS_SHADERDB_HPP
+    virtual bool draw() = 0;
+    virtual ~RendererImpl() = default;
+
+protected:
+    graphics::Window& m_window;
+};
+
+} // york
+
+#endif // YORK_RENDERERIMPL_HPP

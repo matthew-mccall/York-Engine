@@ -33,11 +33,11 @@
 #ifndef YORK_GRAPHICS_FRAMEBUFFER_HPP
 #define YORK_GRAPHICS_FRAMEBUFFER_HPP
 
+#include <vulkan/vulkan.hpp>
+
 #include "Handle.hpp"
 #include "RenderPass.hpp"
 #include "ImageView.hpp"
-
-#include <vulkan/vulkan.hpp>
 
 namespace york::graphics {
 

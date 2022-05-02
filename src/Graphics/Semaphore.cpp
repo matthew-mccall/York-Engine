@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 1/16/22.
 //
 
-#include "york/Graphics/Semaphore.hpp"
+#include "Semaphore.hpp"
 
 namespace york::graphics {
 

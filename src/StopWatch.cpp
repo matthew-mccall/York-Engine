@@ -40,7 +40,6 @@ StopWatch::StopWatch()
 void StopWatch::reset()
 {
     m_startTime = SDL_GetTicks64();
-    return *this;
 }
 
 float StopWatch::getTime() const

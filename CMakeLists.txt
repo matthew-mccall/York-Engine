@@ -80,37 +80,43 @@ set(SRC
         src/Graphics/FrameData.cpp
         src/Graphics/Fence.cpp
         src/Registry.cpp
+        src/Renderer/RendererImpl.cpp
+        src/Renderer/VulkanRendererImpl.cpp
+        src/Renderer/Renderer.cpp
         include/york/Event.hpp
         include/york/York.hpp
         include/york/Async.hpp
         include/york/StopWatch.hpp
         include/york/KeyCodes.hpp
-        include/york/Graphics/Instance.hpp
-        include/york/Graphics/RequestableItem.hpp
-        include/york/Graphics/Handle.hpp
+        src/Graphics/Instance.hpp
+        src/Graphics/RequestableItem.hpp
+        src/Graphics/Handle.hpp
         include/york/Window.hpp
-        include/york/Graphics/Device.hpp
-        include/york/Graphics/PhysicalDevice.hpp
+        src/Graphics/Device.hpp
+        src/Graphics/PhysicalDevice.hpp
         include/york/Log.hpp
         include/york/Asset.hpp
-        include/york/Graphics/Shader.hpp
+        src/Graphics/Shader.hpp
         include/york/Layer.hpp
         include/york/Identifiable.hpp
-        include/york/Graphics/Surface.hpp
-        include/york/Graphics/SwapChain.hpp
-        include/york/Graphics/PipelineLayout.hpp
-        include/york/Graphics/Pipeline.hpp
-        include/york/Graphics/RenderPass.hpp
-        include/york/Graphics/Framebuffer.hpp
-        include/york/Graphics/ImageView.hpp
+        src/Graphics/Surface.hpp
+        src/Graphics/SwapChain.hpp
+        src/Graphics/PipelineLayout.hpp
+        src/Graphics/Pipeline.hpp
+        src/Graphics/RenderPass.hpp
+        src/Graphics/Framebuffer.hpp
+        src/Graphics/ImageView.hpp
         include/york/Renderer/Renderer.hpp
-        include/york/Graphics/CommandPool.hpp
-        include/york/Graphics/Semaphore.hpp
+        src/Graphics/CommandPool.hpp
+        src/Graphics/Semaphore.hpp
         include/york/XML/Tag.hpp
-        include/york/Graphics/FrameData.hpp
+        src/Graphics/FrameData.hpp
         include/york/XML/Document.hpp
-        include/york/Graphics/Fence.hpp
-        include/york/Registry.hpp)
+        src/Graphics/Fence.hpp
+        include/york/Registry.hpp
+        include/york/Renderer/RendererImpl.hpp
+        src/Renderer/VulkanRendererImpl.hpp
+        include/york/Renderer/Renderer.hpp)
 
 set(RUNTIME_SRC
         runtime/Runtime.cpp

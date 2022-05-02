@@ -34,8 +34,9 @@
 
 #include <SDL_vulkan.h>
 
-#include "york/Graphics/PhysicalDevice.hpp"
-#include "york/Log.hpp"
+#include <york/Log.hpp>
+
+#include "PhysicalDevice.hpp"
 
 namespace york::graphics {
 

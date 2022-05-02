@@ -20,7 +20,7 @@
 
 int main()
 {
-    york::StopWatch timer;
+    york::StopWatch stopWatch;
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         YORK_CORE_ERROR(SDL_GetError());
@@ -78,10 +78,9 @@ int main()
 
     curlpp::initialize();
 
-    YORK_CORE_INFO("Initialization took {} seconds on {}!", timer.getTime(), YORK_PLATFORM);
+    YORK_CORE_INFO("Initialization took {} seconds on {}!", stopWatch.getTime(), YORK_PLATFORM);
 
-
-    timer.reset();
+    stopWatch.reset();
 
     try {
         while (!layerStack.empty()) {
@@ -101,10 +100,12 @@ int main()
                     continue;
                 }
 
-                layer.onUpdate(timer.reset().getTime());
+                layer.onUpdate(stopWatch.getTime());
                 layer.onRender();
             }
         }
+
+        stopWatch.reset();
     } catch (std::exception& e) {
         YORK_CORE_CRITICAL(e.what());
     }

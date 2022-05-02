@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 1/7/22.
 //
 
-#include "york/Graphics/Framebuffer.hpp"
+#include "Framebuffer.hpp"
 
 namespace york::graphics {
 

@@ -26,8 +26,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "york/Log.hpp"
-#include "york/Graphics/Handle.hpp"
+#include <york/Log.hpp>
+
+#include "Handle.hpp"
 
 namespace york::graphics {
 

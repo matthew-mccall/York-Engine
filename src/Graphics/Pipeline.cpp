@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 1/3/22.
 //
 
-#include "york/Graphics/Pipeline.hpp"
+#include "Pipeline.hpp"
 
 #include <array>
 #include <utility>

@@ -34,7 +34,7 @@
 #include <cstdint>
 #include <SDL_vulkan.h>
 
-#include "york/Graphics/SwapChain.hpp"
+#include "SwapChain.hpp"
 
 namespace york::graphics {
 

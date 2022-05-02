@@ -32,8 +32,9 @@
 
 #include <SDL_vulkan.h>
 
-#include "york/Graphics/Surface.hpp"
 #include "york/Log.hpp"
+
+#include "Surface.hpp"
 
 namespace york::graphics {
 

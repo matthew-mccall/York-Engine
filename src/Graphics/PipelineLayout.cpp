@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 1/6/22.
 //
 
-#include "york/Graphics/PipelineLayout.hpp"
+#include "PipelineLayout.hpp"
 
 namespace york::graphics {
 

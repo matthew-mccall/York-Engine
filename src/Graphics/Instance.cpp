@@ -31,9 +31,10 @@
 
 #include <SDL_vulkan.h>
 
-#include "york/Config.hpp"
-#include "york/Graphics/Instance.hpp"
-#include "york/Log.hpp"
+#include <york/Config.hpp>
+#include <york/Log.hpp>
+
+#include "Instance.hpp"
 
 namespace {
 

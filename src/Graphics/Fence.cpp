@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 2/19/22.
 //
 
-#include "york/Graphics/Fence.hpp"
+#include "Fence.hpp"
 
 namespace york::graphics {
 

@@ -36,8 +36,9 @@
 #include <string>
 
 #include "york/Asset.hpp"
-#include "york/Graphics/Shader.hpp"
 #include "york/Log.hpp"
+
+#include "Shader.hpp"
 
 namespace york::graphics {
 

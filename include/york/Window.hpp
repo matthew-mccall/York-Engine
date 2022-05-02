@@ -33,8 +33,6 @@
 
 #include <SDL_video.h>
 
-#include "york/Graphics/Handle.hpp"
-
 namespace york::graphics {
 
 /**

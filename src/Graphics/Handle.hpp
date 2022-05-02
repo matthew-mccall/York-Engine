@@ -40,7 +40,7 @@
 #include <vector>
 #include <functional>
 
-#include "york/Identifiable.hpp"
+#include <york/Identifiable.hpp>
 
 namespace york::graphics {
 

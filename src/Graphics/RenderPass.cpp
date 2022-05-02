@@ -30,7 +30,7 @@
 // Created by Matthew McCall on 1/6/22.
 //
 
-#include "york/Graphics/RenderPass.hpp"
+#include "RenderPass.hpp"
 
 namespace york::graphics {
 
