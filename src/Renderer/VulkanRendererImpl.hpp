@@ -36,11 +36,12 @@
 #include "york/Renderer/RendererImpl.hpp"
 #include "york/Event.hpp"
 
+#include "Vulkan/CommandPool.hpp"
+#include "Vulkan/FrameData.hpp"
 #include "Vulkan/Framebuffer.hpp"
 #include "Vulkan/Pipeline.hpp"
-#include "Vulkan/CommandPool.hpp"
 #include "Vulkan/Semaphore.hpp"
-#include "Vulkan/FrameData.hpp"
+#include "Window.hpp"
 
 namespace york {
 
@@ -54,7 +55,7 @@ public:
      *
      * @param window The window to bind to.
      */
-    explicit VulkanRendererImpl(graphics::Window& window);
+    explicit VulkanRendererImpl(Window& window);
 
     /**
      * Draws to the window bound to.

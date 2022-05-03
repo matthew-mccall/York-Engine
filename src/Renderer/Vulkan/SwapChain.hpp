@@ -38,6 +38,7 @@
 #include "Device.hpp"
 #include "Handle.hpp"
 #include "ImageView.hpp"
+#include "Window.hpp"
 
 namespace york::graphics {
 

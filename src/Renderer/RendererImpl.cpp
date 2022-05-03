@@ -3,10 +3,11 @@
 //
 
 #include "york/Renderer/RendererImpl.hpp"
+#include "Window.hpp"
 
 namespace york {
 
-RendererImpl::RendererImpl(graphics::Window& window) : m_window(window)
+RendererImpl::RendererImpl(Window& window) : m_window(window)
 {
 }
 

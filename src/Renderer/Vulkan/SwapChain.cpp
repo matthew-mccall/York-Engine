@@ -35,6 +35,7 @@
 #include <SDL_vulkan.h>
 
 #include "SwapChain.hpp"
+#include "Window.hpp"
 
 namespace york::graphics {
 

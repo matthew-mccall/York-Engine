@@ -33,7 +33,7 @@
 
 #include <SDL_video.h>
 
-namespace york::graphics {
+namespace york {
 
 /**
  * A graphical window to which we can render to.
@@ -73,7 +73,6 @@ private:
     std::string m_name;
     SDL_Window* m_handle = nullptr;
 };
-
 } // namespace york::graphics
 
 #endif

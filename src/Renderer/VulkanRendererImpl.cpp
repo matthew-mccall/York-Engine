@@ -34,8 +34,9 @@
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
 
-#include "EmbedVertexSPV.hpp"
 #include "EmbedFragSPV.hpp"
+#include "EmbedVertexSPV.hpp"
+#include "Window.hpp"
 
 #include <array>
 #include <limits>
@@ -46,7 +47,7 @@ namespace {
 
 namespace york {
 
-VulkanRendererImpl::VulkanRendererImpl(graphics::Window& window)
+VulkanRendererImpl::VulkanRendererImpl(Window& window)
     : RendererImpl(window)
     , m_surface(s_instance, m_window)
     , m_device(s_instance, m_surface)

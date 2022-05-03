@@ -33,10 +33,11 @@
 #include <york/Renderer/Renderer.hpp>
 
 #include "VulkanRendererImpl.hpp"
+#include "Window.hpp"
 
 namespace york {
 
-bool Renderer::draw(graphics::Window& window)
+bool Renderer::draw(Window& window)
 {
     if (m_impls.find(&window) == m_impls.end()) {
         m_impls.emplace(std::make_pair(&window, std::make_unique<VulkanRendererImpl>(window)));
