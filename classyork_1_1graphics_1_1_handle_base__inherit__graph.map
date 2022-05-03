@@ -1,0 +1,32 @@
+<map id="york::graphics::HandleBase" name="york::graphics::HandleBase">
+<area shape="rect" id="node1" title=" " alt="" coords="172,470,355,497"/>
+<area shape="rect" id="node3" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="418,5,573,47"/>
+<area shape="rect" id="node5" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,71,572,112"/>
+<area shape="rect" id="node7" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,136,572,177"/>
+<area shape="rect" id="node9" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,201,572,243"/>
+<area shape="rect" id="node11" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,267,572,308"/>
+<area shape="rect" id="node13" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,332,572,373"/>
+<area shape="rect" id="node15" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,397,572,439"/>
+<area shape="rect" id="node17" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,463,572,504"/>
+<area shape="rect" id="node19" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,528,572,569"/>
+<area shape="rect" id="node21" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,593,572,635"/>
+<area shape="rect" id="node23" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,659,572,700"/>
+<area shape="rect" id="node25" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="419,724,572,765"/>
+<area shape="rect" id="node27" href="$classyork_1_1graphics_1_1_handle.html" title=" " alt="" coords="415,789,576,831"/>
+<area shape="rect" id="node29" href="$classyork_1_1graphics_1_1_frame_data.html" title="Contains the necessary synchronization data structures, framebuffer and command buffer for a frame." alt="" coords="407,855,584,882"/>
+<area shape="rect" id="node30" href="$classyork_1_1graphics_1_1_handle.html" title="A template wrapper that allows any type to be treated as handle." alt="" coords="403,906,588,933"/>
+<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="5,470,124,497"/>
+<area shape="rect" id="node4" href="$classyork_1_1graphics_1_1_command_pool.html" title="Handle wrapper for Vulkan Command Pool." alt="" coords="636,13,835,39"/>
+<area shape="rect" id="node6" href="$classyork_1_1graphics_1_1_device.html" title="A class representing a GPU device." alt="" coords="659,78,812,105"/>
+<area shape="rect" id="node8" href="$classyork_1_1graphics_1_1_fence.html" title="Handle wrapper for Vulkan Fence." alt="" coords="661,143,809,170"/>
+<area shape="rect" id="node10" href="$classyork_1_1graphics_1_1_framebuffer.html" title="Handle wrapper for Vulkan Framebuffer." alt="" coords="644,209,827,235"/>
+<area shape="rect" id="node12" href="$classyork_1_1graphics_1_1_image_view.html" title="Handle wrapper for Vulkan Image Views." alt="" coords="647,274,824,301"/>
+<area shape="rect" id="node14" href="$classyork_1_1graphics_1_1_instance.html" title="A handle for Vulkan instances." alt="" coords="654,339,817,366"/>
+<area shape="rect" id="node16" href="$classyork_1_1graphics_1_1_pipeline.html" title="Handle wrapper for Vulkan Pipeline." alt="" coords="656,405,815,431"/>
+<area shape="rect" id="node18" href="$classyork_1_1graphics_1_1_pipeline_layout.html" title="Handle wrapper for Vulkan Pipeline Layout." alt="" coords="656,463,815,504"/>
+<area shape="rect" id="node20" href="$classyork_1_1graphics_1_1_render_pass.html" title="Handle wrapper for Vulkan Render Pass." alt="" coords="643,535,827,562"/>
+<area shape="rect" id="node22" href="$classyork_1_1graphics_1_1_semaphore.html" title="Handle wrapper for Vulkan Semaphore." alt="" coords="646,601,825,627"/>
+<area shape="rect" id="node24" href="$classyork_1_1graphics_1_1_shader.html" title="Represents a SPIR&#45;V shader for use with a Pipeline." alt="" coords="659,666,812,693"/>
+<area shape="rect" id="node26" href="$classyork_1_1graphics_1_1_surface.html" title="Handle wrapper for Vulkan Surface." alt="" coords="657,731,814,758"/>
+<area shape="rect" id="node28" href="$classyork_1_1graphics_1_1_swap_chain.html" title="Handle wrapper for Vulkan Swapchain." alt="" coords="646,797,825,823"/>
+</map>

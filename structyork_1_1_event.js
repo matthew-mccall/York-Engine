@@ -1,0 +1,35 @@
+var structyork_1_1_event =
+[
+    [ "Type", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69", [
+      [ "None", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "AppClosing", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ad5fd4d75b6f548b8e6e7c11665a4355f", null ],
+      [ "WindowClose", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac984201d37197ab297a14d19efee4b07", null ],
+      [ "WindowResize", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a9f8f27bff2915738c4fe1b970e12f89c", null ],
+      [ "WindowFocus", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a1c68d5453b28d52622bf5486a5fd95ca", null ],
+      [ "WindowLostFocus", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a1c2119b9d61e623975f13f1029f1d97c", null ],
+      [ "WindowMoved", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ab94473d9dfc85f8fdbf5cb3b1d992bda", null ],
+      [ "KeyPressed", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac17e6984c1e5a887a49831beadee6bca", null ],
+      [ "KeyReleased", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a4a77f07c8ad223b71ab4ce78a63841ab", null ],
+      [ "KeyTyped", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a9afbfd35b289eb4fc7f1bc148d7b422e", null ],
+      [ "MouseButtonPressed", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a7349f643d689997b7c54bf93e4095f5c", null ],
+      [ "MouseButtonReleased", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a7584c169de594c27f00084b93186fd7c", null ],
+      [ "MouseMoved", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac2770ad109c8063ce69a3608a9a16c08", null ],
+      [ "MouseScrolled", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a50edb169910041bb3c06f6e8322d74c1", null ],
+      [ "ControllerButtonPressed", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69a31959513f39bd95c79a39fe3b48b772e", null ],
+      [ "ControllerButtonReleased", "structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69ac7424a5d37d9b4f569941a06274ff5e1", null ]
+    ] ],
+    [ "Event", "structyork_1_1_event.html#a09cbfcccfb5ff01723220b8a157ce177", null ],
+    [ "Event", "structyork_1_1_event.html#ad01a2400374d1c945c39eceb5a3ddc29", null ],
+    [ "getKeyCode", "structyork_1_1_event.html#ac0be9a9f161d6ff698773fc7ce298075", null ],
+    [ "getMouseButton", "structyork_1_1_event.html#a03bc3bdff2fdf95de4eddf83b098b63c", null ],
+    [ "getMouseX", "structyork_1_1_event.html#acd5e32813383ceef8933a74265c14ae5", null ],
+    [ "getMouseY", "structyork_1_1_event.html#af0b571e0a743068c5304230b642e0fa1", null ],
+    [ "getType", "structyork_1_1_event.html#ac56e1cb0b3ef2c252220ee650fe6b95e", null ],
+    [ "getWindowID", "structyork_1_1_event.html#a8835a60ca01497c7949e511f59afb1bf", null ],
+    [ "m_keyCode", "structyork_1_1_event.html#ac8302ac2108c73b7b268fc0cacfe697f", null ],
+    [ "m_mouseButton", "structyork_1_1_event.html#a3a24cc41d4249bbf9af39ff32204f4ea", null ],
+    [ "m_mouseX", "structyork_1_1_event.html#a70f45575ffc69862903a747a8ac33ecd", null ],
+    [ "m_mouseY", "structyork_1_1_event.html#a93fd3f6d4300bf0e9867f691b6a42290", null ],
+    [ "m_type", "structyork_1_1_event.html#a68a68f2fe1463741b041f66cfc07eb0e", null ],
+    [ "m_windowID", "structyork_1_1_event.html#a107cafee5a3d02595a1c7d0f66fdebc0", null ]
+];

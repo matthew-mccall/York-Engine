@@ -1,0 +1,4 @@
+<map id="york::graphics::HandleBase" name="york::graphics::HandleBase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,188,107"/>
+<area shape="rect" id="node2" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="37,5,156,32"/>
+</map>
