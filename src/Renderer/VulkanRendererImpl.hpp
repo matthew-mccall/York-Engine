@@ -36,11 +36,11 @@
 #include "york/Renderer/RendererImpl.hpp"
 #include "york/Event.hpp"
 
-#include "../Graphics/Framebuffer.hpp"
-#include "../Graphics/Pipeline.hpp"
-#include "../Graphics/CommandPool.hpp"
-#include "../Graphics/Semaphore.hpp"
-#include "../Graphics/FrameData.hpp"
+#include "Vulkan/Framebuffer.hpp"
+#include "Vulkan/Pipeline.hpp"
+#include "Vulkan/CommandPool.hpp"
+#include "Vulkan/Semaphore.hpp"
+#include "Vulkan/FrameData.hpp"
 
 namespace york {
 

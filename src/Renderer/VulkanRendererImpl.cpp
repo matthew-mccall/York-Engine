@@ -74,7 +74,7 @@ VulkanRendererImpl::VulkanRendererImpl(graphics::Window& window)
 
     m_pipeline.setShaders(m_defaultShaders);
 
-    s_instance.create();
+    m_pipeline.create();
 
     std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();

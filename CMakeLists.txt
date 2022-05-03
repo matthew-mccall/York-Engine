@@ -57,28 +57,28 @@ set(SRC
         src/Event.cpp
         src/StopWatch.cpp
         src/Window.cpp
-        src/Graphics/Handle.cpp
-        src/Graphics/Instance.cpp
-        src/Graphics/Device.cpp
-        src/Graphics/PhysicalDevice.cpp
-        src/Graphics/Shader.cpp
+        src/Renderer/Vulkan/Handle.cpp
+        src/Renderer/Vulkan/Instance.cpp
+        src/Renderer/Vulkan/Device.cpp
+        src/Renderer/Vulkan/PhysicalDevice.cpp
+        src/Renderer/Vulkan/Shader.cpp
         src/Identifiable.cpp
-        src/Graphics/Surface.cpp
-        src/Graphics/SwapChain.cpp
-        src/Graphics/Pipeline.cpp
-        src/Graphics/PipelineLayout.cpp
-        src/Graphics/RenderPass.cpp
-        src/Graphics/Framebuffer.cpp
-        src/Graphics/ImageView.cpp
+        src/Renderer/Vulkan/Surface.cpp
+        src/Renderer/Vulkan/SwapChain.cpp
+        src/Renderer/Vulkan/Pipeline.cpp
+        src/Renderer/Vulkan/PipelineLayout.cpp
+        src/Renderer/Vulkan/RenderPass.cpp
+        src/Renderer/Vulkan/Framebuffer.cpp
+        src/Renderer/Vulkan/ImageView.cpp
         src/Renderer/Renderer.cpp
-        src/Graphics/CommandPool.cpp
-        src/Graphics/Semaphore.cpp
+        src/Renderer/Vulkan/CommandPool.cpp
+        src/Renderer/Vulkan/Semaphore.cpp
         src/Log.cpp
         src/Layer.cpp
         src/XML/Tag.cpp
         src/XML/Document.cpp
-        src/Graphics/FrameData.cpp
-        src/Graphics/Fence.cpp
+        src/Renderer/Vulkan/FrameData.cpp
+        src/Renderer/Vulkan/Fence.cpp
         src/Registry.cpp
         src/Renderer/RendererImpl.cpp
         src/Renderer/VulkanRendererImpl.cpp
@@ -88,31 +88,31 @@ set(SRC
         include/york/Async.hpp
         include/york/StopWatch.hpp
         include/york/KeyCodes.hpp
-        src/Graphics/Instance.hpp
-        src/Graphics/RequestableItem.hpp
-        src/Graphics/Handle.hpp
+        src/Renderer/Vulkan/Instance.hpp
+        src/Renderer/Vulkan/RequestableItem.hpp
+        src/Renderer/Vulkan/Handle.hpp
         include/york/Window.hpp
-        src/Graphics/Device.hpp
-        src/Graphics/PhysicalDevice.hpp
+        src/Renderer/Vulkan/Device.hpp
+        src/Renderer/Vulkan/PhysicalDevice.hpp
         include/york/Log.hpp
         include/york/Asset.hpp
-        src/Graphics/Shader.hpp
+        src/Renderer/Vulkan/Shader.hpp
         include/york/Layer.hpp
         include/york/Identifiable.hpp
-        src/Graphics/Surface.hpp
-        src/Graphics/SwapChain.hpp
-        src/Graphics/PipelineLayout.hpp
-        src/Graphics/Pipeline.hpp
-        src/Graphics/RenderPass.hpp
-        src/Graphics/Framebuffer.hpp
-        src/Graphics/ImageView.hpp
+        src/Renderer/Vulkan/Surface.hpp
+        src/Renderer/Vulkan/SwapChain.hpp
+        src/Renderer/Vulkan/PipelineLayout.hpp
+        src/Renderer/Vulkan/Pipeline.hpp
+        src/Renderer/Vulkan/RenderPass.hpp
+        src/Renderer/Vulkan/Framebuffer.hpp
+        src/Renderer/Vulkan/ImageView.hpp
         include/york/Renderer/Renderer.hpp
-        src/Graphics/CommandPool.hpp
-        src/Graphics/Semaphore.hpp
+        src/Renderer/Vulkan/CommandPool.hpp
+        src/Renderer/Vulkan/Semaphore.hpp
         include/york/XML/Tag.hpp
-        src/Graphics/FrameData.hpp
+        src/Renderer/Vulkan/FrameData.hpp
         include/york/XML/Document.hpp
-        src/Graphics/Fence.hpp
+        src/Renderer/Vulkan/Fence.hpp
         include/york/Registry.hpp
         include/york/Renderer/RendererImpl.hpp
         src/Renderer/VulkanRendererImpl.hpp
