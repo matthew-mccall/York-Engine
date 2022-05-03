@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deviceextension_0',['DeviceExtension',['../namespaceyork_1_1graphics.html#a1d366dc9087cda8533149e4eff31ded5',1,'york::graphics']]]
+  ['future_0',['Future',['../namespaceyork_1_1async.html#a87589541489ed98b9b91170cbd69395a',1,'york::async']]]
 ];

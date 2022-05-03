@@ -1,7 +1,4 @@
 <map id="include/york/Asset.hpp" name="include/york/Asset.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="88,5,243,32"/>
-<area shape="rect" id="node2" href="$_shader_8hpp.html" title=" " alt="" coords="6,80,154,121"/>
-<area shape="rect" id="node5" href="$_york_8hpp.html" title=" " alt="" coords="179,87,325,114"/>
-<area shape="rect" id="node3" href="$_pipeline_8hpp.html" title=" " alt="" coords="6,169,154,211"/>
-<area shape="rect" id="node4" href="$_renderer_8hpp.html" title=" " alt="" coords="5,259,155,300"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,160,32"/>
+<area shape="rect" id="node2" href="$_york_8hpp.html" title=" " alt="" coords="9,80,156,107"/>
 </map>

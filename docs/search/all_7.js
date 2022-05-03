@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_2ehpp_1',['Handle.hpp',['../_handle_8hpp.html',1,'']]],
-  ['handle_3c_20vk_3a_3acommandpool_20_3e_2',['Handle&lt; vk::CommandPool &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3adevice_20_3e_3',['Handle&lt; vk::Device &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3afence_20_3e_4',['Handle&lt; vk::Fence &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3aframebuffer_20_3e_5',['Handle&lt; vk::Framebuffer &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3aimageview_20_3e_6',['Handle&lt; vk::ImageView &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3ainstance_20_3e_7',['Handle&lt; vk::Instance &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3apipeline_20_3e_8',['Handle&lt; vk::Pipeline &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3apipelinelayout_20_3e_9',['Handle&lt; vk::PipelineLayout &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3arenderpass_20_3e_10',['Handle&lt; vk::RenderPass &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3asemaphore_20_3e_11',['Handle&lt; vk::Semaphore &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3ashadermodule_20_3e_12',['Handle&lt; vk::ShaderModule &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3asurfacekhr_20_3e_13',['Handle&lt; vk::SurfaceKHR &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handle_3c_20vk_3a_3aswapchainkhr_20_3e_14',['Handle&lt; vk::SwapchainKHR &gt;',['../classyork_1_1graphics_1_1_handle.html',1,'york::graphics']]],
-  ['handlebase_15',['HandleBase',['../classyork_1_1graphics_1_1_handle_base.html#a56e0433c8e636e0d483763fa24aada2b',1,'york::graphics::HandleBase::HandleBase()=default'],['../classyork_1_1graphics_1_1_handle_base.html#ade8cbabc6778e5807e75ac04f08b3a42',1,'york::graphics::HandleBase::HandleBase(const HandleBase &amp;other)'],['../classyork_1_1graphics_1_1_handle_base.html',1,'york::graphics::HandleBase']]]
+  ['id_0',['id',['../namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09',1,'york']]],
+  ['identifiable_1',['Identifiable',['../classyork_1_1_identifiable.html#a7b35ff55fbace668416fa7b43a87e7eb',1,'york::Identifiable::Identifiable()'],['../classyork_1_1_identifiable.html',1,'york::Identifiable']]],
+  ['identifiable_2ehpp_2',['Identifiable.hpp',['../_identifiable_8hpp.html',1,'']]],
+  ['img_5fpng_3',['IMG_PNG',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a2df9a83828fd3ad52e9db5a7ebea6230',1,'york::Asset']]],
+  ['info_4',['info',['../namespaceyork_1_1log.html#a9e46f03859ea059f11e92db73fa27f8d',1,'york::log::info()'],['../namespaceyork_1_1log_1_1core.html#a5e8fd59a30818a12bde831189aa79d38',1,'york::log::core::info()']]],
+  ['isopen_5',['isOpen',['../classyork_1_1graphics_1_1_window.html#ab0e979fcd11a2699027325750908f8cf',1,'york::graphics::Window']]]
 ];

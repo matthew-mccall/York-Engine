@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['networkasset_0',['NetworkAsset',['../classyork_1_1_network_asset.html',1,'york']]]
+  ['tag_0',['Tag',['../classyork_1_1xml_1_1_tag.html',1,'york::xml']]]
 ];

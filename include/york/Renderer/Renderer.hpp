@@ -33,6 +33,10 @@
 #ifndef YORK_RENDERER_HPP
 #define YORK_RENDERER_HPP
 
+#include <functional>
+#include <memory>
+#include <unordered_map>
+
 #include <york/Window.hpp>
 
 #include "RendererImpl.hpp"
@@ -41,13 +45,10 @@ namespace york {
 
 class Renderer {
 public:
-    explicit Renderer(graphics::Window& window);
-    bool draw();
-    ~Renderer();
+    bool draw(graphics::Window& window);
 
 private:
-    graphics::Window& m_window;
-    RendererImpl* m_renderImpl;
+    std::unordered_map<graphics::Window*, std::unique_ptr<RendererImpl>> m_impls;
 };
 
 } // york

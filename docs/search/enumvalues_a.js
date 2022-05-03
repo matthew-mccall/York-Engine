@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tessellationcontrol_0',['TessellationControl',['../classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2a91a08ad964ef35c89ae69cd4176cfb4a',1,'york::graphics::Shader']]],
-  ['tessellationevaluation_1',['TessellationEvaluation',['../classyork_1_1graphics_1_1_shader.html#ae025281595bfe917535ca817148f9db2a85a5d743bd284736223e3c1e95c6b952',1,'york::graphics::Shader']]]
+  ['xml_0',['XML',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a3501bb093d363810b671059b9cfed3f8',1,'york::Asset']]]
 ];

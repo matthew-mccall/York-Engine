@@ -67,7 +67,6 @@ public:
     ~VulkanRendererImpl() override;
 
 private:
-    york::graphics::Instance m_instance;
     york::graphics::Surface m_surface;
     york::graphics::Device m_device;
     york::graphics::SwapChain m_swapchain;

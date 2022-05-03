@@ -18,7 +18,7 @@ var namespaceyork =
     [ "NetworkAsset", "classyork_1_1_network_asset.html", "classyork_1_1_network_asset" ],
     [ "Registry", "classyork_1_1_registry.html", "classyork_1_1_registry" ],
     [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
-    [ "RequestableItem", "structyork_1_1_requestable_item.html", "structyork_1_1_requestable_item" ],
+    [ "RendererImpl", "classyork_1_1_renderer_impl.html", "classyork_1_1_renderer_impl" ],
     [ "StopWatch", "classyork_1_1_stop_watch.html", "classyork_1_1_stop_watch" ],
     [ "StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ],
     [ "id", "namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09", null ],

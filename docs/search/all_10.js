@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['semaphore_0',['Semaphore',['../classyork_1_1graphics_1_1_semaphore.html#ac90d4853db431d97ab243b7fd0b074c3',1,'york::graphics::Semaphore::Semaphore()'],['../classyork_1_1graphics_1_1_semaphore.html',1,'york::graphics::Semaphore']]],
-  ['semaphore_2ehpp_1',['Semaphore.hpp',['../_semaphore_8hpp.html',1,'']]],
-  ['setimage_2',['setImage',['../classyork_1_1graphics_1_1_image_view.html#ad3fa575b7c50ecd39cc3dd1d91c6bd4e',1,'york::graphics::ImageView']]],
-  ['setshaders_3',['setShaders',['../classyork_1_1graphics_1_1_pipeline.html#a8c94528590deaacc3bcc9d72296c047d',1,'york::graphics::Pipeline']]],
-  ['shader_4',['Shader',['../classyork_1_1graphics_1_1_shader.html#a83b04e93d966cabaafdca79255229d4c',1,'york::graphics::Shader::Shader()'],['../classyork_1_1graphics_1_1_shader.html',1,'york::graphics::Shader']]],
-  ['shader_2ehpp_5',['Shader.hpp',['../_shader_8hpp.html',1,'']]],
-  ['shader_5fcomp_5fglsl_6',['SHADER_COMP_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a94871f844d67ffe555d8a8d1cfee317d',1,'york::Asset']]],
-  ['shader_5fcomp_5fspirv_7',['SHADER_COMP_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34ae99214782f98aab3cb86f44335ac870c',1,'york::Asset']]],
-  ['shader_5ffrag_5fglsl_8',['SHADER_FRAG_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4ca534af59f4952020183ce58e5183b9',1,'york::Asset']]],
-  ['shader_5ffrag_5fspirv_9',['SHADER_FRAG_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a90d481f06d3395b7ea06d8ff44a9ee54',1,'york::Asset']]],
-  ['shader_5fgeom_5fglsl_10',['SHADER_GEOM_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34aea55dd7cf7595739178e6254c4c53650',1,'york::Asset']]],
-  ['shader_5fgeom_5fspirv_11',['SHADER_GEOM_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a94735fb1de739201d6fc0fa288a80a23',1,'york::Asset']]],
-  ['shader_5ftesc_5fglsl_12',['SHADER_TESC_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a9821f1fec7a98eb18507db27e59b27f4',1,'york::Asset']]],
-  ['shader_5ftesc_5fspirv_13',['SHADER_TESC_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a4f489d31b25f9fcc31ca138a5fe236e9',1,'york::Asset']]],
-  ['shader_5ftese_5fglsl_14',['SHADER_TESE_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a762f9c9ce24fae0fc034b2c2a97b04a5',1,'york::Asset']]],
-  ['shader_5ftese_5fspirv_15',['SHADER_TESE_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a5d4034950efbe5742a39dc62a86f4646',1,'york::Asset']]],
-  ['shader_5fvert_5fglsl_16',['SHADER_VERT_GLSL',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a616c51c7e6a2cbb269ba42f112debfd7',1,'york::Asset']]],
-  ['shader_5fvert_5fspirv_17',['SHADER_VERT_SPIRV',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34a92ec817353ccd7b6f446c019e6642442',1,'york::Asset']]],
-  ['stopwatch_18',['StopWatch',['../classyork_1_1_stop_watch.html#aa53f3d3a7a9ec9265b379f293717e304',1,'york::StopWatch::StopWatch()'],['../classyork_1_1_stop_watch.html',1,'york::StopWatch']]],
-  ['stopwatch_2ehpp_19',['StopWatch.hpp',['../_stop_watch_8hpp.html',1,'']]],
-  ['stringasset_20',['StringAsset',['../classyork_1_1_string_asset.html#a9316cda326a7a8e505efe56518d83946',1,'york::StringAsset::StringAsset()'],['../classyork_1_1_string_asset.html',1,'york::StringAsset']]],
-  ['surface_21',['Surface',['../classyork_1_1graphics_1_1_surface.html#a11bf3fe261bfbdc5943e1ec6ad85c291',1,'york::graphics::Surface::Surface()'],['../classyork_1_1graphics_1_1_surface.html',1,'york::graphics::Surface']]],
-  ['surface_2ehpp_22',['Surface.hpp',['../_surface_8hpp.html',1,'']]],
-  ['swapchain_23',['SwapChain',['../classyork_1_1graphics_1_1_swap_chain.html#a14509ecdb25dcf13cc8a25c65715f677',1,'york::graphics::SwapChain::SwapChain()'],['../classyork_1_1graphics_1_1_swap_chain.html',1,'york::graphics::SwapChain']]],
-  ['swapchain_2ehpp_24',['SwapChain.hpp',['../_swap_chain_8hpp.html',1,'']]]
+  ['tag_0',['Tag',['../classyork_1_1xml_1_1_tag.html#acc95d85f703120b4507734ae6c5890d5',1,'york::xml::Tag::Tag(xercesc::DOMNode *node)'],['../classyork_1_1xml_1_1_tag.html#ad0482d2f9611beddcdedcc646cda6f18',1,'york::xml::Tag::Tag(std::string &amp;name, std::string &amp;value)'],['../classyork_1_1xml_1_1_tag.html',1,'york::xml::Tag']]],
+  ['tag_2ehpp_1',['Tag.hpp',['../_tag_8hpp.html',1,'']]],
+  ['trace_2',['trace',['../namespaceyork_1_1log.html#a81f04e62156d5faec184e52afd859794',1,'york::log::trace()'],['../namespaceyork_1_1log_1_1core.html#ac29ef5d904f34a99983fb0110e0ded08',1,'york::log::core::trace()']]],
+  ['type_3',['Type',['../classyork_1_1_asset.html#a611568955f8cd4a2e82fe089bd696b34',1,'york::Asset::Type()'],['../structyork_1_1_event.html#a4102b14864a4fc389166a625f9b43d69',1,'york::Event::Type()']]]
 ];

@@ -36,19 +36,13 @@
 
 namespace york {
 
-Renderer::Renderer(graphics::Window& window) : m_window(window)
+bool Renderer::draw(graphics::Window& window)
 {
-    m_renderImpl = new VulkanRendererImpl(m_window);
-}
+    if (m_impls.find(&window) == m_impls.end()) {
+        m_impls.emplace(std::make_pair(&window, std::make_unique<VulkanRendererImpl>(window)));
+    }
 
-bool Renderer::draw()
-{
-    return m_renderImpl->draw();
-}
-
-Renderer::~Renderer()
-{
-    delete m_renderImpl;
+    return m_impls[&window]->draw();
 }
 
 } // york

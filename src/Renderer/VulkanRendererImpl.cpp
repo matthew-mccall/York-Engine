@@ -40,13 +40,16 @@
 #include <array>
 #include <limits>
 
+namespace {
+    york::graphics::Instance s_instance;
+}
+
 namespace york {
 
 VulkanRendererImpl::VulkanRendererImpl(graphics::Window& window)
     : RendererImpl(window)
-    , m_instance()
-    , m_surface(m_instance, m_window)
-    , m_device(m_instance, m_surface)
+    , m_surface(s_instance, m_window)
+    , m_device(s_instance, m_surface)
     , m_swapchain(m_device, m_window, m_surface)
     , m_renderPass(m_device)
     , m_pipeline(m_renderPass)
@@ -71,7 +74,7 @@ VulkanRendererImpl::VulkanRendererImpl(graphics::Window& window)
 
     m_pipeline.setShaders(m_defaultShaders);
 
-    m_instance.create();
+    s_instance.create();
 
     std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
@@ -196,7 +199,7 @@ VulkanRendererImpl::~VulkanRendererImpl()
         m_imageAvailableSemaphores.clear();
         m_renderFinishedSemaphores.clear();
 
-        m_instance.destroy();
+        s_instance.destroy();
     }
 }
 

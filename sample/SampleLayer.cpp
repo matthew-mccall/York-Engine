@@ -37,8 +37,8 @@
 class SampleLayer : public york::Layer {
 public:
     explicit SampleLayer()
-        : m_window("Test")
-        , m_renderer(m_window)
+        : m_window("Sample")
+        , m_renderer()
     {
     }
 
@@ -48,7 +48,7 @@ public:
     {
         if (e.getType() == york::Event::Type::WindowClose) {
             if (e.getWindowID() == m_window.getWindowID()) {
-                requestExit();
+               requestExit();
                 return;
             }
         }
@@ -63,9 +63,7 @@ public:
 
     void onRender() override
     {
-        if (!m_renderer.draw()) {
-            requestExit();
-        }
+        m_renderer.draw(m_window);
     }
 
     void onDetach() override
