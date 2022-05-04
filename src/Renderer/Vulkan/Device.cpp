@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include <array>
+#include <set>
 #include <vector>
 
 #include "Device.hpp"
@@ -58,10 +59,15 @@ bool Device::createImpl()
 
     float queuePriorities = 1.0;
 
-    vk::DeviceQueueCreateInfo queueCreateInfo { {}, m_physicalDevice->getGraphicsFamilyQueueIndex(), 1, &queuePriorities };
-    vk::PhysicalDeviceFeatures physicalDeviceFeatures;
+    std::set<uint32_t> uniqueQueueFamilies = {m_physicalDevice->getGraphicsFamilyQueueIndex(), m_physicalDevice->getPresentFamilyQueueIndex()};
+    std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
 
-    std::array<vk::DeviceQueueCreateInfo, 1> queueCreateInfos { queueCreateInfo };
+    for (uint32_t queueFamily : uniqueQueueFamilies) {
+        vk::DeviceQueueCreateInfo queueCreateInfo {{}, queueFamily, 1, &queuePriorities};
+        queueCreateInfos.push_back(queueCreateInfo);
+    }
+
+    vk::PhysicalDeviceFeatures physicalDeviceFeatures;
 
     std::vector<const char*> enabledExtensions(m_physicalDevice->getEnabledExtensions().size());
 
@@ -73,7 +79,7 @@ bool Device::createImpl()
 
     m_handle = (*m_physicalDevice)->createDevice(createInfo);
     m_graphicsQueue = std::make_pair(m_physicalDevice->getGraphicsFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));
-    m_presentQueue = std::make_pair(m_physicalDevice->getPresentFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getGraphicsFamilyQueueIndex(), 0));
+    m_presentQueue = std::make_pair(m_physicalDevice->getPresentFamilyQueueIndex(), m_handle.getQueue(m_physicalDevice->getPresentFamilyQueueIndex(), 0));
 
     return true;
 }

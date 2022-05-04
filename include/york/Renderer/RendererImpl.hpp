@@ -33,7 +33,6 @@
 #ifndef YORK_RENDERERIMPL_HPP
 #define YORK_RENDERERIMPL_HPP
 
-#include "Window.hpp"
 #include <york/Window.hpp>
 
 namespace york {

@@ -41,7 +41,6 @@
 #include "Vulkan/Framebuffer.hpp"
 #include "Vulkan/Pipeline.hpp"
 #include "Vulkan/Semaphore.hpp"
-#include "Window.hpp"
 
 namespace york {
 

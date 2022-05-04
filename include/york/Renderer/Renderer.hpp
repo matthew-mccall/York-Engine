@@ -39,7 +39,6 @@
 #include <york/Window.hpp>
 
 #include "RendererImpl.hpp"
-#include "Window.hpp"
 
 namespace york {
 

@@ -35,7 +35,6 @@
 #include "york/Log.hpp"
 
 #include "Surface.hpp"
-#include "Window.hpp"
 
 namespace york::graphics {
 

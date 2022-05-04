@@ -32,7 +32,7 @@
 
 #include "york/Window.hpp"
 
-namespace york::graphics {
+namespace york {
 
 Window::Window(std::string name, unsigned width, unsigned height)
     : m_width(width)

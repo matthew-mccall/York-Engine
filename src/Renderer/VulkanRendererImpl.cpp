@@ -36,7 +36,6 @@
 
 #include "EmbedFragSPV.hpp"
 #include "EmbedVertexSPV.hpp"
-#include "Window.hpp"
 
 #include <array>
 #include <limits>

@@ -39,7 +39,6 @@
 
 #include "Handle.hpp"
 #include "Instance.hpp"
-#include "Window.hpp"
 
 namespace york::graphics {
 

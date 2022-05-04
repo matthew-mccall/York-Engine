@@ -33,7 +33,6 @@
 #include <york/Renderer/Renderer.hpp>
 
 #include "VulkanRendererImpl.hpp"
-#include "Window.hpp"
 
 namespace york {
 

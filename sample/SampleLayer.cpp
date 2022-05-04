@@ -30,7 +30,6 @@
 // Created by Matthew McCall on 12/22/21.
 //
 
-#include "Window.hpp"
 #include "york/Renderer/Renderer.hpp"
 #include "york/Window.hpp"
 #include "york/York.hpp"
