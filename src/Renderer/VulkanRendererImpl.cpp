@@ -76,11 +76,11 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
 
     m_pipeline.create();
 
-    std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
+    Vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
 
     vk::CommandBufferAllocateInfo commandBufferAllocateInfo { *m_commandPool, vk::CommandBufferLevel::ePrimary, static_cast<uint32_t>(m_maxFrames) };
-    m_commandBuffers = m_device->allocateCommandBuffers(commandBufferAllocateInfo);
+    m_commandBuffers = m_device->allocateCommandBuffers<Allocator<vk::CommandBuffer>>(commandBufferAllocateInfo);
 
     m_frames.reserve(m_maxFrames);
     m_fences.reserve(m_maxFrames);
@@ -106,8 +106,6 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
 
 bool VulkanRendererImpl::draw()
 {
-    graphics::FrameData& frame = m_frames[m_frameIndex];
-
     std::array<vk::Fence, 1> fences = { *m_fences[m_frameIndex] };
     auto waitResult = m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
 
@@ -143,7 +141,7 @@ bool VulkanRendererImpl::draw()
     commandBuffer.setScissor(0, { scissor });
 
     vk::ClearValue clearValue { vk::ClearColorValue().setFloat32({ 0, 0, 0, 0 }) };
-    vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(frame.getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
+    vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(m_frames[imageIndex].getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
     commandBuffer.beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
 
     commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, *m_pipeline);
@@ -221,7 +219,7 @@ void VulkanRendererImpl::recreateSwapChain()
     m_swapchain.create();
     m_renderPass.create();
 
-    std::vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
+    Vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
     m_maxFrames = imageViews.size();
 
     m_frames.reserve(m_maxFrames);

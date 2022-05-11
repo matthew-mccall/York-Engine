@@ -60,7 +60,7 @@ bool Shader::createImpl()
     std::string glsl;
     shaderc::CompilationResult<std::uint32_t> result;
 
-    switch (m_asset.getType()) {
+    switch (m_asset.get().getType()) {
     case Asset::Type::SHADER_VERT_GLSL:
         m_type = Type::Vertex;
         goto compileShader;
@@ -106,13 +106,13 @@ compileShader:
         break;
     }
 
-    glsl = { m_asset->begin(), m_asset->end() };
+    glsl = { m_asset.get()->begin(), m_asset.get()->end() };
     result = compiler.CompileGlslToSpv(glsl, kind, "");
 
     if (result.GetCompilationStatus() == shaderc_compilation_status_success) {
-        std::vector<std::uint32_t> spirv { result.begin(), result.end() };
+        Vector<std::uint32_t> spirv { result.begin(), result.end() };
         vk::ShaderModuleCreateInfo createInfo = { {}, spirv };
-        m_handle = m_device->createShaderModule(createInfo);
+        m_handle = m_device.get()->createShaderModule(createInfo);
         YORK_CORE_DEBUG("Compiled shaders!");
         return true;
     }
@@ -122,15 +122,15 @@ compileShader:
     return false;
 
 copyShader:
-    vk::ShaderModuleCreateInfo createInfo = { {}, m_asset->size(), reinterpret_cast<std::uint32_t*>(m_asset->data()) };
-    m_handle = m_device->createShaderModule(createInfo);
+    vk::ShaderModuleCreateInfo createInfo = { {}, m_asset.get()->size(), reinterpret_cast<std::uint32_t*>(m_asset.get()->data()) };
+    m_handle = m_device.get()->createShaderModule(createInfo);
     YORK_CORE_DEBUG("Compiled shaders!");
     return true;
 }
 
 void Shader::destroyImpl()
 {
-    m_device->destroy(m_handle);
+    m_device.get()->destroy(m_handle);
 }
 
 Shader::~Shader()

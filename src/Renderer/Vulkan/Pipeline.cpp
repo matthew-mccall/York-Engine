@@ -37,7 +37,7 @@
 
 namespace york::graphics {
 
-Pipeline::Pipeline(RenderPass& renderPass, std::vector<Shader> shaders)
+Pipeline::Pipeline(RenderPass& renderPass, Vector<Shader> shaders)
     : m_renderPass(renderPass)
     , m_device(m_renderPass.getDevice())
     , m_pipelineLayout(m_device)
@@ -51,7 +51,7 @@ Pipeline::Pipeline(RenderPass& renderPass, std::vector<Shader> shaders)
     }
 }
 
-void Pipeline::setShaders(std::vector<Shader> shaders)
+void Pipeline::setShaders(Vector<Shader> shaders)
 {
     for (Shader& shader : m_shaders) {
         removeDependency(shader);
@@ -66,7 +66,7 @@ void Pipeline::setShaders(std::vector<Shader> shaders)
 
 bool Pipeline::createImpl()
 {
-    std::vector<vk::PipelineShaderStageCreateInfo> shaderStages;
+    Vector<vk::PipelineShaderStageCreateInfo> shaderStages;
     shaderStages.reserve(m_shaders.size());
 
     vk::ShaderStageFlagBits stage;

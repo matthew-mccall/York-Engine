@@ -106,7 +106,7 @@ bool SwapChain::createImpl()
     }
 
     m_handle = m_device->createSwapchainKHR(createInfo);
-    m_swapChainImages = m_device->getSwapchainImagesKHR(m_handle);
+    m_swapChainImages = m_device->getSwapchainImagesKHR<Allocator<vk::Image>>(m_handle);
 
     for (vk::Image image : m_swapChainImages) {
         m_swapChainImageViews.emplace_back(m_device, m_surfaceFormat.format, image);
@@ -139,7 +139,7 @@ vk::SurfaceFormatKHR SwapChain::getFormat() const
     return m_surfaceFormat;
 }
 
-std::vector<ImageView>& SwapChain::getImageViews()
+Vector<ImageView>& SwapChain::getImageViews()
 {
     return m_swapChainImageViews;
 }

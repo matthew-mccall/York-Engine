@@ -37,6 +37,8 @@
 
 #include <vulkan/vulkan.hpp>
 
+#include <york/Containers.hpp>
+
 #include "Handle.hpp"
 #include "Instance.hpp"
 #include "PhysicalDevice.hpp"
@@ -121,7 +123,7 @@ private:
     Instance& m_instance;
     Surface& m_surface;
     std::optional<PhysicalDevice> m_physicalDevice;
-    std::vector<DeviceExtension> m_requestedExtensions;
+    Vector<DeviceExtension> m_requestedExtensions;
 
     IndexQueuePair m_graphicsQueue;
     IndexQueuePair m_presentQueue;

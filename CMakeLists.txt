@@ -116,7 +116,8 @@ set(SRC
         include/york/Registry.hpp
         include/york/Renderer/RendererImpl.hpp
         src/Renderer/VulkanRendererImpl.hpp
-        include/york/Renderer/Renderer.hpp)
+        include/york/Renderer/Renderer.hpp
+        include/york/Containers.hpp)
 
 set(RUNTIME_SRC
         runtime/Runtime.cpp

@@ -49,8 +49,8 @@ namespace york::graphics {
  */
 class Pipeline : public Handle<vk::Pipeline> {
 public:
-    explicit Pipeline(RenderPass& renderPass, std::vector<Shader> shaders = {});
-    void setShaders(std::vector<Shader> shaders);
+    explicit Pipeline(RenderPass& renderPass, Vector<Shader> shaders = {});
+    void setShaders(Vector<Shader> shaders);
 
 protected:
     bool createImpl() override;
@@ -60,7 +60,7 @@ private:
     RenderPass& m_renderPass;
     Device& m_device;
 
-    std::vector<Shader> m_shaders;
+    Vector<Shader> m_shaders;
 
     PipelineLayout m_pipelineLayout;
 };

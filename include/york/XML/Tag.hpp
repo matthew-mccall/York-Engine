@@ -34,9 +34,10 @@
 #define YORK_XML_TAG_HPP
 
 #include <string>
-#include <vector>
 
 #include <xercesc/dom/DOM.hpp>
+
+#include <york/Containers.hpp>
 
 namespace york::xml {
 
@@ -48,10 +49,10 @@ public:
 
     std::string getValue();
     std::string getName();
-    std::vector<Tag> getChildTags();
+    Vector<Tag> getChildTags();
 
-    std::vector<Tag>::iterator begin();
-    std::vector<Tag>::iterator end();
+    Vector<Tag>::iterator begin();
+    Vector<Tag>::iterator end();
 
 
 private:
@@ -60,7 +61,7 @@ private:
 
     std::string m_tagName;
     std::string m_value;
-    std::vector<Tag> m_childTags;
+    Vector<Tag> m_childTags;
     xercesc::DOMElement* m_element;
 };
 

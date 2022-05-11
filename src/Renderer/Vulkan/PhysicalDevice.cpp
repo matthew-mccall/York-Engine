@@ -40,12 +40,11 @@
 
 namespace york::graphics {
 
-PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std::vector<RequestableItem>& requestedExtensions)
+PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, Vector<RequestableItem>& requestedExtensions)
     : m_physicalDevice(device)
     , m_surface(surface)
 {
-    std::vector<vk::ExtensionProperties> availableDeviceExtensions;
-    availableDeviceExtensions = m_physicalDevice.enumerateDeviceExtensionProperties();
+    Vector<vk::ExtensionProperties> availableDeviceExtensions = m_physicalDevice.enumerateDeviceExtensionProperties<Allocator<vk::ExtensionProperties>>();
 
     for (const york::RequestableItem& requestedExtension : requestedExtensions) {
         for (vk::ExtensionProperties availableExtension : availableDeviceExtensions) {
@@ -62,7 +61,7 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std:
         }
     }
 
-    m_queueFamilyProperties = m_physicalDevice.getQueueFamilyProperties();
+    m_queueFamilyProperties = m_physicalDevice.getQueueFamilyProperties<Allocator<vk::QueueFamilyProperties>>();
 
     unsigned int graphicsQueueFamilyIndex = 0;
     for (const vk::QueueFamilyProperties& queueFamily : m_queueFamilyProperties) {
@@ -74,8 +73,8 @@ PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std:
 
     m_maximumImageResolution = device.getProperties().limits.maxImageDimension2D;
 
-    m_formats = m_physicalDevice.getSurfaceFormatsKHR(*surface);
-    std::vector<vk::PresentModeKHR> presentModes = m_physicalDevice.getSurfacePresentModesKHR(*surface);
+    m_formats = m_physicalDevice.getSurfaceFormatsKHR<Allocator<vk::SurfaceFormatKHR>>(*surface);
+    Vector<vk::PresentModeKHR> presentModes = m_physicalDevice.getSurfacePresentModesKHR<Allocator<vk::PresentModeKHR>>(*surface);
 
     m_presentBestMode = vk::PresentModeKHR::eFifo;
 
@@ -120,7 +119,7 @@ uint32_t PhysicalDevice::getPresentFamilyQueueIndex()
     return m_presentFamilyQueueIndex;
 }
 
-const std::vector<std::string>& PhysicalDevice::getEnabledExtensions() const
+const Vector<std::string>& PhysicalDevice::getEnabledExtensions() const
 {
     return m_enabledExtensions;
 }
@@ -129,16 +128,16 @@ uint32_t PhysicalDevice::getMaximumImageResolution() const
 {
     return m_maximumImageResolution;
 }
-std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, Surface& surface, std::vector<RequestableItem>& requestedExtensions)
+std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, Surface& surface, Vector<RequestableItem>& requestedExtensions)
 {
-    std::vector<vk::PhysicalDevice> physicalDevices = instance.enumeratePhysicalDevices();
+    Vector<vk::PhysicalDevice> physicalDevices = instance.enumeratePhysicalDevices<Allocator<vk::PhysicalDevice>>();
 
     if (physicalDevices.empty()) {
         log::core::error("Could not find any supported GPUs!");
         return std::nullopt;
     }
 
-    std::vector<PhysicalDevice> sortedPhysicalDevices;
+    Vector<PhysicalDevice> sortedPhysicalDevices;
     sortedPhysicalDevices.reserve(physicalDevices.size());
 
     for (vk::PhysicalDevice& physicalDevice : physicalDevices) {
@@ -188,9 +187,9 @@ vk::SurfaceCapabilitiesKHR PhysicalDevice::getSurfaceCapabilities()
     ;
 }
 
-std::vector<vk::SurfaceFormatKHR>& PhysicalDevice::getFormats()
+Vector<vk::SurfaceFormatKHR>& PhysicalDevice::getFormats()
 {
-    m_formats = m_physicalDevice.getSurfaceFormatsKHR(*m_surface);
+    m_formats = m_physicalDevice.getSurfaceFormatsKHR<Allocator<vk::SurfaceFormatKHR>>(*m_surface);
     return m_formats;
 }
 

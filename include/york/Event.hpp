@@ -29,7 +29,6 @@
 #if !defined(YORK_EVENT_HPP)
 #define YORK_EVENT_HPP
 
-#include <vector>
 #include <functional>
 
 #include <SDL_events.h>

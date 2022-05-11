@@ -36,6 +36,7 @@
 #include <vulkan/vulkan.hpp>
 
 #include "york/Window.hpp"
+#include "york/Containers.hpp"
 
 #include "Device.hpp"
 #include "Handle.hpp"
@@ -52,7 +53,7 @@ public:
     [[nodiscard]] const vk::Extent2D& getExtent() const;
     [[nodiscard]] Device& getDevice() const;
     [[nodiscard]] vk::SurfaceFormatKHR getFormat() const;
-    std::vector<ImageView>& getImageViews();
+    Vector<ImageView>& getImageViews();
 
 private:
     bool createImpl() override;
@@ -65,8 +66,8 @@ private:
     vk::PresentModeKHR m_presentMode;
     vk::Extent2D m_extent;
     vk::SurfaceCapabilitiesKHR m_capabilities;
-    std::vector<vk::Image> m_swapChainImages;
-    std::vector<ImageView> m_swapChainImageViews;
+    Vector<vk::Image> m_swapChainImages;
+    Vector<ImageView> m_swapChainImageViews;
 };
 
 }

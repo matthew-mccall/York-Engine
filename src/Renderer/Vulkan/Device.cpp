@@ -60,7 +60,7 @@ bool Device::createImpl()
     float queuePriorities = 1.0;
 
     std::set<uint32_t> uniqueQueueFamilies = {m_physicalDevice->getGraphicsFamilyQueueIndex(), m_physicalDevice->getPresentFamilyQueueIndex()};
-    std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
+    Vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
 
     for (uint32_t queueFamily : uniqueQueueFamilies) {
         vk::DeviceQueueCreateInfo queueCreateInfo {{}, queueFamily, 1, &queuePriorities};
@@ -69,7 +69,7 @@ bool Device::createImpl()
 
     vk::PhysicalDeviceFeatures physicalDeviceFeatures;
 
-    std::vector<const char*> enabledExtensions(m_physicalDevice->getEnabledExtensions().size());
+    Vector<const char*> enabledExtensions(m_physicalDevice->getEnabledExtensions().size());
 
     for (int i = 0; i < enabledExtensions.size(); i++) {
         enabledExtensions[i] = m_physicalDevice->getEnabledExtensions()[i].c_str();

@@ -33,8 +33,9 @@
 #ifndef YORK_REGISTRY_HPP
 #define YORK_REGISTRY_HPP
 
-#include <vector>
 #include <functional>
+
+#include "Containers.hpp"
 
 namespace york {
 
@@ -64,7 +65,7 @@ public:
 
 private:
     Registry() = default;
-    std::vector<std::reference_wrapper<EventHandler>> m_eventHandlers;
+    Vector<std::reference_wrapper<EventHandler>> m_eventHandlers;
 };
 
 extern "C" void registerRegistry(Registry& registry);

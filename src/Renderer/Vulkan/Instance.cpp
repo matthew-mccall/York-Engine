@@ -27,7 +27,6 @@
  */
 
 #include <sstream>
-#include <vector>
 
 #include <SDL_vulkan.h>
 
@@ -38,8 +37,9 @@
 
 namespace {
 
-std::vector<vk::LayerProperties> s_availableLayers;
-std::vector<vk::ExtensionProperties> s_availableExtensions;
+york::Vector<vk::LayerProperties> s_availableLayers;
+york::Vector<vk::ExtensionProperties> s_availableExtensions;
+
 VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const* pCallbackData, void* /*pUserData*/)
 {
 
@@ -73,10 +73,10 @@ bool Instance::createImpl()
 {
     vk::ApplicationInfo appInfo { "York Engine Client", VK_MAKE_VERSION(1, 0, 0), "York Engine", VK_MAKE_VERSION(1, 0, 0), VK_API_VERSION_1_1 };
 
-    std::vector<const char*> enabledLayers;
-    std::vector<const char*> enabledExtensions;
-    std::vector<InstanceLayer> unavailableLayers;
-    std::vector<InstanceExtension> unavailableExtensions;
+    Vector<const char*> enabledLayers;
+    Vector<const char*> enabledExtensions;
+    Vector<InstanceLayer> unavailableLayers;
+    Vector<InstanceExtension> unavailableExtensions;
 
     if constexpr (YORK_BUILD_CONFIG == "Debug") {
         requestLayer({ "VK_LAYER_KHRONOS_validation" });
@@ -87,7 +87,7 @@ bool Instance::createImpl()
 
 
     if (s_availableLayers.empty()) {
-        s_availableLayers = vk::enumerateInstanceLayerProperties();
+        s_availableLayers = vk::enumerateInstanceLayerProperties<Allocator<vk::LayerProperties>>();
     }
 
     for (InstanceLayer& requestedLayer : m_requestedLayers) {
@@ -108,10 +108,10 @@ bool Instance::createImpl()
     }
 
     if (s_availableExtensions.empty()) {
-        s_availableExtensions = vk::enumerateInstanceExtensionProperties();
+        s_availableExtensions = vk::enumerateInstanceExtensionProperties<Allocator<vk::ExtensionProperties>>();
     }
 
-    std::vector<const char*> sdlExtensions;
+    Vector<const char*> sdlExtensions;
 
     {
         // TODO: Remove when SDL updates their API

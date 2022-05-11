@@ -30,10 +30,10 @@
 #define YORK_GRAPHICS_INSTANCE_HPP
 
 #include <string>
-#include <vector>
 
 #include <vulkan/vulkan.hpp>
 
+#include <york/Containers.hpp>
 #include <york/Window.hpp>
 
 #include "Handle.hpp"
@@ -84,8 +84,8 @@ protected:
 
 private:
     vk::DebugUtilsMessengerEXT debugUtilsMessenger = {};
-    std::vector<InstanceLayer> m_requestedLayers;
-    std::vector<InstanceExtension> m_requestedExtensions;
+    Vector<InstanceLayer> m_requestedLayers;
+    Vector<InstanceExtension> m_requestedExtensions;
 };
 
 }

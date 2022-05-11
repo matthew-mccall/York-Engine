@@ -34,6 +34,7 @@
 #define YORK_GRAPHICS_SHADER_HPP
 
 #include <cstdint>
+#include <functional>
 #include <string>
 #include <vector>
 #include <vulkan/vulkan.hpp>
@@ -94,8 +95,8 @@ public:
     ~Shader() override;
 
 private:
-    Asset& m_asset;
-    Device& m_device;
+    std::reference_wrapper<Asset> m_asset;
+    std::reference_wrapper<Device> m_device;
     Type m_type;
 };
 

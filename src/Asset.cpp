@@ -37,10 +37,11 @@
 
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
+#include "york/Containers.hpp"
 
 namespace {
 std::unordered_map<std::string, unsigned> s_referenceCount;
-std::unordered_map<std::string, std::vector<std::uint8_t>> s_assetData;
+std::unordered_map<std::string, york::Vector<std::uint8_t>> s_assetData;
 }
 
 namespace york {
@@ -83,7 +84,7 @@ Asset::Asset(const std::string& location, Type type)
     s_referenceCount[m_location]++;
 }
 
-std::vector<std::uint8_t>& Asset::getVector()
+Vector<std::uint8_t>& Asset::getVector()
 {
     if (m_data.empty()) {
         SDL_RWops* file = SDL_RWFromFile(m_location.c_str(), "rb");
@@ -146,18 +147,18 @@ std::uint8_t& Asset::operator[](std::size_t idx)
     return (**this)[idx];
 }
 
-std::vector<std::uint8_t>& Asset::operator*()
+Vector<std::uint8_t>& Asset::operator*()
 {
     return this->getVector();
 }
 
-std::vector<std::uint8_t>* Asset::operator->()
+Vector<std::uint8_t>* Asset::operator->()
 {
     this->getVector();
     return &m_data;
 }
 
-std::vector<std::uint8_t>& NetworkAsset::getVector()
+Vector<std::uint8_t>& NetworkAsset::getVector()
 {
     if (m_data.empty()) {
         curlpp::Easy req;
@@ -188,7 +189,7 @@ StringAsset::StringAsset(const std::string& content, Type type)
 {
 }
 
-std::vector<std::uint8_t>& StringAsset::getVector()
+Vector<std::uint8_t>& StringAsset::getVector()
 {
     if (m_data.empty()) {
         m_data = { m_content.begin(), m_content.end() };

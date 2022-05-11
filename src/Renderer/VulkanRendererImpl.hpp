@@ -74,12 +74,12 @@ private:
     york::graphics::Pipeline m_pipeline;
     york::graphics::CommandPool m_commandPool;
 
-    std::vector<graphics::FrameData> m_frames;
-    std::vector<graphics::Fence> m_fences;
-    std::vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
-    std::vector<graphics::Shader> m_defaultShaders;
+    Vector<graphics::FrameData> m_frames;
+    Vector<graphics::Fence> m_fences;
+    Vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
+    Vector<graphics::Shader> m_defaultShaders;
 
-    std::vector<vk::CommandBuffer> m_commandBuffers;
+    Vector<vk::CommandBuffer> m_commandBuffers;
 
     std::uint32_t m_frameIndex = 0;
     std::uint32_t m_maxFrames = 0;

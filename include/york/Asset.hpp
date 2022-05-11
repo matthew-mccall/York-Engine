@@ -30,7 +30,8 @@
 #define YORK_ASSET_HPP
 
 #include <string>
-#include <vector>
+
+#include "Containers.hpp"
 
 namespace york {
 
@@ -85,10 +86,10 @@ public:
      * This may attempt to load the data on the spot if it is the first time called, previously failed, or the data was unloaded.
      * @return
      */
-    virtual std::vector<std::uint8_t>& getVector();
+    virtual Vector<std::uint8_t>& getVector();
 
-    std::vector<std::uint8_t>& operator*();
-    std::vector<std::uint8_t>* operator->();
+    Vector<std::uint8_t>& operator*();
+    Vector<std::uint8_t>* operator->();
 
     std::uint8_t & operator[](std::size_t idx);
 
@@ -96,7 +97,7 @@ public:
 
 protected:
     std::string m_location;
-    std::vector<std::uint8_t>& m_data;
+    Vector<std::uint8_t>& m_data;
     Type m_type;
     int m_size;
 };
@@ -114,7 +115,7 @@ public:
      * @param type The type of document
      */
     explicit NetworkAsset(const std::string& url, Type type = Type::UTF8);
-    std::vector<std::uint8_t>& getVector() override;
+    Vector<std::uint8_t>& getVector() override;
 };
 
 /**
@@ -128,7 +129,7 @@ public:
      * @param type The type of string
      */
     explicit StringAsset(const std::string& content, Type type = Type::UTF8);
-    std::vector<std::uint8_t>& getVector() override;
+    Vector<std::uint8_t>& getVector() override;
 
 private:
     std::string m_content;
@@ -151,7 +152,7 @@ public:
     {
     }
 
-    std::vector<std::uint8_t>& getVector() override
+    Vector<std::uint8_t>& getVector() override
     {
       if (m_data.empty()) {
         m_data = { m_content.begin(), m_content.end() };

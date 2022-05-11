@@ -48,21 +48,21 @@ std::string Tag::getName()
     return m_tagName;
 }
 
-std::vector<Tag> Tag::getChildTags()
+Vector<Tag> Tag::getChildTags()
 {
     updateChildren();
 
     return m_childTags;
 }
 
-std::vector<Tag>::iterator Tag::begin()
+Vector<Tag>::iterator Tag::begin()
 {
     updateChildren();
 
     return m_childTags.begin();
 }
 
-std::vector<Tag>::iterator Tag::end()
+Vector<Tag>::iterator Tag::end()
 {
     updateChildren();
 

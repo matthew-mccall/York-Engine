@@ -37,10 +37,10 @@
  * Credit to <a href="https://github.com/MarcasRealAccount/">Markus</a> for the Handle system.
  */
 
-#include <vector>
 #include <functional>
 
 #include <york/Identifiable.hpp>
+#include <york/Containers.hpp>
 
 namespace york::graphics {
 
@@ -97,8 +97,8 @@ protected:
 
 private:
     bool m_created = false;
-    std::vector<std::reference_wrapper<HandleBase>> m_dependents;
-    std::vector<std::reference_wrapper<HandleBase>> m_dependencies;
+    Vector<std::reference_wrapper<HandleBase>> m_dependents;
+    Vector<std::reference_wrapper<HandleBase>> m_dependencies;
 };
 
 /**

@@ -37,6 +37,8 @@
 
 #include <vulkan/vulkan.hpp>
 
+#include <york/Containers.hpp>
+
 #include "Surface.hpp"
 #include "RequestableItem.hpp"
 
@@ -55,7 +57,7 @@ public:
      * @param device The Vulkan handle for the physical device to get the information about.
      * @param requestedExtensions The extensions to check against this device's support for.
      */
-    PhysicalDevice(vk::PhysicalDevice device, Surface& surface, std::vector<RequestableItem>& requestedExtensions);
+    PhysicalDevice(vk::PhysicalDevice device, Surface& surface, Vector<RequestableItem>& requestedExtensions);
 
     /**
      * Gets the number of requested required extensions supported.
@@ -92,7 +94,7 @@ public:
      *
      * @return A list of the requested extensions that are supported by the device
      */
-    [[nodiscard]] const std::vector<std::string>& getEnabledExtensions() const;
+    [[nodiscard]] const Vector<std::string>& getEnabledExtensions() const;
 
     /**
      * Gets the highest resolution supported by the device.
@@ -102,7 +104,7 @@ public:
     [[nodiscard]] uint32_t getMaximumImageResolution() const;
     
     vk::SurfaceCapabilitiesKHR getSurfaceCapabilities();
-    std::vector<vk::SurfaceFormatKHR>& getFormats();
+    Vector<vk::SurfaceFormatKHR>& getFormats();
 
     [[nodiscard]] vk::SurfaceFormatKHR getBestFormat();
     [[nodiscard]] vk::PresentModeKHR getBestPresentMode() const;
@@ -118,7 +120,7 @@ public:
      * @param requestedExtensions The extensions to check the devices against.
      * @return
      */
-    static std::optional<PhysicalDevice> getBest(vk::Instance instance, Surface& surface, std::vector<RequestableItem>& requestedExtensions);
+    static std::optional<PhysicalDevice> getBest(vk::Instance instance, Surface& surface, Vector<RequestableItem>& requestedExtensions);
 
     vk::PhysicalDevice* operator->()
     {
@@ -143,9 +145,9 @@ private:
     std::uint32_t m_presentFamilyQueueIndex = -1;
     std::uint32_t m_maximumImageResolution;
 
-    std::vector<std::string> m_enabledExtensions;
-    std::vector<vk::SurfaceFormatKHR> m_formats;
-    std::vector<vk::QueueFamilyProperties> m_queueFamilyProperties;
+    Vector<std::string> m_enabledExtensions;
+    Vector<vk::SurfaceFormatKHR> m_formats;
+    Vector<vk::QueueFamilyProperties> m_queueFamilyProperties;
 };
 
 }
