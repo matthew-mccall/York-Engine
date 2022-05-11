@@ -48,7 +48,7 @@ public:
     [[nodiscard]] id getID() const;
     virtual ~Identifiable() = default;
 
-    bool operator==(const Identifiable& r) const { return this->getID() == r.getID(); }
+    bool operator==(const Identifiable& other) const;
 
 private:
      id m_id;

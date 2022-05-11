@@ -69,12 +69,12 @@ public:
 private:
     york::graphics::Surface m_surface;
     york::graphics::Device m_device;
-    york::graphics::SwapChain m_swapchain;
+    york::graphics::SwapChain m_swapChain;
     york::graphics::RenderPass m_renderPass;
     york::graphics::Pipeline m_pipeline;
     york::graphics::CommandPool m_commandPool;
 
-    Vector<graphics::FrameData> m_frames;
+    Vector<graphics::Framebuffer> m_framebuffers;
     Vector<graphics::Fence> m_fences;
     Vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
     Vector<graphics::Shader> m_defaultShaders;

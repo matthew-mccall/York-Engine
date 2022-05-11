@@ -47,4 +47,6 @@ id Identifiable::getID() const
     return m_id;
 }
 
+bool Identifiable::operator==(const Identifiable& other) const { return this->getID() == other.getID(); }
+
 }

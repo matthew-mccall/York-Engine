@@ -50,7 +50,7 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
     : RendererImpl(window)
     , m_surface(s_instance, m_window)
     , m_device(s_instance, m_surface)
-    , m_swapchain(m_device, m_window, m_surface)
+    , m_swapChain(m_device, m_window, m_surface)
     , m_renderPass(m_device)
     , m_pipeline(m_renderPass)
     , m_commandPool(m_device)
@@ -76,14 +76,14 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
 
     m_pipeline.create();
 
-    Vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
+    Vector<graphics::ImageView>& imageViews = m_swapChain.getImageViews();
     m_maxFrames = imageViews.size();
 
     vk::CommandBufferAllocateInfo commandBufferAllocateInfo { *m_commandPool, vk::CommandBufferLevel::ePrimary, static_cast<uint32_t>(m_maxFrames) };
     m_commandBuffers = m_device->allocateCommandBuffers<Allocator<vk::CommandBuffer>>(commandBufferAllocateInfo);
 
-    m_frames.reserve(m_maxFrames);
     m_fences.reserve(m_maxFrames);
+    m_framebuffers.reserve(m_maxFrames);
     m_imageAvailableSemaphores.reserve(m_maxFrames);
     m_renderFinishedSemaphores.reserve(m_maxFrames);
 
@@ -91,16 +91,14 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
         m_fences.emplace_back(m_device);
         m_fences.back().create();
 
+        m_framebuffers.emplace_back(m_renderPass, imageViews[i], m_swapChain);
+        m_framebuffers.back().create();
+
         m_imageAvailableSemaphores.emplace_back(m_device);
         m_imageAvailableSemaphores.back().create();
 
         m_renderFinishedSemaphores.emplace_back(m_device);
         m_renderFinishedSemaphores.back().create();
-    }
-
-    for (unsigned i = 0; i < m_maxFrames; i++) {
-        m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);
-        m_frames.back().create();
     }
 }
 
@@ -109,7 +107,7 @@ bool VulkanRendererImpl::draw()
     std::array<vk::Fence, 1> fences = { *m_fences[m_frameIndex] };
     auto waitResult = m_device->waitForFences(fences, VK_TRUE, std::numeric_limits<std::uint64_t>::max());
 
-    auto [result, imageIndex] = m_device->acquireNextImageKHR(*m_swapchain, std::numeric_limits<std::uint64_t>::max(), *m_imageAvailableSemaphores[m_frameIndex], VK_NULL_HANDLE);
+    auto [result, imageIndex] = m_device->acquireNextImageKHR(*m_swapChain, std::numeric_limits<std::uint64_t>::max(), *m_imageAvailableSemaphores[m_frameIndex], VK_NULL_HANDLE);
 
     if (result == vk::Result::eErrorOutOfDateKHR) {
         recreateSwapChain();
@@ -129,19 +127,19 @@ bool VulkanRendererImpl::draw()
     vk::Viewport viewport {
         0,
         0,
-        static_cast<float>(m_swapchain.getExtent().width),
-        static_cast<float>(m_swapchain.getExtent().height),
+        static_cast<float>(m_swapChain.getExtent().width),
+        static_cast<float>(m_swapChain.getExtent().height),
         0,
         1
     };
 
-    vk::Rect2D scissor { {0, 0}, m_swapchain.getExtent()};
+    vk::Rect2D scissor { {0, 0}, m_swapChain.getExtent()};
 
     commandBuffer.setViewport(0, { viewport });
     commandBuffer.setScissor(0, { scissor });
 
     vk::ClearValue clearValue { vk::ClearColorValue().setFloat32({ 0, 0, 0, 0 }) };
-    vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(m_frames[imageIndex].getFramebuffer()), { { 0, 0 }, m_swapchain.getExtent() }, clearValue };
+    vk::RenderPassBeginInfo renderPassBeginInfo { *m_renderPass, *(m_framebuffers[imageIndex]), { { 0, 0 }, m_swapChain.getExtent() }, clearValue };
     commandBuffer.beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
 
     commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, *m_pipeline);
@@ -160,7 +158,7 @@ bool VulkanRendererImpl::draw()
 
     m_device.getGraphicsQueue().submit({ submitInfo }, *m_fences[m_frameIndex]);
 
-    std::array<vk::SwapchainKHR, 1> swapChains { *m_swapchain };
+    std::array<vk::SwapchainKHR, 1> swapChains { *m_swapChain };
     std::array<std::uint32_t, 1> imageIndices { imageIndex };
 
     vk::PresentInfoKHR presentInfo { signalSemaphores, swapChains, imageIndices };
@@ -186,14 +184,14 @@ VulkanRendererImpl::~VulkanRendererImpl()
         m_device->waitIdle();
 
         for (unsigned i = 0; i < m_maxFrames; i++) {
-            m_frames[i].destroy();
             m_fences[i].destroy();
+            m_framebuffers[i].destroy();
             m_imageAvailableSemaphores[i].destroy();
             m_renderFinishedSemaphores[i].destroy();
         }
 
-        m_frames.clear();
         m_fences.clear();
+        m_framebuffers.clear();
         m_imageAvailableSemaphores.clear();
         m_renderFinishedSemaphores.clear();
 
@@ -212,22 +210,15 @@ void VulkanRendererImpl::onEvent(Event& e)
 
 void VulkanRendererImpl::recreateSwapChain()
 {
-
     m_device->waitIdle();
-    m_frames.clear();
 
-    m_swapchain.create();
+    m_swapChain.create();
     m_renderPass.create();
 
-    Vector<graphics::ImageView>& imageViews = m_swapchain.getImageViews();
+    Vector<graphics::ImageView>& imageViews = m_swapChain.getImageViews();
     m_maxFrames = imageViews.size();
 
-    m_frames.reserve(m_maxFrames);
-
-    for (unsigned i = 0; i < m_maxFrames; i++) {
-        m_frames.emplace_back(m_renderPass, imageViews[i], m_swapchain, m_commandBuffers[i]);
-        m_frames.back().create();
-    }
+    m_framebuffers.reserve(m_maxFrames);
 }
 
 }
