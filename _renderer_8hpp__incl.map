@@ -1,10 +1,9 @@
 <map id="include/york/Renderer/Renderer.hpp" name="include/york/Renderer/Renderer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="183,5,333,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,95,178,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="203,95,313,121"/>
-<area shape="rect" id="node5" href="$_window_8hpp.html" title=" " alt="" coords="340,169,461,196"/>
-<area shape="rect" id="node8" href="$_renderer_impl_8hpp.html" title=" " alt="" coords="389,95,514,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="324,244,379,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="403,244,500,271"/>
+<area shape="rect" id="node1" title=" " alt="" coords="126,5,273,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,73,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,95,208,121"/>
+<area shape="rect" id="node4" href="$_window_8hpp.html" title=" " alt="" coords="235,169,355,196"/>
+<area shape="rect" id="node7" href="$_renderer_impl_8hpp.html" title=" " alt="" coords="283,95,406,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="219,244,273,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="298,244,394,271"/>
 </map>

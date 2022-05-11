@@ -1,10 +1,13 @@
 <map id="include/york/Event.hpp" name="include/york/Event.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="189,5,344,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="218,155,297,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="149,80,254,107"/>
-<area shape="rect" id="node5" href="$_key_codes_8hpp.html" title=" " alt="" coords="278,80,386,107"/>
-<area shape="rect" id="node6" href="$_identifiable_8hpp.html" title=" " alt="" coords="462,80,573,107"/>
-<area shape="rect" id="node8" href="$_registry_8hpp.html" title=" " alt="" coords="30,80,125,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="450,155,585,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="128,5,280,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="60,155,138,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="23,80,127,107"/>
+<area shape="rect" id="node4" href="$_key_codes_8hpp.html" title=" " alt="" coords="152,80,257,107"/>
+<area shape="rect" id="node5" href="$_identifiable_8hpp.html" title=" " alt="" coords="409,80,517,107"/>
+<area shape="rect" id="node7" href="$_registry_8hpp.html" title=" " alt="" coords="282,80,375,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="401,155,536,181"/>
+<area shape="rect" id="node8" href="$_containers_8hpp.html" title=" " alt="" coords="269,155,377,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="156,229,215,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="239,229,407,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="431,229,594,256"/>
 </map>

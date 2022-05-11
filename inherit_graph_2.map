@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classyork_1_1graphics_1_1_window.html" title="A graphical window to which we can render to." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node1" href="$classyork_1_1_identifiable.html" title="A convience class that generates a unique id upon creation and makes for easy comparison." alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="$classyork_1_1_event_handler.html" title="Override this to handle events." alt="" coords="168,5,299,32"/>
+<area shape="rect" id="node3" href="$classyork_1_1_layer.html" title="A layer represents a modular part of your application." alt="" coords="347,5,431,32"/>
 </map>

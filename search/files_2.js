@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['event_2ehpp_0',['Event.hpp',['../_event_8hpp.html',1,'']]]
+  ['document_2ehpp_0',['Document.hpp',['../_document_8hpp.html',1,'']]]
 ];

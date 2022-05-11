@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_0',['id',['../namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09',1,'york']]]
+  ['circularbuffer_0',['CircularBuffer',['../namespaceyork.html#a91af79a6372516e3963d430a0d5d9754',1,'york']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window_2ehpp_0',['Window.hpp',['../_window_8hpp.html',1,'']]]
+  ['tag_2ehpp_0',['Tag.hpp',['../_tag_8hpp.html',1,'']]]
 ];

@@ -123,33 +123,32 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html',''); initR
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifndef YORK_RENDERER_HPP</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define YORK_RENDERER_HPP</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="_window_8hpp.html">york/Window.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="_renderer_impl_8hpp.html">RendererImpl.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork.html">york</a> {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classyork_1_1_renderer.html">   46</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1_renderer.html">Renderer</a> {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classyork_1_1_renderer.html#a55e1ec9e54fe6883f03cb7ed6793e728">   48</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classyork_1_1_renderer.html#a55e1ec9e54fe6883f03cb7ed6793e728">draw</a>(<a class="code hl_class" href="classyork_1_1graphics_1_1_window.html">graphics::Window</a>&amp; window);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::unordered_map&lt;graphics::Window*, std::unique_ptr&lt;RendererImpl&gt;&gt; m_impls;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>} <span class="comment">// york</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif </span><span class="comment">// YORK_RENDERER_HPP</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;<a class="code" href="_window_8hpp.html">york/Window.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="_renderer_impl_8hpp.html">RendererImpl.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceyork.html">york</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classyork_1_1_renderer.html">   45</a></span><span class="keyword">class </span><a class="code hl_class" href="classyork_1_1_renderer.html">Renderer</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classyork_1_1_renderer.html#ab84490d4c85de8ff9b1af5f4741ab83a">   47</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classyork_1_1_renderer.html#ab84490d4c85de8ff9b1af5f4741ab83a">draw</a>(<a class="code hl_class" href="classyork_1_1_window.html">Window</a>&amp; window);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::unordered_map&lt;Window*, std::unique_ptr&lt;RendererImpl&gt;&gt; m_impls;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// york</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">// YORK_RENDERER_HPP</span></div>
 <div class="ttc" id="a_renderer_impl_8hpp_html"><div class="ttname"><a href="_renderer_impl_8hpp.html">RendererImpl.hpp</a></div></div>
 <div class="ttc" id="a_window_8hpp_html"><div class="ttname"><a href="_window_8hpp.html">Window.hpp</a></div></div>
-<div class="ttc" id="aclassyork_1_1_renderer_html"><div class="ttname"><a href="classyork_1_1_renderer.html">york::Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.hpp:46</div></div>
-<div class="ttc" id="aclassyork_1_1_renderer_html_a55e1ec9e54fe6883f03cb7ed6793e728"><div class="ttname"><a href="classyork_1_1_renderer.html#a55e1ec9e54fe6883f03cb7ed6793e728">york::Renderer::draw</a></div><div class="ttdeci">bool draw(graphics::Window &amp;window)</div></div>
-<div class="ttc" id="aclassyork_1_1graphics_1_1_window_html"><div class="ttname"><a href="classyork_1_1graphics_1_1_window.html">york::graphics::Window</a></div><div class="ttdoc">A graphical window to which we can render to.</div><div class="ttdef"><b>Definition:</b> Window.hpp:41</div></div>
-<div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:35</div></div>
+<div class="ttc" id="aclassyork_1_1_renderer_html"><div class="ttname"><a href="classyork_1_1_renderer.html">york::Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.hpp:45</div></div>
+<div class="ttc" id="aclassyork_1_1_renderer_html_ab84490d4c85de8ff9b1af5f4741ab83a"><div class="ttname"><a href="classyork_1_1_renderer.html#ab84490d4c85de8ff9b1af5f4741ab83a">york::Renderer::draw</a></div><div class="ttdeci">bool draw(Window &amp;window)</div></div>
+<div class="ttc" id="aclassyork_1_1_window_html"><div class="ttname"><a href="classyork_1_1_window.html">york::Window</a></div><div class="ttdoc">A graphical window to which we can render to.</div><div class="ttdef"><b>Definition:</b> Window.hpp:41</div></div>
+<div class="ttc" id="anamespaceyork_html"><div class="ttname"><a href="namespaceyork.html">york</a></div><div class="ttdef"><b>Definition:</b> Asset.hpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

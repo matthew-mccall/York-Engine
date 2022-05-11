@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['future_0',['Future',['../namespaceyork_1_1async.html#a87589541489ed98b9b91170cbd69395a',1,'york::async']]]
+  ['allocator_0',['Allocator',['../namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93',1,'york']]]
 ];

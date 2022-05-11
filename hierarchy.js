@@ -17,5 +17,5 @@ var hierarchy =
     [ "york::RendererImpl", "classyork_1_1_renderer_impl.html", null ],
     [ "york::StopWatch", "classyork_1_1_stop_watch.html", null ],
     [ "york::xml::Tag", "classyork_1_1xml_1_1_tag.html", null ],
-    [ "york::graphics::Window", "classyork_1_1graphics_1_1_window.html", null ]
+    [ "york::Window", "classyork_1_1_window.html", null ]
 ];

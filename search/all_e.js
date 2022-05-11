@@ -7,7 +7,7 @@ var searchData=
   ['registry_2ehpp_4',['Registry.hpp',['../_registry_8hpp.html',1,'']]],
   ['renderer_5',['Renderer',['../classyork_1_1_renderer.html',1,'york']]],
   ['renderer_2ehpp_6',['Renderer.hpp',['../_renderer_8hpp.html',1,'']]],
-  ['rendererimpl_7',['RendererImpl',['../classyork_1_1_renderer_impl.html#aef42bca0ce45d9ce29ce600cf39b9d5e',1,'york::RendererImpl::RendererImpl()'],['../classyork_1_1_renderer_impl.html',1,'york::RendererImpl']]],
+  ['rendererimpl_7',['RendererImpl',['../classyork_1_1_renderer_impl.html#a441898147b2d36c072e1644d363472d9',1,'york::RendererImpl::RendererImpl()'],['../classyork_1_1_renderer_impl.html',1,'york::RendererImpl']]],
   ['rendererimpl_2ehpp_8',['RendererImpl.hpp',['../_renderer_impl_8hpp.html',1,'']]],
   ['requestexit_9',['requestExit',['../classyork_1_1_layer.html#a5dfef397f297ce82098beae21d041465',1,'york::Layer']]],
   ['reset_10',['reset',['../classyork_1_1_stop_watch.html#ad5680a80ecc713cf67667cdec69f6430',1,'york::StopWatch']]]

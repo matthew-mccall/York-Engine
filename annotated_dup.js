@@ -1,9 +1,6 @@
 var annotated_dup =
 [
     [ "york", "namespaceyork.html", [
-      [ "graphics", "namespaceyork_1_1graphics.html", [
-        [ "Window", "classyork_1_1graphics_1_1_window.html", "classyork_1_1graphics_1_1_window" ]
-      ] ],
       [ "xml", "namespaceyork_1_1xml.html", [
         [ "Document", "classyork_1_1xml_1_1_document.html", "classyork_1_1xml_1_1_document" ],
         [ "Tag", "classyork_1_1xml_1_1_tag.html", "classyork_1_1xml_1_1_tag" ]
@@ -19,6 +16,7 @@ var annotated_dup =
       [ "Renderer", "classyork_1_1_renderer.html", "classyork_1_1_renderer" ],
       [ "RendererImpl", "classyork_1_1_renderer_impl.html", "classyork_1_1_renderer_impl" ],
       [ "StopWatch", "classyork_1_1_stop_watch.html", "classyork_1_1_stop_watch" ],
-      [ "StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ]
+      [ "StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ],
+      [ "Window", "classyork_1_1_window.html", "classyork_1_1_window" ]
     ] ]
 ];

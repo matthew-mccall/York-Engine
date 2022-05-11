@@ -99,8 +99,6 @@ $(document).ready(function(){initNavTree('namespaceyork.html',''); initResizable
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceyork_1_1async"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1async.html">async</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceyork_1_1graphics"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1graphics.html">graphics</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceyork_1_1log"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork_1_1log.html">log</a></td></tr>
 <tr class="memdesc:namespaceyork_1_1log"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all the logging functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,9 +141,21 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_string_asset.html">StringAsset</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An that represents and in-memory string.  <a href="classyork_1_1_string_asset.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classyork_1_1_window.html">Window</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A graphical window to which we can render to.  <a href="classyork_1_1_window.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ac1c4e1f2dd64f6d017c45d86068a9f93"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac1c4e1f2dd64f6d017c45d86068a9f93"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">Allocator</a> = boost::pool_allocator&lt; T &gt;</td></tr>
+<tr class="separator:ac1c4e1f2dd64f6d017c45d86068a9f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22bd5f4921d0fcb88b2aa4e22350d263"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a22bd5f4921d0fcb88b2aa4e22350d263"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork.html#a22bd5f4921d0fcb88b2aa4e22350d263">Vector</a> = std::vector&lt; T, <a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">Allocator</a>&lt; T &gt; &gt;</td></tr>
+<tr class="separator:a22bd5f4921d0fcb88b2aa4e22350d263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91af79a6372516e3963d430a0d5d9754"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a91af79a6372516e3963d430a0d5d9754"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceyork.html#a91af79a6372516e3963d430a0d5d9754">CircularBuffer</a> = boost::circular_buffer&lt; T, <a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">Allocator</a>&lt; T &gt; &gt;</td></tr>
+<tr class="separator:a91af79a6372516e3963d430a0d5d9754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c436324d9a9c6b97acddaf24dd0bc09"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09">id</a> = boost::uuids::uuid</td></tr>
 <tr class="separator:a1c436324d9a9c6b97acddaf24dd0bc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -473,6 +483,38 @@ Functions</h2></td></tr>
 <tr class="separator:a83ff75a0b802e1414c164f6017e68556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="ac1c4e1f2dd64f6d017c45d86068a9f93" name="ac1c4e1f2dd64f6d017c45d86068a9f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1c4e1f2dd64f6d017c45d86068a9f93">&#9670;&nbsp;</a></span>Allocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">york::Allocator</a> = typedef boost::pool_allocator&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91af79a6372516e3963d430a0d5d9754" name="a91af79a6372516e3963d430a0d5d9754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91af79a6372516e3963d430a0d5d9754">&#9670;&nbsp;</a></span>CircularBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceyork.html#a91af79a6372516e3963d430a0d5d9754">york::CircularBuffer</a> = typedef boost::circular_buffer&lt;T, <a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">Allocator</a>&lt;T&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1c436324d9a9c6b97acddaf24dd0bc09" name="a1c436324d9a9c6b97acddaf24dd0bc09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c436324d9a9c6b97acddaf24dd0bc09">&#9670;&nbsp;</a></span>id</h2>
 
@@ -481,6 +523,22 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09">york::id</a> = typedef boost::uuids::uuid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22bd5f4921d0fcb88b2aa4e22350d263" name="a22bd5f4921d0fcb88b2aa4e22350d263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bd5f4921d0fcb88b2aa4e22350d263">&#9670;&nbsp;</a></span>Vector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceyork.html#a22bd5f4921d0fcb88b2aa4e22350d263">york::Vector</a> = typedef std::vector&lt;T, <a class="el" href="namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93">Allocator</a>&lt;T&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,10 +1,22 @@
 var searchData=
 [
-  ['_7easset_0',['~Asset',['../classyork_1_1_asset.html#a3a88638b38bf5460deef224f93bced03',1,'york::Asset']]],
-  ['_7edocument_1',['~Document',['../classyork_1_1xml_1_1_document.html#a920d346dad553e10d28d42fc16ed5d7f',1,'york::xml::Document']]],
-  ['_7eeventhandler_2',['~EventHandler',['../classyork_1_1_event_handler.html#aa36240adcfe8a9ba81682a3b419526ca',1,'york::EventHandler']]],
-  ['_7eidentifiable_3',['~Identifiable',['../classyork_1_1_identifiable.html#a12f05aa350d9a4de47a8d984b55b3448',1,'york::Identifiable']]],
-  ['_7elayer_4',['~Layer',['../classyork_1_1_layer.html#a9e2de91295a4c1825c632f978d1b46d2',1,'york::Layer']]],
-  ['_7erendererimpl_5',['~RendererImpl',['../classyork_1_1_renderer_impl.html#a809e8b3e68cf89c6d9e1389ce5f97fcb',1,'york::RendererImpl']]],
-  ['_7ewindow_6',['~Window',['../classyork_1_1graphics_1_1_window.html#a30b0ba79c7ad62eb80db08fea8aa02f8',1,'york::graphics::Window']]]
+  ['async_0',['async',['../namespaceyork_1_1async.html',1,'york']]],
+  ['core_1',['core',['../namespaceyork_1_1log_1_1core.html',1,'york::log']]],
+  ['log_2',['log',['../namespaceyork_1_1log.html',1,'york']]],
+  ['xml_3',['xml',['../namespaceyork_1_1xml.html',1,'york']]],
+  ['york_4',['york',['../namespaceyork.html',1,'']]],
+  ['york_2dengine_5',['York-Engine',['../index.html',1,'']]],
+  ['york_2ehpp_6',['York.hpp',['../_york_8hpp.html',1,'']]],
+  ['york_5fcore_5fcritical_7',['YORK_CORE_CRITICAL',['../_log_8hpp.html#a29f5e4a1161a0ae1599e075292521878',1,'Log.hpp']]],
+  ['york_5fcore_5fdebug_8',['YORK_CORE_DEBUG',['../_log_8hpp.html#a1423428986a88bc51fbdef33780e14c9',1,'Log.hpp']]],
+  ['york_5fcore_5ferror_9',['YORK_CORE_ERROR',['../_log_8hpp.html#a678b0e9e1fe5dd6f2085267dc674ea86',1,'Log.hpp']]],
+  ['york_5fcore_5finfo_10',['YORK_CORE_INFO',['../_log_8hpp.html#a462ff1f574101ae2a1cfcdb67a88b952',1,'Log.hpp']]],
+  ['york_5fcore_5ftrace_11',['YORK_CORE_TRACE',['../_log_8hpp.html#ad5c6e612c6e8d1b77fdf8d8ac32e6801',1,'Log.hpp']]],
+  ['york_5fcore_5fwarn_12',['YORK_CORE_WARN',['../_log_8hpp.html#a755684dfb64dff644f8e2172acc20cef',1,'Log.hpp']]],
+  ['york_5fcritical_13',['YORK_CRITICAL',['../_log_8hpp.html#a44eca2dee1b7a76a089606d9b15f78bf',1,'Log.hpp']]],
+  ['york_5fdebug_14',['YORK_DEBUG',['../_log_8hpp.html#a60c1495769f509df9bd14eeada274608',1,'Log.hpp']]],
+  ['york_5ferror_15',['YORK_ERROR',['../_log_8hpp.html#a4328ce88027ba1e6708d20f4abab919a',1,'Log.hpp']]],
+  ['york_5finfo_16',['YORK_INFO',['../_log_8hpp.html#adbbc77f67a8c2b088131675d3cf7b7ac',1,'Log.hpp']]],
+  ['york_5ftrace_17',['YORK_TRACE',['../_log_8hpp.html#ad819c3835137a5344f5030acaf1a8a49',1,'Log.hpp']]],
+  ['york_5fwarn_18',['YORK_WARN',['../_log_8hpp.html#abebd8974bf129493481eb00b4568c026',1,'Log.hpp']]]
 ];

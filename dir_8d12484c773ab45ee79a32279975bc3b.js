@@ -9,6 +9,7 @@ var dir_8d12484c773ab45ee79a32279975bc3b =
       [ "york::BinaryAsset< N >", "classyork_1_1_binary_asset.html", "classyork_1_1_binary_asset" ]
     ] ],
     [ "Async.hpp", "_async_8hpp.html", "_async_8hpp" ],
+    [ "Containers.hpp", "_containers_8hpp.html", "_containers_8hpp" ],
     [ "Event.hpp", "_event_8hpp.html", "_event_8hpp" ],
     [ "Identifiable.hpp", "_identifiable_8hpp.html", "_identifiable_8hpp" ],
     [ "KeyCodes.hpp", "_key_codes_8hpp.html", "_key_codes_8hpp" ],
@@ -21,7 +22,7 @@ var dir_8d12484c773ab45ee79a32279975bc3b =
       [ "york::StopWatch", "classyork_1_1_stop_watch.html", "classyork_1_1_stop_watch" ]
     ] ],
     [ "Window.hpp", "_window_8hpp.html", [
-      [ "york::graphics::Window", "classyork_1_1graphics_1_1_window.html", "classyork_1_1graphics_1_1_window" ]
+      [ "york::Window", "classyork_1_1_window.html", "classyork_1_1_window" ]
     ] ],
     [ "York.hpp", "_york_8hpp.html", null ]
 ];

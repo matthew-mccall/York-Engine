@@ -6,7 +6,6 @@ var namespaceyork =
       [ "getExecutor", "namespaceyork_1_1async.html#a417d5cc6f573f03818d0c1cb03906b76", null ],
       [ "nrDispatch", "namespaceyork_1_1async.html#a556b2969865229b76e64d8d4ab51984f", null ]
     ] ],
-    [ "graphics", "namespaceyork_1_1graphics.html", "namespaceyork_1_1graphics" ],
     [ "log", "namespaceyork_1_1log.html", "namespaceyork_1_1log" ],
     [ "xml", "namespaceyork_1_1xml.html", "namespaceyork_1_1xml" ],
     [ "Asset", "classyork_1_1_asset.html", "classyork_1_1_asset" ],
@@ -21,7 +20,11 @@ var namespaceyork =
     [ "RendererImpl", "classyork_1_1_renderer_impl.html", "classyork_1_1_renderer_impl" ],
     [ "StopWatch", "classyork_1_1_stop_watch.html", "classyork_1_1_stop_watch" ],
     [ "StringAsset", "classyork_1_1_string_asset.html", "classyork_1_1_string_asset" ],
+    [ "Window", "classyork_1_1_window.html", "classyork_1_1_window" ],
+    [ "Allocator", "namespaceyork.html#ac1c4e1f2dd64f6d017c45d86068a9f93", null ],
+    [ "CircularBuffer", "namespaceyork.html#a91af79a6372516e3963d430a0d5d9754", null ],
     [ "id", "namespaceyork.html#a1c436324d9a9c6b97acddaf24dd0bc09", null ],
+    [ "Vector", "namespaceyork.html#a22bd5f4921d0fcb88b2aa4e22350d263", null ],
     [ "KeyCode", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618", [
       [ "KEY_A", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a5df3f2093c573770f204c77c0dd75a31", null ],
       [ "KEY_B", "namespaceyork.html#a748e9412565f10fa7247a2eae399f618a27e8a917c5d5e4c440c4dbc160e96f45", null ],
