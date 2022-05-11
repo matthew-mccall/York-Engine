@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classyork_1_1xml_1_1_tag.html#afac6de0a0fd46db31bc45806e4a67d83":[2,0,0,0,1,5],
+"dir_1b88ee86b1512d6914ad6c1918e935fe.html":[3,0,0,0,1],
 "dir_8d12484c773ab45ee79a32279975bc3b.html":[3,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[3,0,0],
 "dir_e26aeafa51c50e65f91679e8be1de890.html":[3,0,0,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618adf3153982c2e083bc603f505d69e7956":[1,0,0,20,23],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618adf9a973f21d23d40a8f8c8192db00a2f":[1,0,0,20,186],
 "namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae07b68307970f2ccd8a5f9f7ffa512dc":[1,0,0,20,242],
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae130a1fa281468441ae1c762a6f55863":[1,0,0,20,125],
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae13aa4e7f6db06a02fa588318c9516eb":[1,0,0,20,188],
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae1badc520d09cae78144a77214052615":[1,0,0,20,238]
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae130a1fa281468441ae1c762a6f55863":[1,0,0,20,125]
 };

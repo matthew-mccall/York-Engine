@@ -80,8 +80,8 @@ var NAVTREEINDEX =
 [
 "_asset_8hpp.html",
 "_key_codes_8hpp.html#a748e9412565f10fa7247a2eae399f618aedeeb2f4bc9816c7f96fd23d806606a1",
-"dir_8d12484c773ab45ee79a32279975bc3b.html",
-"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae27439eebd778013c33fbb14dd19fd04"
+"classyork_1_1xml_1_1_tag.html#afac6de0a0fd46db31bc45806e4a67d83",
+"namespaceyork.html#a748e9412565f10fa7247a2eae399f618ae13aa4e7f6db06a02fa588318c9516eb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
