@@ -36,7 +36,8 @@ namespace york::graphics {
 #pragma ide diagnostic ignored "misc-no-recursion"
 
 HandleBase::HandleBase(const HandleBase& other)
- : Identifiable(other) {
+    : Identifiable(other)
+{
     for (HandleBase& dependency : other.m_dependencies) {
         addDependency(dependency);
     }
@@ -94,11 +95,12 @@ void HandleBase::addDependent(HandleBase& handle)
 
 void HandleBase::removeDependent(HandleBase& handle)
 {
-    for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) {
-        if (handle == *i) {
-            m_dependents.erase(i);
-            break;
-        }
+    auto i = std::find_if(m_dependents.begin(), m_dependents.end(), [&handle](auto other) {
+        return handle == other.get();
+    });
+
+    if (i != m_dependents.end()) {
+        m_dependents.erase(i);
     }
 }
 
@@ -111,11 +113,13 @@ void HandleBase::addDependency(HandleBase& handle)
 void HandleBase::removeDependency(HandleBase& handle)
 {
     handle.removeDependent(*this);
-    for (auto i = m_dependencies.begin(); i != m_dependencies.end(); i++) {
-        if (handle == *i) {
-            m_dependencies.erase(i);
-            break;
-        }
+
+    auto i = std::find_if(m_dependencies.begin(), m_dependencies.end(), [&handle](auto other) {
+        return other.get() == handle;
+    });
+
+    if (i != m_dependencies.end()) {
+        m_dependencies.erase(i);
     }
 }
 
