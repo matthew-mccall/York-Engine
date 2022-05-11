@@ -49,6 +49,7 @@ public:
     virtual ~Identifiable() = default;
 
     bool operator==(const Identifiable& other) const;
+    bool operator!=(const Identifiable& other) const;
 
 private:
      id m_id;
