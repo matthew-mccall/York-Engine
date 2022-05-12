@@ -43,7 +43,7 @@
 #include <york/Identifiable.hpp>
 #include <york/Containers.hpp>
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * @namespace york::graphics

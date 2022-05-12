@@ -42,7 +42,7 @@
 #include "Surface.hpp"
 #include "RequestableItem.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * @brief A class representing properties about a physical GPU.

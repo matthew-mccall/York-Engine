@@ -32,7 +32,7 @@
 
 #include "Fence.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Fence::Fence(Device& device) : m_device(device)
 {

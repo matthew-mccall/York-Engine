@@ -32,7 +32,7 @@
 
 #include "Semaphore.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Semaphore::Semaphore(Device& device) : m_device(device) {
     addDependency(m_device);

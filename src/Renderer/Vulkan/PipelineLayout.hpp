@@ -38,7 +38,7 @@
 #include "Device.hpp"
 #include "Handle.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Handle wrapper for Vulkan Pipeline Layout

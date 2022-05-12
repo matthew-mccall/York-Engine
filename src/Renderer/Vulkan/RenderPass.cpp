@@ -32,7 +32,7 @@
 
 #include "RenderPass.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 RenderPass::RenderPass(Device& device) : m_device(device)
 {

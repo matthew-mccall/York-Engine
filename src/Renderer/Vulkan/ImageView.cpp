@@ -32,7 +32,7 @@
 
 #include "ImageView.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 ImageView::ImageView(Device& device, vk::Format format, vk::Image image)
     : m_device(device)

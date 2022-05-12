@@ -67,7 +67,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugMessageFunc(VkDebugUtilsMessageSeverityFlagB
 
 }
 
-namespace york::graphics {
+namespace york::vulkan {
 
 bool Instance::createImpl()
 {

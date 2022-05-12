@@ -39,7 +39,7 @@
 #include "Framebuffer.hpp"
 #include "SwapChain.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Contains the necessary synchronization data structures, framebuffer and command buffer for a frame.

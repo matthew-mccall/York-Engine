@@ -38,7 +38,7 @@
 
 #include "PhysicalDevice.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 PhysicalDevice::PhysicalDevice(vk::PhysicalDevice device, Surface& surface, Vector<RequestableItem>& requestedExtensions)
     : m_physicalDevice(device)

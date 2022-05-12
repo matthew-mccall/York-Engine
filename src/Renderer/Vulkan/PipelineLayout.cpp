@@ -32,7 +32,7 @@
 
 #include "PipelineLayout.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 PipelineLayout::PipelineLayout(Device& device) : m_device(device)
 {

@@ -38,7 +38,7 @@
 #include "Handle.hpp"
 #include "Device.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Handle wrapper for Vulkan Command Pool

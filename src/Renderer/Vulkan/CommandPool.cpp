@@ -32,7 +32,7 @@
 
 #include "CommandPool.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 CommandPool::CommandPool(Device& device)
     : m_device(device)

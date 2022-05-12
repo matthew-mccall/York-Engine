@@ -32,7 +32,7 @@
 
 #include "Framebuffer.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Framebuffer::Framebuffer(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain)
     : m_renderPass(renderPass)

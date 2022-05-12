@@ -32,7 +32,7 @@
 
 #include "FrameData.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 FrameData::FrameData(RenderPass& renderPass, ImageView& imageView, SwapChain& swapChain, vk::CommandBuffer commandBuffer)
     : m_commandBuffer(commandBuffer)

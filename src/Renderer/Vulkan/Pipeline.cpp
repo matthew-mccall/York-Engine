@@ -35,7 +35,7 @@
 #include <array>
 #include <utility>
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Pipeline::Pipeline(RenderPass& renderPass, Vector<Shader> shaders)
     : m_renderPass(renderPass)

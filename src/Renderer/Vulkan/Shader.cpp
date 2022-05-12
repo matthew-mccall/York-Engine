@@ -40,7 +40,7 @@
 
 #include "Shader.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Shader::Shader(Device& device, Asset& asset)
     : m_device(device)

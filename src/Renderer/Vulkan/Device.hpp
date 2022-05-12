@@ -45,7 +45,7 @@
 #include "RequestableItem.hpp"
 #include "Surface.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * @brief A convenience type alias for storing a queue and it's index.

@@ -36,7 +36,7 @@
 
 #include "Surface.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Surface::Surface(Instance& instance, Window& window)
     : m_instance(instance)

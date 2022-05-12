@@ -44,7 +44,7 @@
 #include "Device.hpp"
 #include "Handle.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Represents a SPIR-V shader for use with a Pipeline

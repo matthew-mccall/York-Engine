@@ -36,7 +36,7 @@
 
 #include "SwapChain.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 SwapChain::SwapChain(Device& device, Window& window, Surface& surface)
     : m_device(device)

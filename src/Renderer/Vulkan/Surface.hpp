@@ -40,7 +40,7 @@
 #include "Handle.hpp"
 #include "Instance.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Handle wrapper for Vulkan Surface

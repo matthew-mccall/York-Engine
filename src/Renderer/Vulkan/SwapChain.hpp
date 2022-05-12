@@ -42,7 +42,7 @@
 #include "Handle.hpp"
 #include "ImageView.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Handle wrapper for Vulkan Swapchain

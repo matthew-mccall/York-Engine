@@ -67,17 +67,17 @@ public:
     ~VulkanRendererImpl() override;
 
 private:
-    york::graphics::Surface m_surface;
-    york::graphics::Device m_device;
-    york::graphics::SwapChain m_swapChain;
-    york::graphics::RenderPass m_renderPass;
-    york::graphics::Pipeline m_pipeline;
-    york::graphics::CommandPool m_commandPool;
+    york::vulkan::Surface m_surface;
+    york::vulkan::Device m_device;
+    york::vulkan::SwapChain m_swapChain;
+    york::vulkan::RenderPass m_renderPass;
+    york::vulkan::Pipeline m_pipeline;
+    york::vulkan::CommandPool m_commandPool;
 
-    Vector<graphics::Framebuffer> m_framebuffers;
-    Vector<graphics::Fence> m_fences;
-    Vector<graphics::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
-    Vector<graphics::Shader> m_defaultShaders;
+    Vector<vulkan::Framebuffer> m_framebuffers;
+    Vector<vulkan::Fence> m_fences;
+    Vector<vulkan::Semaphore> m_imageAvailableSemaphores, m_renderFinishedSemaphores;
+    Vector<vulkan::Shader> m_defaultShaders;
 
     Vector<vk::CommandBuffer> m_commandBuffers;
 

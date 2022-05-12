@@ -38,7 +38,7 @@
 #include "Handle.hpp"
 #include "SwapChain.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 /**
  * Handle wrapper for Vulkan Render Pass

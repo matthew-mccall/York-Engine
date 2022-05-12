@@ -31,14 +31,12 @@
 //
 
 #include <algorithm>
-#include <array>
 #include <set>
-#include <vector>
 
 #include "Device.hpp"
 #include "PhysicalDevice.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 Device::Device(Instance& instance, Surface& surface)
     : m_instance(instance)

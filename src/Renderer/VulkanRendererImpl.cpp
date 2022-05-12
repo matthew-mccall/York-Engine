@@ -41,7 +41,7 @@
 #include <limits>
 
 namespace {
-    york::graphics::Instance s_instance;
+    york::vulkan::Instance s_instance;
 }
 
 namespace york {
@@ -76,7 +76,7 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
 
     m_pipeline.create();
 
-    Vector<graphics::ImageView>& imageViews = m_swapChain.getImageViews();
+    Vector<vulkan::ImageView>& imageViews = m_swapChain.getImageViews();
     m_maxFrames = imageViews.size();
 
     vk::CommandBufferAllocateInfo commandBufferAllocateInfo { *m_commandPool, vk::CommandBufferLevel::ePrimary, static_cast<uint32_t>(m_maxFrames) };
@@ -215,7 +215,7 @@ void VulkanRendererImpl::recreateSwapChain()
     m_swapChain.create();
     m_renderPass.create();
 
-    Vector<graphics::ImageView>& imageViews = m_swapChain.getImageViews();
+    Vector<vulkan::ImageView>& imageViews = m_swapChain.getImageViews();
     m_maxFrames = imageViews.size();
 
     m_framebuffers.reserve(m_maxFrames);

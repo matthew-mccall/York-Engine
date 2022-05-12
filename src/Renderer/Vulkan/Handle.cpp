@@ -30,7 +30,7 @@
 
 #include "Handle.hpp"
 
-namespace york::graphics {
+namespace york::vulkan {
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "misc-no-recursion"

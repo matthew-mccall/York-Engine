@@ -42,7 +42,7 @@
 /**
  * The namespace for everything Vulkan related. Engine only. (Except Window)
  */
-namespace york::graphics {
+namespace york::vulkan {
 
 using InstanceLayer = RequestableItem;
 using InstanceExtension = RequestableItem;
