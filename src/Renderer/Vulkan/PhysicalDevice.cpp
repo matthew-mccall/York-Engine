@@ -209,4 +209,14 @@ vk::PresentModeKHR PhysicalDevice::getBestPresentMode() const
     return m_presentBestMode;
 }
 
+vk::PhysicalDevice* PhysicalDevice::operator->()
+{
+    return &m_physicalDevice;
+}
+
+PhysicalDevice& PhysicalDevice::operator=(const PhysicalDevice& rhs)
+{
+    return *this;
+}
+
 }

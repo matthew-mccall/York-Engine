@@ -38,6 +38,7 @@
  */
 
 #include <functional>
+#include <mutex>
 
 #include <york/Identifiable.hpp>
 #include <york/Containers.hpp>
@@ -87,7 +88,11 @@ public:
      */
     void removeDependent(HandleBase& handle);
 
+    [[nodiscard]] std::recursive_mutex& getMutex();
+
     virtual ~HandleBase();
+
+    HandleBase& operator=(const HandleBase& other);
 
 protected:
     virtual bool createImpl() = 0;
@@ -97,6 +102,9 @@ protected:
 
 private:
     bool m_created = false;
+    std::recursive_mutex m_mutex;
+
+private:
     Vector<std::reference_wrapper<HandleBase>> m_dependents;
     Vector<std::reference_wrapper<HandleBase>> m_dependencies;
 };

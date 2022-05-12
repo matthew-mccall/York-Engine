@@ -37,6 +37,7 @@ namespace york::graphics {
 
 HandleBase::HandleBase(const HandleBase& other)
     : Identifiable(other)
+    , m_mutex()
 {
     for (HandleBase& dependency : other.m_dependencies) {
         addDependency(dependency);
@@ -58,6 +59,10 @@ void HandleBase::create()
     }
 
     for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) { // Dependents may change as other dependents are created.
+
+        // TODO: Multithreading
+        // std::lock_guard<std::recursive_mutex> lock { i->get().getMutex() };
+
         if (!i->get().isCreated()) {
             i->get().create();
             i = m_dependents.begin();
@@ -128,6 +133,19 @@ HandleBase::~HandleBase()
     for (HandleBase& dependency : m_dependencies) {
         removeDependency(dependency);
     }
+}
+
+HandleBase& HandleBase::operator=(const HandleBase& other) {
+    for (HandleBase& dependency : other.m_dependencies) {
+        addDependency(dependency);
+    }
+
+    return *this;
+}
+
+std::recursive_mutex& HandleBase::getMutex()
+{
+    return m_mutex;
 }
 
 } // namespace york::graphics

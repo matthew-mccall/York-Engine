@@ -122,15 +122,8 @@ public:
      */
     static std::optional<PhysicalDevice> getBest(vk::Instance instance, Surface& surface, Vector<RequestableItem>& requestedExtensions);
 
-    vk::PhysicalDevice* operator->()
-    {
-        return &m_physicalDevice;
-    }
-
-    PhysicalDevice& operator=(const PhysicalDevice& rhs)
-    {
-        return *this;
-    }
+    vk::PhysicalDevice* operator->();
+    PhysicalDevice& operator=(const PhysicalDevice& rhs);
 
 private:
     unsigned m_requiredExtensionsSupported = 0;
