@@ -108,6 +108,8 @@ bool SwapChain::createImpl()
     m_handle = m_device->createSwapchainKHR(createInfo);
     m_swapChainImages = m_device->getSwapchainImagesKHR<Allocator<vk::Image>>(m_handle);
 
+    m_swapChainImageViews.reserve(m_swapChainImages.size());
+
     for (vk::Image image : m_swapChainImages) {
         m_swapChainImageViews.emplace_back(m_device, m_surfaceFormat.format, image);
     }

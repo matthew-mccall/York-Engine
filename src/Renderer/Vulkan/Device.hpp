@@ -65,18 +65,9 @@ public:
     /**
      * @brief Initializes a GPU device
      *
-     * @param instance The Vulkan instance to register the device with;
+     * @param physicalDevice The Vulkan instance to register the device with;
      */
-    explicit Device(Instance& instance, Surface& surface);
-
-    /**
-     * @brief Request an extension to be used in the device selection process.
-     *
-     * GPUs with more required extensions and optional extensions supported will be preferred. The selected GPU will be initialized with the required extension.
-     *
-     * @param extension The extension name to request and whether its required.
-     */
-    void requestExtension(const DeviceExtension& extension);
+    explicit Device(PhysicalDevice& physicalDevice);
 
     /**
      * @brief Gets the native Vulkan handle for the physical device.
@@ -113,21 +104,15 @@ public:
      */
     [[nodiscard]] vk::Queue getPresentQueue() const;
 
-    Surface& getSurface();
-    
 protected:
     bool createImpl() override;
     void destroyImpl() override;
 
 private:
-    Instance& m_instance;
-    Surface& m_surface;
-    std::optional<PhysicalDevice> m_physicalDevice;
-    Vector<DeviceExtension> m_requestedExtensions;
+    PhysicalDevice& m_physicalDevice;
 
     IndexQueuePair m_graphicsQueue;
     IndexQueuePair m_presentQueue;
-    
     
 };
 

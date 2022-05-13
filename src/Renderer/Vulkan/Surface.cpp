@@ -55,7 +55,7 @@ bool Surface::createImpl()
         return false;
     }
 
-    m_handle = surface;
+    m_handle = static_cast<vk::SurfaceKHR>(surface);
     return true;
 }
 

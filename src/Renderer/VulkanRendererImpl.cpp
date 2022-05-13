@@ -41,7 +41,7 @@
 #include <limits>
 
 namespace {
-    york::vulkan::Instance s_instance;
+york::vulkan::Instance s_instance;
 }
 
 namespace york {
@@ -49,7 +49,14 @@ namespace york {
 VulkanRendererImpl::VulkanRendererImpl(Window& window)
     : RendererImpl(window)
     , m_surface(s_instance, m_window)
-    , m_device(s_instance, m_surface)
+    , m_physicalDevice(*vulkan::PhysicalDevice::getBest(
+          s_instance,
+          m_surface,
+          {
+              { "VK_KHR_portability_subset", false },
+              { VK_KHR_SWAPCHAIN_EXTENSION_NAME }
+          }))
+    , m_device(m_physicalDevice)
     , m_swapChain(m_device, m_window, m_surface)
     , m_renderPass(m_device)
     , m_pipeline(m_renderPass)
@@ -69,12 +76,15 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
         return;
     }
 
+    m_defaultShaders.reserve(2);
+
     m_defaultShaders.emplace_back(m_device, vert);
     m_defaultShaders.emplace_back(m_device, frag);
 
     m_pipeline.setShaders(m_defaultShaders);
 
     m_pipeline.create();
+    m_swapChain.create();
 
     Vector<vulkan::ImageView>& imageViews = m_swapChain.getImageViews();
     m_maxFrames = imageViews.size();
@@ -133,7 +143,7 @@ bool VulkanRendererImpl::draw()
         1
     };
 
-    vk::Rect2D scissor { {0, 0}, m_swapChain.getExtent()};
+    vk::Rect2D scissor { { 0, 0 }, m_swapChain.getExtent() };
 
     commandBuffer.setViewport(0, { viewport });
     commandBuffer.setScissor(0, { scissor });
@@ -195,6 +205,7 @@ VulkanRendererImpl::~VulkanRendererImpl()
         m_imageAvailableSemaphores.clear();
         m_renderFinishedSemaphores.clear();
 
+        m_device.destroy();
         s_instance.destroy();
     }
 }
@@ -211,14 +222,8 @@ void VulkanRendererImpl::onEvent(Event& e)
 void VulkanRendererImpl::recreateSwapChain()
 {
     m_device->waitIdle();
-
     m_swapChain.create();
     m_renderPass.create();
-
-    Vector<vulkan::ImageView>& imageViews = m_swapChain.getImageViews();
-    m_maxFrames = imageViews.size();
-
-    m_framebuffers.reserve(m_maxFrames);
 }
 
 }

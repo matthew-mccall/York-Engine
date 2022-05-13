@@ -130,11 +130,13 @@ public:
 
     T* operator->()
     {
+        if (!isCreated()) create();
         return &m_handle;
     }
 
     T& operator*()
     {
+        if (!isCreated()) create();
         return m_handle;
     }
 

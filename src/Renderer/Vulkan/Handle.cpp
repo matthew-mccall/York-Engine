@@ -46,37 +46,35 @@ HandleBase::HandleBase(const HandleBase& other)
 
 void HandleBase::create()
 {
-    this->destroy(); // m_created will be set false here
+    Vector<std::reference_wrapper<HandleBase>> destroyedDependents;
+    destroyedDependents.reserve(m_dependents.size());
+
+    for (HandleBase& dependent : m_dependents) {
+        if (dependent.isCreated()) {
+            destroyedDependents.emplace_back(dependent);
+        }
+    }
+
+    this->destroy();
 
     for (HandleBase& dependency : m_dependencies) {
         if (!dependency.isCreated()) {
-            dependency.create(); // however, this particular handle might be created as part of dependency resolution lower down in the stack
+            dependency.create();
         }
     }
 
-    if (!m_created) { // If this is the case, we want to prevent double creation once we move back up the stack
-        m_created = this->createImpl();
-    }
+    assert(!m_created); // If this has been created during dependency creation we may have a loop.
+    m_created = this->createImpl();
 
-    for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) { // Dependents may change as other dependents are created.
-
-        // TODO: Multithreading
-        // std::lock_guard<std::recursive_mutex> lock { i->get().getMutex() };
-
-        if (!i->get().isCreated()) {
-            i->get().create();
-            i = m_dependents.begin();
-        }
+    for (HandleBase& destroyedDependent : destroyedDependents) {
+        destroyedDependent.create();
     }
 }
 
 void HandleBase::destroy()
 {
-    for (auto i = m_dependents.begin(); i != m_dependents.end(); i++) { // Dependents may change as other dependents are created.
-        if (i->get().isCreated()) {
-            i->get().destroy();
-            i = m_dependents.begin();
-        }
+    for (HandleBase& dependent : m_dependents) {
+        dependent.destroy();
     }
 
     if (m_created) {
@@ -130,8 +128,8 @@ void HandleBase::removeDependency(HandleBase& handle)
 
 HandleBase::~HandleBase()
 {
-    for (HandleBase& dependency : m_dependencies) {
-        removeDependency(dependency);
+    while (m_dependencies.begin() != m_dependencies.end()) {
+        removeDependency(m_dependencies.front());
     }
 }
 

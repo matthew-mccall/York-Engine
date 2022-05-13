@@ -109,6 +109,8 @@ public:
     [[nodiscard]] vk::SurfaceFormatKHR getBestFormat();
     [[nodiscard]] vk::PresentModeKHR getBestPresentMode() const;
 
+    [[nodiscard]] Surface& getSurface() const;
+
     /**
      * @brief Returns the best physical device.
      *
@@ -120,7 +122,7 @@ public:
      * @param requestedExtensions The extensions to check the devices against.
      * @return
      */
-    static std::optional<PhysicalDevice> getBest(vk::Instance instance, Surface& surface, Vector<RequestableItem>& requestedExtensions);
+    static std::optional<PhysicalDevice> getBest(Instance& instance, Surface& surface, Vector<RequestableItem> requestedExtensions);
 
     vk::PhysicalDevice* operator->();
     PhysicalDevice& operator=(const PhysicalDevice& rhs);

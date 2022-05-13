@@ -128,9 +128,9 @@ uint32_t PhysicalDevice::getMaximumImageResolution() const
 {
     return m_maximumImageResolution;
 }
-std::optional<PhysicalDevice> PhysicalDevice::getBest(vk::Instance instance, Surface& surface, Vector<RequestableItem>& requestedExtensions)
+std::optional<PhysicalDevice> PhysicalDevice::getBest(Instance& instance, Surface& surface, Vector<RequestableItem> requestedExtensions)
 {
-    Vector<vk::PhysicalDevice> physicalDevices = instance.enumeratePhysicalDevices<Allocator<vk::PhysicalDevice>>();
+    Vector<vk::PhysicalDevice> physicalDevices = instance->enumeratePhysicalDevices<Allocator<vk::PhysicalDevice>>();
 
     if (physicalDevices.empty()) {
         log::core::error("Could not find any supported GPUs!");
@@ -217,6 +217,11 @@ vk::PhysicalDevice* PhysicalDevice::operator->()
 PhysicalDevice& PhysicalDevice::operator=(const PhysicalDevice& rhs)
 {
     return *this;
+}
+
+Surface& PhysicalDevice::getSurface() const
+{
+    return m_surface;
 }
 
 }

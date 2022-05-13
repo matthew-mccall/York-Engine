@@ -68,6 +68,7 @@ public:
 
 private:
     york::vulkan::Surface m_surface;
+    york::vulkan::PhysicalDevice m_physicalDevice;
     york::vulkan::Device m_device;
     york::vulkan::SwapChain m_swapChain;
     york::vulkan::RenderPass m_renderPass;
