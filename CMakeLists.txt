@@ -43,13 +43,13 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
     endif ()
 endif ()
 
-execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.vert -o ${PROJECT_BINARY_DIR}/vert.spv)
-execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.frag -o ${PROJECT_BINARY_DIR}/frag.spv)
+# execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.vert -o ${PROJECT_BINARY_DIR}/vert.spv)
+# execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.frag -o ${PROJECT_BINARY_DIR}/frag.spv)
 
-include(cmake/EmbedFile.cmake)
+include(cmake/EmbedShader.cmake)
 
-EmbedFile("${PROJECT_BINARY_DIR}/vert.spv" VertexSPV)
-EmbedFile("${PROJECT_BINARY_DIR}/frag.spv" FragSPV)
+EmbedShader("${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.vert" "${PROJECT_BINARY_DIR}/vert.spv" VertexSPV)
+EmbedShader("${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.frag" "${PROJECT_BINARY_DIR}/frag.spv" FragSPV)
 
 set(SRC
         src/Asset.cpp

@@ -1,5 +1,7 @@
 function(EmbedFile file target)
     file(READ ${file} "${target}_RAW" HEX)
+    file(READ "${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.hpp.in" EmbedInclude)
+    file(READ "${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.cpp.in" EmbedSource)
 
     string(REGEX MATCHALL "([A-Fa-f0-9][A-Fa-f0-9])" SEPARATED_HEX ${${target}_RAW})
     set(DATA_SIZE 0)
@@ -19,8 +21,9 @@ function(EmbedFile file target)
         math(EXPR DATA_SIZE "${DATA_SIZE}+1")
     endforeach ()
 
-    configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.hpp.in" "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.hpp" NEWLINE_STYLE UNIX)
-    configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.cpp.in" "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.cpp" NEWLINE_STYLE UNIX)
+    # configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.hpp.in" "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.hpp" NEWLINE_STYLE UNIX)
+    # configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/EmbedTemplate.cpp.in" "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.cpp" NEWLINE_STYLE UNIX)
 
-    add_library(Embed${target} "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.cpp" "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.hpp")
+    file(CONFIGURE OUTPUT "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.hpp" CONTENT "${EmbedInclude}")
+    file(CONFIGURE OUTPUT "${PROJECT_BINARY_DIR}/Embed${target}/Embed${target}.cpp" CONTENT "${EmbedSource}")
 endfunction()
