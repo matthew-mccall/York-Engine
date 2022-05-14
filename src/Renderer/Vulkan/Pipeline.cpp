@@ -30,163 +30,190 @@
 // Created by Matthew McCall on 1/3/22.
 //
 
-#include "Pipeline.hpp"
-
 #include <array>
 #include <utility>
 
-namespace york::vulkan {
+#include "york/Renderer/Vertex.hpp"
 
-Pipeline::Pipeline(RenderPass& renderPass, Vector<Shader> shaders)
-    : m_renderPass(renderPass)
-    , m_device(m_renderPass.getDevice())
-    , m_pipelineLayout(m_device)
-    , m_shaders(std::move(shaders))
+#include "Pipeline.hpp"
+
+namespace york {
+
+template <>
+vk::VertexInputBindingDescription Vertex::getBindingDescription()
 {
-    addDependency(m_pipelineLayout);
-    addDependency(m_renderPass);
-
-    for (Shader& shader : m_shaders) {
-        addDependency(shader);
-    }
+    return { 0, sizeof(Vertex), vk::VertexInputRate::eVertex };
 }
 
-void Pipeline::setShaders(Vector<Shader> shaders)
+template <>
+std::array<vk::VertexInputAttributeDescription, 2> Vertex::getAttributeDescriptions()
 {
-    for (Shader& shader : m_shaders) {
-        removeDependency(shader);
-    }
+    vk::VertexInputAttributeDescription vertexPosition { 0, 0, vk::Format::eR32G32Sfloat, offsetof(Vertex, position) };
+    vk::VertexInputAttributeDescription vertexColor { 1, 0, vk::Format::eR32G32B32Sfloat, offsetof(Vertex, color) };
 
-    m_shaders = std::move(shaders);
-
-    for (Shader& shader : m_shaders) {
-        addDependency(shader);
-    }
+    return { vertexPosition, vertexColor };
 }
 
-bool Pipeline::createImpl()
-{
-    Vector<vk::PipelineShaderStageCreateInfo> shaderStages;
-    shaderStages.reserve(m_shaders.size());
+namespace vulkan {
 
-    vk::ShaderStageFlagBits stage;
-    
-    for (Shader& shader : m_shaders) {
+    Pipeline::Pipeline(RenderPass& renderPass, Vector<Shader> shaders)
+        : m_renderPass(renderPass)
+        , m_device(m_renderPass.getDevice())
+        , m_pipelineLayout(m_device)
+        , m_shaders(std::move(shaders))
+    {
+        addDependency(m_pipelineLayout);
+        addDependency(m_renderPass);
 
-        switch (shader.getType()) {
-        case Shader::Type::Vertex:
-            stage = vk::ShaderStageFlagBits::eVertex;
-            break;
-        case Shader::Type::Fragment:
-            stage = vk::ShaderStageFlagBits::eFragment;
-            break;
-        case Shader::Type::TessellationControl:
-            stage = vk::ShaderStageFlagBits::eTessellationControl;
-            break;
-        case Shader::Type::TessellationEvaluation:
-            stage = vk::ShaderStageFlagBits::eTessellationEvaluation;
-            break;
-        case Shader::Type::Geometry:
-            stage = vk::ShaderStageFlagBits::eGeometry;
-            break;
-        case Shader::Type::Compute:
-            stage = vk::ShaderStageFlagBits::eCompute;
-            break;
-        case Shader::Type::RTRayGen:
-            stage = vk::ShaderStageFlagBits::eRaygenKHR;
-            break;
-        case Shader::Type::RTAnyHit:
-            stage = vk::ShaderStageFlagBits::eAnyHitKHR;
-            break;
-        case Shader::Type::RTClosestHit:
-            stage = vk::ShaderStageFlagBits::eClosestHitKHR;
-            break;
-        case Shader::Type::RTMiss:
-            stage = vk::ShaderStageFlagBits::eMissKHR;
-            break;
-        case Shader::Type::RTIntersection:
-            stage = vk::ShaderStageFlagBits::eIntersectionKHR;
-            break;
-        case Shader::Type::RTCallable:
-            stage = vk::ShaderStageFlagBits::eCallableKHR;
+        for (Shader& shader : m_shaders) {
+            addDependency(shader);
+        }
+    }
 
-            break;
+    void Pipeline::setShaders(Vector<Shader> shaders)
+    {
+        for (Shader& shader : m_shaders) {
+            removeDependency(shader);
         }
 
-        shaderStages.push_back({{}, stage, *shader, "main"});
+        m_shaders = std::move(shaders);
 
+        for (Shader& shader : m_shaders) {
+            addDependency(shader);
+        }
     }
 
-    vk::PipelineVertexInputStateCreateInfo vertexInputStateCreateInfo { {}, {} };
-    vk::PipelineInputAssemblyStateCreateInfo inputAssemblyStateCreateInfo {{}, vk::PrimitiveTopology::eTriangleList, VK_FALSE};
+    bool Pipeline::createImpl()
+    {
+        Vector<vk::PipelineShaderStageCreateInfo> shaderStages;
+        shaderStages.reserve(m_shaders.size());
 
-    vk::PipelineViewportStateCreateInfo viewportStateCreateInfo {{}, 1, nullptr, 1, nullptr};
+        vk::ShaderStageFlagBits stage;
 
-    vk::PipelineRasterizationStateCreateInfo rasterizationStateCreateInfo {
-        {},
-        VK_FALSE,
-        VK_FALSE,
-        vk::PolygonMode::eFill,
-        vk::CullModeFlagBits::eBack,
-        vk::FrontFace::eClockwise,
-        VK_FALSE,
-        0,
-        0,
-        0,
-        1
-    };
+        for (Shader& shader : m_shaders) {
 
-    vk::PipelineMultisampleStateCreateInfo multisampleStateCreateInfo {{}, vk::SampleCountFlagBits::e1, VK_FALSE, 1};
+            switch (shader.getType()) {
+            case Shader::Type::Vertex:
+                stage = vk::ShaderStageFlagBits::eVertex;
+                break;
+            case Shader::Type::Fragment:
+                stage = vk::ShaderStageFlagBits::eFragment;
+                break;
+            case Shader::Type::TessellationControl:
+                stage = vk::ShaderStageFlagBits::eTessellationControl;
+                break;
+            case Shader::Type::TessellationEvaluation:
+                stage = vk::ShaderStageFlagBits::eTessellationEvaluation;
+                break;
+            case Shader::Type::Geometry:
+                stage = vk::ShaderStageFlagBits::eGeometry;
+                break;
+            case Shader::Type::Compute:
+                stage = vk::ShaderStageFlagBits::eCompute;
+                break;
+            case Shader::Type::RTRayGen:
+                stage = vk::ShaderStageFlagBits::eRaygenKHR;
+                break;
+            case Shader::Type::RTAnyHit:
+                stage = vk::ShaderStageFlagBits::eAnyHitKHR;
+                break;
+            case Shader::Type::RTClosestHit:
+                stage = vk::ShaderStageFlagBits::eClosestHitKHR;
+                break;
+            case Shader::Type::RTMiss:
+                stage = vk::ShaderStageFlagBits::eMissKHR;
+                break;
+            case Shader::Type::RTIntersection:
+                stage = vk::ShaderStageFlagBits::eIntersectionKHR;
+                break;
+            case Shader::Type::RTCallable:
+                stage = vk::ShaderStageFlagBits::eCallableKHR;
 
-    vk::PipelineColorBlendAttachmentState colorBlendAttachmentState {
-        VK_TRUE,
-        vk::BlendFactor::eSrcAlpha,
-        vk::BlendFactor::eOneMinusSrcAlpha,
-        vk::BlendOp::eAdd,
-        vk::BlendFactor::eOne,
-        vk::BlendFactor::eZero,
-        vk::BlendOp::eAdd,
-        vk::ColorComponentFlagBits::eR | vk::ColorComponentFlagBits::eG | vk::ColorComponentFlagBits::eB | vk::ColorComponentFlagBits::eA
-    };
+                break;
+            }
 
-    std::array<vk::PipelineColorBlendAttachmentState, 1> colorBlendAttachmentStates { colorBlendAttachmentState };
+            shaderStages.push_back({ {}, stage, *shader, "main" });
+        }
 
-    vk::PipelineColorBlendStateCreateInfo colorBlendStateCreateInfo {
-        {},
-        VK_FALSE,
-        vk::LogicOp::eCopy,
-        colorBlendAttachmentStates,
-        {0, 0, 0, 0}
-    };
+        std::array<vk::VertexInputBindingDescription, 1> vertexBindingDescriptions { Vertex::getBindingDescription<vk::VertexInputBindingDescription>() };
+        auto vertexAttributeDescriptions = Vertex::getAttributeDescriptions<vk::VertexInputAttributeDescription>();
 
-    std::array<vk::DynamicState, 2> dynamicStates = { vk::DynamicState::eViewport, vk::DynamicState::eScissor /*, vk::DynamicState::eLineWidth */};
-    vk::PipelineDynamicStateCreateInfo dynamicStateCreateInfo { {}, dynamicStates };
+        vk::PipelineVertexInputStateCreateInfo vertexInputStateCreateInfo {
+            {},
+            vertexBindingDescriptions,
+            vertexAttributeDescriptions
+        };
 
-    vk::GraphicsPipelineCreateInfo graphicsPipelineCreateInfo {
-        {},
-        shaderStages,
-        &vertexInputStateCreateInfo,
-        &inputAssemblyStateCreateInfo,
-        nullptr,
-        &viewportStateCreateInfo,
-        &rasterizationStateCreateInfo,
-        &multisampleStateCreateInfo,
-        nullptr,
-        &colorBlendStateCreateInfo,
-        &dynamicStateCreateInfo,
-        *m_pipelineLayout,
-        *m_renderPass,
-        0
-    };
+        vk::PipelineInputAssemblyStateCreateInfo inputAssemblyStateCreateInfo { {}, vk::PrimitiveTopology::eTriangleList, VK_FALSE };
 
-    m_handle = m_device->createGraphicsPipeline(VK_NULL_HANDLE, graphicsPipelineCreateInfo).value;
+        vk::PipelineViewportStateCreateInfo viewportStateCreateInfo { {}, 1, nullptr, 1, nullptr };
 
-    return true;
+        vk::PipelineRasterizationStateCreateInfo rasterizationStateCreateInfo {
+            {},
+            VK_FALSE,
+            VK_FALSE,
+            vk::PolygonMode::eFill,
+            vk::CullModeFlagBits::eBack,
+            vk::FrontFace::eClockwise,
+            VK_FALSE,
+            0,
+            0,
+            0,
+            1
+        };
+
+        vk::PipelineMultisampleStateCreateInfo multisampleStateCreateInfo { {}, vk::SampleCountFlagBits::e1, VK_FALSE, 1 };
+
+        vk::PipelineColorBlendAttachmentState colorBlendAttachmentState {
+            VK_TRUE,
+            vk::BlendFactor::eSrcAlpha,
+            vk::BlendFactor::eOneMinusSrcAlpha,
+            vk::BlendOp::eAdd,
+            vk::BlendFactor::eOne,
+            vk::BlendFactor::eZero,
+            vk::BlendOp::eAdd,
+            vk::ColorComponentFlagBits::eR | vk::ColorComponentFlagBits::eG | vk::ColorComponentFlagBits::eB | vk::ColorComponentFlagBits::eA
+        };
+
+        std::array<vk::PipelineColorBlendAttachmentState, 1> colorBlendAttachmentStates { colorBlendAttachmentState };
+
+        vk::PipelineColorBlendStateCreateInfo colorBlendStateCreateInfo {
+            {},
+            VK_FALSE,
+            vk::LogicOp::eCopy,
+            colorBlendAttachmentStates,
+            { 0, 0, 0, 0 }
+        };
+
+        std::array<vk::DynamicState, 2> dynamicStates = { vk::DynamicState::eViewport, vk::DynamicState::eScissor /*, vk::DynamicState::eLineWidth */ };
+        vk::PipelineDynamicStateCreateInfo dynamicStateCreateInfo { {}, dynamicStates };
+
+        vk::GraphicsPipelineCreateInfo graphicsPipelineCreateInfo {
+            {},
+            shaderStages,
+            &vertexInputStateCreateInfo,
+            &inputAssemblyStateCreateInfo,
+            nullptr,
+            &viewportStateCreateInfo,
+            &rasterizationStateCreateInfo,
+            &multisampleStateCreateInfo,
+            nullptr,
+            &colorBlendStateCreateInfo,
+            &dynamicStateCreateInfo,
+            *m_pipelineLayout,
+            *m_renderPass,
+            0
+        };
+
+        m_handle = m_device->createGraphicsPipeline(VK_NULL_HANDLE, graphicsPipelineCreateInfo).value;
+
+        return true;
+    }
+
+    void Pipeline::destroyImpl()
+    {
+        m_device->destroy(m_handle);
+    }
+
 }
-
-void Pipeline::destroyImpl()
-{
-    m_device->destroy(m_handle);
-}
-
 }

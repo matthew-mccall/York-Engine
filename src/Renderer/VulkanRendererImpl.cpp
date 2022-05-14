@@ -30,15 +30,16 @@
 // Created by Matthew McCall on 1/8/22.
 //
 
-#include "VulkanRendererImpl.hpp"
+#include <array>
+#include <limits>
+
 #include "york/Asset.hpp"
 #include "york/Log.hpp"
 
+#include "VulkanRendererImpl.hpp"
+
 #include "EmbedFragSPV.hpp"
 #include "EmbedVertexSPV.hpp"
-
-#include <array>
-#include <limits>
 
 namespace {
 york::vulkan::Instance s_instance;
@@ -61,6 +62,7 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
     , m_renderPass(m_device)
     , m_pipeline(m_renderPass)
     , m_commandPool(m_device)
+    , m_vertexBuffer(s_instance, m_device, sizeof(york::Vertex) * 3)
 {
     york::BinaryAsset vert { EmbedVertexSPV::get(), york::Asset::Type::SHADER_VERT_SPIRV };
 
@@ -75,6 +77,16 @@ VulkanRendererImpl::VulkanRendererImpl(Window& window)
         YORK_CORE_ERROR("Failed to load fragment shader!");
         return;
     }
+
+    m_vertexBuffer.create();
+
+    m_vertices = {
+        {{0.0f, -0.5f}, {1.0f, 1.0f, 1.0f}},
+        {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
+        {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
+    };
+
+    m_vertexBuffer.copyData(m_vertices);
 
     m_defaultShaders.reserve(2);
 
@@ -153,7 +165,13 @@ bool VulkanRendererImpl::draw()
     commandBuffer.beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
 
     commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, *m_pipeline);
-    commandBuffer.draw(3, 1, 0, 0);
+
+    std::array<vk::Buffer, 1> vertexBuffers { *m_vertexBuffer };
+    std::array<vk::DeviceSize, 1> vertexOffsets { 0 };
+
+    commandBuffer.bindVertexBuffers(0, vertexBuffers, vertexOffsets);
+
+    commandBuffer.draw(m_vertices.size(), 1, 0, 0);
 
     commandBuffer.endRenderPass();
     commandBuffer.end();

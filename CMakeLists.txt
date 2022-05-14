@@ -11,6 +11,7 @@ find_package(Taskflow CONFIG REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(XercesC CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 find_package(Boost REQUIRED)
 find_package(unofficial-curlpp CONFIG REQUIRED)
 find_package(Threads)
@@ -27,6 +28,8 @@ else()
     set(SHADERC_DEP shaderc_combined)
 endif()
 
+add_subdirectory(libs/VulkanMemoryAllocator)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -42,9 +45,6 @@ if (CMAKE_BUILD_TYPE EQUAL Debug)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-omit-leaf-frame-pointer")
     endif ()
 endif ()
-
-# execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.vert -o ${PROJECT_BINARY_DIR}/vert.spv)
-# execute_process(COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/shader.frag -o ${PROJECT_BINARY_DIR}/frag.spv)
 
 include(cmake/EmbedShader.cmake)
 
@@ -117,7 +117,8 @@ set(SRC
         include/york/Renderer/RendererImpl.hpp
         src/Renderer/VulkanRendererImpl.hpp
         include/york/Renderer/Renderer.hpp
-        include/york/Containers.hpp)
+        include/york/Containers.hpp
+        include/york/Renderer/Vertex.hpp src/Renderer/Vulkan/Buffer.cpp src/Renderer/Vulkan/Buffer.hpp src/Renderer/Vulkan/VMA.cpp)
 
 set(RUNTIME_SRC
         runtime/Runtime.cpp
@@ -147,16 +148,18 @@ endif()
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/include"  "${PROJECT_BINARY_DIR}/EmbedVertexSPV" "${PROJECT_BINARY_DIR}/EmbedFragSPV")
 target_link_libraries(${PROJECT_NAME} PUBLIC
         Vulkan::Vulkan
+        VulkanMemoryAllocator
         Taskflow::Taskflow
         Threads::Threads
         ${SHADERC_DEP}
         fmt::fmt
+        glm::glm
         SDL2::SDL2
         SDL2::SDL2main
         xerces_xerces-c
         XercesC::XercesC
         Boost::boost
-	      unofficial::curlpp::curlpp
+        unofficial::curlpp::curlpp
         EmbedVertexSPV
         EmbedFragSPV
       )

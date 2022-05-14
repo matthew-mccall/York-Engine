@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 1/6/22.
 //
 
-#ifndef YORK_GRAPHICS_PIPELINELAYOUT_HPP
-#define YORK_GRAPHICS_PIPELINELAYOUT_HPP
+#ifndef YORK_VULKAN_PIPELINELAYOUT_HPP
+#define YORK_VULKAN_PIPELINELAYOUT_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -58,4 +58,4 @@ private:
 }
 
 
-#endif // YORK_GRAPHICS_PIPELINELAYOUT_HPP
+#endif // YORK_VULKAN_PIPELINELAYOUT_HPP

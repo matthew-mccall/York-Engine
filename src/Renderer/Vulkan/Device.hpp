@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/3/21.
 //
 
-#ifndef YORK_GRAPHICS_DEVICE_HPP
-#define YORK_GRAPHICS_DEVICE_HPP
+#ifndef YORK_VULKAN_DEVICE_HPP
+#define YORK_VULKAN_DEVICE_HPP
 
 #include <utility>
 
@@ -118,4 +118,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_DEVICE_HPP
+#endif // YORK_VULKAN_DEVICE_HPP

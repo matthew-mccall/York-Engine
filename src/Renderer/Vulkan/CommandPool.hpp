@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 1/16/22.
 //
 
-#ifndef YORK_GRAPHICS_COMMANDPOOL_HPP
-#define YORK_GRAPHICS_COMMANDPOOL_HPP
+#ifndef YORK_VULKAN_COMMANDPOOL_HPP
+#define YORK_VULKAN_COMMANDPOOL_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -59,4 +59,4 @@ private:
 }
 
 
-#endif // YORK_GRAPHICS_COMMANDPOOL_HPP
+#endif // YORK_VULKAN_COMMANDPOOL_HPP

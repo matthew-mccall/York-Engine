@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/21/21.
 //
 
-#ifndef YORK_GRAPHICS_SURFACE_HPP
-#define YORK_GRAPHICS_SURFACE_HPP
+#ifndef YORK_VULKAN_SURFACE_HPP
+#define YORK_VULKAN_SURFACE_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -59,4 +59,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_SURFACE_HPP
+#endif // YORK_VULKAN_SURFACE_HPP

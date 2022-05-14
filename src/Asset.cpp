@@ -27,7 +27,6 @@
  */
 
 #include <cstring>
-#include <unordered_map>
 #include <vector>
 
 #include <SDL_rwops.h>
@@ -40,8 +39,10 @@
 #include "york/Containers.hpp"
 
 namespace {
-std::unordered_map<std::string, unsigned> s_referenceCount;
-std::unordered_map<std::string, york::Vector<std::uint8_t>> s_assetData;
+
+york::UnorderedMap<std::string, unsigned> s_referenceCount;
+york::UnorderedMap<std::string, york::Vector<std::uint8_t>> s_assetData;
+
 }
 
 namespace york {

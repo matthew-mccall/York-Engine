@@ -34,8 +34,8 @@
 #define YORK_RENDERER_HPP
 
 #include <memory>
-#include <unordered_map>
 
+#include <york/Containers.hpp>
 #include <york/Window.hpp>
 
 #include "RendererImpl.hpp"
@@ -47,7 +47,7 @@ public:
     bool draw(Window& window);
 
 private:
-    std::unordered_map<Window*, std::unique_ptr<RendererImpl>> m_impls;
+    york::UnorderedMap<Window*, std::unique_ptr<RendererImpl>> m_impls;
 };
 
 } // york

@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 2/19/22.
 //
 
-#ifndef YORK_GRAPHICS_FRAMEDATA_HPP
-#define YORK_GRAPHICS_FRAMEDATA_HPP
+#ifndef YORK_VULKAN_FRAMEDATA_HPP
+#define YORK_VULKAN_FRAMEDATA_HPP
 
 #include "Semaphore.hpp"
 #include "CommandPool.hpp"
@@ -65,4 +65,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_FRAMEDATA_HPP
+#endif // YORK_VULKAN_FRAMEDATA_HPP

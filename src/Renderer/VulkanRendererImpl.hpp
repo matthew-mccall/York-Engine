@@ -34,8 +34,10 @@
 #define YORK_VULKANRENDERERIMPL_HPP
 
 #include "york/Renderer/RendererImpl.hpp"
+#include "york/Renderer/Vertex.hpp"
 #include "york/Event.hpp"
 
+#include "Vulkan/Buffer.hpp"
 #include "Vulkan/CommandPool.hpp"
 #include "Vulkan/FrameData.hpp"
 #include "Vulkan/Framebuffer.hpp"
@@ -67,13 +69,14 @@ public:
     ~VulkanRendererImpl() override;
 
 private:
-    york::vulkan::Surface m_surface;
-    york::vulkan::PhysicalDevice m_physicalDevice;
-    york::vulkan::Device m_device;
-    york::vulkan::SwapChain m_swapChain;
-    york::vulkan::RenderPass m_renderPass;
-    york::vulkan::Pipeline m_pipeline;
-    york::vulkan::CommandPool m_commandPool;
+    vulkan::Surface m_surface;
+    vulkan::PhysicalDevice m_physicalDevice;
+    vulkan::Device m_device;
+    vulkan::SwapChain m_swapChain;
+    vulkan::RenderPass m_renderPass;
+    vulkan::Pipeline m_pipeline;
+    vulkan::CommandPool m_commandPool;
+    vulkan::Buffer m_vertexBuffer;
 
     Vector<vulkan::Framebuffer> m_framebuffers;
     Vector<vulkan::Fence> m_fences;
@@ -81,6 +84,8 @@ private:
     Vector<vulkan::Shader> m_defaultShaders;
 
     Vector<vk::CommandBuffer> m_commandBuffers;
+
+    Vector<Vertex> m_vertices;
 
     std::uint32_t m_frameIndex = 0;
     std::uint32_t m_maxFrames = 0;

@@ -61,4 +61,6 @@ fi
 ./libs/vcpkg/vcpkg install xerces-c
 ./libs/vcpkg/vcpkg install curlpp
 ./libs/vcpkg/vcpkg install fmt
+./libs/vcpkg/vcpkg install glm
 ./libs/vcpkg/vcpkg install taskflow
+./libs/vcpkg/vcpkg install vulkan-memory-allocator

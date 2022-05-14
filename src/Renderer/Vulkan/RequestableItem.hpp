@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/3/21.
 //
 
-#ifndef YORK_GRAPHICS_REQUESTABLEITEM_HPP
-#define YORK_GRAPHICS_REQUESTABLEITEM_HPP
+#ifndef YORK_VULKAN_REQUESTABLEITEM_HPP
+#define YORK_VULKAN_REQUESTABLEITEM_HPP
 
 #include <string>
 
@@ -53,4 +53,4 @@ struct RequestableItem {
 
 }
 
-#endif // YORK_GRAPHICS_REQUESTABLEITEM_HPP
+#endif // YORK_VULKAN_REQUESTABLEITEM_HPP

@@ -224,4 +224,9 @@ Surface& PhysicalDevice::getSurface() const
     return m_surface;
 }
 
+vk::PhysicalDevice& PhysicalDevice::operator*()
+{
+    return m_physicalDevice;
+}
+
 }

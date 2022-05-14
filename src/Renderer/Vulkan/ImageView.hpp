@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 1/7/22.
 //
 
-#ifndef YORK_GRAPHICS_IMAGEVIEW_HPP
-#define YORK_GRAPHICS_IMAGEVIEW_HPP
+#ifndef YORK_VULKAN_IMAGEVIEW_HPP
+#define YORK_VULKAN_IMAGEVIEW_HPP
 
 #include "Handle.hpp"
 #include "Device.hpp"
@@ -62,4 +62,4 @@ private:
 }
 
 
-#endif // YORK_GRAPHICS_IMAGEVIEW_HPP
+#endif // YORK_VULKAN_IMAGEVIEW_HPP

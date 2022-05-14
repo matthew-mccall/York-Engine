@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/9/21.
 //
 
-#ifndef YORK_GRAPHICS_PHYSICALDEVICE_HPP
-#define YORK_GRAPHICS_PHYSICALDEVICE_HPP
+#ifndef YORK_VULKAN_PHYSICALDEVICE_HPP
+#define YORK_VULKAN_PHYSICALDEVICE_HPP
 
 #include <optional>
 
@@ -125,6 +125,7 @@ public:
     static std::optional<PhysicalDevice> getBest(Instance& instance, Surface& surface, Vector<RequestableItem> requestedExtensions);
 
     vk::PhysicalDevice* operator->();
+    vk::PhysicalDevice& operator*();
     PhysicalDevice& operator=(const PhysicalDevice& rhs);
 
 private:
@@ -147,4 +148,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_PHYSICALDEVICE_HPP
+#endif // YORK_VULKAN_PHYSICALDEVICE_HPP

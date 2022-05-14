@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/23/21.
 //
 
-#ifndef YORK_GRAPHICS_SWAPCHAIN_HPP
-#define YORK_GRAPHICS_SWAPCHAIN_HPP
+#ifndef YORK_VULKAN_SWAPCHAIN_HPP
+#define YORK_VULKAN_SWAPCHAIN_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -72,4 +72,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_SWAPCHAIN_HPP
+#endif // YORK_VULKAN_SWAPCHAIN_HPP

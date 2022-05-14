@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 12/18/21.
 //
 
-#ifndef YORK_GRAPHICS_SHADER_HPP
-#define YORK_GRAPHICS_SHADER_HPP
+#ifndef YORK_VULKAN_SHADER_HPP
+#define YORK_VULKAN_SHADER_HPP
 
 #include <cstdint>
 #include <functional>
@@ -102,4 +102,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_SHADER_HPP
+#endif // YORK_VULKAN_SHADER_HPP

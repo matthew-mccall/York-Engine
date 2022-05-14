@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 1/6/22.
 //
 
-#ifndef YORK_GRAPHICS_RENDERPASS_HPP
-#define YORK_GRAPHICS_RENDERPASS_HPP
+#ifndef YORK_VULKAN_RENDERPASS_HPP
+#define YORK_VULKAN_RENDERPASS_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -59,4 +59,4 @@ private:
 }
 
 
-#endif // YORK_GRAPHICS_RENDERPASS_HPP
+#endif // YORK_VULKAN_RENDERPASS_HPP

@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 1/16/22.
 //
 
-#ifndef YORK_GRAPHICS_SEMAPHORE_HPP
-#define YORK_GRAPHICS_SEMAPHORE_HPP
+#ifndef YORK_VULKAN_SEMAPHORE_HPP
+#define YORK_VULKAN_SEMAPHORE_HPP
 
 #include "Handle.hpp"
 #include "Device.hpp"
@@ -57,4 +57,4 @@ private:
 
 }
 
-#endif // YORK_GRAPHICS_SEMAPHORE_HPP
+#endif // YORK_VULKAN_SEMAPHORE_HPP

@@ -30,8 +30,8 @@
 // Created by Matthew McCall on 2/19/22.
 //
 
-#ifndef YORK_GRAPHICS_FENCE_HPP
-#define YORK_GRAPHICS_FENCE_HPP
+#ifndef YORK_VULKAN_FENCE_HPP
+#define YORK_VULKAN_FENCE_HPP
 
 #include <vulkan/vulkan.hpp>
 
@@ -57,4 +57,4 @@ private:
 }
 
 
-#endif // YORK_GRAPHICS_FENCE_HPP
+#endif // YORK_VULKAN_FENCE_HPP
